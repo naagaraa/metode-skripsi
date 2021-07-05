@@ -169,6 +169,8 @@ return array(
     'MathPHP\\Trigonometry' => $vendorDir . '/markrogoyski/math-php/src/Trigonometry.php',
     'MathPHP\\Util\\Iter' => $vendorDir . '/markrogoyski/math-php/src/Util/Iter.php',
     'Nagara\\Src\\Math\\MatrixClass' => $baseDir . '/src/matrix/MatrixClass.php',
+    'Nagara\\Src\\Metode\\MetodeLinearRegresion' => $baseDir . '/src/metode/linear-regresion/MetodeLinearRegresion.php',
+    'Nagara\\Src\\Metode\\MetodeOreste' => $baseDir . '/src/metode/oreste/MetodeOreste.php',
     'Nagara\\Src\\Metode\\MetodeSaw' => $baseDir . '/src/metode/saw/MetodeSaw.php',
     'Stringable' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
     'Symfony\\Component\\VarDumper\\Caster\\AmqpCaster' => $vendorDir . '/symfony/var-dumper/Caster/AmqpCaster.php',

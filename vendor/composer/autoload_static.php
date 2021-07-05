@@ -216,6 +216,8 @@ class ComposerStaticInit6937f89145982d922cbb4611d57fffd1
         'MathPHP\\Trigonometry' => __DIR__ . '/..' . '/markrogoyski/math-php/src/Trigonometry.php',
         'MathPHP\\Util\\Iter' => __DIR__ . '/..' . '/markrogoyski/math-php/src/Util/Iter.php',
         'Nagara\\Src\\Math\\MatrixClass' => __DIR__ . '/../..' . '/src/matrix/MatrixClass.php',
+        'Nagara\\Src\\Metode\\MetodeLinearRegresion' => __DIR__ . '/../..' . '/src/metode/linear-regresion/MetodeLinearRegresion.php',
+        'Nagara\\Src\\Metode\\MetodeOreste' => __DIR__ . '/../..' . '/src/metode/oreste/MetodeOreste.php',
         'Nagara\\Src\\Metode\\MetodeSaw' => __DIR__ . '/../..' . '/src/metode/saw/MetodeSaw.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'Symfony\\Component\\VarDumper\\Caster\\AmqpCaster' => __DIR__ . '/..' . '/symfony/var-dumper/Caster/AmqpCaster.php',

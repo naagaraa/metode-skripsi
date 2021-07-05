@@ -1,7 +1,11 @@
 <?php
+/**
+ * @author      Eka Jaya Nagara     
+ * @copyright   Copyright (c), 2021 naagaraa metode skripsi SAW
+ * @license     MIT public license
+ */
 namespace Nagara\Src\Metode;
 use Nagara\Src\Math\MatrixClass;
-
 /**
  * 
  */
@@ -10,7 +14,7 @@ class MetodeSaw{
     /**
      * function menghitung normalisasi
      * @author eka jaya nagara
-     * @param array
+     * @param array         | original matrix
      * @return array
      */
     public function normalisasi_value( $matrix = [], $cost)
@@ -35,7 +39,8 @@ class MetodeSaw{
     /**
      * function menghitung nilai alternative
      * @author eka jaya nagara
-     * @param array
+     * @param array             | matrix data  nilai yang sudah di flip atau transform
+     * @param array             | matrix bobot 
      * @return array
      */
     public function get_alternative($flip_matrix= [], $bobot = [])
@@ -63,7 +68,7 @@ class MetodeSaw{
     /**
      * function menghitung nilai vector dari jumlah alternative
      * @author eka jaya nagara
-     * @param array
+     * @param array                 | nilai alternative
      * @return array
      */
     public function hitung_v($alternative = [])
@@ -81,7 +86,9 @@ class MetodeSaw{
     /**
      * function menggabungkan nilai array vector ke dalam array original
      * @author eka jaya nagara
-     * @param array
+     * @param array                 | matrix original
+     * @param array                 | matrix hasil perhitungan vector
+     * @param string                | string nama field baru untuk hasil perhitungan
      * @return array
      */
     public function menambah_hasil_akhir_ke_dalam_field_data($data = [], $vector = [], $field = "")
@@ -97,9 +104,14 @@ class MetodeSaw{
     }
 
     /**
-     * function combinasi perhitungan SAW
+     * function menggabungkan nilai array vector ke dalam array original
      * @author eka jaya nagara
-     * @param array interger dan string
+     * @param array                 | matrix original
+     * @param int                   | jumlah colum kriteria atau data kriteria 
+     * @param int                   | index start from 0 untuk colum pertama pada kriteria (index yang termasuk kriteria cost)
+     * @param array                 | nama column kriteria
+     * @param array                 | bobot pada kriteria
+     * @param string                | string nama field baru untuk hasil perhitungan
      * @return array
      */
     public function saw($data_original = [], $jumlah_column_kriteria, $index_column_cost , $nama_column_kriteria = [], $bobot = [], $column_hasil = "hasil_akhir" )
