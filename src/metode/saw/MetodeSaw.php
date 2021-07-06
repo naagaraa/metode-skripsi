@@ -1,7 +1,7 @@
 <?php
 /**
  * @author      Eka Jaya Nagara     
- * @copyright   Copyright (c), 2021 naagaraa metode skripsi SAW
+ * @copyright   Copyright (c), 2021 naagaraa metode skripsi Simple Adictive Weight
  * @license     MIT public license
  */
 namespace Nagara\Src\Metode;

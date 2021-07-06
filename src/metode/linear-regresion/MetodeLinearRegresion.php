@@ -152,7 +152,10 @@ class MetodeLinearRegresion {
     /**
      * method untuk menhitung nilai pada model linear regresion mencari nilai y
      * @author eka jaya nagara
-     * @return  float      | value squared by x
+     * @param array         | x adaalah data x
+     * @param array         | y adalah data y
+     * @param int           | paramter prediction
+     * @return  array       | return hasil array
      */
     public function LinearRegresion_x($x_paramter = [] , $y_paramter = [], $paramter_predixtion_x = 0)
     {
@@ -179,7 +182,10 @@ class MetodeLinearRegresion {
     /**
      * method untuk menhitung nilai pada model linear regresion mencari nilai x
      * @author eka jaya nagara
-     * @return  float      | value squared by x
+     * @param array         | x adaalah data x
+     * @param array         | y adalah data y
+     * @param int           | paramter prediction
+     * @return  array       | return hasil array
      */
     public function LinearRegresion_y($x_paramter = [] , $y_paramter = [], $paramter_predixtion_y = 0)
     {
@@ -202,5 +208,64 @@ class MetodeLinearRegresion {
 
         return $this->regresion;
 
+    }
+
+
+    public function MultipleLinearRegresion($x_paramter = [] , $y_paramter = [], $paramter_predixtion = [], $type_regresion_x_or_y = "x")
+    {
+        if ($type_regresion_x_or_y == "x") {
+            $regresion = [] ;
+            foreach ($paramter_predixtion as $key => $value) {
+                $regresion[$key] = self::LinearRegresion_x($x_paramter, $y_paramter, $value);
+            }
+        }else{
+            $regresion =[] ;
+            foreach ($paramter_predixtion as $key => $value) {
+              $regresion[$key] = self::LinearRegresion_y($x_paramter, $y_paramter, $value);
+            }
+        }
+
+        $this->regresion = $regresion;
+        return $this->regresion;
+
+    }
+
+    /**
+     * method untuk mengabungkan data asli dengan data hasil prediction dengan menciptakan satu field baru pada larik array
+     * @author eka jaya nagara
+     * @param array         | x adaalah data x
+     * @param array         | y adalah data y
+     * @param array         | y adalah data y
+     * @param array         | y adalah data y
+     * @param string        | paramter prediction
+     * @param string        | paramter prediction
+     * @return  array       | return hasil array yang sudah dicombinasi
+     */
+    public function Combine_LinearRegresion($data_original = [] , $x_paramter = [] , $y_paramter = [], $paramter_predixtion = [], $type_x_or_y = "x", $add_field = "hasil" )
+    {
+
+        // check validasi data
+        $jml_original = count($data_original);
+        $jml_parameter_prediction = count($paramter_predixtion);
+
+        if ($jml_original !== $jml_parameter_prediction) {
+            echo "jumlah data original dan paramter tidak valid, jumlah total row berbeda, jumlah orginal {$jml_original} dan jumlah paramter {$jml_parameter_prediction}";
+            exit;
+        }
+
+        //  combine data
+        if ($type_x_or_y == "x") {
+            $combine_data = $data_original ;
+            foreach ($paramter_predixtion as $key => $value) {
+                $combine_data[$key][$add_field] = self::LinearRegresion_x($x_paramter, $y_paramter, $value);
+            }
+        }else{
+            $combine_data = $data_original ;
+            foreach ($paramter_predixtion as $key => $value) {
+              $combine_data[$key][$add_field] = self::LinearRegresion_y($x_paramter, $y_paramter, $value);
+            }
+        }
+
+        return $combine_data;
     }
 }

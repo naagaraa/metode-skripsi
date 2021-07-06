@@ -1,4 +1,10 @@
 <?php
+/**
+ * @author      Eka Jaya Nagara     
+ * @copyright   Copyright (c), 2021 naagaraa matrix class function object
+ * @license     MIT public license
+ */
+
 namespace Nagara\Src\Math;
 use Nagara\Src\Metode\MetodeSaw;
 
@@ -7,11 +13,16 @@ class MatrixClass
     /**
      * function membuat single matrix / membuat array satu dimensi dari columnnya
      * @author eka jaya nagara
-     * @param array
-     * @return array
+     * @param array             |  original array
+     * @param string            |  column name atau field name
+     * @return array            |  return new single array
      */
     public static function make_field_matrix($data = [], $fieldOrColumn = "")
     {
+        if (!is_string($fieldOrColumn)) {
+            echo "sorry field yang kamu masukan tidak sesuai format untuk single adalah string dan untuk multiple adalah array silahkan check kembali formatnya";
+            exit;
+        }
         // membuat single matrix dari colum atau fiels
         $new_nilai = [];
         foreach ($data as $siswa) {
@@ -22,14 +33,20 @@ class MatrixClass
 
 
     /**
-     * function membuat matrix atau array multi dimensi baru dari original datanya next langsung buat normalisasi
+     * function membuat matrix atau array multi dimensi baru dari original datanya 
      * @author eka jaya nagara
-     * @param array and integer
+     * @param array                 | paramter pertama data original array
+     * @param int                   | paramter kedua jumlah field atau colum yang diambil
+     * @param array                 | paramter ketiga nama field atau colum yang diambil
      * @return array
      */
-    public static function make_new_matrix($data = [], $total_column_or_baris_matrix ,$field = [] , $cost_column_index)
+    public static function make_new_matrix($data = [], $total_column_or_baris_matrix ,$field = [])
     {
-        $saw = new MetodeSaw;
+        if (is_string($field)) {
+            echo "sorry field yang kamu masukan tidak sesuai format untuk single adalah string dan untuk multiple adalah array silahkan check kembali formatnya";
+            exit;
+        }
+        // $saw = new MetodeSaw;
         // check kondisi
         if ($total_column_or_baris_matrix !== count($field)) {
             echo "jumlah column yang di inputkan tidak sama dengan jumlah nama column yang masukan";
@@ -48,7 +65,7 @@ class MatrixClass
     /**
      * function membuat flip matrix atau melaukan tranfrom array baris menjadi colum atau sebaliknya
      * @author eka jaya nagara
-     * @param array and integer
+     * @param array                 | array yang akan di flip berdasarkan index
      * @return array
      */
     public static function flip_matrix($array = [])
