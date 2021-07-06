@@ -20,6 +20,7 @@ $b = 4;
 $c = 4;
 $d = 4;
 
+// debug
 $hasil = $metode->FuzzySugeno($a, $b, $c, $d);
 dump($hasil);
 
