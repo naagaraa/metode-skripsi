@@ -39,7 +39,7 @@ $multiple_x = $metode->MultipleLinearRegresion($x, $y , $z, "x");
 // combinasi atau gabungkan dan buat field baru
 $hasil = $metode->Combine_LinearRegresion($data_siswa, $x, $y ,$z, "x", "result_akhir");
 
-// debug hasiil menggunakan dump
+// debug hasil menggunakan dump
 var_dump($prediction_single_y);
 var_dump($prediction_single_x);
 var_dump($multiple_x );
