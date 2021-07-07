@@ -57,6 +57,7 @@ dalam pembuatanya semua metodenya tulis dengan konsep OOP atau object oriented d
 - oreste | under development 
 - weight product ( wp ) | under development
 - k means | under development
+- other ? | oke let's make something
 
 
 ## Tools Array Matrix
