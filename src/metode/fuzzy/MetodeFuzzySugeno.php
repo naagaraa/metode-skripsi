@@ -8,7 +8,68 @@ namespace Nagara\Src\Metode;
 
 class MetodeFuzzySugeno {
 
-    // check ype kurva
+
+    /**
+     * hasil defuzifikasi untuk menentukan kompeten atau tidak [1 - 0]
+     * @var int             | 1 => kompeten and 0 => not kompeten
+     */
+    private $defuzifikasi;
+
+
+    // int hasil perhitungan bentuk array untuk penilaian column 1 - 3 ["konsep", "pengetahuan", "keterampilan"]
+    /**
+     * result value hasil perhitungan konsep menggunakan kurva segitiga
+     * @var array                   | int array konsep
+     */
+    private $column_1;
+
+    /**
+     * result value hasil perhitungan pengetahuan menggunakan kurva segitiga
+     * @var array                   | int array pengetahuan
+     */
+    private $column_2;
+
+    /**
+     * result value hasil perhitungan keterampilan menggunakan kurva segitiga
+     * @var array                   | int array keterampilan
+     */
+    private $column_3;
+
+
+
+
+    // int value awal dari user value 1 - 2  ["konsep", "pengetahuan", "keterampilan"]
+    /**
+     * input value dari user value 1 untuk konsep
+     * @var int                 | 
+     */
+    private $value_1;
+
+    /**
+     * input value dari user value 2 untuk pengetahuan
+     * @var int                  | int
+     */
+    private $value_2;
+
+    /**
+     * input value dari user value 3 untuk keterampilan
+     * @var int
+     */
+    private $value_3;
+
+
+
+    /**
+     * method untuk check model kurva segitga atau bahu
+     * @author eka jaya nagara
+     * @param string                | type kurva ["segitiga", "bahu"]
+     * @param string                | arah representasi ["kanan", "kiri"]
+     * @param int                   | nilai a
+     * @param int                   | nilai b
+     * @param int                   | nilai c
+     * @param int                   | nilai x
+     * @return int                  | hasil perhitungan kurva
+     */
     public function kurva($type_kurva = "segitiga", $arah = "kanan", $a = 1, $b = 1, $c = 1, $x = 1)
     {
        if ($type_kurva == "segitiga") {
@@ -22,7 +83,16 @@ class MetodeFuzzySugeno {
        }
     }
 
-    // kurava bahu jurnal 2
+    /**
+     * method untuk perhitungan kurva model bahu
+     * @author eka jaya nagara
+     * @param string                | arah representasi ["kanan", "kiri"]
+     * @param int                   | nilai a
+     * @param int                   | nilai b
+     * @param int                   | nilai c
+     * @param int                   | nilai x
+     * @return int                  | hasil perhitungan kurva bahu
+     */
     public function kurva_bahu($arah = "kiri", $a = 1, $b= 1, $c = 1, $x = 1)
     {
         $ux;
@@ -36,7 +106,12 @@ class MetodeFuzzySugeno {
                     echo "kurva bahu kiri kondisi 2<br>";
                     $h1 = $b - $x;
                     $h2 = $b - $a;
-                    $ux = $h1 / $h2;
+                     // handling divide by zero
+                     if ( $h1/$h2 == 0.0 ) {
+                        echo 'Divisor adalah 0';
+                    }else{
+                        $ux = $h1/$h2;
+                    }
                 }elseif($x >= $b){
                     echo "kurva bahu kiri kondisi 3<br>";
                     $ux = 1;
@@ -54,7 +129,14 @@ class MetodeFuzzySugeno {
                     echo "kurva bahu kanan kondisi 2<br>";
                     $h1 = $x - $b;
                     $h2 = $c - $b;
-                    $ux = $h1/$h2;
+
+                    // handling divide by zero
+                    if ( $h1/$h2 == 0.0 ) {
+                        echo 'Divisor adalah 0';
+                    }else{
+                        $ux = $h1/$h2;
+                    }
+
                 }elseif($x >= $c){
                     echo "kurva bahu kanan kondisi 3<br>";
                     $ux = 1;
@@ -73,7 +155,16 @@ class MetodeFuzzySugeno {
         
     }
 
-    // kurva segitiga jurnal 2
+    /**
+     * method untuk perhitungan kurva model segitiga
+     * @author eka jaya nagara
+     * @param string                | arah representasi ["kanan", "kiri"]
+     * @param int                   | nilai a
+     * @param int                   | nilai b
+     * @param int                   | nilai c
+     * @param int                   | nilai x
+     * @return int                  | hasil perhitungan kurva segitiga
+     */
     public function kurva_segitiga($arah = "kiri", $a = null, $b= null, $c = null, $x = null)
     {
         $ux = null;
@@ -88,6 +179,14 @@ class MetodeFuzzySugeno {
                     $h1 = $x - $a;
                     $h2 = $b - $a;
                     $ux = $h1 / $h2;
+
+                     // handling divide by zero
+                     if ( $h1/$h2 == 0.0 ) {
+                        echo 'Divisor adalah 0';
+                    }else{
+                        $ux = $h1/$h2;
+                    }
+
                 }elseif(($b < $x) and ($x < $c)){
                     echo "kurva segitiga kiri kondisi 3<br>";
                     $h1 = $c - $x;
@@ -107,12 +206,24 @@ class MetodeFuzzySugeno {
                     echo "kurva segitiga kanan kondisi 2<br>";
                     $h1 = $x - $a;
                     $h2 = $b - $a;
-                    $ux = $h1/$h2;
+
+                    // handling divide by zero
+                    if ( $h1/$h2 == 0.0 ) {
+                        echo 'Divisor adalah 0';
+                    }else{
+                        $ux = $h1/$h2;
+                    }
+
                 }elseif(($a >= $x) and ($x <= $b)){
                     echo "kurva segitiga kanan kondisi 3<br>";
                     $h1 = $b - $x;
                     $h2 = $a - $b;
-                    $ux = $h1/$h2;
+                     // handling divide by zero
+                     if ( $h1/$h2 == 0.0 ) {
+                        echo 'Divisor adalah 0';
+                    }else{
+                        $ux = $h1/$h2;
+                    }
                 }else{
                     $ux = "angka tidak ada yg memenuhi syarat kondisi";
                 }
@@ -127,7 +238,12 @@ class MetodeFuzzySugeno {
         return $ux;
     }
 
-    // kurva model kurang
+    /**
+     * method untuk fuzzy sugeno type low atau kurang
+     * @author eka jaya nagara
+     * @param int                   | value x input user ["konsep", "pengetahuan", "keterampilan"]
+     * @return int                  | hasil perhitungan kurva untuk type low
+     */
     public function U_Low($x = 1)
     {
         // nilai constant sudah ditetapkan
@@ -138,20 +254,36 @@ class MetodeFuzzySugeno {
             // echo "kurva segitiga low kondisi 2<br>";
             $h1 = $x - 1;
             $h2 = 2 - 1;
-            $ux = $h1 / $h2;
-        }elseif((2 <= $x) and ($x <= 3)){
+             // handling divide by zero
+            if ( $h2 == 0.0 ) {
+                echo 'Cannot divide by zero method U low';
+                exit;
+            }else{
+                $ux = $h1/$h2;
+            }
+        }elseif((3 <= $x) and ($x <= 4)){
             // echo "kurva segitiga low kondisi 3<br>";
-            $h1 = 2 - $x;
+            $h1 = 3 - $x;
             $h2 = 3 - 2;
-            $ux = $h1 / $h2;
+            // handling divide by zero
+            if ( $h2 == 0.0 ) {
+                echo 'Cannot divide by zero method U low';
+                exit;
+            }else{
+                $ux = $h1/$h2;
+            }
         }else{
             $ux = "angka tidak ada yg memenuhi syarat kondisi";
         }
-
         return $ux;
     }
 
-    // kurva model cukup
+    /**
+     * method untuk fuzzy sugeno type middle atau cukup
+     * @author eka jaya nagara
+     * @param int                   | value x input user ["konsep", "pengetahuan", "keterampilan"]
+     * @return int                  | hasil perhitungan kurva untuk type middle
+     */
     public function U_Middle($x = 1)
     {
        // nilai constant sudah ditetapkan
@@ -162,20 +294,36 @@ class MetodeFuzzySugeno {
             // echo "kurva segitiga middle kondisi 2<br>";
             $h1 = $x - 2;
             $h2 = 3 - 2;
-            $ux = $h1 / $h2;
+             // handling divide by zero
+            if ( $h2 == 0.0 ) {
+                echo 'Cannot divide by zero method U Middle';
+                exit;
+            }else{
+                $ux = $h1/$h2;
+            }
         }elseif((3 <= $x) and ($x <= 4)){
             // echo "kurva segitiga middle kondisi 3<br>";
-            $h1 = 3 - $x;
+            $h1 = 4 - $x;
             $h2 = 4 - 3;
-            $ux = $h1 / $h2;
+             // handling divide by zero
+            if ( $h2 == 0.0 ) {
+                echo 'Cannot divide by zero method U Middle';
+                exit;
+            }else{
+                $ux = $h1/$h2;
+            }
         }else{
             $ux = "angka tidak ada yg memenuhi syarat kondisi";
         }
-
         return $ux;
     }
 
-    // kurva model U baik
+    /**
+     * method untuk fuzzy sugeno type hight atau baik
+     * @author eka jaya nagara
+     * @param int                   | value x input user ["konsep", "pengetahuan", "keterampilan"]
+     * @return int                  | hasil perhitungan kurva untuk type hight
+     */
     public function U_Hight($x = 1)
     {
         // nilai constant sudah ditetapkan
@@ -186,12 +334,23 @@ class MetodeFuzzySugeno {
             // echo "kurva segitiga hight kondisi 2<br>";
             $h1 = $x - 3;
             $h2 = 4 - 3;
-            $ux = $h1 / $h2;
+            if ( $h2 == 0.0 ) {
+                echo 'Cannot divide by zero method U hight';
+                exit;
+            }else{
+                $ux = $h1/$h2;
+            }
         }elseif((4 <= $x) and ($x <= 5)){
             // echo "kurva segitiga hight kondisi 3<br>";
             $h1 = 5 - $x;
             $h2 = 5 - 4;
-            $ux = $h1 / $h2;
+             // handling divide by zero
+            if ( $h2 == 0.0 ) {
+                echo 'Cannot divide by zero method U hight';
+                exit;
+            }else{
+                $ux = $h1/$h2;
+            }
         }else{
             $ux = "angka tidak ada yg memenuhi syarat kondisi";
         }
@@ -199,90 +358,90 @@ class MetodeFuzzySugeno {
         return $ux;
     }
 
-    // defuzifikasi sugeno
-    public function Defuzifikasi($arr_motif = [], $arr_konsep = [], $arr_pengetahuan = [], $arr_keterampilan = [])
+    /**
+     * method untuk fuzzy sugeno perhitungan defuzifikasi, defuzzifikasi mengambil nilai phi predikat min selain nol atau zero 
+     * jika jumlah nol pada hipunan < 3
+     * @author eka jaya nagara
+     * @param array                   | nilai penilaian konsep  atau konsep 1 
+     * @param array                   | nilai penilaian pengetahuan  atau konsep 2 
+     * @param array                   | nilai penilaian keterampilan  atau konsep 3 
+     * @return int                    | 1 or 0
+     */
+    public function Defuzifikasi($arr_konsep = [], $arr_pengetahuan = [], $arr_keterampilan = [])
     {
+        // Metode Bisektor.
         // get value kecuali 0
         $except = array(0);
         
         // hitung jumlah duplicate 0
-        $zero_duplicate_motif = count(array_diff_assoc($arr_motif, array_unique($except)));
-        $zero_duplicate_konsep = count(array_diff_assoc($arr_konsep, array_unique($except)));
-        $zero_duplicate_pengetahuan = count(array_diff_assoc($arr_pengetahuan, array_unique($except)));
-        $zero_duplicate_keterampilan = count(array_diff_assoc($arr_keterampilan, array_unique($except)));
+        // $zero_duplicate_motif = count(array_diff_assoc($arr_motif, array_unique($except)));
+        $zero_duplicate_konsep = array_count_values($arr_konsep);
+        $zero_duplicate_pengetahuan = array_count_values($arr_pengetahuan);
+        $zero_duplicate_keterampilan = array_count_values($arr_keterampilan);
 
-        // check duplicate zero
-        if ($zero_duplicate_motif < 3) {
-            $hasil_min_motif = min($arr_motif);
-        }else{
-            $hasil_min_motif = min(array_values(array_diff($arr_motif, $except)));
+        // diviade by zero handling
+        if (!empty($zero_duplicate_konsep[0])) {
+            // check duplicate zero value pada setiap kurva penilaian yg dikirin jumlah 0 === 3
+            if ($zero_duplicate_konsep[0] == 3) {
+                $hasil_min_konsep = min($arr_konsep);
+            }else{
+                $hasil_min_konsep = min(array_values(array_diff($arr_konsep, $except)));
+            }
         }
 
-        // check duplicate zero
-        if ($zero_duplicate_konsep < 3) {
-            $hasil_min_konsep = min($arr_konsep);
-        }else{
-            $hasil_min_konsep = min(array_values(array_diff($arr_konsep, $except)));
+        if (!empty($zero_duplicate_pengetahuan[0])) {
+            // check duplicate zero value pada setiap kurva penilaian yg dikirin jumlah 0 === 3
+            if ($zero_duplicate_pengetahuan[0] == 3) {
+                $hasil_min_pengetahuan = min($arr_pengetahuan);
+            }else{
+                $hasil_min_pengetahuan = min(array_values(array_diff($arr_pengetahuan, $except)));
+            }
         }
 
-        // check duplicate zero
-        if ($zero_duplicate_pengetahuan < 3) {
-            $hasil_min_pengetahuan = min($arr_konsep);
-        }else{
-            $hasil_min_pengetahuan = min(array_values(array_diff($arr_pengetahuan, $except)));
+        if (!empty($zero_duplicate_keterampilan[0])) {
+            // check duplicate zero value pada setiap kurva penilaian yg dikirin jumlah 0 === 3
+            if ($zero_duplicate_keterampilan[0] == 3) {
+                $hasil_min_keterampilan = min($arr_keterampilan);
+            }else{
+                $hasil_min_keterampilan = min(array_values(array_diff($arr_keterampilan, $except)));
+            }
         }
-
-        // check duplicate zero
-        if ($zero_duplicate_keterampilan < 3) {
-            $hasil_min_keterampilan = min($arr_pengetahuan);
-        }else{
-            $hasil_min_keterampilan = min(array_values(array_diff($arr_keterampilan, $except)));
-        }
-
 
         // add value ke arry defuzifikasi
         $defuzifikasi = [];
-        for ($i=0; $i < 4; $i++) { 
+        for ($i=0; $i < 3; $i++) { 
             if ($i == 0) {
-                $defuzifikasi[$i] = $hasil_min_motif;
-            }elseif($i == 1){
                 $defuzifikasi[$i] = $hasil_min_konsep;
-            }elseif($i == 2){
+            }elseif($i == 1){
                 $defuzifikasi[$i] = $hasil_min_pengetahuan;
-            }else{
+            }elseif($i == 2){
                 $defuzifikasi[$i] = $hasil_min_keterampilan;
             }
         }
         
         // check duplicate zero
-        $zero_duplicate_defuzifikasi = count(array_diff_assoc($defuzifikasi, array_unique($except)));
-        if ($zero_duplicate_defuzifikasi == 3) {
-            $defuzifikasi  = min($arr_pengetahuan);
-        }else{
-            $defuzifikasi = min(array_values(array_diff($defuzifikasi, $except)));
+        $zero_duplicate_defuzifikasi = array_count_values($defuzifikasi);
+        if (!empty($zero_duplicate_defuzifikasi[0])) {
+            // check duplicate zero value pada setiap kurva penilaian yg dikirim jumlah 0 == 3
+            if ($zero_duplicate_defuzifikasi[0] == 3) {
+                $defuzifikasi  = min($defuzifikasi);
+            }else{
+                $defuzifikasi = min(array_values(array_diff($defuzifikasi, $except)));
+            }
         }
-        // $defuzifikasi = min(array_values(array_diff($defuzifikasi, $except)));
-
-        // dump($zero_duplicate_defuzifikasi);
-        
         return $defuzifikasi;
     }
 
-    // fuzzy sugeno
-    public function FuzzySugeno($nilai_motif, $nilai_konsep, $nilai_pengetahuan, $nilai_keterampilan)
+    /**
+     * method untuk fuzzy sugeno 
+     * @author eka jaya nagara
+     * @param int                   | value x input user ["konsep"]
+     * @param int                   | value x input user ["pengetahuan"]
+     * @param int                   | value x input user ["keterampilan"]
+     * @return int                  | 1 or 0
+     */
+    public function FuzzySugeno($nilai_konsep = 1, $nilai_pengetahuan = 1, $nilai_keterampilan = 1)
     {
-        // hasil nilai motif
-        $motif = [];
-        for ($i=0; $i < 3; $i++) { 
-            if ($i == 0) {
-                $motif[$i] = self::U_Low($nilai_motif);
-            }elseif($i == 1){
-                $motif[$i] = self::U_Middle($nilai_motif);
-            }else{
-                $motif[$i] = self::U_Hight($nilai_motif);
-            }
-        }
-
         // hasil nilai konsep
         $konsep = [];
         for ($i=0; $i < 3; $i++) { 
@@ -319,9 +478,7 @@ class MetodeFuzzySugeno {
             }
         }
 
-        $result_fuzifikasi = self::Defuzifikasi($motif, $konsep, $pengetahuan, $keterampilan);
+        $result_fuzifikasi = self::Defuzifikasi($konsep, $pengetahuan, $keterampilan);
         return $result_fuzifikasi;
-    }
-
-    
+    }    
 }

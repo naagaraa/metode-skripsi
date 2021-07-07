@@ -1,31 +1,22 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => 'eae106461cfd0e589be7de845cb38f69296e640e',
         'name' => 'nagara/metode-skripsi',
         'dev' => true,
     ),
     'versions' => array(
-        'markrogoyski/math-php' => array(
-            'pretty_version' => 'v2.0.0',
-            'version' => '2.0.0.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../markrogoyski/math-php',
-            'aliases' => array(),
-            'reference' => '4dab1f0efe96b547bd21b17b66a5b7efec5902b3',
-            'dev_requirement' => false,
-        ),
         'nagara/metode-skripsi' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => 'eae106461cfd0e589be7de845cb38f69296e640e',
             'dev_requirement' => false,
         ),
         'symfony/polyfill-mbstring' => array(

@@ -131,8 +131,15 @@ class MetodeLinearRegresion {
     {
         $h1 = ( array_sum($this->y) * array_sum($this->x2) ) - ( array_sum($this->x) * array_sum($this->xy) );
         $h2 = (( count($this->x) * array_sum($this->x2) ) - pow(array_sum($this->x), 2));
-        $constanta_a = round($h1 / $h2 ,2 );
-        return $constanta_a;
+
+        // hadnling divided by zero
+        if ($h2 == 0.0) {
+            echo "Cannot divide by zero constant a";
+        }else{
+            $constanta_a = round($h1 / $h2 ,2 );
+            return $constanta_a;
+        }
+        
     }
 
     
@@ -145,8 +152,14 @@ class MetodeLinearRegresion {
     {
         $z1 = ( (count($this->x) * array_sum($this->xy)) - ( array_sum($this->x) * array_sum($this->y)));
         $z2 = (( count($this->x) * array_sum($this->x2) ) - pow(array_sum($this->x), 2));
-        $constanta_b = round($z1 / $z2, 2);
-        return $constanta_b;
+        
+        // hadnling divided by zero
+        if ($z2 == 0.0) {
+            echo "Cannot divide by zero constant b";
+        }else{
+            $constanta_b = round($z1 / $z2, 2);
+            return $constanta_b;
+        }
     }
 
     /**

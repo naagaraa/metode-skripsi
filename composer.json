@@ -3,8 +3,7 @@
     "description": "libraries metode skripsi build by miyuki nagara as eka jaya nagara, noob programmer wanna be hacker and cyber security",
     "license": "MIT",
     "require": {
-        "symfony/var-dumper": "^5.3",
-        "markrogoyski/math-php": "2.*"
+        "symfony/var-dumper": "^5.3"
     },
     "config": {
         "optimize-autoloader": true,

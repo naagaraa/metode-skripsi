@@ -1,1 +1,0 @@
-### bentuk prosedural

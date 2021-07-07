@@ -11,16 +11,27 @@ $data_siswa = fetch_assoc($result_all);
 
 use Nagara\Src\Metode\MetodeLinearRegresion; // load libraries
 use Nagara\Src\Math\MatrixClass;
-use Nagara\Src\Metode\MetodeFuzzySugeno;
 
+
+use Nagara\Src\Metode\MetodeFuzzySugeno;    // load library
+
+// range kurva segitga 1 - 5 [1 , 2, 3, 4, 5]
+
+// example 3 value
+$a = 5;
+$b = 5;
+$c = 5; 
+
+// get value
 $metode = new MetodeFuzzySugeno;
-
-$a = 4;
-$b = 4;
-$c = 4;
-$d = 4;
+$hasil_defuzifikasi = $metode->FuzzySugeno($a, $b, $c); //return value 1 or 0
 
 // debug
-$hasil = $metode->FuzzySugeno($a, $b, $c, $d);
-dump($hasil);
+dump($hasil_defuzifikasi);
 
+// penentuan kompeten atau tidak kompetern
+if ($hasil_defuzifikasi  > 0) {
+    echo "selamat anda kompeten";
+}else{
+    echo "maaf anda tidak kompeten";
+}
