@@ -15,6 +15,9 @@ have solution please send positif commnet and help other people !
 ## INFO
 semakin meninggi semakin merunduk, jangan sombong, bantu orang lain, janga mau dimanfaatkan demi kepentingan yang merugikan diri sendiri. *note* : jika saya mood
 
+## INSTALL USED COMPOSER ?
+- coming soon lah ...
+
 <br>
 
 <!-- Links -->
