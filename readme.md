@@ -21,6 +21,7 @@ semakin meninggi semakin merunduk, jangan sombong, bantu orang lain, janga mau d
 ## Traktier me ?
 
 * Naagaraa : [ Traktir baso aja at saweria [ DANA, OVO, dll ] ](https://saweria.co/naagaraa)
+* Siapapun, berapapun, saya ucapkan terimakasih sebanyak-banyaknya.
 
 ## License
 * **license** [ MIT ](#)
