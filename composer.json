@@ -1,8 +1,16 @@
 {
-    "name": "nagara/metode-skripsi",
-    "description": "libraries metode skripsi build by miyuki nagara as eka jaya nagara, noob programmer wanna be hacker and cyber security",
+    "name": "nagara/metode-skripshit",
+    "description": "libraries metode skripshit build by miyuki nagara as eka jaya nagara, noob programmer wanna be hacker and cyber security",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "nagara",
+            "email": "ekabersinar@gmail.com",
+            "role": "programmer"
+        }
+    ],
     "require": {
+        "php": ">=7.3",
         "symfony/var-dumper": "^5.3"
     },
     "config": {
