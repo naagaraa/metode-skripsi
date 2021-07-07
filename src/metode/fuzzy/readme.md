@@ -4,7 +4,7 @@ Logika Fuzzy adalah suatu cara yang tepat untuk memetakan suatu ruang input ke d
 
 ### how to use
 
-```
+```php
 use Nagara\Src\Metode\MetodeFuzzySugeno;    // load library
 
 // range kurva segitga 1 - 5 [1 , 2, 3, 4, 5]
@@ -31,7 +31,7 @@ if ($hasil_defuzifikasi  > 0) {
 ```
 
 ### more detail
-```
+```php
 // basic usage
 use Nagara\Src\Metode\MetodeFuzzySugeno;    // load library
 

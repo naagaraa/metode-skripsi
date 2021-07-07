@@ -5,7 +5,7 @@ membuat array baru berdasarkan column yang ingin di ambil datanya atau melakukan
 menjadi colum atau sebaliknya.
 
 ### how to use
-```
+```php
 use Nagara\Src\Math\MatrixClass; // load libraries
 
 // query database
@@ -32,7 +32,7 @@ var_dump($z); // return new array hanya nilai kehadiran dan kedisiplinan
 ```
 
 ### more detail
-```
+```php
 // basic usage
 use Nagara\Src\Math\MatrixClass;
 

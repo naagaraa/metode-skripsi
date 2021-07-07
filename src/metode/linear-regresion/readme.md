@@ -3,7 +3,7 @@
 regresi linear adalah sebuah pendekatan untuk memodelkan hubungan antara variable terikat Y dan satu atau lebih variable bebas yang disebut X. Salah satu kegunaan dari regresi linear adalah untuk melakukan prediksi berdasarkan data-data yang telah dimiliki sebelumnya. Hubungan di antara variable-variabel tersebut disebut sebagai model regresi linear.
 
 ### how to use
-```
+```php
 use Nagara\Src\Metode\MetodeLinearRegresion; // load libraries
 
 // nilai x dan y total jumlahnya harus sama
@@ -51,7 +51,7 @@ var_dump($hasil);
 ```
 
 ### more detail
-```
+```php
 // basic usage
 use Nagara\Src\Metode\MetodeLinearRegresion; 
 

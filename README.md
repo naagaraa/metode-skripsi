@@ -16,7 +16,17 @@ have solution please send positif commnet and help other people !
 semakin meninggi semakin merunduk, jangan sombong, bantu orang lain, janga mau dimanfaatkan demi kepentingan yang merugikan diri sendiri. *note* : jika saya mood
 
 ## INSTALL USED COMPOSER ?
-- coming soon lah ...
+
+composer install :
+```bash
+composer require nagara/metode-skripshit
+```
+
+load vendor autoload :
+```php
+require_once "./vendor/autoload.php";
+
+```
 
 <br>
 
@@ -66,7 +76,7 @@ dalam pembuatanya semua metodenya tulis dengan konsep OOP atau object oriented d
 ## Tools Array Matrix
 karena sering berhubungan dengan data, dan yang menghitung dan melakukan computer maka harus terurut layaknya step memasak indomie. maka dari itu gue buatlah tools methodnya sekalian buat bantu misalhnya membuat array baru dari data array assosiatif atau sekedar melakukan flip array merubah baris jadi column atau column jadi baris.
 
-```
+```php
 
 use Nagara\Src\Math\MatrixClass; // load libraries
 
@@ -102,7 +112,7 @@ var_dump($z); // return new array hanya nilai kehadiran dan kedisiplinan
 #### fuzzy-sugeno
 Logika Fuzzy adalah suatu cara yang tepat untuk memetakan suatu ruang input ke dalam ruang output. Untuk sistem yang sangat rumit, penggunaan logika fuzzy (fuzzy logic) adalah salah satu pemecahannya. Sistem tradisional dirancang untuk mengontrol keluaran tunggal yang berasal dari beberapa masukan yang tidak saling berhubungan. fuzzy sugeno tidak berbeda jauh dengan fuzzy mamdani.
 
-```
+```php
 use Nagara\Src\Metode\MetodeFuzzySugeno;    // load library
 
 // range kurva segitga 1 - 5 [1 , 2, 3, 4, 5]
@@ -132,7 +142,7 @@ if ($hasil_defuzifikasi  > 0) {
 #### linear regresion
 regresi linear adalah sebuah pendekatan untuk memodelkan hubungan antara variable terikat Y dan satu atau lebih variable bebas yang disebut X. Salah satu kegunaan dari regresi linear adalah untuk melakukan prediksi berdasarkan data-data yang telah dimiliki sebelumnya. Hubungan di antara variable-variabel tersebut disebut sebagai model regresi linear.
 
-```
+```php
 
 use Nagara\Src\Metode\MetodeLinearRegresion; // load libraries
 
@@ -187,7 +197,7 @@ array assosiative, jumlah kriteria, index column cost, nama column yang mengandu
 kriteria, bobot, dan jumlah bobot. jumlah bobot harus sama dengan jumlah column
 kriterianya.
 
-```
+```php
 
 use Nagara\Src\Metode\MetodeSaw; // load libraries
 

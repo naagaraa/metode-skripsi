@@ -6,7 +6,7 @@ kriteria, bobot, dan jumlah bobot. jumlah bobot harus sama dengan jumlah column
 kriterianya.
 
 ### how to use
-```
+```php
 use Nagara\Src\Metode\MetodeSaw; // load libraries
 
 // query database
@@ -26,7 +26,7 @@ $hasil = $metode->saw($data_siswa, 6 , 0,[
 ```
 
 ### more detail
-```
+```php
 // basic usage
 use Nagara\Src\Metode\MetodeSaw;
 
