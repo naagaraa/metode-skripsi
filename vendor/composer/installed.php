@@ -5,18 +5,18 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'eae106461cfd0e589be7de845cb38f69296e640e',
-        'name' => 'nagara/metode-skripsi',
+        'reference' => '4568e3191a9ae69fd1e4e2a000f8f89917746418',
+        'name' => 'nagara/metode-skripshit',
         'dev' => true,
     ),
     'versions' => array(
-        'nagara/metode-skripsi' => array(
+        'nagara/metode-skripshit' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'eae106461cfd0e589be7de845cb38f69296e640e',
+            'reference' => '4568e3191a9ae69fd1e4e2a000f8f89917746418',
             'dev_requirement' => false,
         ),
         'symfony/polyfill-mbstring' => array(
