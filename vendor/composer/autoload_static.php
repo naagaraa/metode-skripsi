@@ -49,6 +49,7 @@ class ComposerStaticInit6937f89145982d922cbb4611d57fffd1
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Nagara\\Src\\Math\\MatrixClass' => __DIR__ . '/../..' . '/src/matrix/MatrixClass.php',
         'Nagara\\Src\\Metode\\MetodeFuzzySugeno' => __DIR__ . '/../..' . '/src/metode/fuzzy/MetodeFuzzySugeno.php',
+        'Nagara\\Src\\Metode\\MetodeKmeans' => __DIR__ . '/../..' . '/src/metode/k-means/MetodeKmeans.php',
         'Nagara\\Src\\Metode\\MetodeLinearRegresion' => __DIR__ . '/../..' . '/src/metode/linear-regresion/MetodeLinearRegresion.php',
         'Nagara\\Src\\Metode\\MetodeOreste' => __DIR__ . '/../..' . '/src/metode/oreste/MetodeOreste.php',
         'Nagara\\Src\\Metode\\MetodeSaw' => __DIR__ . '/../..' . '/src/metode/saw/MetodeSaw.php',

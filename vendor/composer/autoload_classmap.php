@@ -10,6 +10,7 @@ return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Nagara\\Src\\Math\\MatrixClass' => $baseDir . '/src/matrix/MatrixClass.php',
     'Nagara\\Src\\Metode\\MetodeFuzzySugeno' => $baseDir . '/src/metode/fuzzy/MetodeFuzzySugeno.php',
+    'Nagara\\Src\\Metode\\MetodeKmeans' => $baseDir . '/src/metode/k-means/MetodeKmeans.php',
     'Nagara\\Src\\Metode\\MetodeLinearRegresion' => $baseDir . '/src/metode/linear-regresion/MetodeLinearRegresion.php',
     'Nagara\\Src\\Metode\\MetodeOreste' => $baseDir . '/src/metode/oreste/MetodeOreste.php',
     'Nagara\\Src\\Metode\\MetodeSaw' => $baseDir . '/src/metode/saw/MetodeSaw.php',
