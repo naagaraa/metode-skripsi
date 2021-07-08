@@ -1,4 +1,12 @@
 <?php
+
+/**
+ * @author      Eka Jaya Nagara     
+ * @copyright   Copyright (c), 2021 naagaraa DB class function object
+ * @license     MIT public license
+ */
+
+
 namespace Nagara\Src\Database;
 
 use \PDO;
@@ -6,16 +14,56 @@ use \PDOException;
 
 class DB {
 
+	/**
+	 * string hostname untuk config PDO
+	 * @var string				
+	 */
     private $host;
+
+	/**
+	 * string username untuk config PDO
+	 * @var string				
+	 */
 	private $user;
+
+	/**
+	 * string password untuk config PDO
+	 * @var string				
+	 */
 	private $pass;
+
+	/**
+	 * string database name untuk config PDO
+	 * @var string				
+	 */
 	private $db_name;
+
+	/**
+	 * string database type untuk config PDO
+	 * @var string				
+	 */
 	private $db_type;
 
+	/**
+	 * string database connection untuk config PDO
+	 * @var string				
+	 */
 	private $dbh;
+
+	/**
+	 *  string query sql database pada PDO
+	 * @var string				
+	 */
 	private $statement;
 
 
+	/**
+	 * constructor menerima params untuk configurasi fist time pada database
+	 * @param			| database type
+	 * @param			| hostname
+	 * @param			| username
+	 * @param			| database name
+	 */
 	public function __construct($db_type = "", $host = "localhost", $user = "root", $pass="", $db_name = "")
 	{
         // variabel constructur
