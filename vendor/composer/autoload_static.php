@@ -47,7 +47,8 @@ class ComposerStaticInit6937f89145982d922cbb4611d57fffd1
     public static $classMap = array (
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'Nagara\\Src\\Math\\MatrixClass' => __DIR__ . '/../..' . '/src/matrix/MatrixClass.php',
+        'Nagara\\Src\\Database\\DB' => __DIR__ . '/../..' . '/src/db/DB.php',
+        'Nagara\\Src\\Math\\MatrixClass' => __DIR__ . '/../..' . '/src/math/MatrixClass.php',
         'Nagara\\Src\\Metode\\MetodeFuzzySugeno' => __DIR__ . '/../..' . '/src/metode/fuzzy/MetodeFuzzySugeno.php',
         'Nagara\\Src\\Metode\\MetodeKmeans' => __DIR__ . '/../..' . '/src/metode/k-means/MetodeKmeans.php',
         'Nagara\\Src\\Metode\\MetodeLinearRegresion' => __DIR__ . '/../..' . '/src/metode/linear-regresion/MetodeLinearRegresion.php',

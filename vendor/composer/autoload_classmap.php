@@ -8,7 +8,8 @@ $baseDir = dirname($vendorDir);
 return array(
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    'Nagara\\Src\\Math\\MatrixClass' => $baseDir . '/src/matrix/MatrixClass.php',
+    'Nagara\\Src\\Database\\DB' => $baseDir . '/src/db/DB.php',
+    'Nagara\\Src\\Math\\MatrixClass' => $baseDir . '/src/math/MatrixClass.php',
     'Nagara\\Src\\Metode\\MetodeFuzzySugeno' => $baseDir . '/src/metode/fuzzy/MetodeFuzzySugeno.php',
     'Nagara\\Src\\Metode\\MetodeKmeans' => $baseDir . '/src/metode/k-means/MetodeKmeans.php',
     'Nagara\\Src\\Metode\\MetodeLinearRegresion' => $baseDir . '/src/metode/linear-regresion/MetodeLinearRegresion.php',
