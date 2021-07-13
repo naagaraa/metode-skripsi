@@ -104,10 +104,8 @@ class MetodeKmeans {
         $this->a = $a;
         $this->b = $b;
 
-        // sum n , a and b
+        // sum n 
         $this->n = self::count_n($n);
-        $this->sum_a = self::count_a($a);
-        $this->sum_b = self::count_b($b);
 
         // mencari nilai c1
         $this->c1 = self::c1_result($centroid_1);
@@ -124,17 +122,41 @@ class MetodeKmeans {
         $this->cluster = self::cluster_result();
         $this->sum_cluster = self::count_cluster();
 
-        // mencari nilai centroid baru 1
-        $this->c1_n[0] = ($this->sum_a / $this->sum_cluster["C1"]);
-        $this->c1_n[1] = ($this->sum_b / $this->sum_cluster["C2"]);
+        // menggabungkan nilai dengan cluster
+        $data_baru = [];
+        foreach ($this->cluster as $key => $value) {
+            $data_baru[$key]["cluster"] = $value;
+            $data_baru[$key]["a"] = $this->a[$key];
+            $data_baru[$key]["b"] = $this->b[$key];
+        }
 
-        // mencari nilai centroid baru 1
-        $this->c2_n[0] = ($this->sum_a / $this->sum_cluster["C1"]);
-        $this->c2_n[1] = ($this->sum_b / $this->sum_cluster["C2"]);
+        // menjadi nilai berdasarkan clusternya
+        $a_cluster_c1 = [];
+        $a_cluster_c2 = [];
+        
+        $b_cluster_c1 = [];
+        $b_cluster_c2 = [];
 
-        dump($this->sum_cluster);
-        dump($this->c1_n);
-        dump($this->c2_n);
+        foreach ($data_baru as $key => $value) {
+            if($value["cluster"] == "C1"){
+                $a_cluster_c1[$key] = $value["a"];
+                $b_cluster_c1[$key] = $value["b"];
+            }else{
+                $a_cluster_c2[$key] = $value["a"];
+                $b_cluster_c2[$key] = $value["b"];
+            }
+        }
+
+        
+        // total nilai cluster untuk mencari centroid baru
+        $new_c1[0] = array_sum($a_cluster_c1) / count($a_cluster_c1);
+        $new_c1[1] = array_sum($b_cluster_c1) / count($b_cluster_c1);
+
+        $new_c2[0] = array_sum($a_cluster_c2) / count($a_cluster_c2);
+        $new_c2[1] = array_sum($b_cluster_c2) / count($b_cluster_c2);
+
+        dump($new_c1);
+        dump($new_c2);
 
     }
 

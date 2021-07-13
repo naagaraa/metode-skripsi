@@ -170,7 +170,7 @@ class MetodeLinearRegresion {
      * @param int           | paramter prediction
      * @return  array       | return hasil array
      */
-    public function LinearRegresion_x($x_paramter = [] , $y_paramter = [], $paramter_predixtion_x = 0)
+    public function LinearRegresion_y($x_paramter = [] , $y_paramter = [], $paramter_predixtion_x = 0)
     {
         $this->x = $x_paramter;
         $this->y = $y_paramter;
@@ -200,7 +200,7 @@ class MetodeLinearRegresion {
      * @param int           | paramter prediction
      * @return  array       | return hasil array
      */
-    public function LinearRegresion_y($x_paramter = [] , $y_paramter = [], $paramter_predixtion_y = 0)
+    public function LinearRegresion_x($x_paramter = [] , $y_paramter = [], $paramter_predixtion_y = 0)
     {
         $this->x = $x_paramter;
         $this->y = $y_paramter;
@@ -224,17 +224,17 @@ class MetodeLinearRegresion {
     }
 
 
-    public function MultipleLinearRegresion($x_paramter = [] , $y_paramter = [], $paramter_predixtion = [], $type_regresion_x_or_y = "x")
+    public function MultipleLinearRegresion($x_paramter = [] , $y_paramter = [], $paramter_predixtion = [], $type_regresion_x_or_y = "y")
     {
-        if ($type_regresion_x_or_y == "x") {
+        if ($type_regresion_x_or_y == "y") {
             $regresion = [] ;
             foreach ($paramter_predixtion as $key => $value) {
-                $regresion[$key] = self::LinearRegresion_x($x_paramter, $y_paramter, $value);
+                $regresion[$key] = self::LinearRegresion_y($x_paramter, $y_paramter, $value);
             }
-        }else{
+        }elseif($type_regresion_x_or_y == "x") {
             $regresion =[] ;
             foreach ($paramter_predixtion as $key => $value) {
-              $regresion[$key] = self::LinearRegresion_y($x_paramter, $y_paramter, $value);
+              $regresion[$key] = self::LinearRegresion_x($x_paramter, $y_paramter, $value);
             }
         }
 
