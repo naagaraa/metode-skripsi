@@ -155,8 +155,60 @@ class MetodeKmeans {
         $new_c2[0] = array_sum($a_cluster_c2) / count($a_cluster_c2);
         $new_c2[1] = array_sum($b_cluster_c2) / count($b_cluster_c2);
 
-        dump($new_c1);
-        dump($new_c2);
+
+        // iterasi centroid 1
+        $data[0]["C1"] = $centroid_1;
+        $data[0]["C2"] = $centroid_2;
+
+        // menghasilkan centroid baru pertama
+        $data[1]["C1"] = $new_c1;
+        $data[1]["C2"] = $new_c2;
+
+        // dump($data);
+       
+        $test_recursif = array();
+        for ($i=0; $i < count($data) ; $i++) { 
+            // check index sebelumnya bukan -1 atau lebih kecil dari pada 0
+            if ($i - 1 >= 0) {
+                echo $i - 1 .'<br>';
+                echo $i . '<br>';
+
+
+                // index sebelum terakhir
+                // C1
+                // dump($data[$i-1]["C1"][0]);
+                // dump($data[$i-1]["C1"][1]);
+                // // C2
+                // dump($data[$i-1]["C2"][0]);
+                // dump($data[$i-1]["C2"][1]);
+
+                // // index terakhir
+                // // C1
+                // dump($data[$i]["C1"][0]);
+                // dump($data[$i]["C1"][1]);
+                // // C2
+                // dump($data[$i]["C2"][0]);
+                // dump($data[$i]["C2"][1]);
+
+                if ( ($data[$i]["C1"][0] == $data[$i-1]["C1"][0]) and ( $data[$i]["C1"][1] == $data[$i-1]["C1"][1] ) and ( $data[$i]["C2"][0] == $data[$i-1]["C2"][0] ) and ( $data[$i]["C2"][1] == $data[$i-1]["C2"][1] ) )
+
+                // ( C1 ) and ( C2 )
+                // if ( ( 1.5 == 1.5 ) and ( 1 == 1 ) and (4.5 == 4.5 ) and ( 3.5 == 3.5 ) ) 
+                {
+                   echo "nilai centroid sudah sama";
+                   dump($data);
+                   exit;
+                }else{
+                    echo "nilai centroid belum sama";
+                    $test_recursif = self::EuclidianDistance($n, $a , $b , $new_c1, $new_c2);
+                }
+
+            }
+        }
+
+        dump($test_recursif);
+
+        
 
     }
 
