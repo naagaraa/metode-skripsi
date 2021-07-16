@@ -3,6 +3,26 @@
  * @author      Eka Jaya Nagara     
  * @copyright   Copyright (c), 2021 naagaraa metode skripsi K means
  * @license     MIT public license
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is furnished
+ * to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ * 
+ * 
  */
 namespace Nagara\Src\Metode;
 
@@ -164,14 +184,16 @@ class MetodeKmeans {
         $data[1]["C1"] = $new_c1;
         $data[1]["C2"] = $new_c2;
 
-        // dump($data);
+        // dump($new_c1);
+        // dump($new_c2);
        
-        $test_recursif = array();
+        // dump($b_cluster_c1);
+       
         for ($i=0; $i < count($data) ; $i++) { 
             // check index sebelumnya bukan -1 atau lebih kecil dari pada 0
             if ($i - 1 >= 0) {
-                echo $i - 1 .'<br>';
-                echo $i . '<br>';
+                // echo $i - 1 .'<br>';
+                // echo $i . '<br>';
 
 
                 // index sebelum terakhir
@@ -195,20 +217,17 @@ class MetodeKmeans {
                 // ( C1 ) and ( C2 )
                 // if ( ( 1.5 == 1.5 ) and ( 1 == 1 ) and (4.5 == 4.5 ) and ( 3.5 == 3.5 ) ) 
                 {
-                   echo "nilai centroid sudah sama";
+                   echo "nilai centroid sudah sama <br>";
                    dump($data);
+                    dump($this->elucidian);
                    exit;
                 }else{
-                    echo "nilai centroid belum sama";
-                    $test_recursif = self::EuclidianDistance($n, $a , $b , $new_c1, $new_c2);
+                    echo "nilai centroid belum sama <br>";
+                    self::EuclidianDistance($n, $a , $b , $new_c1, $new_c2);
                 }
 
             }
         }
-
-        dump($test_recursif);
-
-        
 
     }
 
