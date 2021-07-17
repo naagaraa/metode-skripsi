@@ -15,6 +15,7 @@ return array(
     'Nagara\\Src\\Metode\\MetodeLinearRegresion' => $baseDir . '/src/metode/linear-regresion/MetodeLinearRegresion.php',
     'Nagara\\Src\\Metode\\MetodeOreste' => $baseDir . '/src/metode/oreste/MetodeOreste.php',
     'Nagara\\Src\\Metode\\MetodeSaw' => $baseDir . '/src/metode/saw/MetodeSaw.php',
+    'Nagara\\Src\\Metode\\MetodeWP' => $baseDir . '/src/metode/wp/MetodeWP.php',
     'Stringable' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
     'Symfony\\Component\\VarDumper\\Caster\\AmqpCaster' => $vendorDir . '/symfony/var-dumper/Caster/AmqpCaster.php',
     'Symfony\\Component\\VarDumper\\Caster\\ArgsStub' => $vendorDir . '/symfony/var-dumper/Caster/ArgsStub.php',

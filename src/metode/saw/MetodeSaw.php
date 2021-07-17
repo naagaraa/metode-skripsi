@@ -1,5 +1,9 @@
 <?php
 /**
+ * 
+ * this file is single method of PHP Simple Addictive Weight
+ * 
+ * 
  * @author      Eka Jaya Nagara     
  * @copyright   Copyright (c), 2021 naagaraa metode skripsi Simple Adictive Weight
  * @license     MIT public license

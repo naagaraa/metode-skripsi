@@ -1,5 +1,9 @@
 <?php
 /**
+ * 
+ * this file is single method of PHP K-means
+ * 
+ * 
  * @author      Eka Jaya Nagara     
  * @copyright   Copyright (c), 2021 naagaraa metode skripsi K means
  * @license     MIT public license

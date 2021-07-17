@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author      Eka Jaya Nagara     
  * @copyright   Copyright (c), 2021 naagaraa matrix class function object
@@ -6,6 +7,7 @@
  */
 
 namespace Nagara\Src\Math;
+
 use Nagara\Src\Metode\MetodeSaw;
 
 class MatrixClass
@@ -40,7 +42,7 @@ class MatrixClass
      * @param array                 | paramter ketiga nama field atau colum yang diambil
      * @return array
      */
-    public static function make_new_matrix($data = [], $total_column_or_baris_matrix ,$field = [])
+    public static function make_new_matrix($data = [], $total_column_or_baris_matrix, $field = [])
     {
         if (is_string($field)) {
             echo "sorry field yang kamu masukan tidak sesuai format untuk single adalah string dan untuk multiple adalah array silahkan check kembali formatnya";
@@ -55,7 +57,7 @@ class MatrixClass
 
         // membuat matrix baru
         $box_matrix = array();
-        for ($i = 0; $i < $total_column_or_baris_matrix ; $i++) { 
+        for ($i = 0; $i < $total_column_or_baris_matrix; $i++) {
             $box_matrix[$i] = self::make_field_matrix($data, $field[$i]);
         }
 
@@ -71,13 +73,46 @@ class MatrixClass
     public static function flip_matrix($array = [])
     {
         $hasil = array();
-        foreach ($array as $key => $subarr)
-        {
-            foreach ($subarr as $subkey => $subvalue)
-            {
+        foreach ($array as $key => $subarr) {
+            foreach ($subarr as $subkey => $subvalue) {
                 $hasil[$subkey][$key] = $subvalue;
             }
         }
         return $hasil;
+    }
+
+
+    /**
+     * function untuk mencari nilai multiplikasi atau perkalian dalam arry 1D atau single matrix
+     * @param array                 | array yang akan di flip berdasarkan index
+     * @return array
+     * 
+     * fungsi array_reduce(). array_reduce() berfungsi untuk melakukan iterasi
+     * array dari index 0 ke index terakhir dengan menjalankan fungsi reducer
+     * yang kita berikan di parameter ke 2 pada fungsi ini. Fungsi tersebut
+     * memiliki 3 parameter yaitu:
+     * 
+     * 1. Parameter pertama => array yang akan di reduce
+     * 2. Parameter Kedua => fungsi reducer yang akan menerima 2 parameter yaitu 
+     * nilai kembalian fungsi di iterasi sebelumnya, dan nilai element array 
+     * pada posisi sekarang. Note: Pada saat melakukan iterasi pertama (index ke 
+     * 0 array), nilai parameter pertama fungsi reducer merupakan nilai awal
+     * yang diberikan pada parameter ketika fungsi array_reduce()
+     * 3. Parameter ketiga => nilai awal
+     *  
+     */
+
+    public function Matrix_Multiplikasi($array = [])
+    {
+
+        if (!is_array($array)) {
+            echo "value yang dimasukan bukan array, tidak dapat dilakukan multiplikasi";
+            exit;
+        }
+
+        $output = array_reduce($array, function ($prev, $now) {
+            return $prev * $now;
+        }, 1);
+        return $output;
     }
 }
