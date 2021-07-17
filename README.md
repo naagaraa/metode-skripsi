@@ -59,16 +59,16 @@ require_once "./vendor/autoload.php";
 dalam pembuatanya semua metodenya tulis dengan konsep OOP atau object oriented dan ditulis dengan bahasa pemrograman PHP.
 
 - fuzzy
-    - [fuzzy-sugeno](####fuzzy-sugeno)
+    - [fuzzy-sugeno](#fuzzy-sugeno)
 
 - linear-regresion
-    - [simple linear regresion](####linear-regresion)
+    - [simple linear regresion](#linear-regresion)
 
 - simple addive weight (saw)
-    - [simple SAW](####Simple-Adictive-Weight)
+    - [simple SAW](#simple-adictive-weighted)
 
 - weighted Product (wp)
-    - [simple WP](####Weight-Product)
+    - [simple WP](#weighted-product)
 
 - oreste | under development 
 - k means | under development
@@ -235,7 +235,7 @@ var_dump($hasil);
 ```
 
 
-#### Simple-Adictive-Weight
+#### simple-adictive-weighted
 untuk menggunakan Metode SAW beberapa parameter yang dibutuhkan adalah database dalam format 
 array assosiative, jumlah kriteria, index column cost, nama column yang mengandung field 
 kriteria, bobot, dan jumlah bobot. jumlah bobot harus sama dengan jumlah column
@@ -261,7 +261,7 @@ $hasil = $metode->saw($data_siswa, 6 , 0,[
 
 ```
 
-#### Weight-Product
+#### weighted-product
 Weighted Product (WP) merupakan salah satu metode sistem pendukung keputusan yang termasuk ke dalam kategori Fuzzy Multiple Attribute Decision Making (FMADM). Metode weighted product (WP) menggunakan perkalian untuk menghubungkan rating atribut, dimana rating setiap atribut harus dipangkatkan dulu dengan bobot atribut yang bersangkutan.
 
 ```php
