@@ -54,6 +54,7 @@ class ComposerStaticInit6937f89145982d922cbb4611d57fffd1
         'Nagara\\Src\\Metode\\MetodeLinearRegresion' => __DIR__ . '/../..' . '/src/metode/linear-regresion/MetodeLinearRegresion.php',
         'Nagara\\Src\\Metode\\MetodeOreste' => __DIR__ . '/../..' . '/src/metode/oreste/MetodeOreste.php',
         'Nagara\\Src\\Metode\\MetodeSaw' => __DIR__ . '/../..' . '/src/metode/saw/MetodeSaw.php',
+        'Nagara\\Src\\Metode\\MetodeTopsis' => __DIR__ . '/../..' . '/src/metode/topsis/MetodeTopsis.php',
         'Nagara\\Src\\Metode\\MetodeWP' => __DIR__ . '/../..' . '/src/metode/wp/MetodeWP.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'Symfony\\Component\\VarDumper\\Caster\\AmqpCaster' => __DIR__ . '/..' . '/symfony/var-dumper/Caster/AmqpCaster.php',

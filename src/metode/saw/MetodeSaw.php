@@ -28,9 +28,7 @@
  */
 namespace Nagara\Src\Metode;
 use Nagara\Src\Math\MatrixClass;
-/**
- * 
- */
+
 
 class MetodeSaw{
 
