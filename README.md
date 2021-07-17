@@ -37,7 +37,7 @@ require_once "./vendor/autoload.php";
 * Siapapun, berapapun, saya ucapkan terimakasih sebanyak-banyaknya.
 
 ## License
-* **license** [ MIT ](#)
+* **license** [ MIT ](https://github.com/naagaraa/metode-skriphit/blob/main/LICENSE.MD)
 
 <br><br>
 
