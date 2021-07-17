@@ -129,6 +129,7 @@ class MetodeTopsis
         }
 
         dump($new_positif);
+        // https://tugasakhir.id/contoh-perhitungan-spk-metode-topsis/
     }
 
 }
