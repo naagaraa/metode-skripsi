@@ -59,16 +59,18 @@ require_once "./vendor/autoload.php";
 dalam pembuatanya semua metodenya tulis dengan konsep OOP atau object oriented dan ditulis dengan bahasa pemrograman PHP.
 
 - fuzzy
-    - fuzzy-sugeno
+    - [fuzzy-sugeno](####fuzzy-sugeno)
 
 - linear-regresion
-    - simple linear regresion
+    - [simple linear regresion](####linear-regresion)
 
 - simple addive weight (saw)
-    - simple SAW
+    - [simple SAW](####Simple-Adictive-Weight)
+
+- weighted Product (wp)
+    - [simple WP](####Weight-Product)
 
 - oreste | under development 
-- weight product ( wp ) | under development
 - k means | under development
 - other ? | oke let's make something
 
@@ -97,9 +99,14 @@ $y = $matrix->make_field_matrix($data_siswa,"kehadiran");
 // $z = $matrix->make_new_matrix($data, jumlah field, ["field 1","field 2"]);
 $z = $matrix->make_new_matrix($data_siswa, 2, ["kehadiran","kedisiplinan"]);
 
+// multiplikasi matrix atau perkalian array satu Dimenasi
+$example = [1,2,3,4,5];
+$matrix->Matrix_Multiplikasi($example);
+
 var_dump($x); // return new array hanya nilai kedisiplinan
 var_dump($y); // return new array hanya nilai kehadiran
 var_dump($z); // return new array hanya nilai kehadiran dan kedisiplinan
+var_dump($example); // return float
 
 
 
@@ -144,6 +151,8 @@ $db->delete("DELETE FROM `tb_tracking` WHERE id_tracking = 7");
 
 ## Basic Usage
 
+
+
 #### fuzzy-sugeno
 Logika Fuzzy adalah suatu cara yang tepat untuk memetakan suatu ruang input ke dalam ruang output. Untuk sistem yang sangat rumit, penggunaan logika fuzzy (fuzzy logic) adalah salah satu pemecahannya. Sistem tradisional dirancang untuk mengontrol keluaran tunggal yang berasal dari beberapa masukan yang tidak saling berhubungan. fuzzy sugeno tidak berbeda jauh dengan fuzzy mamdani.
 
@@ -174,7 +183,7 @@ if ($hasil_defuzifikasi  > 0) {
 ```
 
 
-#### linear regresion
+#### linear-regresion
 regresi linear adalah sebuah pendekatan untuk memodelkan hubungan antara variable terikat Y dan satu atau lebih variable bebas yang disebut X. Salah satu kegunaan dari regresi linear adalah untuk melakukan prediksi berdasarkan data-data yang telah dimiliki sebelumnya. Hubungan di antara variable-variabel tersebut disebut sebagai model regresi linear.
 
 ```php
@@ -226,7 +235,7 @@ var_dump($hasil);
 ```
 
 
-### Simple Adictive Weight
+#### Simple-Adictive-Weight
 untuk menggunakan Metode SAW beberapa parameter yang dibutuhkan adalah database dalam format 
 array assosiative, jumlah kriteria, index column cost, nama column yang mengandung field 
 kriteria, bobot, dan jumlah bobot. jumlah bobot harus sama dengan jumlah column
@@ -249,6 +258,66 @@ $hasil = $metode->saw($data_siswa, 6 , 0,[
     5,10,15,20,25,25
 ],"hasil");
 
+
+```
+
+#### Weight-Product
+Weighted Product (WP) merupakan salah satu metode sistem pendukung keputusan yang termasuk ke dalam kategori Fuzzy Multiple Attribute Decision Making (FMADM). Metode weighted product (WP) menggunakan perkalian untuk menghubungkan rating atribut, dimana rating setiap atribut harus dipangkatkan dulu dengan bobot atribut yang bersangkutan.
+
+```php
+
+
+use Nagara\Src\Math\MatrixClass;
+use Nagara\Src\Metode\MetodeWP;
+
+
+$matrix = new MatrixClass;
+$metode = new MetodeWP;
+
+
+# siapkan data dalam format array atau matrix
+# sumber referensi pembuatan dari teori ke bentuk code
+# https://bukuinformatika.com/metode-weighted-product/ untuk example gue melakukan
+# translate coding
+
+// contoh untuk 4 data
+$c1 = [7,9,6,9];
+$c2 = [10000,11000,9000,6000];
+$c3 = [6,8,5,7];
+$c4 = [9,8,7,8];
+$c5 = [150,250,120,100];
+
+// contoh untuk 6 data
+// $c1 = [7,9,6,9,8,6];
+// $c2 = [10000,11000,9000,6000,6000,8000];
+// $c3 = [6,8,5,7,7,5];
+// $c4 = [9,8,7,8,8,5];
+// $c5 = [150,250,120,100,100,50];
+
+$matrix_example = [
+	$c1,
+	$c2,
+	$c3,
+	$c4,
+	$c5,
+]; # terdapat totalnya adalah 5 array
+
+$weight = [4,5,2,3,3];	# terdapat totalnya adalah 5 array
+
+$kriteria_weight = [
+	"0" => "keuntungan",
+	"1" => "biaya",
+	"2" => "keuntungan",
+	"3" => "keuntungan",
+	"4" => "biaya",
+]; # type kriteria bobot untuk menetukan pembagian bobot tiap indek melambangkan column
+
+$arr = $matrix->flip_matrix($matrix_example); # flip matrix
+
+# hasil berupa array
+$metode = new MetodeWP;
+$hasil = $metode->WeightProduct($weight,$kriteria_weight,$arr);
+var_dump($hasil); # debug hasil berupa array
 
 ```
 

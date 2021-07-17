@@ -33,6 +33,9 @@ use Nagara\Src\Math\MatrixClass;
  */
 
 class MetodeSaw{
+
+
+    
     /**
      * function menghitung normalisasi
      * @author eka jaya nagara

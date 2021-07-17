@@ -27,24 +27,24 @@ use Nagara\Src\Metode\MetodeWP;
 
 // metode WP
 
+# siapkan data dalam format array atau matrix
+# sumber referensi pembuatan dari teori ke bentuk code
+# https://bukuinformatika.com/metode-weighted-product/ untuk example gue melakukan
+# translate coding
 
-
-
-
-
-
-
-
-
-
-
-
-
+// contoh untuk 4 data
 $c1 = [7,9,6,9];
 $c2 = [10000,11000,9000,6000];
 $c3 = [6,8,5,7];
 $c4 = [9,8,7,8];
 $c5 = [150,250,120,100];
+
+// contoh untuk 6 data
+// $c1 = [7,9,6,9,8,6];
+// $c2 = [10000,11000,9000,6000,6000,8000];
+// $c3 = [6,8,5,7,7,5];
+// $c4 = [9,8,7,8,8,5];
+// $c5 = [150,250,120,100,100,50];
 
 $matrix_example = [
 	$c1,
@@ -55,24 +55,21 @@ $matrix_example = [
 ]; # terdapat totalnya adalah 5 array
 
 $matrix = new MatrixClass;
-$arr = $matrix->flip_matrix($matrix_example);
-
+$arr = $matrix->flip_matrix($matrix_example); # flip matrix
 
 $weight = [4,5,2,3,3];	# terdapat totalnya adalah 5 array
+
 $kriteria_weight = [
 	"0" => "keuntungan",
 	"1" => "biaya",
 	"2" => "keuntungan",
 	"3" => "keuntungan",
 	"4" => "biaya",
-];
+]; # type kriteria bobot untuk menetukan pembagian bobot tiap indek melambangkan column
 
-
+# object MetodeWp
 $metode = new MetodeWP;
-// $metode->normaliasai_bobot($weight, $kriteria_weight);
-// $test = $metode->pembagian_nilai_bobot($kriteria_weight);
-// $metode->vector_s($kriteria_weight, $arr);
-// $metode->vector_v();
+
+# hasil berupa array
 $hasil = $metode->WeightProduct($weight,$kriteria_weight,$arr);
-dump($hasil);
-// dump($test);
+var_dump($hasil);

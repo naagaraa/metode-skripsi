@@ -38,12 +38,34 @@ use Nagara\Src\Math\MatrixClass;
 class MetodeWP
 {
 
-    public $normaliasi_weight;
-    // public $val_wj;
-    public $val_wj;
-    public $val_si;
-    public $val_vi;
+    private $normaliasi_weight;
+    private $val_wj;
+    private $val_si;
+    private $val_vi;
 
+
+
+
+    /**
+     * function menghitung pembagian nilai bobot
+     * 
+     *  example untuk kriteria weight format
+     * index 0 - n melambangkan column atau field
+     * 
+     * $kriteria_weight = [
+     *      "0" => "keuntungan",
+     *      "1" => "biaya",
+     *      "2" => "keuntungan",
+     *      "3" => "keuntungan",
+     *      "4" => "biaya",
+     * ]
+     * 
+     * @author eka jaya nagara
+     * @param array             | type pemabgian kriteria weight atau bobot 
+     * @return array
+     * 
+     * 
+     */
     public function pembagian_nilai_bobot($kriteria_weight = [])
     {
 
@@ -74,6 +96,30 @@ class MetodeWP
     }
 
 
+    /**
+     * function menghitung normalisasi bobot
+     * 
+     *  example untuk format kriteria weight format
+     * index 0 - n melambangkan column atau field
+     *  $kriteria_weight = [
+     *      "0" => "keuntungan",
+     *      "1" => "biaya",
+     *      "2" => "keuntungan",
+     *      "3" => "keuntungan",
+     *      "4" => "biaya",
+     * ]
+     * 
+     * example untuk format bobot
+     * $weight = [4,5,2,3,3];	# terdapat totalnya adalah 5 array
+     * 
+     * 
+     * @author eka jaya nagara
+     * @param array             | nilai bobot pada setiap kriteria
+     * @param array             | type kriteria weight atau bobot 
+     * @return array
+     * 
+     * 
+     */
     public function normaliasai_bobot($bobot = [], $kriteria_weight = [])
     {
         $total_bobot = array_sum($bobot);
@@ -98,8 +144,31 @@ class MetodeWP
         return $this->normaliasi_weight;
     }
 
-   
 
+    /**
+     * function menghitung vector s
+     * 
+     * example untuk format kriteria weight format
+     * index 0 - n melambangkan column atau field
+     * 
+     *  $kriteria_weight = [
+     *      "0" => "keuntungan",
+     *      "1" => "biaya",
+     *      "2" => "keuntungan",
+     *      "3" => "keuntungan",
+     *      "4" => "biaya",
+     * ]
+     * 
+     * example untuk format bobot
+     * $weight = [4,5,2,3,3];	# terdapat totalnya adalah 5 array
+     * 
+     * @author eka jaya nagara
+     * @param array             | type kriteria weight atau bobot 
+     * @param array             | array atau matrix horizontal atau yg sudah di flip
+     * @return array
+     * 
+     * 
+     */
     public function vector_s($kriteria_weight = [], $matrix_cn = [])
     {
 
@@ -108,7 +177,6 @@ class MetodeWP
             foreach ($matrix as $index => $normalisasi) {
                 $pangkat_s = pow($matrix[$index], $this->val_wj[$index]);
                 $pangkat[$key][$index] = $pangkat_s;
-
             }
         }
 
@@ -124,9 +192,16 @@ class MetodeWP
         return $this->val_si;
     }
 
+
+    /**
+     * function menghitung vector v
+     * @author eka jaya nagara
+     * @return array
+     * 
+     */
     public function vector_v()
     {
-        
+
         $temporar = [];
         foreach ($this->val_si as $key => $value) {
             $temporar[$key] = $value / array_sum($this->val_si);
@@ -136,6 +211,48 @@ class MetodeWP
         $this->val_vi = $temporar;
         return $this->val_vi;
     }
+
+    /**
+     * function atau method untuk metode weight product
+     * 
+     *  example untuk format kriteria weight format
+     * index 0 - n melambangkan column atau field
+     *  $kriteria_weight = [
+     *      "0" => "keuntungan",
+     *      "1" => "biaya",
+     *      "2" => "keuntungan",
+     *      "3" => "keuntungan",
+     *      "4" => "biaya",
+     * ]
+     * 
+     * example untuk format bobot
+     * $weight = [4,5,2,3,3];	# terdapat totalnya adalah 5 array
+     * 
+     * example matrix yang belum di flip atau transform:
+     * $matrix_normal = [
+     *      [7,9,6,9],
+     *      [10000,11000,9000,6000],
+     *      [6,8,5,7],
+     *      [9,8,7,8],
+     *      [150,250,120,100],
+     * ];
+     * 
+     * example matrix yang yang sudah di flip atau transform:
+     * $matrix_flix = [
+     *      [7,10000,6,9,150],
+     *      [9,11000,8,8,250],
+     *      [6,9000,5,7,120],
+     *      [9,6000,7,8,100]
+     * ];
+     * 
+     * @author eka jaya nagara
+     * @param array             | nilai bobot pada setiap kriteria
+     * @param array             | type kriteria weight atau bobot 
+     * @param array             | array atau matrix horizontal atau yg sudah di flip
+     * @return array
+     * 
+    
+     */
 
     public function WeightProduct($weight = [], $kriteria_weight = [], $matrix)
     {
