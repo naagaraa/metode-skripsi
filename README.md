@@ -17,6 +17,8 @@ semakin meninggi semakin merunduk, jangan sombong, bantu orang lain, janga mau d
 
 ## INSTALL USED COMPOSER ?
 
+catatan ini versi beta, dan mungkin masih ada bug perhitungan lainnya silahkan di test sendiri 
+
 composer install :
 ```bash
 composer require nagara/metode-skripshit
