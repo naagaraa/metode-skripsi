@@ -71,8 +71,9 @@ dalam pembuatanya semua metodenya tulis dengan konsep OOP atau object oriented d
 
 - weighted Product (wp)
     - [simple WP](#weighted-product)
+	
 - The Technique for Order of Preference by Similarity to Ideal Solution (TOPSIS)
-	- simple topsis | under development
+	- [simple topsis](#topsis)
 	
 - oreste | under development 
 - k means | under development
@@ -324,6 +325,9 @@ $hasil = $metode->WeightProduct($weight,$kriteria_weight,$arr);
 var_dump($hasil); # debug hasil berupa array
 
 ```
+
+### topsis
+under dev
 
 ### next metode comming soon
 
