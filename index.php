@@ -58,5 +58,21 @@ $kriteria_weight = [
 
 $metode = new MetodeTopsis;
 
-$hasil = $metode->topsis($matrix_example,$weight,$kriteria_weight);
-dump($hasil);
+$hasil = $metode->topsis($matrix_example,$weight,$kriteria_weight); // hasil array
+
+echo "Metode Topsis<br><br><br>";
+
+$number = 1;
+foreach ($hasil as $key => $value) {
+	echo "A0".$number++."<br>";
+	foreach ($value as $key => $nilai) {
+		if ($key == 0) {
+			echo "nilai positif {$nilai}<br>";
+		}elseif($key == 1){
+			echo "nilai negatif {$nilai}<br>";
+		}else{
+			echo "nilai preferensi {$nilai}<br>";
+		}
+	}
+	echo "<br>";
+}
