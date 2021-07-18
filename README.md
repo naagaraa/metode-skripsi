@@ -57,7 +57,7 @@ require_once "./vendor/autoload.php";
 * padahal yang udah jadi banyak juga kaya PHP-ML atau PHP-Math tapi tetep aja
 * mau yang dari awal.
 
-## Metode
+## List of Metode
 dalam pembuatanya semua metodenya tulis dengan konsep OOP atau object oriented dan ditulis dengan bahasa pemrograman PHP.
 
 - fuzzy
@@ -71,7 +71,7 @@ dalam pembuatanya semua metodenya tulis dengan konsep OOP atau object oriented d
 
 - weighted Product (wp)
     - [simple WP](#weighted-product)
-	
+
 - The Technique for Order of Preference by Similarity to Ideal Solution (TOPSIS)
 	- [simple topsis](#topsis)
 	
