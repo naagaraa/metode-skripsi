@@ -29,14 +29,22 @@ include "vendor/autoload.php";
 
 use Nagara\Src\Math\MathematicClass;
 use Nagara\Src\Math\MatrixClass;
+use Nagara\Src\Metode\MetodeOreste;
 use Nagara\Src\Metode\MetodeTopsis;
 
-
-$c1 = [5,5,5];
-$c2 = [2,1,3];
-$c3 = [1,1,1];
-$c4 = [4,3,4];
-$c5 = [1,1,1];
+// kriteria value
+/**
+ * Harga
+ * kualitas
+ * pelayanan
+ * daya tarik
+ * lokasi
+ */
+$c1 = [4,4,4,3,3];
+$c2 = [5,4,3,3,3];
+$c3 = [4,3,5,2,2];
+$c4 = [4,3,4,2,2];
+$c5 = [5,4,1,3,3];
 
 $matrix_example = [
 	$c1,
@@ -46,7 +54,8 @@ $matrix_example = [
 	$c5,
 ]; # terdapat totalnya adalah 5 array
 
-$weight = [5,3,4,2,5];	# terdapat totalnya adalah 5 array
+// bobotnya range 1 : 100 
+$weight = [20,30,10,30,10];	# terdapat totalnya adalah 5 array
 
 $kriteria_weight = [
 	"0" => "biaya",
@@ -56,23 +65,31 @@ $kriteria_weight = [
 	"4" => "keuntungan",
 ]; # type kriteria bobot untuk menetukan pembagian bobot tiap indek melambangkan column
 
-$metode = new MetodeTopsis;
+$values = array();
+$values[0] = 5;
+$values[1] = 12;
+$values[2] = 19;
+$values[3] = 9;
+$values[4] = 5;
 
-$hasil = $metode->topsis($matrix_example,$weight,$kriteria_weight); // hasil array
+$metode = new MetodeOreste;
+$hasil = $metode->besson_rank($c1);
+// $hasil = $metode->rank_array($values);
+echo "<br>";
+$hasil = $metode->rank_array($c1);
 
-echo "Metode Topsis<br><br><br>";
 
-$number = 1;
-foreach ($hasil as $key => $value) {
-	echo "A0".$number++."<br>";
-	foreach ($value as $key => $nilai) {
-		if ($key == 0) {
-			echo "nilai positif {$nilai}<br>";
-		}elseif($key == 1){
-			echo "nilai negatif {$nilai}<br>";
-		}else{
-			echo "nilai preferensi {$nilai}<br>";
-		}
-	}
-	echo "<br>";
-}
+
+
+// $ordered_values = $values;
+// rsort($ordered_values);
+
+// foreach ($values as $key => $value) {
+//     foreach ($ordered_values as $ordered_key => $ordered_value) {
+//         if ($value === $ordered_value) {
+//             $key = $ordered_key;
+//             break;
+//         }
+//     }
+//     echo $value . '- Rank: ' . ((int) $key + 1) . '<br/>';
+// }
