@@ -9,6 +9,7 @@ return array(
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Nagara\\Src\\Database\\DB' => $baseDir . '/src/db/DB.php',
+    'Nagara\\Src\\Math\\MathematicClass' => $baseDir . '/src/math/MathematicClass.php',
     'Nagara\\Src\\Math\\MatrixClass' => $baseDir . '/src/math/MatrixClass.php',
     'Nagara\\Src\\Metode\\MetodeFuzzySugeno' => $baseDir . '/src/metode/fuzzy/MetodeFuzzySugeno.php',
     'Nagara\\Src\\Metode\\MetodeKmeans' => $baseDir . '/src/metode/k-means/MetodeKmeans.php',

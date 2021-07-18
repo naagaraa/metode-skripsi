@@ -48,6 +48,7 @@ class ComposerStaticInit6937f89145982d922cbb4611d57fffd1
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Nagara\\Src\\Database\\DB' => __DIR__ . '/../..' . '/src/db/DB.php',
+        'Nagara\\Src\\Math\\MathematicClass' => __DIR__ . '/../..' . '/src/math/MathematicClass.php',
         'Nagara\\Src\\Math\\MatrixClass' => __DIR__ . '/../..' . '/src/math/MatrixClass.php',
         'Nagara\\Src\\Metode\\MetodeFuzzySugeno' => __DIR__ . '/../..' . '/src/metode/fuzzy/MetodeFuzzySugeno.php',
         'Nagara\\Src\\Metode\\MetodeKmeans' => __DIR__ . '/../..' . '/src/metode/k-means/MetodeKmeans.php',

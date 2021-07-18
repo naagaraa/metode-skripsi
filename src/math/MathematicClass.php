@@ -1,9 +1,11 @@
 <?php
 /**
- * this file for tested during I am develop metode skripshit
+ * 
+ * this file is part of action mathematic math class for method skripshit
+ * 
  * 
  * @author      Eka Jaya Nagara     
- * @copyright   Copyright (c), 2021 naagaraa metode skripsi 
+ * @copyright   Copyright (c), 2021 naagaraa math class function object
  * @license     MIT public license
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,38 +27,23 @@
  * THE SOFTWARE.
  * 
  */
-include "vendor/autoload.php";
 
-use Nagara\Src\Math\MathematicClass;
-use Nagara\Src\Math\MatrixClass;
-use Nagara\Src\Metode\MetodeTopsis;
+namespace Nagara\Src\Math;
 
-
-$c1 = [5,5,5];
-$c2 = [2,1,3];
-$c3 = [1,1,1];
-$c4 = [4,3,4];
-$c5 = [1,1,1];
-
-$matrix_example = [
-	$c1,
-	$c2,
-	$c3,
-	$c4,
-	$c5,
-]; # terdapat totalnya adalah 5 array
-
-$weight = [5,3,4,2,5];	# terdapat totalnya adalah 5 array
-
-$kriteria_weight = [
-	"0" => "biaya",
-	"1" => "keuntungan",
-	"2" => "biaya",
-	"3" => "keuntungan",
-	"4" => "keuntungan",
-]; # type kriteria bobot untuk menetukan pembagian bobot tiap indek melambangkan column
-
-$metode = new MetodeTopsis;
-
-$hasil = $metode->topsis($matrix_example,$weight,$kriteria_weight);
-dump($hasil);
+class MathematicClass
+{
+    /**
+     * function for handling division by zero
+     * @author eka jaya nagara
+     * @param int               |  int or float
+     * @return array            |  return new single array
+     */
+    public function division_by_zero($int = 0.0)
+    {
+        if ($int == 0.0) {
+            echo "Cannot divide by zero constant {$int}";
+            return false;
+        }
+        return true;
+    }
+}

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 
  * this file is single method of PHP Technique for Order of Preference by Similarity to Ideal Solution
@@ -26,8 +27,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 namespace Nagara\Src\Metode;
 
+use Nagara\Src\Math\MathematicClass;
 use Nagara\Src\Math\MatrixClass;
 
 
@@ -36,8 +39,17 @@ class MetodeTopsis
     private $normalisasi;
     private $normalisasi_terbobot;
     private $matrix_solusi_ideal;
+    private $positif;
+    private $negatif;
     private $total;
 
+
+    /**
+     * method atau function untuk normalisasi bobot
+     * @author eka jaya nagara
+     * @param array         | bobot atau weight
+     * @return array
+     */
     public function normalisasi_terbobot($weight = [])
     {
         $terbobot = [];
@@ -51,12 +63,18 @@ class MetodeTopsis
         return $terbobot;
     }
 
+    /**
+     * method atau function untuk normalisasi matrix
+     * @author eka jaya nagara
+     * @param array         | matrix nilai kriteria
+     * @return array
+     */
     public function normalisasi($arr = [])
     {
         $temp = [];
         foreach ($arr as $key => $matrix) {
             foreach ($matrix as $index => $value) {
-                $temp[$key][$index] = pow($value,2);
+                $temp[$key][$index] = pow($value, 2);
             }
         }
 
@@ -71,7 +89,7 @@ class MetodeTopsis
         $normalisasi = [];
         foreach ($trasnform as $key => $matrix) {
             foreach ($matrix as $index => $value) {
-                $normalisasi[$key][$index] = ($value / sqrt($count_kriteria[$index])); 
+                $normalisasi[$key][$index] = ($value / sqrt($count_kriteria[$index]));
             }
         }
 
@@ -79,14 +97,20 @@ class MetodeTopsis
         return $this->normalisasi;
     }
 
+    /**
+     * method atau function untuk matrix solusi
+     * @author eka jaya nagara
+     * @param array         | type kriteria
+     * @return array
+     */
     public function matrix_solusi($kriteria = [])
     {
         if (empty($kriteria)) {
             echo "nampaknya kriteria tidak ada";
             exit;
         }
-        
-        
+
+
         $matrix = new MatrixClass;
         $trasnform = $matrix->flip_matrix($this->normalisasi_terbobot);
 
@@ -95,7 +119,7 @@ class MetodeTopsis
             if ($kriteria[$key] == "biaya") {
                 // echo "ini adalah cost<br>";
                 $positif[$key] = min($value);
-            }else{
+            } else {
                 // echo "ini adalah benefit<br>";
                 $positif[$key] = max($value);
             }
@@ -106,30 +130,78 @@ class MetodeTopsis
             if ($kriteria[$key] == "biaya") {
                 // echo "ini adalah cost<br>";
                 $negatif[$key] = max($value);
-            }else{
+            } else {
                 // echo "ini adalah benefit<br>";
                 $negatif[$key] = min($value);
             }
         }
 
-        dump($positif);
-        // dump($negatif);
+        // matrix solusi ideal
+        $matrix_solusi_ideal = [$positif, $negatif];
+        $this->matrix_solusi_ideal = $matrix_solusi_ideal;
+        $this->positif = $positif;
+        $this->negatif = $negatif;
 
-        $new_positif = [];
-        $new_negatif = [];
+        // total
+        return $this->matrix_solusi_ideal;
+    }
 
+    /**
+     * method atau function untuk menghitung total dan mencari preferensi
+     * @author eka jaya nagara
+     * @param array         | nilai positif
+     * @param array         | nilai negatif
+     * @return array
+     */
+    public function total($positif = [], $negatif = [])
+    {
+        // mencari nilai kuadrat
+        $new_positif_kuadrat = [];
+        $new_negatif_kuadrat = [];
         foreach ($this->normalisasi_terbobot as $key => $matrix) {
-            dump($key);
-            foreach ($positif as $index => $value) {
-                $new_positif[$key][$index] = pow(($matrix[$index] - $positif[$index]),2);
-                // dump($positif[$index]);
-                // dump($matrix[$index]);
-                // dump($value);
+            foreach ($matrix as $index => $value) {
+                $new_positif_kuadrat[$key][$index] = pow($value - $positif[$index], 2);
+                $new_negatif_kuadrat[$key][$index] = pow($value - $negatif[$index], 2);
             }
         }
 
-        dump($new_positif);
-        // https://tugasakhir.id/contoh-perhitungan-spk-metode-topsis/
+        // mencari nilai akar kuadrat
+        $new_positif = [];
+        $new_negatif = [];
+        foreach ($new_positif_kuadrat as $key => $matrix) {
+            $new_positif[$key] = sqrt(array_sum($matrix));
+        }
+        foreach ($new_negatif_kuadrat as $key => $matrix) {
+            $new_negatif[$key] = sqrt(array_sum($matrix));
+        }
+
+
+        // mencari nilai preferensi
+        $preferensi = [];
+        foreach ($new_positif as $key => $value) {
+            MathematicClass::division_by_zero($value + $new_negatif[$key]);
+            $preferensi[$key] = $new_negatif[$key] / ($value + $new_negatif[$key]);
+        }
+
+        // nilai total
+        $total = [$new_positif, $new_negatif, $preferensi];
+        $this->total = $total;
+        return $this->total;
     }
 
+    /**
+     * method atau function untuk method topsis
+     * @author eka jaya nagara
+     * @param array         | matrix value kriteria
+     * @param array         | bobot atau weight
+     * @param array         | type kriteria
+     * @return array
+     */
+    public function topsis($matrix = [], $weight = [], $kriteria_weight = [])
+    {
+        self::normalisasi($matrix);
+        self::normalisasi_terbobot($weight);
+        self::matrix_solusi($kriteria_weight);
+        return self::total($this->positif, $this->negatif);
+    }
 }
