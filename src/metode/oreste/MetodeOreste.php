@@ -16,6 +16,7 @@ class MetodeOreste
 {
 
     private $ranked;
+    private $bessonRank;
 
     public function rank_array($values = [])
     {
@@ -37,6 +38,8 @@ class MetodeOreste
         return $result;
     }
 
+
+
     public function besson_rank($arr = [])
     {
         // urutkan dari yang terbesar
@@ -46,59 +49,89 @@ class MetodeOreste
         $similar_value = [];
         $similar_value = array_count_values($arr);
 
-        foreach ($similar_value as $key => $value) {
-            // dump($key);
-        }
-
-        // dump($arr);
-
         $rangked = [];
-        $rank = [];
         foreach ($arr as $key => $alternative) {
             foreach ($similar_value as $index => $value) {
                 // mencari mengurutkan nilai yang sama
                 if ($alternative === $index) {
                     $rank_index = $key + 1;
-                    $rank[$key] = "nilai sama {$index} ranked ke - {$rank_index}";
+                    // $rank[$key] = "nilai sama {$index} ranked ke - {$rank_index}";
                     $rangked[$rank_index] = $index;
                 }
             }
         }
 
-        dump($rank);
-        dump($similar_value);
-
+        // echo "counter<br>";
         // dump($similar_value);
+
         $result = [];
-        $found = FALSE;
         $x = 0;
         foreach ($similar_value as $key => $counter) {
             foreach ($rangked as $rank => $value) {
 
-
+                // jika syarat kondisi tidak terpenuhi maka skip
                 if ($value !== $key) {
                     $x = 0;
                     continue;
-                } 
-                
+                }
+
+                // mencari nilai untuk mean step pertama
                 if ($value == $key) {
                     $x = $rank + $x;
-                    // dump("{$rank} ditambah {$x}");
                     $result[$key] = $x;
-                } 
-
-                dump($counter);
-                
+                }
             }
         }
 
+        // echo "total yang akan dibuat mean <br>";
+        // dump($result);
+        $result_2 = [];
+        foreach ($result as $key => $value) {
+            $result_2[$key] = $value / $similar_value[$key];
+        }
 
-        dump($result);
+        // echo "mean<br>";
+        // dump($result_2);
+
+        $besson_rank = [];
+        foreach ($rangked as $rank => $value) {
+            foreach ($result_2 as $key => $mean) {
+                if ($value === $key) {
+                    $besson_rank[$rank] = $mean;
+                }
+            }
+        }
+
+        return $besson_rank;
     }
 
-    public function check_duplicate_value_count($arr = [])
+
+
+
+    public function multiple_besson_rank($matrix = [])
     {
-        $dups = array_count_values($arr);
-        return $dups;
+        $besson_rank = [];
+        foreach ($matrix as $key => $value) {
+            $besson_rank[$key] = self::besson_rank($value);
+        }
+
+        $this->besson_rank = $besson_rank;
+    }
+
+    public function distance_score()
+    {
+        $value_of_distance = [];
+        foreach ($this->besson_rank as $key => $arr) {
+            $x = count($arr);
+            foreach ($arr as $index => $value) {
+            }
+            dump($x);
+        }
+    }
+
+    public function preferensi($matrix = [])
+    {
+       self::multiple_besson_rank($matrix);
+       self::distance_score();
     }
 }
