@@ -40,6 +40,7 @@ use Nagara\Src\Metode\MetodeTopsis;
  * daya tarik
  * lokasi
  */
+// $c1 = [3,4,2,2,5];
 $c1 = [4,4,4,3,3];
 $c2 = [5,4,3,3,3];
 $c3 = [4,3,5,2,2];
@@ -73,13 +74,13 @@ $values[3] = 9;
 $values[4] = 5;
 
 $metode = new MetodeOreste;
-$hasil = $metode->besson_rank($c1);
+$hasil = $metode->besson_rank($c2);
 // $hasil = $metode->rank_array($values);
 echo "<br>";
-$hasil = $metode->rank_array($c1);
+// $hasil = $metode->rank_array($c1);
 
 
-
+// dump($hasil);
 
 // $ordered_values = $values;
 // rsort($ordered_values);
@@ -93,3 +94,44 @@ $hasil = $metode->rank_array($c1);
 //     }
 //     echo $value . '- Rank: ' . ((int) $key + 1) . '<br/>';
 // }
+
+
+  
+// // Create a 2D array
+// $arr = array(
+//     array (105, 96, 112), 
+//     array(96, 45, 63) 
+// );
+  
+// // Initialize a number which
+// // need to fine in the array
+// $num = 4;
+  
+// // Declare a boolean variable and
+// // initialize it with false
+// $found = FALSE;
+  
+// // Outer loop
+// for($i = 0; $i < 2; $i++) {
+      
+//     // Inner loop
+//     for($j = 0; $j < 3; $j++) {
+          
+//         if($num == $arr[$i][$j]) {
+//             $found = TRUE;
+              
+//             // Terminate the outer loop
+//             // using goto keyword
+//             goto terminateLoop;
+//         }
+//     } 
+// }
+  
+// // target label
+// terminateLoop:
+  
+// // Check number is found or not
+// if( $found )
+//     echo $num . " is found in the array";
+// else
+//     echo $num . " is not found in the given array";
