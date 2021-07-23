@@ -17,6 +17,7 @@ class MetodeOreste
 
     private $ranked;
     private $bessonRank;
+    private $distanceScore;
 
     public function rank_array($values = [])
     {
@@ -101,7 +102,6 @@ class MetodeOreste
                 }
             }
         }
-
         return $besson_rank;
     }
 
@@ -112,11 +112,13 @@ class MetodeOreste
     {
         $besson_rank = [];
         foreach ($matrix as $key => $value) {
-            $besson_rank[$key] = self::besson_rank($value);
+            $besson_rank[$key+1] = self::besson_rank($value);
         }
-
+        // dump($besson_rank);
         $this->besson_rank = $besson_rank;
     }
+
+
 
     public function distance_score()
     {
@@ -124,14 +126,31 @@ class MetodeOreste
         foreach ($this->besson_rank as $key => $arr) {
             $x = count($arr);
             foreach ($arr as $index => $value) {
+                $p1 = (0.5 * pow($value,3));
+                $p2 = (0.5 * pow($key,3));
+                $score =  $p1 + $p2;
+                $score = pow($score, 1/3);
+                $value_of_distance[$key][$index] = $score;
             }
-            dump($x);
         }
+        $this->distanceScore = $value_of_distance;
+        return $value_of_distance;
+
     }
 
-    public function preferensi($matrix = [])
+
+
+
+    public function preferensi($matrix = [], $bobot = [])
     {
        self::multiple_besson_rank($matrix);
        self::distance_score();
+       $matrix = new MatrixClass;
+       $trasform = $matrix->flip_matrix($this->distanceScore);
+       
+       
     }
+
+
+
 }
