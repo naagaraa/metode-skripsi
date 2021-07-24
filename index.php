@@ -41,11 +41,11 @@ use Nagara\Src\Metode\MetodeTopsis;
  * lokasi
  */
 // $c1 = [3,4,2,2,5];
-$c1 = [4,4,4,3,3];
-$c2 = [5,4,3,3,3];
-$c3 = [4,3,5,2,2];
-$c4 = [4,3,4,2,2];
-$c5 = [5,4,1,3,3];
+$c1 = [4,4,4,3,3,1];
+$c2 = [5,4,3,3,3,5];
+$c3 = [4,3,5,2,2,5];
+$c4 = [4,3,4,2,2,3];
+$c5 = [5,4,1,3,3,1];
 
 $matrix_example = [
 	$c1,
@@ -56,7 +56,7 @@ $matrix_example = [
 ]; # terdapat totalnya adalah 5 array
 
 // bobotnya range 1 : 100 
-$weight = [20,30,10,30,10];	# terdapat totalnya adalah 5 array
+$weight = [0.3,0.1,0.2,0.1,0.3];	# terdapat totalnya adalah 5 array
 
 $kriteria_weight = [
 	"0" => "biaya",
@@ -66,16 +66,22 @@ $kriteria_weight = [
 	"4" => "keuntungan",
 ]; # type kriteria bobot untuk menetukan pembagian bobot tiap indek melambangkan column
 
-$values = array();
-$values[0] = 5;
-$values[1] = 12;
-$values[2] = 19;
-$values[3] = 9;
-$values[4] = 5;
 
+// buat object baru
 $metode = new MetodeOreste;
-// $hasil = $metode->besson_rank($c3);
-// $hasil = $metode->multiple_besson_rank($matrix_example);
-// $hasil = $metode->rank_array($values);
-$hasil = $metode->preferensi($matrix_example);
-echo "<br>";
+$oreste = $metode->oreste($matrix_example, $weight);
+
+// get value only
+$besson = $metode->getBessonRank();
+$distanceScore = $metode->getDistanceScore();
+$preferensi = $metode->getPreferensi();
+
+
+echo "besson rank <br>";
+dump($besson);
+echo "distance score <br>";
+dump($distanceScore);
+echo "preferensi <br>";
+dump($preferensi);
+echo "oreste<br>";
+dump($oreste);
