@@ -303,4 +303,76 @@ class MetodeLinearRegresion {
 
         return $combine_data;
     }
+
+    // mulai dari sini adalah method getter
+
+    /**
+     * method untuk getter value x kuadrat
+     * @author eka jaya nagara
+     * @return array
+     */
+    public function getValueX2()
+    {
+        return $this->x2;
+    }
+
+    /**
+     * method untuk getter value y kuadrat
+     * @author eka jaya nagara
+     * @return array
+     */
+    public function getValueY2()
+    {
+        return $this->y2;
+    }
+
+     /**
+     * method untuk getter value x dikali y
+     * @author eka jaya nagara
+     * @return array
+     */
+    public function getValueXY()
+    {
+        return $this->xy;
+    }
+
+     /**
+     * method untuk getter constana A
+     * @author eka jaya nagara
+     * @return float
+     */
+    public function getConstA()
+    {
+        return $this->const_a;
+    }
+
+     /**
+     * method untuk getter value const B
+     * @author eka jaya nagara
+     * @return float
+     */
+    public function getConstB()
+    {
+        return $this->const_b;
+    }
+
+     /**
+     * method untuk getter total dari x, y, x kuadrat, y kuadrat, xy
+     * @author eka jaya nagara
+     * @return array
+     */
+    public function getSUMValue()
+    {
+        return $this->n;
+    }
+
+     /**
+     * method untuk getter regresion
+     * @author eka jaya nagara
+     * @return float
+     */
+    public function getRegresion()
+    {
+       return $this->regresion;
+    }
 }
