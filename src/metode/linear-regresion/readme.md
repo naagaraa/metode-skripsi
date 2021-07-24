@@ -1,7 +1,7 @@
 ### Simple Regresi Linear  
 
 regresi linear adalah sebuah pendekatan untuk memodelkan hubungan antara variable terikat Y dan satu atau lebih variable bebas yang disebut X. Salah satu kegunaan dari regresi linear adalah untuk melakukan prediksi berdasarkan data-data yang telah dimiliki sebelumnya. Hubungan di antara variable-variabel tersebut disebut sebagai model regresi linear.
-
+referensi dalam pembuatan https://teknikelektronika.com/analisis-regresi-linear-sederhana-simple-linear-regression/
 ### how to use
 ```php
 use Nagara\Src\Metode\MetodeLinearRegresion; // load libraries
