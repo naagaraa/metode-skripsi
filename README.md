@@ -156,11 +156,11 @@ $db->delete("DELETE FROM `tb_tracking` WHERE id_tracking = 7");
 ```
 
 
-## Basic Usage
+# Basic Usage
 
 
 
-#### fuzzy-sugeno
+## fuzzy-sugeno
 Logika Fuzzy adalah suatu cara yang tepat untuk memetakan suatu ruang input ke dalam ruang output. Untuk sistem yang sangat rumit, penggunaan logika fuzzy (fuzzy logic) adalah salah satu pemecahannya. Sistem tradisional dirancang untuk mengontrol keluaran tunggal yang berasal dari beberapa masukan yang tidak saling berhubungan. fuzzy sugeno tidak berbeda jauh dengan fuzzy mamdani.
 
 ```php
@@ -190,7 +190,7 @@ if ($hasil_defuzifikasi  > 0) {
 ```
 
 
-#### linear-regresion
+## linear-regresion
 regresi linear adalah sebuah pendekatan untuk memodelkan hubungan antara variable terikat Y dan satu atau lebih variable bebas yang disebut X. Salah satu kegunaan dari regresi linear adalah untuk melakukan prediksi berdasarkan data-data yang telah dimiliki sebelumnya. Hubungan di antara variable-variabel tersebut disebut sebagai model regresi linear.
 
 ```php
@@ -242,7 +242,7 @@ var_dump($hasil);
 ```
 
 
-#### simple-adictive-weighted
+## simple-adictive-weighted
 untuk menggunakan Metode SAW beberapa parameter yang dibutuhkan adalah database dalam format 
 array assosiative, jumlah kriteria, index column cost, nama column yang mengandung field 
 kriteria, bobot, dan jumlah bobot. jumlah bobot harus sama dengan jumlah column
@@ -268,7 +268,7 @@ $hasil = $metode->saw($data_siswa, 6 , 0,[
 
 ```
 
-#### weighted-product
+## weighted-product
 Weighted Product (WP) merupakan salah satu metode sistem pendukung keputusan yang termasuk ke dalam kategori Fuzzy Multiple Attribute Decision Making (FMADM). Metode weighted product (WP) menggunakan perkalian untuk menghubungkan rating atribut, dimana rating setiap atribut harus dipangkatkan dulu dengan bobot atribut yang bersangkutan.
 
 ```php
@@ -328,7 +328,7 @@ var_dump($hasil); # debug hasil berupa array
 
 ```
 
-#### TOPSIS
+## TOPSIS
 
 TOPSIS (Technique For Others Reference by Similarity to Ideal Solution) adalah salah satu metode pengambilan keputusan multikriteria yang pertama kali diperkenalkan oleh Yoon dan Hwang (1981). TOPSIS menggunakan prinsip bahwa alternatif yang terpilih harus mempunyai jarak terdekat dari solusi ideal positif dan terjauh dari solusi ideal negatif dari sudut pandang geometris dengan menggunakan jarak Euclidean untuk menentukan kedekatan relatif dari suatu alternatif dengan solusi optimal. reference dalam proses pembuatan https://tugasakhir.id/contoh-perhitungan-spk-metode-topsis/
 
@@ -385,7 +385,7 @@ foreach ($hasil as $key => $value) {
 
 ```
 
-#### oreste
+## oreste
 
 Metode Oreste adalah salah satu metode pengambilan keputusan multi criteria atau yang lebih dikenal dengani stilah Multi Criteria Decision Making (MCDM). MCDM digunakan untuk menyelesaikan permasalahan dengan kriteria yang bertentangan untuk dapat mengambil keputusan untuk mencapai keputusan akhir.
 
@@ -443,5 +443,5 @@ dump($oreste);
 ```
 
 
-### next metode comming soon
+## next metode comming soon
 
