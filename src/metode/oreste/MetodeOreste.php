@@ -255,7 +255,9 @@ class MetodeOreste
      */
     public function getBessonRank()
     {
-        return $this->besson_rank;
+        $matrix = new MatrixClass;
+        $besson = $matrix->flip_matrix($this->besson_rank);
+        return $besson;
     }
 
      /**
@@ -265,7 +267,9 @@ class MetodeOreste
      */
     public function getDistanceScore()
     {
-        return $this->distanceScore;
+        $matrix = new MatrixClass;
+        $distanceScore = $matrix->flip_matrix($this->distanceScore);
+        return $distanceScore;
     }
 
      /**
@@ -285,6 +289,8 @@ class MetodeOreste
      */
     public function getTempPreferensi()
     {
-        return $this->temp_preferensi;
+        $matrix = new MatrixClass;
+        $tmp_preferensi = $matrix->flip_matrix($this->temp_preferensi);
+        return $tmp_preferensi;
     }
 }

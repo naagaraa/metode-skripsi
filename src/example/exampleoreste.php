@@ -1,7 +1,7 @@
 <?php
 
 /**
- * this file for tested during I am develop metode skripshit
+ * this example view formula in html code
  * 
  * @author      Eka Jaya Nagara     
  * @copyright   Copyright (c), 2021 naagaraa metode skripsi 
@@ -26,7 +26,7 @@
  * THE SOFTWARE.
  * 
  */
-include "vendor/autoload.php";
+include "../../vendor/autoload.php";
 
 use Nagara\Src\Math\MatrixClass;
 use Nagara\Src\Metode\MetodeOreste;
@@ -78,8 +78,29 @@ $preferensi = $metode->getPreferensi();
 
 <body>
 	<div class="container mt-5 mb-5">
-		<h1 class="mt-5 mb-5">Metode Oreste</h1>
-		<h3 class="mt-2 mb-2">Matrix</h3>
+		<h1 class="mt-5">Metode Oreste</h1>
+		<p class="mb-5" >this my question ? user non programer or math need this formula ? hahaha mybe user just only want the final result not table formula . oke nope. let's make it</p>
+
+
+		<h3 class="mt-2 mb-2">Weight / Bobot</h3>
+		<table class="table mt-2">
+			<thead>
+				<tr>
+					<th scope="col">Weight</th>
+					<th scope="col">index</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach ($weight as $index => $value) : ?>
+					<tr>
+						<td><?= $index + 1 ?></td>
+						<td><?= $value ?></td>
+					</tr>
+				<?php endforeach; ?>
+			</tbody>
+		</table>
+
+		<h3 class="mt-5 mb-2">Matrix</h3>
 		<table class="table mt-2">
 			<thead>
 				<tr>
@@ -104,7 +125,7 @@ $preferensi = $metode->getPreferensi();
 		</table>
 
 
-		<h3 class="mt-2 mb-2">Besson Rank</h3>
+		<h3 class="mt-5 mb-2">Besson Rank</h3>
 		<table class="table mt-2">
 			<thead>
 				<tr>
@@ -128,7 +149,7 @@ $preferensi = $metode->getPreferensi();
 			</tbody>
 		</table>
 
-		<h3 class="mt-2 mb-2">Distance Score</h3>
+		<h3 class="mt-5 mb-2">Distance Score</h3>
 		<table class="table mt-2">
 			<thead>
 				<tr>
@@ -153,7 +174,7 @@ $preferensi = $metode->getPreferensi();
 		</table>
 
 
-		<h3 class="mt-2 mb-2">Preferensi</h3>
+		<h3 class="mt-5 mb-2">Preferensi</h3>
 		<table class="table mt-2">
 			<thead>
 				<tr>
