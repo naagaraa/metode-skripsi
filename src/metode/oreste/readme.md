@@ -2,7 +2,25 @@
 
 Metode Oreste adalah salah satu metode pengambilan keputusan multi criteria atau yang lebih dikenal dengani stilah Multi Criteria Decision Making (MCDM). MCDM digunakan untuk menyelesaikan permasalahan dengan kriteria yang bertentangan untuk dapat mengambil keputusan untuk mencapai keputusan akhir.
 
-### how to use
+## Explain Metode : teori
+coming soon
+
+
+### method available
+```php
+// basic usage
+use Nagara\Src\Metode\MetodeOreste;
+
+$metode = new MetodeOreste;
+$metode->oreste("matrix-data", "matrix-bobot");
+$metode->getBessonRank();
+$metode->getDistanceScore();
+$metode->getPreferensi();
+
+```
+
+
+### basic  to use
 ```php
 use Nagara\Src\Metode\MetodeOreste; // load libraries
 
@@ -42,26 +60,12 @@ $besson = $metode->getBessonRank();
 $distanceScore = $metode->getDistanceScore();
 $preferensi = $metode->getPreferensi();
 
-// result bentuk array
-echo "besson rank <br>";
+// debug result bentuk array
 dump($besson);
-echo "distance score <br>";
 dump($distanceScore);
-echo "preferensi <br>";
 dump($preferensi);
-echo "oreste<br>";
 dump($oreste);
 
-
-```
-
-### more detail
-```php
-// basic usage
-use Nagara\Src\Metode\MetodeOreste;
-
-$metode = new MetodeOreste;
-$oreste = $metode->oreste("matrix", "bobot");
 
 ```
 

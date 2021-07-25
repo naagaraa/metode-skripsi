@@ -5,7 +5,26 @@ Weighted Product (WP) merupakan salah satu metode sistem pendukung keputusan yan
 ## Explain Metode : teori
 coming soon
 
-### how to use
+### method available
+```php
+// basic usage
+use Nagara\Src\Metode\MetodeWP;
+
+// create object
+$metode = new MetodeWP;
+
+// init
+$metode->WeightProduct("matrix-weight","matrix-kriteria-type","matrix");
+
+// method getter
+$metode->getValueWj();
+$metode->getValueSi();
+$metode->getValueVi();
+$metode->getNormalisasiWeight();
+
+```
+
+### basic to use
 ```php
 
 use Nagara\Src\Math\MatrixClass;
@@ -61,19 +80,7 @@ $hasil = $metode->WeightProduct($weight,$kriteria_weight,$arr);
 var_dump($hasil); # debug hasil berupa array
 ```
 
-### more detail
-```php
-// basic usage
-use Nagara\Src\Metode\MetodeWP;
 
-$metode = new MetodeSaw;
-
-# hasil berupa array
-$metode = new MetodeWP;
-$hasil = $metode->WeightProduct($weight,$kriteria_weight,$arr);
-var_dump($hasil); # debug hasil berupa array
-
-```
 
 ### keterangan
 - weight adalah nilai bobot

@@ -2,6 +2,35 @@
 
 regresi linear adalah sebuah pendekatan untuk memodelkan hubungan antara variable terikat Y dan satu atau lebih variable bebas yang disebut X. Salah satu kegunaan dari regresi linear adalah untuk melakukan prediksi berdasarkan data-data yang telah dimiliki sebelumnya. Hubungan di antara variable-variabel tersebut disebut sebagai model regresi linear.
 referensi dalam pembuatan https://teknikelektronika.com/analisis-regresi-linear-sederhana-simple-linear-regression/
+
+
+## Explain Metode : teori
+coming soon
+
+
+### method available
+```php
+// basic usage
+use Nagara\Src\Metode\MetodeLinearRegresion; 
+
+// create new object
+$metode = new MetodeLinearRegresion;
+
+// init
+$metode->MultipleLinearRegresion($x, $y , $z, "x");
+
+// getter
+$metode->LinearRegresion_x("x", "y", "predictor_X");
+$metode->LinearRegresion_y("x", "y", "predictor_Y");
+$metode->getConstA();
+$metode->getConstB();
+$metode->getValueX2();
+$metode->getValueY2();
+$metode->getValueXY();
+
+```
+
+
 ### how to use
 ```php
 use Nagara\Src\Metode\MetodeLinearRegresion; // load libraries
@@ -40,27 +69,13 @@ $multiple_x = $metode->MultipleLinearRegresion($x, $y , $z, "x");
 $hasil = $metode->Combine_LinearRegresion($data_siswa, $x, $y ,$z, "x", "result_akhir");
 
 // debug hasil menggunakan dump
-var_dump($prediction_single_y);
-var_dump($prediction_single_x);
-var_dump($multiple_x );
-var_dump($multiple_y );
-var_dump($hasil);
+dump($prediction_single_y);
+dump($prediction_single_x);
+dump($multiple_x );
+dump($multiple_y );
+dump($hasil);
 
 
-
-```
-
-### more detail
-```php
-// basic usage
-use Nagara\Src\Metode\MetodeLinearRegresion; 
-
-// create new object
-$metode = new MetodeLinearRegresion;
-
-// single prediction
-$prediction_single_x = $metode->LinearRegresion_x($x, $y, 30);   // return 19.12 prediksi cacat
-$prediction_single_y = $metode->LinearRegresion_y($x, $y, 4);  // return 19.57 prediksi suhu
 
 ```
 
