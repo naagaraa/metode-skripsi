@@ -9,8 +9,8 @@ just make video for self documentation during I am new learning something, solve
 
 ## WARNING !
 i don't care about hater, hahaha you like stupid people. only can send negative commnet, without
-understand about what video i make it hahahha. if you not agree please leave don't watch ahahaha. if you
-have solution please send positif commnet and help other people !
+understand about what i make it hahahha. if you not agree please leave don't read ahahaha. if you
+have solution please send positif comment and help other people !
 
 ## INFO
 semakin meninggi semakin merunduk, jangan sombong, bantu orang lain, janga mau dimanfaatkan demi kepentingan yang merugikan diri sendiri. *note* : jika saya mood

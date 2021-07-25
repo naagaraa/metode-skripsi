@@ -42,6 +42,7 @@ class MetodeTopsis
     private $positif;
     private $negatif;
     private $total;
+    private $totalValue;
 
 
     /**
@@ -203,5 +204,47 @@ class MetodeTopsis
         self::normalisasi_terbobot($weight);
         self::matrix_solusi($kriteria_weight);
         return self::total($this->positif, $this->negatif);
+    }
+
+    /**
+     * method atau function untuk get value normalisasi
+     * @author eka jaya nagara
+     * @return array
+     */
+    public function getNormalisasi()
+    {
+        return $this->normalisasi;
+    }
+
+    /**
+     * method atau function untuk get value normalisasi terbobot
+     * @author eka jaya nagara
+     * @return array
+     */
+    public function getNormalisasiTerbobot()
+    {
+        return $this->normalisasi_terbobot;
+    }
+
+    /**
+     * method atau function untuk get value matrix solusi ideal
+     * @author eka jaya nagara
+     * @return array
+     */
+    public function getMatrixSolusiIdeal()
+    {
+        return $this->matrix_solusi_ideal;
+    }
+
+    /**
+     * method atau function untuk get value total
+     * @author eka jaya nagara
+     * @return array
+     */
+    public function getTotal()
+    {
+        $matrix = new MatrixClass;
+        $trasnform = $matrix->flip_matrix($this->total);
+        return $trasnform;
     }
 }

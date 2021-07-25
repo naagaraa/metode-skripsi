@@ -186,7 +186,7 @@ $preferensi = $metode->getPreferensi();
 			<tbody>
 				<?php 
 				sort($preferensi);
-				$counter = 1;
+				$counter = 0;
 				?>
 				<?php foreach ($preferensi as $rank => $value) : ?>
 					<?php $counter++ ?>
