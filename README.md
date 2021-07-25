@@ -156,7 +156,7 @@ $db->delete("DELETE FROM `tb_tracking` WHERE id_tracking = 7");
 ```
 
 
-# Basic Usage
+# Basic Usage Metode
 
 
 
