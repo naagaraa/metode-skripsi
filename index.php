@@ -28,5 +28,31 @@
  */
 include "vendor/autoload.php";
 
+use Nagara\Src\Database\DB;
 use Nagara\Src\Math\MatrixClass;
-use Nagara\Src\Metode\MetodeWP;
+use Nagara\Src\Metode\MetodeSaw; // load libraries
+
+
+// untuk config bisa di pass ke variabel atau langsung ke constructornya
+$type = "mysql";
+$servername = "localhost";
+$database = "saw-database";
+$username = "root";
+$password = "";
+
+// pass ke constructorynya
+$db = new DB($type, $servername, $username, $password, $database);
+
+// query database
+$data_siswa = $db->select("SELECT * FROM normalisasi");
+
+
+// Object Oriented
+$metode = new MetodeSaw;
+$hasil = $metode->saw($data_siswa, 6 , 0,[
+    "kedisiplinan", "kehadiran", "nilai_raport","nilai_keterampilan", "nilai_kebaikan","nilai_kesehatan"
+],[
+    5,10,15,20,25,25
+],"hasil");
+
+dump($hasil);

@@ -17,7 +17,7 @@ $password = "";
 $db = new DB($type, $servername, $username, $password, $database);
 
 // SELECT
-$select = $db->where('SELECT * FROM tb_tracking');
+$select = $db->select('SELECT * FROM tb_tracking');
 
 // SELECT WHERE
 $where = $db->where('SELECT id_tracking, nama_tracking FROM tb_tracking WHERE id_tracking = 1');

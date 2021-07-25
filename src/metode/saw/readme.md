@@ -5,14 +5,41 @@ array assosiative, jumlah kriteria, index column cost, nama column yang mengandu
 kriteria, bobot, dan jumlah bobot. jumlah bobot harus sama dengan jumlah column
 kriterianya.
 
+## Explain Metode : teori
+coming soon
+
+
+### method available
+```php
+// basic usage
+use Nagara\Src\Metode\MetodeSaw;
+
+$metode = new MetodeSaw;
+$metode->saw("data-dari-database", "jumlah-column-kriteria" , "index-column-cost",["nama-column-kriteria"],[ "value-bobot" ],"hasil-column-baru");
+
+```
+
+
 ### how to use
 ```php
+use Nagara\Src\Database\DB;
+use Nagara\Src\Math\MatrixClass;
 use Nagara\Src\Metode\MetodeSaw; // load libraries
 
+
+// untuk config bisa di pass ke variabel atau langsung ke constructornya
+$type = "mysql";
+$servername = "localhost";
+$database = "saw-database";
+$username = "root";
+$password = "";
+
+// pass ke constructorynya
+$db = new DB($type, $servername, $username, $password, $database);
+
 // query database
-$normalisasi_query = "SELECT * FROM normalisasi";
-$result_all = query($normalisasi_query);
-$data_siswa = fetch_assoc($result_all);
+$data_siswa = $db->select("SELECT * FROM normalisasi");
+
 
 // Object Oriented
 $metode = new MetodeSaw;
@@ -22,18 +49,12 @@ $hasil = $metode->saw($data_siswa, 6 , 0,[
     5,10,15,20,25,25
 ],"hasil");
 
+dump($hasil);
+
+
 
 ```
 
-### more detail
-```php
-// basic usage
-use Nagara\Src\Metode\MetodeSaw;
-
-$metode = new MetodeSaw;
-$metode->saw("data-dari-database", "jumlah-column-kriteria" , "index-column-cost",["nama-column-kriteria"],[ "value-bobot" ],"hasil-column-baru");
-
-```
 
 ### keterangan
 - data dari database adalah berupa array assosiative
