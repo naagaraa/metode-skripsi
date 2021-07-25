@@ -29,3 +29,4 @@
 include "vendor/autoload.php";
 
 use Nagara\Src\Math\MatrixClass;
+use Nagara\Src\Metode\MetodeWP;

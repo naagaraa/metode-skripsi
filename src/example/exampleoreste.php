@@ -199,8 +199,7 @@ $preferensi = $metode->getPreferensi();
 			</tbody>
 		</table>
 	</div>
-
-
+	
 </body>
 
 </html>

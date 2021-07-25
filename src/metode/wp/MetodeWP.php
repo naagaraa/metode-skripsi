@@ -44,8 +44,6 @@ class MetodeWP
     private $val_vi;
 
 
-
-
     /**
      * function menghitung pembagian nilai bobot
      * 
@@ -264,5 +262,45 @@ class MetodeWP
         self::vector_s($kriteria_weight, $matrix);
         # cari nilai vector v
         return self::vector_v();
+    }
+
+    /**
+     * method atau function untuk get value wj ternomalisasi
+     * @author eka jaya nagara
+     * @return array
+     */
+    public function getValueWj()
+    {
+        return $this->val_wj;
+    }
+
+    /**
+     * method atau function untuk get value Si ternomalisasi
+     * @author eka jaya nagara
+     * @return array
+     */
+    public function getValueSi()
+    {
+        return $this->val_si;
+    }
+
+    /**
+     * method atau function untuk get value Vi ternormalisasi
+     * @author eka jaya nagara
+     * @return array
+     */
+    public function getValueVi()
+    {
+        return $this->val_vi;
+    }
+
+    /**
+     * method atau function untuk get value Weight
+     * @author eka jaya nagara
+     * @return array
+     */
+    public function getNormalisasiWeight()
+    {
+        return $this->normaliasi_weight;
     }
 }

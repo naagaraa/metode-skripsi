@@ -114,7 +114,7 @@ if (!isset($_POST["suhu"])) {
 				</div>
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</form>
-			<p class="mt-3">jika rata rata suhu <?= $suhu?></p>
+			<p class="mt-3">jika rata rata suhu <?= isset($suhu) ? $suhu : 0?></p>
 			<p>jumlah cacat adalah <?= $prediction_single_x?></p>
 		</div>
 
