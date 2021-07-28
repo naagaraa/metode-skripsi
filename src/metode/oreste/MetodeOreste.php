@@ -214,6 +214,8 @@ class MetodeOreste
         $matrix = new MatrixClass;
         $transform_preferensi = $matrix->flip_matrix($temp_preferensi);
 
+        $this->temp_preferensi = $temp_preferensi;
+
         // menjumlahkan nilai preferensi step 2 dari step 1
         $preferensi = [];
         foreach ($transform_preferensi as $key => $value) {
