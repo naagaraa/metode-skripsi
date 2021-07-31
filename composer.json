@@ -11,6 +11,7 @@
     ],
     "require": {
         "php": ">=7.3",
+        "phpoffice/phpspreadsheet": "^1.18",
         "symfony/var-dumper": "^5.3"
     },
     "config": {

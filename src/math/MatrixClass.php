@@ -48,6 +48,7 @@ class MatrixClass
             echo "sorry field yang kamu masukan tidak sesuai format untuk single adalah string dan untuk multiple adalah array silahkan check kembali formatnya";
             exit;
         }
+
         // membuat single matrix dari colum atau fiels
         $new_nilai = [];
         foreach ($data as $siswa) {
