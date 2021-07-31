@@ -202,6 +202,7 @@ class DocumentExcel
             exit;
         }
 
+        // check 2
         if (!array_key_exists($column, $this->field)) {
             print("nama column tidak ada");
             exit;
