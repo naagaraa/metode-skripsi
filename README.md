@@ -131,7 +131,7 @@ melakukan read pada file excel saja
 - nama column berada pada ROW 1 [A1,B1,C1,D1 ... E - n]
 - data yang berupa value atau dimulai dari ROW 2
 
-atau untuk contoh nyata bentuk file csv example bisa check [disini]() ini adalah file example yang diambil dari kaggle untuk public data penelitian data science atau research of data science <b>jakarta.csv<b> untuk file example pada libraries saya
+atau untuk contoh nyata bentuk file csv example bisa check [disini](https://github.com/naagaraa/metode-skriphit/tree/main/src/example/csv) ini adalah file example yang diambil dari kaggle untuk public data penelitian data science atau research of data science <b>jakarta.csv<b> untuk file example pada libraries saya
 
 more detail about Office Excel [here](https://github.com/naagaraa/metode-skriphit/tree/main/src/office) 
 
