@@ -85,6 +85,8 @@ dalam pembuatanya semua metodenya tulis dengan konsep OOP atau object oriented d
 ## Tools Array Matrix
 karena sering berhubungan dengan data, dan yang menghitung dan melakukan computer maka harus terurut layaknya step memasak indomie. maka dari itu gue buatlah tools methodnya sekalian buat bantu misalhnya membuat array baru dari data array assosiatif atau sekedar melakukan flip array merubah baris jadi column atau column jadi baris.
 
+more detail about Math [here](https://github.com/naagaraa/metode-skriphit/tree/main/src/math) 
+
 ```php
 
 use Nagara\Src\Math\MatrixClass; // load libraries
@@ -119,8 +121,47 @@ var_dump($example); // return float
 
 ```
 
+## Tools Office Document Excel
+Office Class adalah method khusus yang saya buat untuk membaca atau read file excel untuk keperluan testing 
+seperti testing data jika , saya malas untuk mengambil data langsung dari database, saya bisa mengambil dan 
+melakukan read pada file excel saja
+
+### format file excel atau CSV
+
+- nama column berada pada ROW 1 [A1,B1,C1,D1 ... E - n]
+- data yang berupa value atau dimulai dari ROW 2
+
+atau untuk contoh nyata bentuk file csv example bisa check [disini]() ini adalah file example yang diambil dari kaggle untuk public data penelitian data science atau research of data science <b>jakarta.csv<b> untuk file example pada libraries saya
+
+more detail about Office Excel [here](https://github.com/naagaraa/metode-skriphit/tree/main/src/office) 
+
+### basic usage
+```php
+
+use Nagara\Src\Doc\DocumentExcel; //load libraries
+
+// init or read file
+$excel = new DocumentExcel;
+$jakarta = $excel->read("jakarta.csv"); // read file excel
+
+// show by column
+$column = $excel->showColumn();
+$row = $excel->showRow();
+$bycolumn = $excel->showByColumn("hospitalized"); //insert column name
+
+
+// debug field array
+dump($column);
+dump($row);
+dump($bycolumn);
+
+```
+
+
 ## DB | Database object class
 database adalah suatu penyimpanan data, biasanya klo gak pake framework build dari zero itu harus config database dari awal mulai atur config DB_NAME, DB_PASSOWORD DB_USER DB_TYPE wah ribet banget, kebayangkan, nah maka dari itu gue orangnya sedikit males klo harus melakukan hal berulang - ulang kaya gituh. jadi gue buatlah librarynya sekalian dengan kumpulan metode metode yang gue buat sendiri dari baca jurnal jurnal dan referensi di internet. dengan konsep OOP
+
+more detail about DB [here](https://github.com/naagaraa/metode-skriphit/tree/main/src/db) 
 
 ### basic usage
 
