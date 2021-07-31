@@ -24,6 +24,20 @@ composer install :
 composer require nagara/metode-skripshit
 ```
 
+<br>
+<br>
+<br>
+
+*update* karena ini masih dalam develop untuk mengisi waktu gabut saya, dengan mengisinya untuk push up otak melakukan translate from jurnal or formula math to coding, maka versi release pun akan update.
+
+<br>
+<br>
+
+composer update :
+```bash
+composer update
+```
+
 load vendor autoload :
 ```php
 require_once "./vendor/autoload.php";
@@ -56,6 +70,19 @@ require_once "./vendor/autoload.php";
 * yaudah gue bikin aja dah sekalian buat w juga, sekalian di publish juga
 * padahal yang udah jadi banyak juga kaya PHP-ML atau PHP-Math tapi tetep aja
 * mau yang dari awal.
+
+## List of Tools
+- math
+	- [matrix](#tools-array-matrix)
+
+- db ( PDO - PHP data Object )
+	- [database](#tools-database)
+	- connection
+	- query mysql
+
+- office
+	- [excel / csv](#tools-office-document-excel)
+	- read file csv
 
 ## List of Metode
 dalam pembuatanya semua metodenya tulis dengan konsep OOP atau object oriented dan ditulis dengan bahasa pemrograman PHP.
@@ -158,7 +185,7 @@ dump($bycolumn);
 ```
 
 
-## DB | Database object class
+## Tools Database
 database adalah suatu penyimpanan data, biasanya klo gak pake framework build dari zero itu harus config database dari awal mulai atur config DB_NAME, DB_PASSOWORD DB_USER DB_TYPE wah ribet banget, kebayangkan, nah maka dari itu gue orangnya sedikit males klo harus melakukan hal berulang - ulang kaya gituh. jadi gue buatlah librarynya sekalian dengan kumpulan metode metode yang gue buat sendiri dari baca jurnal jurnal dan referensi di internet. dengan konsep OOP
 
 more detail about DB [here](https://github.com/naagaraa/metode-skriphit/tree/main/src/db) 
