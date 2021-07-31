@@ -21,24 +21,24 @@ this my plan develop all method often skripsi engginering of informatic used OOP
 15. topsis  (clear)
 16. wp (clear)
 17. gamification (plan)
-18. AHP
-19. haversine
-20. exponetial smoothing
-21. single moving average
-22. support vector machine
-23. Electre
-24. location based service
-25. Weighted Aggregated Sum Product Assesment
-26. FANP
-27. CONSISE SIMILARITY
-28. MOORA
-29. MFEP
-30. PROMETHEE
-31. HASH BASED
+18. AHP (plan)
+19. haversine (plan)
+20. exponetial smoothing (plan)
+21. single moving average (plan)
+22. support vector machine (plan)
+23. Electre (plan)
+24. location based service (plan)
+25. Weighted Aggregated Sum Product Assesment (plan)
+26. FANP (plan)
+27. CONSISE SIMILARITY (plan)
+28. MOORA (plan)
+29. MFEP (plan) 
+30. PROMETHEE (plan)
+31. HASH BASED (plan)
 32. Simple Multi Attribute Rating Technique (SMART) 
-33. Fp-Growth
-34. FUZZY TSUKAMOTO
-35. RIVEST SHAMIR ADLEMAN
+33. Fp-Growth (plan)
+34. FUZZY TSUKAMOTO (plan)
+35. RIVEST SHAMIR ADLEMAN (plan)
 
 
 ## List OF Journal
