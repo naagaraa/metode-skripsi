@@ -170,6 +170,7 @@ use Nagara\Src\Doc\DocumentExcel; //load libraries
 // init or read file
 $excel = new DocumentExcel;
 $jakarta = $excel->read("jakarta.csv"); // read file excel
+$excel->execute();
 
 // show by column
 $column = $excel->showColumn();

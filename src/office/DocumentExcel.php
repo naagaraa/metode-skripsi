@@ -166,6 +166,17 @@ class DocumentExcel
         return $convertData;
     }
 
+     /**
+     * method atau funtion untuk execute excel read
+     * @author eka jaya nagara
+     * @return matrix           |  return matrix
+     */
+    public function execute()
+    {
+        self::convertIndexToAssociative();
+        return $this->field;
+    }
+
     /**
      * method atau funtion untuk menampilkan data berdasarkan column
      * @author eka jaya nagara
@@ -173,7 +184,6 @@ class DocumentExcel
      */
     public function showColumn()
     {
-        self::convertIndexToAssociative();
         return $this->field;
     }
 

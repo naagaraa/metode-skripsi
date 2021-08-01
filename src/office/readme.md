@@ -17,6 +17,9 @@ atau untuk contoh nyata bentuk file csv example bisa check [disini]() ini adalah
 ```php
 $excel = new DocumentExcel;
 $excel->read("filename.csv");
+$excel->execute();
+
+// show
 $excel->showColumn();
 $excel->showRow();
 $excel->showByColumn("column-name");
@@ -32,6 +35,8 @@ use Nagara\Src\Doc\DocumentExcel; //load libraries
 // init or read file
 $excel = new DocumentExcel;
 $jakarta = $excel->read("jakarta.csv"); // read file excel
+$excel->execute();
+
 
 // show by column
 $column = $excel->showColumn();

@@ -28,3 +28,21 @@
  */
 include "vendor/autoload.php";
 
+use Nagara\Src\Doc\DocumentExcel;
+
+$excel =  new DocumentExcel;
+$excel->read("saw-example.csv");
+$excel->execute();
+
+
+$ipk = $excel->showByColumn("ipk");
+$sks = $excel->showByColumn("sks komulatif");
+$studi = $excel->showByColumn("lama studi");
+$tidak_aktif = $excel->showByColumn("tidak aktif");
+
+$example_matrix = [$ipk,$sks,$studi, $tidak_aktif];
+
+dump($ipk);
+dump($sks);
+dump($studi);
+dump($tidak_aktif);
