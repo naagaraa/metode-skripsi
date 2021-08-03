@@ -105,6 +105,19 @@ class MetodeSaw{
      */
     public function saw($matrix = [], $kriteria = [], $weight = [])
     {
+        // sum jumlah masing masing field
+        $sum_matrix = count($matrix);
+        $sum_kriteria = count($kriteria);
+        $sum_weight = count($weight);
+
+        if ($sum_matrix !== $sum_kriteria) {
+            print("jumlah field matrix {$sum_matrix} tidak sama dengan jumlah field kriteria {$sum_kriteria} dan jumlah field bobot {$sum_weight}");
+            die;
+        }elseif($sum_matrix !== $sum_weight){
+            print("jumlah field matrix {$sum_matrix} tidak sama dengan jumlah field kriteria {$sum_kriteria} dan jumlah field bobot {$sum_weight}");
+            die;
+        }
+
         // init
         $this->weight = $weight;
         $this->kriteria = $kriteria;
