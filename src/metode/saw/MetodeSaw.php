@@ -32,127 +32,109 @@ use Nagara\Src\Math\MatrixClass;
 
 class MetodeSaw{
 
+    private $normalisasi;
+    private $kriteria;
+    private $weight;
+    private $rangked;
+    private $tmp_rangked;
 
-    
     /**
-     * function menghitung normalisasi
+     * method atau function menghitung normalisasi
      * @author eka jaya nagara
      * @param array         | original matrix
+     * @param array         | kriteria
      * @return array
      */
-    public function normalisasi_value( $matrix = [], $cost)
+    public function normalisasi_value( $matrix = [], $kriteria = [])
     {
         $normalisasi = [];
-        $cost = $cost; // index colum 0 adalah cost
-        for ($i=0; $i < count($matrix) ; $i++) { 
-            // check index colum yang termasuk cost
-            if ($i == $cost) {
-                foreach($matrix[$cost] as $key => $value){
-                    $normalisasi[$cost][$key] = round( $value / max($matrix[$cost]) , 3 );
+        foreach ($matrix as $index => $matrix_j) {
+            if ($kriteria[$index] == "benefit") {
+                // print("formula benefit<br>");
+                foreach ($matrix_j as $key => $value) {
+                    $normalisasi[$index][$key] = round($value / max($matrix_j),2);
                 }
             }else{
-                foreach($matrix[$i] as $key => $value){
-                    $normalisasi[$i][$key] = round( min($matrix[$i]) / $value , 3 );
+                // print("formula cost<br>");
+                foreach ($matrix_j as $key => $value) {
+                    $normalisasi[$index][$key] = round(min($matrix_j) / $value,2);
                 }
             }
         }
+
+        $this->normalisasi = $normalisasi;
         return $normalisasi;
     }
 
     /**
-     * function menghitung nilai alternative
+     * method atau function menghitung perangkingan
      * @author eka jaya nagara
-     * @param array             | matrix data  nilai yang sudah di flip atau transform
-     * @param array             | matrix bobot 
      * @return array
      */
-    public function get_alternative($flip_matrix= [], $bobot = [])
+    public function perangkingan()
     {
-        // $matrix =  new MatrixClass;
-        // check kondisi jumlah colum selalu sama dengan jumlah bobotnya
-        $matrixC = new MatrixClass;
-        $column = $matrixC->flip_matrix($flip_matrix);
-        if (count($column) !== count($bobot)) {
-            echo "jumlah column yang di inputkan tidak sama dengan jumlah nama column yang masukan";
-            exit;
-        }
-        // flix matrix merubah row menjadi colum
-        // bobot adalah nilai kritria / bobot
-        $data = [];
-        for ($i=0; $i < count($flip_matrix) ; $i++) { 
-            foreach ($flip_matrix[$i] as $key => $value) {
-                $data[$i][$key] = $flip_matrix[$i][$key] * $bobot[$key];
+        // step one : mulplication all value * weight
+        $temp_rangked = [];
+        foreach ($this->normalisasi as $index => $matrix_j) {
+            foreach ($matrix_j as $key => $value) {
+                $temp_rangked[$index][$key] = $matrix_j[$key] * $this->weight[$index];
             }
         }
+        $this->tmp_rangked = $temp_rangked;
 
-        return $data;
-    }
-
-    /**
-     * function menghitung nilai vector dari jumlah alternative
-     * @author eka jaya nagara
-     * @param array                 | nilai alternative
-     * @return array
-     */
-    public function hitung_v($alternative = [])
-    {
-        // menjulahlan row nilai alternativenya
-        $result = [];
-        for ($i=0; $i < count($alternative); $i++) { 
-            foreach($alternative[$i] as $key => $value) {
-                $result[$i] = array_sum($alternative[$i]);
-            }
-        }
-        return $result;
-    }
-
-    /**
-     * function menggabungkan nilai array vector ke dalam array original
-     * @author eka jaya nagara
-     * @param array                 | matrix original
-     * @param array                 | matrix hasil perhitungan vector
-     * @param string                | string nama field baru untuk hasil perhitungan
-     * @return array
-     */
-    public function menambah_hasil_akhir_ke_dalam_field_data($data = [], $vector = [], $field = "")
-    {
-        // mengabungkan nilai alternative dengan original arraynya
-        $final = $data;
-        for ($i=0; $i < count($final); $i++) { 
-            foreach($final[$i] as $key => $value) {
-                $final[$i][$field] = $vector[$i];
-            }
-        }
-        return $final;
-    }
-
-    /**
-     * function menggabungkan nilai array vector ke dalam array original
-     * @author eka jaya nagara
-     * @param array                 | matrix original
-     * @param int                   | jumlah colum kriteria atau data kriteria 
-     * @param int                   | index start from 0 untuk colum pertama pada kriteria (index yang termasuk kriteria cost)
-     * @param array                 | nama column kriteria
-     * @param array                 | bobot pada kriteria
-     * @param string                | string nama field baru untuk hasil perhitungan
-     * @return array
-     */
-    public function saw($data_original = [], $jumlah_column_kriteria, $index_column_cost , $nama_column_kriteria = [], $bobot = [], $column_hasil = "hasil_akhir" )
-    {
-        $matrixC = new MatrixClass;
-        // buat new matrix
-        $matrix = $matrixC->make_new_matrix($data_original, $jumlah_column_kriteria, $nama_column_kriteria, $index_column_cost );
-        //  normalisasi
-        $normalisasi = self::normalisasi_value($matrix , $index_column_cost);
         // transform matrix
-        $flip_matrix = $matrixC->flip_matrix($normalisasi);
-        // hitung alternative
-        $data_alternative = self::get_alternative($flip_matrix, $bobot);
-        // hitung total dari data alternativenya
-        $hasil_vector = self::hitung_v($data_alternative);
-        // gabungkan dengan data originalnya dengan menambahkan satu column hasil
-        $arr = self::menambah_hasil_akhir_ke_dalam_field_data($data_original, $hasil_vector, $column_hasil);
+        $matrix = new MatrixClass;
+        $transform = $matrix->flip_matrix($temp_rangked);
 
-        return $arr;
+        // step two : sum all value and multiplication * 100
+        $rangked = [];
+        foreach ($transform as $index => $matrix_n) {
+            $rangked[$index] = array_sum($matrix_n) * 100;
+        }
+        $this->rangked = $rangked;
+    }
+
+
+    /**
+     * method atau function init saw
+     * @author eka jaya nagara
+     * @param array         | original matrix
+     * @param array         | kriteria
+     * @param array         | weight matrix
+     * @return array
+     */
+    public function saw($matrix = [], $kriteria = [], $weight = [])
+    {
+        // init
+        $this->weight = $weight;
+        $this->kriteria = $kriteria;
+
+        // calculation
+        self::normalisasi_value($matrix, $kriteria);
+        return self::perangkingan();
+        
+    }
+
+
+    /**
+     * method atau function mendapatkan nilai normalisasi
+     * @author eka jaya nagara
+     * @return array
+     */
+    public function getNormalisasi()
+    {
+        $matrix = new MatrixClass;
+        $transform = $matrix->flip_matrix($this->normalisasi);
+        return $transform;
+    }
+
+    /**
+     * method atau function mendapatkan nilai rangked
+     * @author eka jaya nagara
+     * @return array
+     */
+    public function getRangked()
+    {
+        return $this->rangked;
     }
 }

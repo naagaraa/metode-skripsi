@@ -3,7 +3,9 @@
 untuk menggunakan Metode SAW beberapa parameter yang dibutuhkan adalah database dalam format 
 array assosiative, jumlah kriteria, index column cost, nama column yang mengandung field 
 kriteria, bobot, dan jumlah bobot. jumlah bobot harus sama dengan jumlah column
-kriterianya.
+kriterianya. 
+
+referensi : https://bukuinformatika.com/metode-simple-additive-weighting-saw/
 
 ## Explain Metode : teori
 coming soon
@@ -14,44 +16,99 @@ coming soon
 // basic usage
 use Nagara\Src\Metode\MetodeSaw;
 
+// init
 $metode = new MetodeSaw;
-$metode->saw("data-dari-database", "jumlah-column-kriteria" , "index-column-cost",["nama-column-kriteria"],[ "value-bobot" ],"hasil-column-baru");
+$metode->saw("matrix", "kriteria", "weight");
+
+// get value
+$normalisasi = $metode->getNormalisasi();
+$rangked = $metode->getRangked();
 
 ```
 
 
 ### how to use
+
+#### with csv
+
 ```php
-use Nagara\Src\Database\DB;
-use Nagara\Src\Math\MatrixClass;
-use Nagara\Src\Metode\MetodeSaw; // load libraries
+use Nagara\Src\Doc\DocumentExcel;
+use Nagara\Src\Metode\MetodeSaw;
 
+// init office tools
+$excel =  new DocumentExcel;
+$excel->read("saw-example.csv");
+$excel->execute();
 
-// untuk config bisa di pass ke variabel atau langsung ke constructornya
-$type = "mysql";
-$servername = "localhost";
-$database = "saw-database";
-$username = "root";
-$password = "";
+// save single martix to variabel
+$ipk = $excel->showByColumn("ipk");
+$pengahasilan = $excel->showByColumn("penghasilan");
+$tanggungan = $excel->showByColumn("tanggungan");
+$prestasi = $excel->showByColumn("prestasi");
+$lokasi = $excel->showByColumn("lokasi rumah");
 
-// pass ke constructorynya
-$db = new DB($type, $servername, $username, $password, $database);
+// membuat matrix
+$example_matrix = [$ipk,$pengahasilan,$tanggungan, $prestasi, $lokasi];
 
-// query database
-$data_siswa = $db->select("SELECT * FROM normalisasi");
+$weight = [0.25,0.15,0.20,0.30,0.10];
+$kriteria = [
+    0 => "benefit",
+    1 => "cost",
+    2 => "benefit",
+    3 => "benefit",
+    4 => "cost"
+];
 
-
-// Object Oriented
+// formula metode
 $metode = new MetodeSaw;
-$hasil = $metode->saw($data_siswa, 6 , 0,[
-    "kedisiplinan", "kehadiran", "nilai_raport","nilai_keterampilan", "nilai_kebaikan","nilai_kesehatan"
-],[
-    5,10,15,20,25,25
-],"hasil");
+$metode->saw($example_matrix, $kriteria, $weight);
 
-dump($hasil);
+// get value
+$normalisasi = $metode->getNormalisasi();
+$rangked = $metode->getRangked();
+
+// debug value
+dump($normalisasi);
+dump($rangked);
 
 
+```
+
+#### with array or matrix
+```php
+
+use Nagara\Src\Metode\MetodeSaw;
+
+// menggunakan example array
+$ipk = [3.92,3.95,3.4,4.0,3.2];
+$pengahasilan = [2,3,4,3,1];
+$tanggungan = [2,2,3,4,2];
+$prestasi = [4,3,2,4,1];
+$lokasi = [100,89,70,120,140];
+
+// membuat matrix
+$example_matrix = [$ipk,$pengahasilan,$tanggungan, $prestasi, $lokasi];
+
+$weight = [0.25,0.15,0.20,0.30,0.10];
+$kriteria = [
+    0 => "benefit",
+    1 => "cost",
+    2 => "benefit",
+    3 => "benefit",
+    4 => "cost"
+];
+
+// formula metode
+$metode = new MetodeSaw;
+$metode->saw($example_matrix, $kriteria, $weight);
+
+// get value
+$normalisasi = $metode->getNormalisasi();
+$rangked = $metode->getRangked();
+
+// debug value
+dump($normalisasi);
+dump($rangked);
 
 ```
 

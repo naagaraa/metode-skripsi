@@ -149,11 +149,11 @@ var_dump($example); // return float
 ```
 
 ## Tools Office Document Excel
-Office Class adalah method khusus yang saya buat untuk membaca atau read file excel untuk keperluan testing 
+Office Class adalah method khusus yang saya buat untuk membaca atau read file csv untuk keperluan testing 
 seperti testing data jika , saya malas untuk mengambil data langsung dari database, saya bisa mengambil dan 
-melakukan read pada file excel saja
+melakukan read pada file csv saja
 
-### format file excel atau CSV
+### format file  CSV
 
 - nama column berada pada ROW 1 [A1,B1,C1,D1 ... E - n]
 - data yang berupa value atau dimulai dari ROW 2
@@ -309,24 +309,35 @@ more detail about SAW [here](https://github.com/naagaraa/metode-skriphit/tree/ma
 
 ```php
 
-use Nagara\Src\Metode\MetodeSaw; // load libraries
 
-// query database jika menggunakan database
-$normalisasi_query = "SELECT * FROM normalisasi";
-$result_all = query($normalisasi_query);
-$data_siswa = fetch_assoc($result_all);
+use Nagara\Src\Metode\MetodeSaw;
 
+// menggunakan example array
+$ipk = [3.92,3.95,3.4,4.0,3.2];
+$pengahasilan = [2,3,4,3,1];
+$tanggungan = [2,2,3,4,2];
+$prestasi = [4,3,2,4,1];
+$lokasi = [100,89,70,120,140];
 
+// membuat matrix
+$example_matrix = [$ipk,$pengahasilan,$tanggungan, $prestasi, $lokasi];
+
+$weight = [0.25,0.15,0.20,0.30,0.10];
+$kriteria = [
+    0 => "benefit",
+    1 => "cost",
+    2 => "benefit",
+    3 => "benefit",
+    4 => "cost"
+];
+
+// formula metode
 $metode = new MetodeSaw;
+$metode->saw($example_matrix, $kriteria, $weight);
 
-// metode saw init
-$hasil = $metode->saw($data_siswa, 6 , 0,[
-    "kedisiplinan", "kehadiran", "nilai_raport","nilai_keterampilan", "nilai_kebaikan","nilai_kesehatan"
-],[
-    5,10,15,20,25,25
-],"hasil");
-
-// method getter
+// get value
+$normalisasi = $metode->getNormalisasi();
+$rangked = $metode->getRangked();
 
 
 ```
