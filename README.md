@@ -1,25 +1,29 @@
 # PROJECT LIBRARIES METODE SIMPLE SKRIPSHIT
+
 membuat rumus implementasi metode yang sering digunakan pada skripsi dengan pengetahuan basic Math or Mathematic ke dalam function dan object base. untuk collection. plesetin aja jadi skripshit.
 
- 
 ## INTRODUCTION !
+
 wanna be programmer, IT Research and share my knowlegde.
 translate indonesia "yah gue gabut aja, gak ada temen ngobrol, makanya buat video aja deh"
 just make video for self documentation during I am new learning something, solve problem or building something.
 
 ## WARNING !
+
 i don't care about hater, hahaha you like stupid people. only can send negative commnet, without
 understand about what i make it hahahha. if you not agree please leave don't read ahahaha. if you
 have solution please send positif comment and help other people !
 
 ## INFO
-semakin meninggi semakin merunduk, jangan sombong, bantu orang lain, janga mau dimanfaatkan demi kepentingan yang merugikan diri sendiri. *note* : jika saya mood
+
+semakin meninggi semakin merunduk, jangan sombong, bantu orang lain, janga mau dimanfaatkan demi kepentingan yang merugikan diri sendiri. _note_ : jika saya mood
 
 ## INSTALL USED COMPOSER ?
 
-catatan ini versi beta, dan mungkin masih ada bug perhitungan lainnya silahkan di test sendiri 
+catatan ini versi beta, dan mungkin masih ada bug perhitungan lainnya silahkan di test sendiri
 
 composer install :
+
 ```bash
 composer require nagara/metode-skripshit
 ```
@@ -28,17 +32,19 @@ composer require nagara/metode-skripshit
 <br>
 <br>
 
-*update* karena ini masih dalam develop untuk mengisi waktu gabut saya, dengan mengisinya untuk push up otak melakukan translate from jurnal or formula math to coding, maka versi release pun akan update.
+_update_ karena ini masih dalam develop untuk mengisi waktu gabut saya, dengan mengisinya untuk push up otak melakukan translate from jurnal or formula math to coding, maka versi release pun akan update.
 
 <br>
 <br>
 
 composer update :
+
 ```bash
 composer update
 ```
 
 load vendor autoload :
+
 ```php
 require_once "./vendor/autoload.php";
 
@@ -47,72 +53,81 @@ require_once "./vendor/autoload.php";
 <br>
 
 <!-- Links -->
+
 ## Traktier me ?
 
-* Naagaraa : [ Traktir baso aja at saweria [ DANA, OVO, dll ] ](https://saweria.co/naagaraa)
-* Siapapun, berapapun, saya ucapkan terimakasih sebanyak-banyaknya.
+- Naagaraa : [ Traktir baso aja at saweria [ DANA, OVO, dll ] ](https://saweria.co/naagaraa)
+- Siapapun, berapapun, saya ucapkan terimakasih sebanyak-banyaknya.
 
 ## License
-* **license** [ MIT ](https://github.com/naagaraa/metode-skriphit/blob/main/LICENSE.MD)
+
+- **license** [ MIT ](https://github.com/naagaraa/metode-skriphit/blob/main/LICENSE.MD)
 
 <br><br>
 
 ## Creator , Contribution dan development
 
-* **Naagaraa Mahasiswa dan Content Creator**  [ YT ](https://www.youtube.com/channel/UCYsZhw6Mlk23Q-nUPP9t1YA) creator ,  pengembang dan maintainers 
-
+- **Naagaraa Mahasiswa dan Content Creator** [ YT ](https://www.youtube.com/channel/UCYsZhw6Mlk23Q-nUPP9t1YA) creator , pengembang dan maintainers
 
 <br><br>
 
-
 **History :**
-* temen gue suka pada nanyain ke gue, "gimana?, eh klo gini diapain lagi?, eh ..."
-* yaudah gue bikin aja dah sekalian buat w juga, sekalian di publish juga
-* padahal yang udah jadi banyak juga kaya PHP-ML atau PHP-Math tapi tetep aja
-* mau yang dari awal.
+
+- temen gue suka pada nanyain ke gue, "gimana?, eh klo gini diapain lagi?, eh ..."
+- yaudah gue bikin aja dah sekalian buat w juga, sekalian di publish juga
+- padahal yang udah jadi banyak juga kaya PHP-ML atau PHP-Math tapi tetep aja
+- mau yang dari awal.
 
 ## List of Tools
+
 - math
-	- [matrix](#tools-array-matrix)
+
+  - [matrix](#tools-array-matrix)
 
 - db ( PDO - PHP data Object )
-	- [database](#tools-database)
-	- connection
-	- query mysql
+
+  - [database](#tools-database)
+  - connection
+  - query mysql
 
 - office
-	- [excel / csv](#tools-office-document-excel)
-	- read file csv
+  - [excel / csv](#tools-office-document-excel)
+  - read file csv
 
 ## List of Metode
+
 dalam pembuatanya semua metodenya tulis dengan konsep OOP atau object oriented dan ditulis dengan bahasa pemrograman PHP.
 
 - fuzzy
-    - [fuzzy-sugeno](#fuzzy-sugeno)
+
+  - [fuzzy-sugeno](#fuzzy-sugeno)
 
 - linear-regresion
-    - [simple linear regresion](#linear-regresion)
+
+  - [simple linear regresion](#linear-regresion)
 
 - simple addive weight (saw)
-    - [simple SAW](#simple-adictive-weighted)
+
+  - [simple SAW](#simple-adictive-weighted)
 
 - weighted Product (wp)
-    - [simple WP](#weighted-product)
+
+  - [simple WP](#weighted-product)
 
 - The Technique for Order of Preference by Similarity to Ideal Solution (TOPSIS)
-	- [simple topsis](#topsis)
-	
-- oreste 
-	- [simple oreste](#oreste)
+  - [simple topsis](#topsis)
+- oreste
+
+  - [simple oreste](#oreste)
 
 - k means | under development
 - other ? | oke let's make something
 
-
 ## Tools Array Matrix
+
 karena sering berhubungan dengan data, dan yang menghitung dan melakukan computer maka harus terurut layaknya step memasak indomie. maka dari itu gue buatlah tools methodnya sekalian buat bantu misalhnya membuat array baru dari data array assosiatif atau sekedar melakukan flip array merubah baris jadi column atau column jadi baris.
 
-more detail about Math [here](https://github.com/naagaraa/metode-skriphit/tree/main/src/math) 
+more detail about Math [here](https://github.com/naagaraa/metode-skriphit/tree/main/src/math)
 
 ```php
 
@@ -149,20 +164,22 @@ var_dump($example); // return float
 ```
 
 ## Tools Office Document Excel
-Office Class adalah method khusus yang saya buat untuk membaca atau read file csv untuk keperluan testing 
-seperti testing data jika , saya malas untuk mengambil data langsung dari database, saya bisa mengambil dan 
+
+Office Class adalah method khusus yang saya buat untuk membaca atau read file csv untuk keperluan testing
+seperti testing data jika , saya malas untuk mengambil data langsung dari database, saya bisa mengambil dan
 melakukan read pada file csv saja
 
-### format file  CSV
+### format file CSV
 
 - nama column berada pada ROW 1 [A1,B1,C1,D1 ... E - n]
 - data yang berupa value atau dimulai dari ROW 2
 
 atau untuk contoh nyata bentuk file csv example bisa check [disini](https://github.com/naagaraa/metode-skriphit/tree/main/src/example/csv) ini adalah file example yang diambil dari kaggle untuk public data penelitian data science atau research of data science <b>jakarta.csv<b> untuk file example pada libraries saya
 
-more detail about Office Excel [here](https://github.com/naagaraa/metode-skriphit/tree/main/src/office) 
+more detail about Office Excel [here](https://github.com/naagaraa/metode-skriphit/tree/main/src/office)
 
 ### basic usage
+
 ```php
 
 use Nagara\Src\Doc\DocumentExcel; //load libraries
@@ -185,11 +202,11 @@ dump($bycolumn);
 
 ```
 
-
 ## Tools Database
+
 database adalah suatu penyimpanan data, biasanya klo gak pake framework build dari zero itu harus config database dari awal mulai atur config DB_NAME, DB_PASSOWORD DB_USER DB_TYPE wah ribet banget, kebayangkan, nah maka dari itu gue orangnya sedikit males klo harus melakukan hal berulang - ulang kaya gituh. jadi gue buatlah librarynya sekalian dengan kumpulan metode metode yang gue buat sendiri dari baca jurnal jurnal dan referensi di internet. dengan konsep OOP
 
-more detail about DB [here](https://github.com/naagaraa/metode-skriphit/tree/main/src/db) 
+more detail about DB [here](https://github.com/naagaraa/metode-skriphit/tree/main/src/db)
 
 ### basic usage
 
@@ -224,12 +241,10 @@ $db->delete("DELETE FROM `tb_tracking` WHERE id_tracking = 7");
 
 ```
 
-
 # Basic Usage Metode
 
-
-
 ## fuzzy-sugeno
+
 Logika Fuzzy adalah suatu cara yang tepat untuk memetakan suatu ruang input ke dalam ruang output. Untuk sistem yang sangat rumit, penggunaan logika fuzzy (fuzzy logic) adalah salah satu pemecahannya. Sistem tradisional dirancang untuk mengontrol keluaran tunggal yang berasal dari beberapa masukan yang tidak saling berhubungan. fuzzy sugeno tidak berbeda jauh dengan fuzzy mamdani.
 
 more detail about fuzzy sugeno [here](https://github.com/naagaraa/metode-skriphit/tree/main/src/metode/fuzzy) and for example code [here](#)
@@ -242,7 +257,7 @@ use Nagara\Src\Metode\MetodeFuzzySugeno;    // load library
 // example 3 value
 $a = 5;
 $b = 5;
-$c = 5; 
+$c = 5;
 
 // get value
 $metode = new MetodeFuzzySugeno;
@@ -260,8 +275,8 @@ if ($hasil_defuzifikasi  > 0) {
 
 ```
 
-
 ## linear-regresion
+
 regresi linear adalah sebuah pendekatan untuk memodelkan hubungan antara variable terikat Y dan satu atau lebih variable bebas yang disebut X. Salah satu kegunaan dari regresi linear adalah untuk melakukan prediksi berdasarkan data-data yang telah dimiliki sebelumnya. Hubungan di antara variable-variabel tersebut disebut sebagai model regresi linear.
 
 more detail about linear regresion [here](https://github.com/naagaraa/metode-skriphit/tree/main/src/metode/linear-regresion) and for example code [here](https://github.com/naagaraa/metode-skriphit/blob/main/src/example/exampleLinearRegresion.php)
@@ -298,14 +313,14 @@ $xy = $metode->getValueXY();
 
 ```
 
-
 ## simple-adictive-weighted
-untuk menggunakan Metode SAW beberapa parameter yang dibutuhkan adalah database dalam format 
-array assosiative, jumlah kriteria, index column cost, nama column yang mengandung field 
+
+untuk menggunakan Metode SAW beberapa parameter yang dibutuhkan adalah database dalam format
+array assosiative, jumlah kriteria, index column cost, nama column yang mengandung field
 kriteria, bobot, dan jumlah bobot. jumlah bobot harus sama dengan jumlah column
 kriterianya.
 
-more detail about SAW [here](https://github.com/naagaraa/metode-skriphit/tree/main/src/metode/saw) and for example code [here](#)
+more detail about SAW [here](https://github.com/naagaraa/metode-skriphit/tree/main/src/metode/saw) and for example code [here](https://github.com/naagaraa/metode-skriphit/blob/main/src/example/exampleSAW.php)
 
 ```php
 
@@ -343,6 +358,7 @@ $rangked = $metode->getRangked();
 ```
 
 ## weighted-product
+
 Weighted Product (WP) merupakan salah satu metode sistem pendukung keputusan yang termasuk ke dalam kategori Fuzzy Multiple Attribute Decision Making (FMADM). Metode weighted product (WP) menggunakan perkalian untuk menghubungkan rating atribut, dimana rating setiap atribut harus dipangkatkan dulu dengan bobot atribut yang bersangkutan.
 
 more detail about weight product [here](https://github.com/naagaraa/metode-skriphit/tree/main/src/metode/wp) and for example code [here](https://github.com/naagaraa/metode-skriphit/blob/main/src/example/exampleWP.php)
@@ -403,6 +419,7 @@ TOPSIS (Technique For Others Reference by Similarity to Ideal Solution) adalah s
 more detail about topsis [here](https://github.com/naagaraa/metode-skriphit/tree/main/src/metode/topsis) and for example code [here](https://github.com/naagaraa/metode-skriphit/blob/main/src/example/exampleTopsis.php)
 
 ### how to use
+
 ```php
 use Nagara\Src\Metode\MetodeTopsis; // load libraries
 
@@ -450,6 +467,7 @@ Metode Oreste adalah salah satu metode pengambilan keputusan multi criteria atau
 more detail about oreste [here](https://github.com/naagaraa/metode-skriphit/tree/main/src/metode/oreste) and for example code [here](https://github.com/naagaraa/metode-skriphit/blob/main/src/example/exampleoreste.php)
 
 ### how to use
+
 ```php
 use Nagara\Src\Metode\MetodeOreste; // load libraries
 
@@ -492,6 +510,4 @@ $preferensi = $metode->getPreferensi();
 
 ```
 
-
 ## next metode comming soon
-
