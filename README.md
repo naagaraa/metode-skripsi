@@ -2,23 +2,12 @@
 
 membuat rumus implementasi metode yang sering digunakan pada skripsi dengan pengetahuan basic Math or Mathematic ke dalam function dan object base. untuk collection. plesetin aja jadi skripshit.
 
-## INTRODUCTION !
+### About wiki
+before used this libraries baca dulu bagian wiki disini.
+- [wiki](https://github.com/naagaraa/metode-skriphit/tree/main/wiki.md)
 
-wanna be programmer, IT Research and share my knowlegde.
-translate indonesia "yah gue gabut aja, gak ada temen ngobrol, makanya buat video aja deh"
-just make video for self documentation during I am new learning something, solve problem or building something.
 
-## WARNING !
-
-i don't care about hater, hahaha you like stupid people. only can send negative commnet, without
-understand about what i make it hahahha. if you not agree please leave don't read ahahaha. if you
-have solution please send positif comment and help other people !
-
-## INFO
-
-semakin meninggi semakin merunduk, jangan sombong, bantu orang lain, janga mau dimanfaatkan demi kepentingan yang merugikan diri sendiri. _note_ : jika saya mood
-
-## INSTALL USED COMPOSER ?
+### INSTALL USED COMPOSER ?
 
 catatan ini versi beta, dan mungkin masih ada bug perhitungan lainnya silahkan di test sendiri
 
@@ -30,20 +19,20 @@ composer require nagara/metode-skripshit
 
 <br>
 <br>
+
+<b> _update_ karena ini masih dalam develop untuk mengisi waktu gabut saya, dengan mengisinya untuk push up otak melakukan translate from jurnal or formula math to coding, maka versi release pun akan update.</b>
+
+<br>
 <br>
 
-_update_ karena ini masih dalam develop untuk mengisi waktu gabut saya, dengan mengisinya untuk push up otak melakukan translate from jurnal or formula math to coding, maka versi release pun akan update.
-
-<br>
-<br>
-
-composer update :
+##### composer update :
 
 ```bash
 composer update
 ```
+<br>
 
-load vendor autoload :
+##### load vendor autoload :
 
 ```php
 require_once "./vendor/autoload.php";
@@ -52,33 +41,7 @@ require_once "./vendor/autoload.php";
 
 <br>
 
-<!-- Links -->
-
-## Traktier me ?
-
-- Naagaraa : [ Traktir baso aja at saweria [ DANA, OVO, dll ] ](https://saweria.co/naagaraa)
-- Siapapun, berapapun, saya ucapkan terimakasih sebanyak-banyaknya.
-
-## License
-
-- **license** [ MIT ](https://github.com/naagaraa/metode-skriphit/blob/main/LICENSE.MD)
-
-<br><br>
-
-## Creator , Contribution dan development
-
-- **Naagaraa Mahasiswa dan Content Creator** [ YT ](https://www.youtube.com/channel/UCYsZhw6Mlk23Q-nUPP9t1YA) creator , pengembang dan maintainers
-
-<br><br>
-
-**History :**
-
-- temen gue suka pada nanyain ke gue, "gimana?, eh klo gini diapain lagi?, eh ..."
-- yaudah gue bikin aja dah sekalian buat w juga, sekalian di publish juga
-- padahal yang udah jadi banyak juga kaya PHP-ML atau PHP-Math tapi tetep aja
-- mau yang dari awal.
-
-## List of Tools
+## List of My Tools
 
 - math
 
