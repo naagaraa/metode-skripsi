@@ -48,27 +48,12 @@ $b = [1, 1, 3, 4];
 $matrix_example = [$a, $b];
 
 $test = $metode->Clustering($matrix_example, $centroid);
+$centroid = $metode->getCentroid();
+$distance = $metode->getDistance();
+$getn = $metode->getValueN();
+$matrix = $metode->getMatrix();
 
-// $metode->getNewCentroid();
-
-$a1 = [
-    "a" => "red",
-    "b" => "green",
-    "c" => "blue",
-    // "d" => "yellow"
-];
-
-$a2 = [
-    "e" => "red",
-    "f" => "green",
-    "g" => "blue"
-];
-
-$example = [$a1, $a2];
-
-// dump($example);
-// dump($a);
-// dump($b);
-
-// $result = array_diff($a1, $a2);
-// dump(empty($result)); // true itu sama || false beda
+dump($centroid);
+dump($distance);
+dump($getn);
+dump($matrix);

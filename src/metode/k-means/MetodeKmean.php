@@ -32,22 +32,23 @@
 
 namespace Nagara\Src\Metode;
 
+use PhpOffice\PhpSpreadsheet\Calculation\MathTrig\Ceiling;
+
 class MetodeKmeans
 {
-    private $centroid;
+    private $centroid = [];
+    private $perulangan_centroid;
     private $matrix;
     private $distance_cn;
+    private $distance = [];
     private $n;
 
-
-
-    public function EuclidianDistance($matrix = [], $centroid = [])
+    public function EuclidianDistance($matrix = [], $centroid)
     {
+
         $this->matrix = $matrix;
-        $this->centroid[0] = $centroid;
         $n = count($matrix[0]);
         $this->n = $n;
-
 
         $dc1 = [];
         $dc2 = [];
@@ -61,7 +62,7 @@ class MetodeKmeans
         $distance_cn = [];
         $distance_cn = [$dc1, $dc2];
 
-        dump($distance_cn);
+        array_push($this->distance, $distance_cn);
         $this->distance_cn = $distance_cn;
     }
 
@@ -79,10 +80,6 @@ class MetodeKmeans
                 }
             }
         }
-
-        // dump($this->matrix);
-        // dump($temp_centroid_c1);
-        // dump($temp_centroid_c2);
 
         // mencari nilai jumlah centroidnya c1a dan c1b
         $c1_a = [];
@@ -122,27 +119,64 @@ class MetodeKmeans
 
     public function Clustering($matrix = [], $centroid = [])
     {
+        // check jika data awal 0
+        $data_centroid_awal = count($this->centroid);
+        if ($data_centroid_awal == 0) {
+            array_push($this->centroid, $centroid);
+        }
+
+        // formula euclidian
         self::EuclidianDistance($matrix, $centroid);
+
+        // get new centroid
         $new_centroid = self::getNewCentroid();
+
+        // array push
         array_push($this->centroid, $new_centroid);
         $total_perulangan = count($this->centroid);
 
         // membandingkan nilai centroid terakhir dengan centroid sebelumnya
-        foreach ($this->centroid as $key => $value) {
+        $perulangan_centroid = [];
+        for ($i = 0; $i <= count($this->matrix) - 2; $i++) {
+
+            // c1 index terakhir dan index sebelum terakhir
             $C1N = array_diff_assoc(end($this->centroid)["C1"], $this->centroid[$total_perulangan - 2]["C1"]);
+
+            // c2 index terakhir dan index sebelum terakhir
             $C2N = array_diff_assoc(end($this->centroid)["C2"], $this->centroid[$total_perulangan - 2]["C2"]);
 
-            // jika empty berartivalue sama jika tidak empty value berbeda
-            if (!empty($C1N) and !empty($C2N)) {
+            // check jika nilai centoroid sama
+            if ((empty($C1N) and empty($C2N))) {
+                // clustring selesai
+                $perulangan_centroid = $this->centroid;
+                $this->perulangan_centroid = $perulangan_centroid;
+                return $this->perulangan_centroid;
+                break;
+            } else {
                 // run recursion
                 self::Clustering($matrix, end($this->centroid));
                 continue;
             }
-
-            if (empty($C1N) and empty($C2N)) {
-                echo "clustring selesai";
-                break;
-            }
         }
+    }
+
+    public function getCentroid()
+    {
+        return $this->perulangan_centroid;
+    }
+
+    public function getDistance()
+    {
+        return $this->distance;
+    }
+
+    public function getValueN()
+    {
+        return $this->n;
+    }
+
+    public function getMatrix()
+    {
+        return $this->matrix;
     }
 }
