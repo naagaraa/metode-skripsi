@@ -31,9 +31,11 @@ semakin meninggi semakin merunduk, jangan sombong, bantu orang lain, janga mau d
 
 <br>
 
-## CAUTION
+## CAUTION!
 
-- if copy give me a credit
+- <b>if copy this code, please give me a credit author<b>
+
+<br><br>
 
 ## Creator , Contribution dan development
 
