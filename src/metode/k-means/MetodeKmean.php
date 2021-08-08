@@ -32,7 +32,7 @@
 
 namespace Nagara\Src\Metode;
 
-use PhpOffice\PhpSpreadsheet\Calculation\MathTrig\Ceiling;
+use Nagara\Src\Math\MathematicClass;
 
 class MetodeKmeans
 {
@@ -100,6 +100,14 @@ class MetodeKmeans
         foreach ($temp_centroid_c2 as $key => $value) {
             $c2_b[$key] = $this->matrix[1][$value];
         }
+
+        $math = new MathematicClass;
+
+        // echo "error division by zero method get new centroid metode k-means clustering<br>";
+        $math->division_by_zero(count($c1_a));
+        $math->division_by_zero(count($c1_b));
+        $math->division_by_zero(count($c2_a));
+        $math->division_by_zero(count($c2_b));
 
         // centroid baru
         $centroid = [

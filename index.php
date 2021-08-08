@@ -27,33 +27,3 @@
  * 
  */
 include "vendor/autoload.php";
-
-use Nagara\Src\Metode\MetodeKmeans;
-
-$metode = new MetodeKmeans;
-
-$c1 = [1, 1];
-$c2 = [2, 1];
-
-$centroid = [
-    "C1" => $c1,
-    "C2" => $c2,
-];
-
-$n = [1, 2, 3, 4]; // jumlah data
-
-$a = [1, 2, 4, 5];
-$b = [1, 1, 3, 4];
-
-$matrix_example = [$a, $b];
-
-$test = $metode->Clustering($matrix_example, $centroid);
-$centroid = $metode->getCentroid();
-$distance = $metode->getDistance();
-$getn = $metode->getValueN();
-$matrix = $metode->getMatrix();
-
-dump($centroid);
-dump($distance);
-dump($getn);
-dump($matrix);

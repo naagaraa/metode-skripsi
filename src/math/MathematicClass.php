@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 
  * this file is part of action mathematic math class for method skripshit
@@ -42,6 +43,7 @@ class MathematicClass
     {
         if ($int == 0.0) {
             echo "Cannot divide by zero constant {$int}";
+            exit;
             return false;
         }
         return true;
