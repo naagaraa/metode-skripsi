@@ -43,6 +43,13 @@ class MetodeKmeans
     private $distance = [];
     private $n;
 
+    /**
+     * method untuk menghitung nilai Euclidian Distance formula
+     * @author eka jaya nagara
+     * @param array         | nilai matrix
+     * @param array         | nilai matrix centorid
+     * @return  array       | value squared by x
+     */
     public function EuclidianDistance($matrix = [], $centroid)
     {
 
@@ -66,6 +73,11 @@ class MetodeKmeans
         $this->distance_cn = $distance_cn;
     }
 
+    /**
+     * method untuk mendapatkan nilai centroid baru
+     * @author eka jaya nagara
+     * @return  array       | value centorid
+     */
     public function getNewCentroid()
     {
         // get location index centroid 1n dan 2n
@@ -125,6 +137,13 @@ class MetodeKmeans
         return $centroid;
     }
 
+    /**
+     * method untuk clustering , berhenti ketika nilai centroid terakhir sama dengan centroid sebelum terakhir
+     * @author eka jaya nagara
+     * @param array         | nilai matrix
+     * @param array         | nilai matrix centorid
+     * @return  array       | 
+     */
     public function Clustering($matrix = [], $centroid = [])
     {
         // check jika data awal 0
@@ -168,21 +187,41 @@ class MetodeKmeans
         }
     }
 
+    /**
+     * method untuk menampilkan nilai centroid berdasarkan perulangannya
+     * @author eka jaya nagara
+     * @return  array       | centroid
+     */
     public function getCentroid()
     {
         return $this->perulangan_centroid;
     }
 
+    /**
+     * method untuk menampilkan nilai Distance Score Euclidian berdasarkan perulangannya
+     * @author eka jaya nagara
+     * @return  array       | centroid
+     */
     public function getDistance()
     {
         return $this->distance;
     }
 
+    /**
+     * method untuk menampilkan nilai n atau jumlah data
+     * @author eka jaya nagara
+     * @return  array       | centroid
+     */
     public function getValueN()
     {
         return $this->n;
     }
 
+    /**
+     * method untuk menampilkan nilai matrix atau data matrix
+     * @author eka jaya nagara
+     * @return  array       | centroid
+     */
     public function getMatrix()
     {
         return $this->matrix;

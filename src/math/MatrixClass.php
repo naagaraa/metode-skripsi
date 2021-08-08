@@ -49,10 +49,10 @@ class MatrixClass
             exit;
         }
 
-        // membuat single matrix dari colum atau fiels
+        // membuat single matrix dari colum atau fiels and convert to number
         $new_nilai = [];
         foreach ($data as $siswa) {
-            $new_nilai[] = $siswa[$fieldOrColumn];
+            $new_nilai[] = $siswa[$fieldOrColumn] / 1;
         }
         return $new_nilai;
     }

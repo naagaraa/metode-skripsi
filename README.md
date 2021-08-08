@@ -120,7 +120,10 @@ dalam pembuatanya semua metodenya tulis dengan konsep OOP atau object oriented d
 
   - [simple oreste](#oreste)
 
-- k means | under development
+- k means
+
+  - [simple k means](#k-means)
+
 - other ? | oke let's make something
 
 ## Tools Array Matrix
@@ -506,6 +509,55 @@ $metode->oreste($matrix_example, $weight);
 $besson = $metode->getBessonRank();
 $distanceScore = $metode->getDistanceScore();
 $preferensi = $metode->getPreferensi();
+
+
+```
+
+## k-means
+
+K-Means Clustering adalah suatu metode penganalisaan data atau metode Data Mining yang melakukan proses pemodelan tanpa supervisi (unsupervised) dan merupakan salah satu metode yang melakukan pengelompokan data dengan sistem partisi.
+
+more detail about k menas [here](https://github.com/naagaraa/metode-skriphit/tree/main/src/metode/k-means) and for example code [here](https://github.com/naagaraa/metode-skriphit/blob/main/src/example/exampleKmeans.php)
+
+### how to use
+
+```php
+use Nagara\Src\Metode\MetodeKmeans; // load libraries or method
+
+$metode = new MetodeKmeans;
+
+// nilai awal centorid
+$c1 = [3, 2];
+$c2 = [2, 2];
+
+// matrix centroid
+$centroid = [
+    "C1" => $c1,
+    "C2" => $c2,
+];
+
+// matrix a dan b
+$a = [1, 2, 4, 5, 4];
+$b = [1, 1, 3, 4, 2];
+
+// data matrix
+$matrix_example = [$a, $b];
+
+// k-mean init
+$metode->Clustering($matrix_example, $centroid);
+
+// getter k mean
+$centroid = $metode->getCentroid();
+$distance = $metode->getDistance();
+$getvaluen = $metode->getValueN();
+$matrix = $metode->getMatrix();
+
+// debug value
+dump($matrix);
+dump($centroid);
+dump($distance);
+dump($getvaluen);
+
 
 
 ```
