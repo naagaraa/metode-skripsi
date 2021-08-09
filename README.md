@@ -73,4 +73,10 @@ dalam pembuatanya semua metodenya tulis dengan konsep OOP atau object oriented d
 
 - other ? | oke let's make something
 
-## next metode comming soon
+### next plan make libraries
+
+next plan make libraries often used for skripshit you can read this
+
+- [planning](https://github.com/naagaraa/metode-skriphit/tree/main/src/metode)
+
+<br>
