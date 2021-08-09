@@ -3,9 +3,10 @@
 membuat rumus implementasi metode yang sering digunakan pada skripsi dengan pengetahuan basic Math or Mathematic ke dalam function dan object base. untuk collection. plesetin aja jadi skripshit.
 
 ### About wiki
-before used this libraries baca dulu bagian wiki disini.
-- [wiki](https://github.com/naagaraa/metode-skriphit/tree/main/wiki.md)
 
+before used this libraries baca dulu bagian wiki disini.
+
+- [wiki](https://github.com/naagaraa/metode-skriphit/tree/main/wiki.md)
 
 ### INSTALL USED COMPOSER ?
 
@@ -30,6 +31,7 @@ composer require nagara/metode-skripshit
 ```bash
 composer update
 ```
+
 <br>
 
 ##### load vendor autoload :
@@ -86,6 +88,10 @@ dalam pembuatanya semua metodenya tulis dengan konsep OOP atau object oriented d
 - k means
 
   - [simple k means](#k-means)
+
+- naive bayes classfication | learning and under develeopment
+
+  - [simple naive-bayes](#naive-bayes)
 
 - other ? | oke let's make something
 
@@ -524,5 +530,11 @@ dump($getvaluen);
 
 
 ```
+
+## naive bayes
+
+Algoritma Naive Bayes merupakan sebuah metoda klasifikasi menggunakan metode probabilitas dan statistik yg dikemukakan oleh ilmuwan Inggris Thomas Bayes. Algoritma Naive Bayes memprediksi peluang di masa depan berdasarkan pengalaman di masa sebelumnya sehingga dikenal sebagai Teorema Bayes. Ciri utama dr Naïve Bayes Classifier ini adalah asumsi yg sangat kuat (naïf) akan independensi dari masing-masing kondisi / kejadian.
+
+# <b>comming soon , i'm still learn and under development<b>
 
 ## next metode comming soon

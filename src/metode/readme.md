@@ -1,4 +1,4 @@
- ## LIST OF METODE SKRIPSI
+## LIST OF METODE SKRIPSI
 
 this my plan develop all method often skripsi engginering of informatic used OOP PHP even I learn another language and boring day
 
@@ -6,10 +6,10 @@ this my plan develop all method often skripsi engginering of informatic used OOP
 2. c45 (plan)
 3. decision-tree (plan)
 4. fuzzy
-    - mandani (plan)
-    - sugeno (clear 80%)
+   - mandani (plan)
+   - sugeno (clear) | static kurva
 5. just-in-time (plan)
-6. k-mean (under development)
+6. k-mean (clear) | simple k-means
 7. k-nn (plan)
 8. linear-regresion (clear)
 9. naive-bayes (plan)
@@ -17,8 +17,8 @@ this my plan develop all method often skripsi engginering of informatic used OOP
 11. oreste (clear)
 12. profile-matching (plan)
 13. random-forest (plan)
-14. saw (under maintenace)
-15. topsis  (clear)
+14. saw (clear)
+15. topsis (clear)
 16. wp (clear)
 17. gamification (plan)
 18. AHP (plan)
@@ -32,14 +32,13 @@ this my plan develop all method often skripsi engginering of informatic used OOP
 26. FANP (plan)
 27. CONSISE SIMILARITY (plan)
 28. MOORA (plan)
-29. MFEP (plan) 
+29. MFEP (plan)
 30. PROMETHEE (plan)
 31. HASH BASED (plan)
-32. Simple Multi Attribute Rating Technique (SMART) 
+32. Simple Multi Attribute Rating Technique (SMART)
 33. Fp-Growth (plan)
 34. FUZZY TSUKAMOTO (plan)
 35. RIVEST SHAMIR ADLEMAN (plan)
-
 
 ## List OF Journal
 

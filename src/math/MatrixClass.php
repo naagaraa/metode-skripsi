@@ -54,6 +54,7 @@ class MatrixClass
         foreach ($data as $siswa) {
             $new_nilai[] = $siswa[$fieldOrColumn] / 1;
         }
+
         return $new_nilai;
     }
 
@@ -85,7 +86,13 @@ class MatrixClass
             $box_matrix[$i] = self::make_field_matrix($data, $field[$i]);
         }
 
-        return $box_matrix;
+        // return conditional
+        if ($total_column_or_baris_matrix == 1) {
+            // jika hanya satu column
+            return $box_matrix[0];
+        } else {
+            return $box_matrix;
+        }
     }
 
     /**
