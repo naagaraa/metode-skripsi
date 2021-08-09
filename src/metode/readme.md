@@ -12,7 +12,7 @@ this my plan develop all method often skripsi engginering of informatic used OOP
 6. k-mean (clear) | simple k-means
 7. k-nn (plan)
 8. linear-regresion (clear)
-9. naive-bayes (plan)
+9. naive-bayes (under development and still learning)
 10. neural-network (plan)
 11. oreste (clear)
 12. profile-matching (plan)
