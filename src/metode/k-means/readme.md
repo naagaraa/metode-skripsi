@@ -2,6 +2,9 @@
 
 K-Means Clustering adalah suatu metode penganalisaan data atau metode Data Mining yang melakukan proses pemodelan tanpa supervisi (unsupervised) dan merupakan salah satu metode yang melakukan pengelompokan data dengan sistem partisi. https://informatikalogi.com/algoritma-k-means-clustering/
 
+maintenance metode, used example jurnal CLUSTERING MENGGUNAKAN METODE K-MEANS UNTUK
+MENENTUKAN STATUS GIZI BALITA
+
 ## Explain Metode : teori
 
 coming soon
@@ -64,6 +67,19 @@ dump($matrix);
 dump($centroid);
 dump($distance);
 dump($getvaluen);
+
+
+```
+
+maintenance metode
+
+```php
+// STATUS GIZI BALITA
+
+// data
+$tb = [65, 65, 60, 60, 52, 51, 54, 52.5, 70, 71, 72.5, 71.5, 55, 57, 52, 46.5, 95, 82, 75, 99, 99, 97.5, 88, 75, 95, 72, 50, 67, 68, 65, 61, 62, 53, 55, 54, 52.5, 77, 73, 72.5, 71.5, 55, 59, 54, 46.5, 95, 87, 75, 92.5, 93, 97.5];
+
+$bb = [5.8, 7.2, 5, 8, 5.8, 5, 3.5, 7.8, 4.2, 6.2, 7, 8.5, 5.5, 4.8, 6.5, 5.7, 12, 9.7, 8, 11, 7.8, 10, 9.4, 10.1, 12.8, 10.2, 6, 5, 8.2, 9.4, 7.1, 5.8, 3.5, 5.8, 3.5, 6.8, 4.7, 5.8, 6.9, 8.1, 6.7, 5.5, 4.9, 4.2, 7.4, 9.1, 6.5, 9.4, 8.4, 7.9];
 
 
 ```

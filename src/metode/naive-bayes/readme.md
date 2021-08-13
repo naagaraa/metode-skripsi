@@ -39,3 +39,5 @@ posterior = prior \* likelihood / evidence
 https://monkeylearn.com/blog/practical-explanation-naive-bayes-classifier/
 https://informatikalogi.com/algoritma-naive-bayes/
 http://publikasi.dinus.ac.id/index.php/technoc/article/view/975/739 - jurnal
+https://en.wikipedia.org/wiki/Bayes%27_theorem
+https://towardsdatascience.com/machine-learning-text-processing-1d5a2d638958
