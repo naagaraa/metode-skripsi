@@ -1,12 +1,14 @@
 <?php
 
 /**
- * this file for tested during I am develop metode skripshit
- *
- * @author      Eka Jaya Nagara
- * @copyright   Copyright (c), 2021 naagaraa metode skripsi
+ * 
+ * this file is single method of PHP Technique for Rabin Karb string matching
+ * 
+ * 
+ * @author      Eka Jaya Nagara     
+ * @copyright   Copyright (c), 2021 naagaraa metode skripsi Technique for Rabin Karb string matching
  * @license     MIT public license
- *
+ * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -24,11 +26,18 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- *
  */
-include "vendor/autoload.php";
 
-use Nagara\Src\Metode\MetodeWinnowing;
+namespace Nagara\Src\Metode;
 
-$windowing = new MetodeWinnowing;
-dump($windowing->winradi("hello world"));
+use Nagara\Src\Math\MathematicClass;
+use Nagara\Src\Math\MatrixClass;
+
+
+class MetodeRabinKarb
+{
+    public function index()
+    {
+        echo "hi";
+    }
+}

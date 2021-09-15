@@ -268,6 +268,7 @@ return array(
     'Nagara\\Src\\Metode\\MetodeSaw' => $baseDir . '/src/metode/saw/MetodeSaw.php',
     'Nagara\\Src\\Metode\\MetodeTopsis' => $baseDir . '/src/metode/topsis/MetodeTopsis.php',
     'Nagara\\Src\\Metode\\MetodeWP' => $baseDir . '/src/metode/wp/MetodeWP.php',
+    'Nagara\\Src\\Metode\\MetodeWinnowing' => $baseDir . '/src/metode/winnowing/MetodeWinnowing.php',
     'PhpOffice\\PhpSpreadsheet\\Calculation\\Calculation' => $vendorDir . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/Calculation.php',
     'PhpOffice\\PhpSpreadsheet\\Calculation\\Category' => $vendorDir . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/Category.php',
     'PhpOffice\\PhpSpreadsheet\\Calculation\\Database' => $vendorDir . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/Database.php',
