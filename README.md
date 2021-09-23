@@ -37,6 +37,7 @@ before used this libraries baca dulu bagian wiki disini.
   - [excel / csv](#tools-office-document-excel)
   - read file csv
   - parser pdf to text
+  - parser docx to text
 
 ## List of Metode
 

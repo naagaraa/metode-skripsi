@@ -418,6 +418,7 @@ class ComposerStaticInit6937f89145982d922cbb4611d57fffd1
         'MyCLabs\\Enum\\Enum' => __DIR__ . '/..' . '/myclabs/php-enum/src/Enum.php',
         'MyCLabs\\Enum\\PHPUnit\\Comparator' => __DIR__ . '/..' . '/myclabs/php-enum/src/PHPUnit/Comparator.php',
         'Nagara\\Src\\Database\\DB' => __DIR__ . '/../..' . '/src/db/DB.php',
+        'Nagara\\Src\\Doc\\DocumentDocx' => __DIR__ . '/../..' . '/src/office/DocumentDocx.php',
         'Nagara\\Src\\Doc\\DocumentExcel' => __DIR__ . '/../..' . '/src/office/DocumentExcel.php',
         'Nagara\\Src\\Math\\MathematicClass' => __DIR__ . '/../..' . '/src/math/MathematicClass.php',
         'Nagara\\Src\\Math\\MatrixClass' => __DIR__ . '/../..' . '/src/math/MatrixClass.php',

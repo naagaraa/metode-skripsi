@@ -257,6 +257,7 @@ return array(
     'MyCLabs\\Enum\\Enum' => $vendorDir . '/myclabs/php-enum/src/Enum.php',
     'MyCLabs\\Enum\\PHPUnit\\Comparator' => $vendorDir . '/myclabs/php-enum/src/PHPUnit/Comparator.php',
     'Nagara\\Src\\Database\\DB' => $baseDir . '/src/db/DB.php',
+    'Nagara\\Src\\Doc\\DocumentDocx' => $baseDir . '/src/office/DocumentDocx.php',
     'Nagara\\Src\\Doc\\DocumentExcel' => $baseDir . '/src/office/DocumentExcel.php',
     'Nagara\\Src\\Math\\MathematicClass' => $baseDir . '/src/math/MathematicClass.php',
     'Nagara\\Src\\Math\\MatrixClass' => $baseDir . '/src/math/MatrixClass.php',
