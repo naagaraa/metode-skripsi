@@ -26,9 +26,5 @@
  * THE SOFTWARE.
  *
  */
+
 include "vendor/autoload.php";
-
-use Nagara\Src\Metode\MetodeWinnowing;
-
-$windowing = new MetodeWinnowing;
-dump($windowing->winradi("hello world"));

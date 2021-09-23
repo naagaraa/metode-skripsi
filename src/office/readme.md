@@ -4,7 +4,7 @@ Office Class adalah method khusus yang saya buat untuk membaca atau read file ex
 seperti testing data jika , saya malas untuk mengambil data langsung dari database, saya bisa mengambil dan 
 melakukan read pada file excel saja
 
-
+## DOCUMENT EXCEL CLASS
 ### format file excel atau CSV
 
 - nama column berada pada ROW 1 [A1,B1,C1,D1 ... E - n]
@@ -49,4 +49,21 @@ dump($column);
 dump($row);
 dump($bycolumn);
 
+```
+
+## PDFPARSER
+pdf parser is class pdf data extraction by Sebastien MALOT class for file
+
+### basic usage
+```php
+
+// init
+use Sebastien\Src\Doc\PdfParser;
+
+// create object
+$pdf = new PdfParser;
+
+// save data to string
+$data = $pdf->parseFile("PROPOSAL_SKRIPSI_2017230072_ekajayanagara.pdf");
+echo $data;
 ```
