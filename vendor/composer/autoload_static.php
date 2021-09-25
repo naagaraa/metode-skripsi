@@ -72,6 +72,10 @@ class ComposerStaticInit6937f89145982d922cbb4611d57fffd1
     );
 
     public static $prefixLengthsPsr4 = array (
+        't' => 
+        array (
+            'thiagoalessio\\TesseractOCR\\' => 27,
+        ),
         's' => 
         array (
             'src\\' => 4,
@@ -105,6 +109,10 @@ class ComposerStaticInit6937f89145982d922cbb4611d57fffd1
     );
 
     public static $prefixDirsPsr4 = array (
+        'thiagoalessio\\TesseractOCR\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src',
+        ),
         'src\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
@@ -420,6 +428,7 @@ class ComposerStaticInit6937f89145982d922cbb4611d57fffd1
         'Nagara\\Src\\Database\\DB' => __DIR__ . '/../..' . '/src/db/DB.php',
         'Nagara\\Src\\Doc\\DocumentDocx' => __DIR__ . '/../..' . '/src/office/DocumentDocx.php',
         'Nagara\\Src\\Doc\\DocumentExcel' => __DIR__ . '/../..' . '/src/office/DocumentExcel.php',
+        'Nagara\\Src\\Img\\ImgParser' => __DIR__ . '/../..' . '/src/img/ImgParser.php',
         'Nagara\\Src\\Math\\MathematicClass' => __DIR__ . '/../..' . '/src/math/MathematicClass.php',
         'Nagara\\Src\\Math\\MatrixClass' => __DIR__ . '/../..' . '/src/math/MatrixClass.php',
         'Nagara\\Src\\Metode\\MetodeFuzzySugeno' => __DIR__ . '/../..' . '/src/metode/fuzzy/MetodeFuzzySugeno.php',
@@ -966,6 +975,17 @@ class ComposerStaticInit6937f89145982d922cbb4611d57fffd1
         'ZipStream\\Option\\Version' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/Option/Version.php',
         'ZipStream\\Stream' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/Stream.php',
         'ZipStream\\ZipStream' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/ZipStream.php',
+        'thiagoalessio\\TesseractOCR\\Command' => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src/Command.php',
+        'thiagoalessio\\TesseractOCR\\FeatureNotAvailableException' => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src/FeatureNotAvailableException.php',
+        'thiagoalessio\\TesseractOCR\\FriendlyErrors' => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src/FriendlyErrors.php',
+        'thiagoalessio\\TesseractOCR\\ImageNotFoundException' => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src/ImageNotFoundException.php',
+        'thiagoalessio\\TesseractOCR\\NoWritePermissionsForOutputFile' => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src/NoWritePermissionsForOutputFile.php',
+        'thiagoalessio\\TesseractOCR\\Option' => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src/Option.php',
+        'thiagoalessio\\TesseractOCR\\Process' => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src/Process.php',
+        'thiagoalessio\\TesseractOCR\\TesseractNotFoundException' => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src/TesseractNotFoundException.php',
+        'thiagoalessio\\TesseractOCR\\TesseractOCR' => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src/TesseractOCR.php',
+        'thiagoalessio\\TesseractOCR\\TesseractOcrException' => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src/TesseractOcrException.php',
+        'thiagoalessio\\TesseractOCR\\UnsuccessfulCommandException' => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src/UnsuccessfulCommandException.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

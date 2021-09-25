@@ -28,3 +28,10 @@
  */
 
 include "vendor/autoload.php";
+
+use Nagara\Src\Img\ImgParser;
+
+$img = new ImgParser;
+$img->parseFile("germany.jpg");
+$img->printLangSupport();
+$img->printAbout();

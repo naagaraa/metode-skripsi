@@ -1,6 +1,6 @@
 {
     "name": "nagara/metode-skripshit",
-    "description": "libraries metode skripshit build by miyuki nagara as eka jaya nagara, noob programmer wanna be hacker and cyber security",
+    "description": "libraries metode skripshit build by miyuki nagara as eka jaya nagara, for support easier my skripsi and make something easier written at php programing",
     "license": "MIT",
     "authors": [
         {
@@ -12,7 +12,8 @@
     "require": {
         "php": ">=7.3",
         "phpoffice/phpspreadsheet": "^1.18",
-        "symfony/var-dumper": "^5.3"
+        "symfony/var-dumper": "^5.3",
+        "thiagoalessio/tesseract_ocr": "^2.12"
     },
     "config": {
         "optimize-autoloader": true,
