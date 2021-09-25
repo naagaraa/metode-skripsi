@@ -176,6 +176,70 @@ dump($bycolumn);
 
 ```
 
+## Tools Parse to text
+
+### PDF
+
+pdf parser is class pdf data extraction by Sebastien MALOT class for file. selengkapnya baca [disini](https://github.com/naagaraa/metode-skriphit/tree/main/src/office/readme.md)
+
+- _note name document can't have a space_
+
+```php
+
+// init
+use Sebastien\Src\Doc\PdfParser;
+
+// create object
+$pdf = new PdfParser;
+
+// save data to string
+$data = $pdf->parseFile("filename.pdf");
+echo $data;
+```
+
+### DOCX
+
+Docx parser is class docx data extraction by answer at stackoverflow. selengkapnya baca [disini](https://github.com/naagaraa/metode-skriphit/tree/main/src/office/readme.md)
+
+- _note name document can't have a space_
+
+```php
+// init
+use Nagara\Src\Doc\DocumentDocx;
+
+// create object
+$docx = new DocumentDocx;
+
+// save data to string
+$data = $docx->parseFile("filename.docx");
+echo $data;
+
+```
+
+### IMAGE
+
+IMG class adalah class khusus untuk optical character recognition, dibangun menggunakan teserract ocr php, tesseract OCR Enggine sendiri merupakan software Open source yang dikembangkan oleh google team dengan bahasa c++ . selengkapnya baca [disini](https://github.com/naagaraa/metode-skriphit/tree/main/src/img/readme.md)
+
+```php
+
+use Nagara\Src\Img\ImgParser;
+
+// create object
+$img = new ImgParser;
+
+// put path image file
+$img->parseFile("indonesia.jpg"); # default no lang
+$img->parseFile("germany.jpg", "deu"); # spesific lang
+
+
+// print lang support
+$img->printLangSupport();
+
+// print about this tool
+$img->printAbout();
+
+```
+
 ## Tools Database
 
 database adalah suatu penyimpanan data, biasanya klo gak pake framework build dari zero itu harus config database dari awal mulai atur config DB_NAME, DB_PASSOWORD DB_USER DB_TYPE wah ribet banget, kebayangkan, nah maka dari itu gue orangnya sedikit males klo harus melakukan hal berulang - ulang kaya gituh. jadi gue buatlah librarynya sekalian dengan kumpulan metode metode yang gue buat sendiri dari baca jurnal jurnal dan referensi di internet. dengan konsep OOP
@@ -489,6 +553,8 @@ $preferensi = $metode->getPreferensi();
 K-Means Clustering adalah suatu metode penganalisaan data atau metode Data Mining yang melakukan proses pemodelan tanpa supervisi (unsupervised) dan merupakan salah satu metode yang melakukan pengelompokan data dengan sistem partisi.
 
 more detail about k menas [here](https://github.com/naagaraa/metode-skriphit/tree/main/src/metode/k-means) and for example code [here](https://github.com/naagaraa/metode-skriphit/blob/main/src/example/exampleKmeans.php)
+
+:warning: untuk multiple centroid , centorid lebih dari 2 belum support, [a,b,c, ... n]
 
 ### how to use
 
