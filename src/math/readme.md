@@ -13,7 +13,8 @@ use Nagara\Src\Math\NumberCurrency;
 
 $money = new NumberCurrency();
 echo $money->rupiah(2500000); # untuk rupiah
-
+echo "<br>";
+echo $duit->dollar(123.46); # untuk dollar
 ```
 
 ## Matrix Class

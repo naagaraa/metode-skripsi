@@ -29,3 +29,9 @@
 
 include "vendor/autoload.php";
 
+use Nagara\Src\Math\NumberCurrency;
+
+$duit = new NumberCurrency;
+echo $duit->rupiah(1000);
+echo "<br>";
+echo $duit->dollar(123.46);

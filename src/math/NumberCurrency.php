@@ -31,11 +31,13 @@
 
 namespace Nagara\Src\Math;
 
+use NumberFormatter;
+
 
 class NumberCurrency
 {
     /**
-     * stringformat to rupiah method
+     * string format to rupiah method
      *
      * @param int $number
      * @return string
@@ -49,7 +51,24 @@ class NumberCurrency
 
         // reference
         // <https://www.malasngoding.com/membuat-format-rupiah-di-php/>
-        $hasil_rupiah = "Rp " . number_format($number, 2, ',', '.');
-        return $hasil_rupiah;
+        $formatter = "Rp " . number_format($number, 2, ',', '.');
+        return $formatter;
+    }
+
+    /**
+     * string format to dollar method
+     *
+     * @param int $number
+     * @return string
+     */
+    public function dollar($number)
+    {
+        if (is_string($number)) {
+            echo "sorry your{$number} false type data, this method only support int";
+            exit;
+        }
+
+        $formatter = new NumberFormatter('en_US', NumberFormatter::CURRENCY);
+        return $formatter->formatCurrency($number, 'USD');
     }
 }
