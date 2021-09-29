@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'b270873303355afc4512bb0851a6fd1ac7048948',
+        'reference' => '65a5de41d657825dcd3a535163d58892ed69aaab',
         'name' => 'nagara/metode-skripshit',
         'dev' => true,
     ),
@@ -61,7 +61,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'b270873303355afc4512bb0851a6fd1ac7048948',
+            'reference' => '65a5de41d657825dcd3a535163d58892ed69aaab',
             'dev_requirement' => false,
         ),
         'phpoffice/phpspreadsheet' => array(
@@ -107,6 +107,15 @@
             'install_path' => __DIR__ . '/../psr/simple-cache',
             'aliases' => array(),
             'reference' => '408d5eafb83c57f6365a3ca330ff23aa4a5fa39b',
+            'dev_requirement' => false,
+        ),
+        'sastrawi/sastrawi' => array(
+            'pretty_version' => 'v1.2.0',
+            'version' => '1.2.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../sastrawi/sastrawi',
+            'aliases' => array(),
+            'reference' => '31fd4261dd4980cc57447f44d1aec4bd69e2abec',
             'dev_requirement' => false,
         ),
         'symfony/polyfill-mbstring' => array(

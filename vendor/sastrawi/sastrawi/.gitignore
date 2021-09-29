@@ -1,0 +1,7 @@
+vendor
+composer.lock
+*.phar
+cache.properties
+build
+Vagrantfile
+.vagrant
