@@ -37,11 +37,16 @@ class NumberCurrency
     /**
      * stringformat to rupiah method
      *
-     * @param string $number
+     * @param int $number
      * @return string
      */
     public function rupiah($number)
     {
+        if (is_string($number)) {
+            echo "sorry your{$number} false type data, this method only support int";
+            exit;
+        }
+
         // reference
         // <https://www.malasngoding.com/membuat-format-rupiah-di-php/>
         $hasil_rupiah = "Rp " . number_format($number, 2, ',', '.');
