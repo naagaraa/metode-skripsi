@@ -16,7 +16,7 @@ have solution please send positif comment and help other people !
 
 ## INFO
 
-semakin meninggi semakin merunduk, jangan sombong, bantu orang lain, janga mau dimanfaatkan demi kepentingan yang merugikan diri sendiri. _note_ : jika saya mood
+semakin meninggi semakin merunduk, jangan sombong, bantu orang lain, jangan mau dimanfaatkan demi kepentingan yang merugikan diri sendiri. _note_ : jika saya mood
 
 <!-- Links -->
 

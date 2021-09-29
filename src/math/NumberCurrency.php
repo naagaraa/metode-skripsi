@@ -1,12 +1,14 @@
 <?php
 
 /**
- * this file for tested during I am develop metode skripshit
- *
- * @author      Eka Jaya Nagara
- * @copyright   Copyright (c), 2021 naagaraa metode skripsi
+ * 
+ * this file is part of action mathematic math number curreny format for method skripshit
+ * 
+ * 
+ * @author      Eka Jaya Nagara     
+ * @copyright   Copyright (c), 2021 naagaraa number currency format class function object
  * @license     MIT public license
- *
+ * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -24,9 +26,25 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- *
+ * 
  */
 
-include "vendor/autoload.php";
+namespace Nagara\Src\Math;
 
 
+class NumberCurrency
+{
+    /**
+     * stringformat to rupiah method
+     *
+     * @param string $number
+     * @return string
+     */
+    public function rupiah($number)
+    {
+        // reference
+        // <https://www.malasngoding.com/membuat-format-rupiah-di-php/>
+        $hasil_rupiah = "Rp " . number_format($number, 2, ',', '.');
+        return $hasil_rupiah;
+    }
+}

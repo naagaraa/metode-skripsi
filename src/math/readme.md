@@ -1,10 +1,29 @@
-### Matrix Class
+## Mathematic
 
-matrix class adalah object base class yang saya buat untuk berinteraksi dengan data pada database seperti 
+## NumberCurrency
+
+Number Currency class adalah object class yang dibuat khusus untuk melakkukan format string number menjadi format mata uang.
+
+**note** : saat ini yang masih tersedia hanya rupiah saja
+
+#### basi usage
+
+```php
+use Nagara\Src\Math\NumberCurrency;
+
+$money = new NumberCurrency();
+echo $money->rupiah(2500000); # untuk rupiah
+
+```
+
+## Matrix Class
+
+matrix class adalah object base class yang saya buat untuk berinteraksi dengan data pada database seperti
 membuat array baru berdasarkan column yang ingin di ambil datanya atau melakukan flip array merubah row
 menjadi colum atau sebaliknya.
 
-### how to use
+#### basic usage
+
 ```php
 use Nagara\Src\Math\MatrixClass; // load libraries
 
@@ -32,6 +51,7 @@ var_dump($z); // return new array hanya nilai kehadiran dan kedisiplinan
 ```
 
 ### more detail
+
 ```php
 // basic usage
 use Nagara\Src\Math\MatrixClass;
@@ -47,6 +67,7 @@ var_dump($z); // return new array hanya nilai kehadiran dan kedisiplinan
 ```
 
 ### keterangan
+
 - data bisa dari database adalah berupa array assosiative atau basenya array assosiative langsung
 - paramter pertama data original dari database atau array bentuk assosiative
 - paramter kedua itu jumlah column yang akan diambil

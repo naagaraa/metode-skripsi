@@ -37,7 +37,6 @@ class MatrixClass
 {
     /**
      * function membuat single matrix / membuat array satu dimensi dari columnnya
-     * @author eka jaya nagara
      * @param array             |  original array
      * @param string            |  column name atau field name
      * @return array            |  return new single array
@@ -61,7 +60,6 @@ class MatrixClass
 
     /**
      * function membuat matrix atau array multi dimensi baru dari original datanya 
-     * @author eka jaya nagara
      * @param array                 | paramter pertama data original array
      * @param int                   | paramter kedua jumlah field atau colum yang diambil
      * @param array                 | paramter ketiga nama field atau colum yang diambil
@@ -97,7 +95,6 @@ class MatrixClass
 
     /**
      * function membuat flip matrix atau melaukan tranfrom array baris menjadi colum atau sebaliknya
-     * @author eka jaya nagara
      * @param array                 | array yang akan di flip berdasarkan index
      * @return array
      */
