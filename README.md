@@ -2,6 +2,10 @@
 
 membuat rumus implementasi metode yang sering digunakan pada skripsi dengan pengetahuan basic Math or Mathematic ke dalam function dan object base. untuk collection pribadi. dan tools lainnya . let's make all is easier.
 
+### Dilema
+
+**:warning: pusing w ngerjain metode pake php, orang lain pada sans pake python, python banyak library, tinggal pnp, klo php harus from scracth atau build from zero wkwkw :warning:**
+
 ### On the Future
 
 I'll change the name from metode skripshit to my-php-tool
