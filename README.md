@@ -45,17 +45,17 @@ before used this libraries baca dulu bagian wiki disini.
 
 - math
 
-  - [matrix](#tools-array-matrix)
+  - [matrix](https://github.com/naagaraa/metode-skriphit/blob/main/src/math/readme.md)
 
 - db ( PDO - PHP data Object )
 
-  - [database](#tools-database)
+  - [database](https://github.com/naagaraa/metode-skriphit/blob/main/src/db/readme.md)
   - connection
   - query mysql
 
 - office
 
-  - [excel / csv](#tools-office-document-excel)
+  - [excel / csv](https://github.com/naagaraa/metode-skriphit/blob/main/src/office/readme.md)
   - read file csv
   - parser pdf to text
   - parser docx to text
@@ -69,33 +69,37 @@ dalam pembuatanya semua metodenya tulis dengan konsep OOP atau object oriented d
 
 - fuzzy
 
-  - [fuzzy-sugeno](#fuzzy-sugeno)
+  - [fuzzy-sugeno](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/fuzzy/readme.md)
 
 - linear-regresion
 
-  - [simple linear regresion](#linear-regresion)
+  - [simple linear regresion](https://github.com/naagaraa/metode-skriphit/blob/main/src/metodelinear-regresion/readme.md)
 
 - simple addive weight (saw)
 
-  - [simple SAW](#simple-adictive-weighted)
+  - [simple SAW](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/saw/readme.md)
 
 - weighted Product (wp)
 
-  - [simple WP](#weighted-product)
+  - [simple WP](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/wp/readme.md)
 
 - The Technique for Order of Preference by Similarity to Ideal Solution (TOPSIS)
-  - [simple topsis](#topsis)
+  - [simple topsis](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/topsis/readme.md)
 - oreste
 
-  - [simple oreste](#oreste)
+  - [simple oreste](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/oreste/readme.md)
 
 - k means
 
-  - [simple k means](#k-means)
+  - [simple k means](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/k-means/readme.md)
 
 - naive bayes classfication | learning and under develeopment
 
-  - [simple naive-bayes](#naive-bayes)
+  - [simple naive-bayes](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/naive-bayes/readme.md)
+
+- winnowing | learning and under develeopment
+
+  - [winnowing](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/winnowing/readme.md)
 
 - other ? | oke let's make something
 
@@ -103,6 +107,6 @@ dalam pembuatanya semua metodenya tulis dengan konsep OOP atau object oriented d
 
 next plan make libraries often used for skripshit you can read this
 
-- [planning](https://github.com/naagaraa/metode-skriphit/tree/main/src/metode)
+- [planning](https://github.com/naagaraa/metode-skriphit/tree/main/src/metode/readme.md)
 
 <br>

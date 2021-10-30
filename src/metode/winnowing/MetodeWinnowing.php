@@ -5,8 +5,6 @@
  * this file is single method of PHP Technique for Winnowing string matching
  * 
  * 
- * @author      Eka Jaya Nagara     
- * @copyright   Copyright (c), 2021 naagaraa metode skripsi Technique for Winnowing string matching
  * @license     MIT public license
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,177 +28,198 @@
 
 namespace Nagara\Src\Metode;
 
-use Nagara\Src\Math\MathematicClass;
-use Nagara\Src\Math\MatrixClass;
 
-
-class MetodeWinnowing
+class winnowing
 {
-    public function option($input = "")
+    private $word1 = '';
+    private $word2 = '';
+
+    //input properties
+    private $prime_number = 3;
+    private $n_gram_value = 2;
+    private $n_window_value = 4;
+
+    //output properties
+    private $arr_n_gram1;
+    private $arr_n_gram2;
+    private $arr_rolling_hash1;
+    private $arr_rolling_hash2;
+    private $arr_window1;
+    private $arr_window2;
+    private $arr_fingerprints1;
+    private $arr_fingerprints2;
+
+    public function SetPrimeNumber($value)
     {
-        $input = str_replace(" ", "", strtolower($input));
-        $input = explode(",", $input);
-
-        asort($input);
-        $str = "";
-        foreach ($input as $input) {
-            $str .= $input;
-        }
-
-        return $str;
+        $this->prime_number = $value;
+    }
+    public function SetNGramValue($value)
+    {
+        $this->n_gram_value = $value;
+    }
+    public function SetNWindowValue($value)
+    {
+        $this->n_window_value = $value;
+    }
+    public function GetNGramFirst()
+    {
+        return $this->arr_n_gram1;
+    }
+    public function GetNGramSecond()
+    {
+        return $this->arr_n_gram2;
+    }
+    public function GetRollingHashFirst()
+    {
+        return $this->arr_rolling_hash1;
+    }
+    public function GetRollingHashSecond()
+    {
+        return $this->arr_rolling_hash2;
+    }
+    public function GetWindowFirst()
+    {
+        return $this->arr_window1;
+    }
+    public function GetWindowSecond()
+    {
+        return $this->arr_window2;
+    }
+    public function GetFingerprintsFirst()
+    {
+        return $this->arr_fingerprints1;
+    }
+    public function GetFingerprintsSecond()
+    {
+        return $this->arr_fingerprints2;
+    }
+    public function GetJaccardCoefficient($prosen = true)
+    {
+        if ($prosen)
+            return round(($this->jaccard_coefficient * 100), 2);
+        else
+            return $this->jaccard_coefficient;
     }
 
-    public function casefolding($input)
+    function __construct($w1, $w2)
     {
-        $fil1 = [
-            " ",
-            ",",
-            ".",
-            "?",
-            "<",
-            ">",
-            "_",
-            ";",
-            ":",
-            "'",
-            "@",
-            "*",
-            "#",
-            "$",
-            "&",
-        ];
-
-        $fil2 = [
-            "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "/", "+", "(", ")", "%"
-        ];
-
-        $fil3 = ["'"];
-        $fil4 = ['"'];
-        $fil5 = [
-            " dan ",
-            " adalah ",
-            " merupakan ",
-            " karena ",
-            " atau ",
-            " jika ",
-            " di ",
-            " yang ",
-            " ke ",
-            " dari ",
-            " sedangkan "
-        ];
-
-        return strtolower(str_replace($fil1, "", (str_replace(
-                $fil4,
-                "",
-                str_replace(
-                    $fil3,
-                    "",
-                    str_replace(
-                        $fil2,
-                        "",
-                        str_replace($fil5, "", $input)
-                    )
-                )
-            ))));
+        $this->word1 = $w1;
+        $this->word2 = $w2;
     }
 
-    public function gram($input)
+    public function process()
     {
-        $n_grams = 3;
-        $grams = [];
-        $leg = strlen($input);
-        for ($i = 0; $i <= ($leg - $n_grams); $i++) {
-            $grams[$i] = substr($input, $i, $n_grams);
-        }
-        return $grams;
-        // $rollinghas($grams);
+        if (($this->word1 == '') || ($this->word2 == '')) exit;
+
+        //langkah 1 : buang semua huruf yang bukan kelompok [a-z A-Z 0-9] dan ubah menjadi huruf kecil semua (lowercase)
+        $this->word1 = strtolower(str_replace(' ', '', preg_replace("/[^a-zA-Z0-9\s-]/", "", $this->word1)));
+        $this->word2 = strtolower(str_replace(' ', '', preg_replace("/[^a-zA-Z0-9\s-]/", "", $this->word2)));
+
+        //langkah 2 : buat N-Gram
+        $this->arr_n_gram1 = $this->n_gram($this->word1, $this->n_gram_value);
+        $this->arr_n_gram2 = $this->n_gram($this->word2, $this->n_gram_value);
+
+        //langkah 3 : rolling hash untuk masing-masing n gram
+        $this->arr_rolling_hash1 = $this->rolling_hash($this->arr_n_gram1);
+        $this->arr_rolling_hash2 = $this->rolling_hash($this->arr_n_gram2);
+
+        //langkah 4 : buat windowing untuk masing-masing tabel hash
+        $this->arr_window1 = $this->windowing($this->arr_rolling_hash1, $this->n_window_value);
+        $this->arr_window2 = $this->windowing($this->arr_rolling_hash2, $this->n_window_value);
+
+        //langkah 5 : cari nilai minimum masing-masing window table (fingerprints)
+        $this->arr_fingerprints1 = $this->fingerprints($this->arr_window1);
+        $this->arr_fingerprints2 = $this->fingerprints($this->arr_window2);
+
+        //langkah 6 : hitung koefisien plagiarisme memanfaatkan persamaan Jaccard Coefficient
+        $this->jaccard_coefficient = $this->jaccard_coefficient($this->arr_fingerprints1, $this->arr_fingerprints2);
     }
 
-    public function rollinghas($grams)
+    private function n_gram($word, $n)
     {
-        $prim = 2;
-        $h = 0;
-        $has = [];
-        for ($i = 0; $i < count($grams); $i++) {
-            for ($j = 0; $j < strlen($grams[$i]); $j++) {
-                $pow = pow($prim, (strlen($grams[$i]) - ($j + 1)));
-                $h += (ord(substr($grams[$i], $j, 1)) * $pow);
+        $ngrams = array();
+        $length = strlen($word);
+        for ($i = 0; $i < $length; $i++) {
+            if ($i > ($n - 2)) {
+                $ng = '';
+                for ($j = $n - 1; $j >= 0; $j--) {
+                    $ng .= $word[$i - $j];
+                }
+                $ngrams[] = $ng;
             }
-            $has[$i] = $h;
-            $h = 0;
         }
-
-        return $has;
+        return $ngrams;
     }
 
-    public function window($has)
+    private function char2hash($string)
     {
-        $window = 0;
-        $leg = count($has);
-        $windows = [[]];
-        for ($i = 0; $i < ($leg - $window); $i++) {
-            for ($j = 0; $j < $window; $j++) {
-                $windows[$i][$j] = $has[$j + $i];
+        if (strlen($string) == 1) {
+            return ord($string);
+        } else {
+            $result = 0;
+            $length = strlen($string);
+            for ($i = 0; $i < $length; $i++) {
+                $result += ord(substr($string, $i, 1)) * pow($this->prime_number, $length - $i);
             }
+            return $result;
         }
-
-        return $window;
     }
 
-    public function finger($windows)
+    private function rolling_hash($ngram)
     {
+        $roll_hash = array();
+        foreach ($ngram as $ng) {
+            $roll_hash[] = $this->char2hash($ng);
+        }
+        return $roll_hash;
+    }
+
+    private function windowing($rolling_hash, $n)
+    {
+        $ngram = array();
+        $length = count($rolling_hash);
         $x = 0;
-        $fingers = [];
-        for ($i = 0; $i < count($windows); $i++) {
-            $min = min($windows[$i]);
-            if (!in_array($min, $fingers)) {
-                $fingers[$x++] = $min;
+        for ($i = 0; $i < $length; $i++) {
+            if ($i > ($n - 2)) {
+                $ngram[$x] = array();
+                $y = 0;
+                for ($j = $n - 1; $j >= 0; $j--) {
+                    $ngram[$x][$y] = $rolling_hash[$i - $j];
+                    $y++;
+                }
+                $x++;
             }
         }
+        //echo $x.' '.$y;
+        return $ngram;
+    }
 
-        // echo $fingers;
+    private function fingerprints($window_table)
+    {
+        $fingers = array();
+        for ($i = 0; $i < count($window_table); $i++) {
+            $min = $window_table[$i][0];
+            for ($j = 1; $j < $this->n_window_value; $j++) {
+                if ($min > $window_table[$i][$j])
+                    $min = $window_table[$i][$j];
+            }
+            $fingers[] = $min;
+        }
         return $fingers;
     }
 
-    public function simality($array_a, $array_b)
+    private function jaccard_coefficient($fingerprint1, $fingerprint2)
     {
-        $len_a = count($array_a);
-        $len_b = count($array_b);
+        ini_set('memory_limit', '-1');
+        $arr_intersect = array_intersect($fingerprint1, $fingerprint2);
+        $arr_union = array_merge($fingerprint1, $fingerprint2);
 
-        $jml = 0;
-        for ($i = 0; $i < $len_a; $i++) {
-            if (in_array($array_a[$i], $array_b)) {
-                $jml = $jml + 1;
-            } else {
-                array_push($array_b, $array_a[$i]);
-            }
-        }
-        return (($jml / count($array_b)));
-    }
+        $count_intersect_fingers = count($arr_intersect);
+        $count_union_fingers = count($arr_union);
 
-    public function nilai($s, $b)
-    {
-        if ($s <= 0.10) {
-            return 0 * $b;
-        } elseif ($s <= 0.40) {
-            return 0.3 * $b;
-        } elseif ($s <= 0.55) {
-            return 0.5 * $b;
-        } elseif ($s <= 0.70) {
-            return 0.75 * $b;
-        } elseif ($s > 0.75) {
-            return $b;
-        }
-    }
+        $coefficient = $count_intersect_fingers /
+            ($count_union_fingers - $count_intersect_fingers);
 
-    public function winradi($input)
-    {
-        $case = $this->casefolding($input);
-        $gram = $this->gram($case);
-        $has = $this->rollinghas($gram);
-        $win = $this->window($has);
-        $fing = $this->finger($win);
-        return $fing;
+        return $coefficient;
     }
 }
