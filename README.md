@@ -97,11 +97,11 @@ dalam pembuatanya semua metodenya tulis dengan konsep OOP atau object oriented d
 
   - [simple k means](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/k-means/readme.md)
 
-- naive bayes classfication | learning and under develeopment
+- naive bayes classfication | learning and under develeopment :warning:
 
   - [simple naive-bayes](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/naive-bayes/readme.md)
 
-- winnowing | learning and under develeopment
+- winnowing | learning and under develeopment :warning:
 
   - [winnowing](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/winnowing/readme.md)
 
