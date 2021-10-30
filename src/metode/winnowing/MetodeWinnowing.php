@@ -223,3 +223,9 @@ class winnowing
         return $coefficient;
     }
 }
+
+
+// function asing yang harus dipelajari
+// array_sum();
+// array_intersect();
+// ord();

@@ -61,7 +61,11 @@ before used this libraries baca dulu bagian wiki disini.
   - parser docx to text
 
 - image OCR ( optical character recognition )
+
   - [parse image to text](https://github.com/naagaraa/metode-skriphit/tree/main/src/img/readme.md)
+
+- track ( optical character recognition )
+  - [track ](https://github.com/naagaraa/metode-skriphit/tree/main/src/timetrack.md)
 
 ## List of Metode
 
