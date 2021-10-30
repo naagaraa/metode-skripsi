@@ -6,6 +6,20 @@ membuat rumus implementasi metode yang sering digunakan pada skripsi dengan peng
 
 **:warning: pusing w ngerjain metode pake php, orang lain pada sans pake python, python banyak library, tinggal pnp, klo php harus from scracth atau build from zero wkwkw :warning:**
 
+## install
+
+**composer**
+
+```bash
+composer require nagara/metode-skripshit
+```
+
+**import autoload**
+
+```php
+include "vendor/autoload.php";
+```
+
 ### On the Future
 
 I'll change the name from metode skripshit to my-php-tool
