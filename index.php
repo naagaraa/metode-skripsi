@@ -31,10 +31,29 @@ include "vendor/autoload.php";
 
 use Nagara\Src\Metode\winnowing; // load libraries
 use Nagara\Src\Metode\MetodeRabinKarb;
+use Nagara\Src\Metode\MetodeWinnowing;
+
+$metode = new MetodeWinnowing;
+
+$wordtext = [
+    1 => "text pertama",
+    2 => "text kedua",
+    3 => "text ketiga",
+];
 
 
-$x = new MetodeRabinKarb("ABC");
-$x->search("Z");
-$x->search("A");
-$x->search("B");
-$x->search("C");
+$arr = [
+    0 => "textp",
+    1 => "extpe",
+    2 => "xtper",
+    3 => "tpert",
+    4 => "perta",
+    5 => "ertam",
+    6 => "rtama",
+];
+
+// $metode->casefolding($wordtext);
+// $metode->createNgram();
+// $metode->char2hash("textp");
+$metode->process($wordtext);
+$metode->multiple_rolling_hash();
