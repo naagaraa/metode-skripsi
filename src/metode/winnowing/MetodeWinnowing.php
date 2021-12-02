@@ -4,6 +4,19 @@ namespace Nagara\Src\Metode;
 
 class MetodeWinnowing
 {
+    /**
+     * basic algorithm of winnowing
+     * 
+     * 1. case folding => menghapus spasi dan karakter yang tidak penting dan merubah menjadi huruf kecil
+     * 2. ngram => membentuk nilai hasing dari setiap teks document yang dipecah
+     * 3. window => pembagian karakter dalam window
+     * 4. fingerprint => pembentukan fingerprint
+     * 
+     * count similarity used jaccard simmilarity
+     *
+     * 
+     */
+
     private $case_folding_string;
     private $multipleNgram;
 
@@ -31,6 +44,8 @@ class MetodeWinnowing
         foreach ($wordtext as $index => $text_string) {
             $casefolding[$index] = strtolower(str_replace(' ', '', preg_replace("/[^a-zA-Z0-9\s-]/", "", $text_string)));
         }
+
+        dump($casefolding);
 
         $this->case_folding_string = $casefolding;
         return $this->case_folding_string;
@@ -128,7 +143,7 @@ class MetodeWinnowing
     {
         $temp = [];
         foreach ($this->multipleNgram as $index => $value) {
-            // dump($value);
+            dump($value);
             $temp[$index] = self::rolling_hash($value);
         }
         // self::rolling_hash()
