@@ -33,118 +33,136 @@ use Nagara\Src\Metode\winnowing; // load libraries
 use Nagara\Src\Metode\MetodeRabinKarb;
 use Nagara\Src\Metode\MetodeWinnowing;
 
-$metode = new MetodeWinnowing;
-$kalimat = "ayah pergi ke pasar";
-$kalimat2 = "ayah pergi ke pasar";
+$kalimat = "ayah pergi kepasar";
+$kalimat2 = "ibu pergi kepasar";
+
+// $n =  5;
+// $window = 4;
+// $prima = 2;
+
+// $n =  5;
+// $window = 4;
+// $prima = 2;
+
+// // dd($kalimat, $kalimat2, $n, $window, $prima);
+
+// $w = new winnowing($kalimat, $kalimat2);
+// $w->SetPrimeNumber($prima);
+// $w->SetNGramValue($n);
+// $w->SetNWindowValue($window);
+
+// $w->process();
+
+// $s = '';
+// foreach ($w->GetNGramFirst() as $ng) {
+//     $s .= $ng . ' ';
+// }
+
+// $s2 = '';
+// foreach ($w->GetNGramSecond() as $ng) {
+//     $s2 .= $ng . ' ';
+// }
+
+// $s3 = '';
+// foreach ($w->GetRollingHashFirst() as $rl) {
+//     $s3 .= $rl . ' ';
+// }
+
+// $s4 = '';
+// foreach ($w->GetRollingHashSecond() as $rl) {
+//     $s4 .= $rl . ' ';
+// }
+
+// $wdf = $w->GetWindowFirst();
+// $sWf = '';
+// for ($i = 0; $i < count($wdf); $i++) {
+//     $s = '';
+//     for ($j = 0; $j < $window; $j++) {
+//         $s .= $wdf[$i][$j] . ' ';
+//     }
+//     $sWf = "W-" . ($i + 1) . " : {" . rtrim($s, ' ') . "}\n";
+// }
+
+// $wds = $w->GetWindowSecond();
+// $sWs = '';
+// for ($i = 0; $i < count($wds); $i++) {
+//     $s = '';
+//     for ($j = 0; $j < $window; $j++) {
+//         $s .= $wds[$i][$j] . ' ';
+//     }
+//     $sWs = "W-" . ($i + 1) . " : {" . rtrim($s, ' ') . "}\n";
+// }
+
+// $s7 = '';
+// foreach ($w->GetFingerprintsFirst() as $fp) {
+//     $s7 .= $fp . ' ';
+// }
+
+// $s8 = '';
+// foreach ($w->GetFingerprintsSecond() as $fp) {
+//     $s8 .= $fp . ' ';
+// }
+
+// $count_fingers1 = count($w->GetFingerprintsFirst());
+// $count_fingers2 = count($w->GetFingerprintsSecond());
+
+// $count_union_fingers = count(array_merge($w->GetFingerprintsFirst(), $w->GetFingerprintsSecond()));
+// $count_intersect_fingers = count(array_intersect($w->GetFingerprintsFirst(), $w->GetFingerprintsSecond()));
+
+// $result = [
+//     'nGramFirst' => rtrim($s, ' '),
+//     'nGramSecond' => rtrim($s2, ' '),
+//     'rollingHashFirst' => rtrim($s3, ' '),
+//     'rollingHashSecond' => rtrim($s4, ' '),
+//     'windowFirst' => $sWf,
+//     'windowSecond' => $sWs,
+//     'FingerprintsFirst' => rtrim($s7, ' '),
+//     'FingerprintsSecond' => rtrim($s8, ' '),
+//     'countFinger1' => $count_fingers1,
+//     'countFinger2' => $count_fingers2,
+//     'countUnionFingers' => $count_union_fingers,
+//     'countIntersectFingers' => $count_intersect_fingers,
+//     'percent' => $w->GetJaccardCoefficient()
+// ];
+
+// dump($result);
+
+// tulis ulang algoritma
+$wordtext = [
+    1 => "ayah pergi kepasar",
+    2 => "ibu pergi kepasar",
+    3 => "paman pergi kepasar",
+];
 
 $n =  5;
 $window = 4;
 $prima = 2;
 
-// dd($kalimat, $kalimat2, $n, $window, $prima);
-
-$w = new winnowing($kalimat, $kalimat2);
-$w->SetPrimeNumber($prima);
-$w->SetNGramValue($n);
-$w->SetNWindowValue($window);
-
-$w->process();
-
-$s = '';
-foreach ($w->GetNGramFirst() as $ng) {
-    $s .= $ng . ' ';
-}
-
-$s2 = '';
-foreach ($w->GetNGramSecond() as $ng) {
-    $s2 .= $ng . ' ';
-}
-
-$s3 = '';
-foreach ($w->GetRollingHashFirst() as $rl) {
-    $s3 .= $rl . ' ';
-}
-
-$s4 = '';
-foreach ($w->GetRollingHashSecond() as $rl) {
-    $s4 .= $rl . ' ';
-}
-
-$wdf = $w->GetWindowFirst();
-$sWf = '';
-for ($i = 0; $i < count($wdf); $i++) {
-    $s = '';
-    for ($j = 0; $j < $window; $j++) {
-        $s .= $wdf[$i][$j] . ' ';
-    }
-    $sWf = "W-" . ($i + 1) . " : {" . rtrim($s, ' ') . "}\n";
-}
-
-$wds = $w->GetWindowSecond();
-$sWs = '';
-for ($i = 0; $i < count($wds); $i++) {
-    $s = '';
-    for ($j = 0; $j < $window; $j++) {
-        $s .= $wds[$i][$j] . ' ';
-    }
-    $sWs = "W-" . ($i + 1) . " : {" . rtrim($s, ' ') . "}\n";
-}
-
-$s7 = '';
-foreach ($w->GetFingerprintsFirst() as $fp) {
-    $s7 .= $fp . ' ';
-}
-
-$s8 = '';
-foreach ($w->GetFingerprintsSecond() as $fp) {
-    $s8 .= $fp . ' ';
-}
-
-$count_fingers1 = count($w->GetFingerprintsFirst());
-$count_fingers2 = count($w->GetFingerprintsSecond());
-
-$count_union_fingers = count(array_merge($w->GetFingerprintsFirst(), $w->GetFingerprintsSecond()));
-$count_intersect_fingers = count(array_intersect($w->GetFingerprintsFirst(), $w->GetFingerprintsSecond()));
-
-$result = [
-    'nGramFirst' => rtrim($s, ' '),
-    'nGramSecond' => rtrim($s2, ' '),
-    'rollingHashFirst' => rtrim($s3, ' '),
-    'rollingHashSecond' => rtrim($s4, ' '),
-    'windowFirst' => $sWf,
-    'windowSecond' => $sWs,
-    'FingerprintsFirst' => rtrim($s7, ' '),
-    'FingerprintsSecond' => rtrim($s8, ' '),
-    'countFinger1' => $count_fingers1,
-    'countFinger2' => $count_fingers2,
-    'countUnionFingers' => $count_union_fingers,
-    'countIntersectFingers' => $count_intersect_fingers,
-    'percent' => $w->GetJaccardCoefficient()
+$config = [
+    "ngram" => 5,
+    "prima" => 2,
+    "window" => 4
 ];
 
-dump($result);
+$metode = new MetodeWinnowing($config);
+//  metode gue rewriting
+// $wordtext = [
+//     1 => "ayah pergi kepasar",
+//     2 => "ibu pergi kepasar",
+// ];
 
 
-// tulis ulang algoritma
-$wordtext = [
-    1 => "text pertama",
-    2 => "text kedua",
-    3 => "text ketiga",
-];
+// process
+$metode->process($wordtext);
 
 
-$arr = [
-    0 => "textp",
-    1 => "extpe",
-    2 => "xtper",
-    3 => "tpert",
-    4 => "perta",
-    5 => "ertam",
-    6 => "rtama",
-];
-
-// $metode->casefolding($wordtext);
-// $metode->createNgram();
-// $metode->char2hash("textp");
-// $metode->process($wordtext);
-// $metode->multiple_rolling_hash();
+echo "case folding";
+dump($metode->getCaseFolding());
+echo "ngram";
+dump($metode->getNgram());
+echo "rolling hash";
+dump($metode->getRollingHash());
+echo "window";
+dump($metode->getWindow());
+echo "fingerpint";
+dump($metode->getFingersPrint());

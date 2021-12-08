@@ -19,12 +19,25 @@ class MetodeWinnowing
 
     private $case_folding_string;
     private $multipleNgram;
+    private $multiple_rolling_hash;
+    private $multiple_window;
+    private $multiple_fingerprint;
 
-    // input properties , hipotesis
-    private $prime_number = 3;
-    private $n_gram_value = 2;
-    private $n_window_value = 4;
+    // input hipotesis and default
+    private $n_gram_value;
+    private $n_prime_number;
+    private $n_window_value;
 
+    public function __construct($config = [])
+    {
+        // convert array to object
+        $config = (object) $config;
+
+        // set config
+        $this->n_gram_value = $config->ngram;
+        $this->n_prime_number = $config->prima;
+        $this->n_window_value = $config->window;
+    }
     /**
      * method case folding for remove character
      *
@@ -45,7 +58,7 @@ class MetodeWinnowing
             $casefolding[$index] = strtolower(str_replace(' ', '', preg_replace("/[^a-zA-Z0-9\s-]/", "", $text_string)));
         }
 
-        dump($casefolding);
+        // dump($casefolding);
 
         $this->case_folding_string = $casefolding;
         return $this->case_folding_string;
@@ -64,7 +77,7 @@ class MetodeWinnowing
 
         // core
         $word = $casefolding;
-        $n = 5;
+        $n = $this->n_gram_value;
 
         // algo
         $ngrams = [];
@@ -108,19 +121,16 @@ class MetodeWinnowing
      * @param string $string
      * @return array
      */
-    public function char2hash()
+    public function char2hash($string = "")
     {
-        $string = "textp";
         if (strlen($string) == 1) {
-            // dump(ord($string));
             return ord($string);
         } else {
             $result = 0;
             $length = strlen($string);
             for ($i = 0; $i < $length; $i++) {
-                $result += ord(substr($string, $i, 1)) * pow($this->prime_number, $length - $i);
+                $result += ord(substr($string, $i, 1)) * pow($this->n_prime_number, $length - $i);
             }
-            // dump($result);
             return $result;
         }
     }
@@ -139,17 +149,80 @@ class MetodeWinnowing
         return $roll_hash;
     }
 
+
     public function multiple_rolling_hash()
     {
         $temp = [];
         foreach ($this->multipleNgram as $index => $value) {
-            dump($value);
             $temp[$index] = self::rolling_hash($value);
         }
-        // self::rolling_hash()
-        dump($temp);
+        $this->multiple_rolling_hash = $temp;
+        return $this->multiple_rolling_hash;
     }
 
+    public function windowing($rolling_hash)
+    {
+        $n = $this->n_window_value;
+        $ngram = array();
+        $length = count($rolling_hash);
+        $x = 0;
+        for ($i = 0; $i < $length; $i++) {
+            if ($i > ($n - 2)) {
+                // dump($i);
+                $ngram[$x] = array();
+                $y = 0;
+                for ($j = $n - 1; $j >= 0; $j--) {
+                    $ngram[$x][$y] = $rolling_hash[$i - $j];
+                    $y++;
+                }
+                $x++;
+            }
+        }
+        //echo $x.' '.$y;
+        return $ngram;
+    }
+
+    public function multiple_windowing()
+    {
+        $rolling_hash = $this->multiple_rolling_hash;
+        $window = [];
+        foreach ($rolling_hash as $index => $value) {
+            $window[$index] = self::windowing($value);
+        }
+
+        $this->multiple_windowing = $window;
+        return $this->multiple_windowing;
+    }
+
+    private function fingerprints($window_table_arr)
+    {
+        dump("window");
+        $window_table = $window_table_arr;
+        // dump($window_table);
+        $fingers = array();
+        for ($i = 0; $i < count($window_table); $i++) {
+            $min = $window_table[$i][0];
+            for ($j = 1; $j < $this->n_window_value; $j++) {
+                if ($min > $window_table[$i][$j])
+                    $min = $window_table[$i][$j];
+            }
+            $fingers[] = $min;
+        }
+        $this->multiple_fingerprint = $fingers;
+        return $fingers;
+    }
+
+    public function multiple_fingerprint()
+    {
+        $window = $this->multiple_windowing;
+        $fingers = [];
+        foreach ($window as $index => $value) {
+            $fingers[$index] = self::fingerprints($value);
+        }
+
+        $this->multiple_fingerprint = $fingers;
+        return $this->multiple_fingerprint;
+    }
 
     /**
      * Undocumented function
@@ -168,12 +241,38 @@ class MetodeWinnowing
 
 
         // rolloinghas masing masing ngram step 3
+        self::multiple_rolling_hash();
 
 
         // create windowing untuk masing masing tabel hash step 4
-
+        self::multiple_windowing();
 
         // find value minimum masing masing window (fingerprint) step 5
+        self::multiple_fingerprint();
+    }
 
+    public function getCaseFolding()
+    {
+        return $this->case_folding_string;
+    }
+
+    public function getNgram()
+    {
+        return $this->multipleNgram;
+    }
+
+    public function getRollingHash()
+    {
+        return $this->multiple_rolling_hash;
+    }
+
+    public function getWindow()
+    {
+        return $this->multiple_windowing;
+    }
+
+    public function getFingersPrint()
+    {
+        return $this->multiple_fingerprint;
     }
 }

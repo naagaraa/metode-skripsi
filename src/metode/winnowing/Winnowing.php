@@ -170,8 +170,11 @@ class winnowing
 
     private function rolling_hash($ngram)
     {
+        dump("ngram");
+        dump($ngram);
         $roll_hash = array();
         foreach ($ngram as $ng) {
+            // dump($ng);
             $roll_hash[] = $this->char2hash($ng);
         }
         return $roll_hash;
@@ -179,16 +182,24 @@ class winnowing
 
     private function windowing($rolling_hash, $n)
     {
+        dump("roling hash");
+        // dump($rolling_hash);
+        dump(count($rolling_hash));
         $ngram = array();
         $length = count($rolling_hash);
         $x = 0;
         for ($i = 0; $i < $length; $i++) {
             if ($i > ($n - 2)) {
+                // dump($i);
                 $ngram[$x] = array();
                 $y = 0;
                 for ($j = $n - 1; $j >= 0; $j--) {
+                    // dump($i, $j);
+                    // dump($rolling_hash[$i - $j]);
                     $ngram[$x][$y] = $rolling_hash[$i - $j];
+                    // dump($x, $y);
                     $y++;
+                    // dump($ngram);
                 }
                 $x++;
             }
@@ -199,6 +210,8 @@ class winnowing
 
     private function fingerprints($window_table)
     {
+        dump("window");
+        dump($window_table);
         $fingers = array();
         for ($i = 0; $i < count($window_table); $i++) {
             $min = $window_table[$i][0];
@@ -208,6 +221,8 @@ class winnowing
             }
             $fingers[] = $min;
         }
+        dump("finger");
+        dump($fingers);
         return $fingers;
     }
 
