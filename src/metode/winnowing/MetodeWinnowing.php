@@ -1,5 +1,33 @@
 <?php
 
+/**
+ * 
+ * this file is single method of PHP Winnwoing
+ * re Writing code Algorithm Winnowing for support multipe "pembanding string"
+ * 
+ * 
+ * @author      Re-writing Eka Jaya Nagara     
+ * @license     MIT public license
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is furnished
+ * to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
 namespace Nagara\Src\Metode;
 
 class MetodeWinnowing
@@ -20,10 +48,10 @@ class MetodeWinnowing
     private $case_folding_string;
     private $multipleNgram;
     private $multiple_rolling_hash;
-    private $multiple_window;
+    private $multiple_windowing;
     private $multiple_fingerprint;
 
-    // input hipotesis and default
+    // input hipotesis and default value
     private $n_gram_value;
     private $n_prime_number;
     private $n_window_value;
@@ -196,7 +224,7 @@ class MetodeWinnowing
 
     private function fingerprints($window_table_arr)
     {
-        dump("window");
+        // dump("window");
         $window_table = $window_table_arr;
         // dump($window_table);
         $fingers = array();
@@ -224,6 +252,23 @@ class MetodeWinnowing
         return $this->multiple_fingerprint;
     }
 
+
+    public function jaccard_coefficient()
+    {
+
+        $finger_print = $this->multiple_fingerprint;
+        $arr_intersect = array_intersect(...$finger_print);
+        $arr_union = array_merge(...$finger_print);
+
+        $count_intersect_fingers = count($arr_intersect);
+        $count_union_fingers = count($arr_union);
+
+        $coefficient = $count_intersect_fingers /
+            ($count_union_fingers - $count_intersect_fingers);
+
+        $this->jaccard_coefficient = $coefficient;
+        return $this->jaccard_coefficient;
+    }
     /**
      * Undocumented function
      *
@@ -249,6 +294,9 @@ class MetodeWinnowing
 
         // find value minimum masing masing window (fingerprint) step 5
         self::multiple_fingerprint();
+
+        // count similarity with jaccard coefficient
+        self::jaccard_coefficient();
     }
 
     public function getCaseFolding()
@@ -274,5 +322,10 @@ class MetodeWinnowing
     public function getFingersPrint()
     {
         return $this->multiple_fingerprint;
+    }
+
+    public function getJaccardCoefficient()
+    {
+        return $this->jaccard_coefficient;
     }
 }
