@@ -73,3 +73,32 @@ dump($metode->getJaccardCoefficient());
 ## improve :warning:
 
 done can improve multiple string, but now need to find count similarity
+
+## Similarity Calculate
+
+i found some artikel when I try searching at internet, first from stack overflow, itnext.io, catalysoft there explain about topic.
+
+**reference reading**
+
+- catalysoft http://www.catalysoft.com/articles/StrikeAMatch.html
+- stack overflow https://stackoverflow.com/questions/653157/a-better-similarity-ranking-algorithm-for-variable-length-strings
+- itnext.io https://itnext.io/string-similarity-the-basic-know-your-algorithms-guide-3de3d7346227
+- another example code https://pastebin.com/EfcmR3Xx
+
+### summarry
+
+algorithm for similarty count is divide into several part.
+
+1. Edit distance based.
+
+   - Hamming Distance
+   - Levenshtein distance
+   - Jaro Winkler
+
+2. Token based
+
+   - jaccard index
+   - sorensen-Dice
+
+3. sequence based
+   - Ratcliff Obershelp
