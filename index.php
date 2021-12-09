@@ -35,15 +35,15 @@ use Nagara\Src\Metode\MetodeWinnowing;
 // tulis ulang algoritma for support multiple string
 // example string
 $wordtext1 = [
-    1 => "ayah pergi kepasar",
-    2 => "ayah pergi kepasar",
+    0 => "ayah pergi kepasar",
+    1 => "ibu pergi kepasar",
 ];
 
 // example string
 $wordtext2 = [
-    1 => "ayah pergi kepasar",
-    2 => "ayah pergi kepasar",
-    3 => "ayah pergi kepasar",
+    0 => "ayah pergi kepasar",
+    1 => "bapak pergi kepasar",
+    2 => "ibu pergi mall",
 ];
 
 // config windowing algorithm
@@ -55,7 +55,7 @@ $config = [
 
 $metode = new MetodeWinnowing($config);
 // process
-$metode->process($wordtext2);
+$metode->process($wordtext1);
 
 
 echo "case folding";
@@ -68,5 +68,7 @@ echo "window";
 dump($metode->getWindow());
 echo "fingerpint";
 dump($metode->getFingersPrint());
-echo "jaccard coefficient";
-dump($metode->getJaccardCoefficient());
+echo "jaccard coefficient value";
+dump($metode->getJaccardCoefficientValue());
+echo "jaccard coefficient message";
+dump($metode->getJaccardCoefficientMessage());

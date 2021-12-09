@@ -8,6 +8,7 @@
  * 
  * @author      Re-writing Eka Jaya Nagara     
  * @license     MIT public license
+ * @source      https://github.com/naagaraa/metode-skriphit
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -50,6 +51,9 @@ class MetodeWinnowing
     private $multiple_rolling_hash;
     private $multiple_windowing;
     private $multiple_fingerprint;
+    private $multiple_jaccard_value;
+    private $multiple_jaccard_message;
+    private $jaccard_value;
 
     // input hipotesis and default value
     private $n_gram_value;
@@ -164,7 +168,7 @@ class MetodeWinnowing
     }
 
     /**
-     * Undocumented function
+     * find rolling hash from ngram or it can say method for tokenizing
      *
      * @return void
      */
@@ -178,6 +182,11 @@ class MetodeWinnowing
     }
 
 
+    /**
+     * find muitiple rolling hash from ngram or it can say method for tokenizing
+     *
+     * @return void
+     */
     public function multiple_rolling_hash()
     {
         $temp = [];
@@ -188,6 +197,12 @@ class MetodeWinnowing
         return $this->multiple_rolling_hash;
     }
 
+    /**
+     * split rolling hash into window with prime number
+     *
+     * @param [type] $rolling_hash
+     * @return void
+     */
     public function windowing($rolling_hash)
     {
         $n = $this->n_window_value;
@@ -210,6 +225,11 @@ class MetodeWinnowing
         return $ngram;
     }
 
+    /**
+     * mulplte split rolling hash into window with prime number
+     *
+     * @return void
+     */
     public function multiple_windowing()
     {
         $rolling_hash = $this->multiple_rolling_hash;
@@ -222,6 +242,13 @@ class MetodeWinnowing
         return $this->multiple_windowing;
     }
 
+    /**
+     * method fingerprint remove tokenizing
+     * menghapus tokenizing yang tidak memiliki nilai yang sama
+     *
+     * @param [type] $window_table_arr
+     * @return void
+     */
     private function fingerprints($window_table_arr)
     {
         // dump("window");
@@ -240,6 +267,12 @@ class MetodeWinnowing
         return $fingers;
     }
 
+    /**
+     * multiple method fingerprint remove tokenizing
+     * multiple  menghapus tokenizing yang tidak memiliki nilai yang sama
+     *
+     * @return void
+     */
     public function multiple_fingerprint()
     {
         $window = $this->multiple_windowing;
@@ -253,24 +286,62 @@ class MetodeWinnowing
     }
 
 
-    public function jaccard_coefficient()
+    /**
+     * method algorithm calculate similarity tokenizing based jaccard index
+     *
+     * @return void
+     */
+    public function jaccard_coefficient($string_source_0, $target_source_n)
     {
 
-        $finger_print = $this->multiple_fingerprint;
-        $arr_intersect = array_intersect(...$finger_print);
-        $arr_union = array_merge(...$finger_print);
-
+        $arr_intersect = array_intersect($string_source_0, $target_source_n);
+        $arr_union = array_merge($string_source_0, $target_source_n);
         $count_intersect_fingers = count($arr_intersect);
         $count_union_fingers = count($arr_union);
 
         $coefficient = $count_intersect_fingers /
             ($count_union_fingers - $count_intersect_fingers);
 
-        $this->jaccard_coefficient = $coefficient;
-        return $this->jaccard_coefficient;
+        $this->jaccard_value = $coefficient * 100;
+        return $this->jaccard_value;
     }
+
+
     /**
-     * Undocumented function
+     * method algorithm calculate similarity tokenizing based jaccard index for multiple string
+     *
+     * @return void
+     */
+    public function multiple_jaccard_coeddcient()
+    {
+        $finger_print = $this->multiple_fingerprint;
+        $index_source = 0;
+
+        $temp = [];
+        foreach ($finger_print as $index => $array_fingerprint) {
+
+            // handling offet + 1
+            if ($index + 1 >= count($finger_print)) {
+                break;
+            }
+            $temp[$index] = self::jaccard_coefficient($finger_print[$index_source], $finger_print[$index + 1]);
+        }
+
+        $value_message = [];
+        foreach ($temp as $index => $value) {
+            $n_value = $index + 1;
+            $value_message[$index] = "Document " . $index_source . " dibanding dengan Document ke " . $n_value . " = " . floor($value) . "% percent kemiripan";
+        }
+
+
+        $this->multiple_jaccard_message = $value_message;
+        $this->multiple_jaccard_value = $temp;
+        return $this->multiple_jaccard_message;
+    }
+
+
+    /**
+     * core process algorithm windowing with jaccard index
      *
      * @param [type] $wordtext
      * @return void
@@ -296,36 +367,76 @@ class MetodeWinnowing
         self::multiple_fingerprint();
 
         // count similarity with jaccard coefficient
-        self::jaccard_coefficient();
+        self::multiple_jaccard_coeddcient();
     }
 
+    /**
+     * method getter result case folding
+     *
+     * @return void
+     */
     public function getCaseFolding()
     {
         return $this->case_folding_string;
     }
 
+    /**
+     * method getter result ngram
+     *
+     * @return void
+     */
     public function getNgram()
     {
         return $this->multipleNgram;
     }
 
+    /**
+     * method getter result rolling hash
+     *
+     * @return void
+     */
     public function getRollingHash()
     {
         return $this->multiple_rolling_hash;
     }
 
+    /**
+     * method getter result window
+     *
+     * @return void
+     */
     public function getWindow()
     {
         return $this->multiple_windowing;
     }
 
+    /**
+     * method getter result fingerprint
+     *
+     * @return void
+     */
     public function getFingersPrint()
     {
         return $this->multiple_fingerprint;
     }
 
-    public function getJaccardCoefficient()
+    /**
+     * method getter result jaccard value index
+     *
+     * @return void
+     */
+    public function getJaccardCoefficientValue()
     {
-        return $this->jaccard_coefficient;
+        return $this->multiple_jaccard_value;
+    }
+
+    /**
+     * method getter result jaccard index message (string format)
+     *
+     * @return void
+     */
+    public function getJaccardCoefficientMessage()
+    {
+        return $this->multiple_jaccard_message;
     }
 }

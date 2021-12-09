@@ -53,8 +53,11 @@ echo "window";
 dump($metode->getWindow());
 echo "fingerpint";
 dump($metode->getFingersPrint());
-echo "jaccard coefficient";
-dump($metode->getJaccardCoefficient());
+echo "jaccard coefficient value";
+dump($metode->getJaccardCoefficientValue());
+echo "jaccard coefficient message";
+dump($metode->getJaccardCoefficientMessage());
+
 
 
 
