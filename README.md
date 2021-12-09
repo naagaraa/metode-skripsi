@@ -78,7 +78,7 @@ before used this libraries baca dulu bagian wiki disini.
 
   - [parse image to text](https://github.com/naagaraa/metode-skriphit/tree/main/src/img/readme.md)
 
-- track ( optical character recognition )
+- track ( time execution )
   - [track ](https://github.com/naagaraa/metode-skriphit/tree/main/src/timetrack.md)
 
 ## List of Metode
@@ -118,6 +118,10 @@ dalam pembuatanya semua metodenya tulis dengan konsep OOP atau object oriented d
 - winnowing | learning and under develeopment :warning:
 
   - [winnowing](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/winnowing/readme.md)
+
+- rabin karb | learning and under develeopment :warning:
+
+  - [winnowing](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/rabin-karb/readme.md)
 
 - other ? | oke let's make something
 

@@ -66,6 +66,7 @@ dump($metode->getJaccardCoefficient());
 
 - orginal reference :
   - atomicbomber winnowing document similarity calculator https://github.com/atomicbomber-git/winnowing-document-similarity-calculator/tree/master/app/Http/Controllers 4 july 2020
+  - atomicbomber winnowing document similarity calculator https://github.com/atomicbomber-git/winnowing-document-similarity-calculator/tree/5efb3b8043d2add91c2425e06a3fdb6e3ca71288/app/Support 4 july 2020
   - muhrusdi https://github.com/muhrusdi/winnowing-app/tree/master/app/Http/Controllers 26 september 2017
   - gladmartin https://github.com/gladmartin/ci-winnowing/blob/master/application/libraries/Winnowing.php 13 agustus 2019
 
