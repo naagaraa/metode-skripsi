@@ -449,7 +449,7 @@ class ComposerStaticInit6937f89145982d922cbb4611d57fffd1
         'Nagara\\Src\\Metode\\MetodeTopsis' => __DIR__ . '/../..' . '/src/metode/topsis/MetodeTopsis.php',
         'Nagara\\Src\\Metode\\MetodeWP' => __DIR__ . '/../..' . '/src/metode/wp/MetodeWP.php',
         'Nagara\\Src\\Metode\\MetodeWinnowing' => __DIR__ . '/../..' . '/src/metode/winnowing/MetodeWinnowing.php',
-        'Nagara\\Src\\Metode\\winnowing' => __DIR__ . '/../..' . '/src/metode/winnowing/Winnowing.php',
+        'Nagara\\Src\\Metode\\RabinKarp' => __DIR__ . '/../..' . '/src/metode/rabin-karb/RabinKarb.php',
         'Nagara\\Src\\TimeTracker' => __DIR__ . '/../..' . '/src/TimeTracker.php',
         'PhpOffice\\PhpSpreadsheet\\Calculation\\Calculation' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/Calculation.php',
         'PhpOffice\\PhpSpreadsheet\\Calculation\\Category' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/Category.php',

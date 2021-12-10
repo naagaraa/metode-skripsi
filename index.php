@@ -30,20 +30,20 @@
 include "vendor/autoload.php";
 
 use Nagara\Src\Metode\MetodeRabinKarb;
-use Nagara\Src\Metode\MetodeWinnowing;
+use Nagara\Src\Metode\RabinKarp;
 
-// tulis ulang algoritma for support multiple string
+
 // example string
 $wordtext1 = [
-    0 => "ayah pergi kepasar",
-    1 => "ibu pergi kepasar",
+    1 => "ayah pergi kepasar",
+    2 => "ibu pergi kepasar",
 ];
 
 // example string
 $wordtext2 = [
-    0 => "ayah pergi kepasar",
-    1 => "bapak pergi kepasar",
-    2 => "ibu pergi mall",
+    1 => "ayah pergi kepasar",
+    2 => "ibu pergi kepasar",
+    3 => "paman pergi kepasar",
 ];
 
 // config windowing algorithm
@@ -53,22 +53,5 @@ $config = [
     "window" => 4
 ];
 
-$metode = new MetodeWinnowing($config);
-// process
-$metode->process($wordtext1);
-
-
-echo "case folding";
-dump($metode->getCaseFolding());
-echo "ngram";
-dump($metode->getNgram());
-echo "rolling hash";
-dump($metode->getRollingHash());
-echo "window";
-dump($metode->getWindow());
-echo "fingerpint";
-dump($metode->getFingersPrint());
-echo "jaccard coefficient value";
-dump($metode->getJaccardCoefficientValue());
-echo "jaccard coefficient message";
-dump($metode->getJaccardCoefficientMessage());
+$metode =  new MetodeRabinKarb($config);
+$metode->Process($wordtext1);

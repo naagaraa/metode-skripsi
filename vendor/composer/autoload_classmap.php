@@ -273,7 +273,7 @@ return array(
     'Nagara\\Src\\Metode\\MetodeTopsis' => $baseDir . '/src/metode/topsis/MetodeTopsis.php',
     'Nagara\\Src\\Metode\\MetodeWP' => $baseDir . '/src/metode/wp/MetodeWP.php',
     'Nagara\\Src\\Metode\\MetodeWinnowing' => $baseDir . '/src/metode/winnowing/MetodeWinnowing.php',
-    'Nagara\\Src\\Metode\\winnowing' => $baseDir . '/src/metode/winnowing/Winnowing.php',
+    'Nagara\\Src\\Metode\\RabinKarp' => $baseDir . '/src/metode/rabin-karb/RabinKarb.php',
     'Nagara\\Src\\TimeTracker' => $baseDir . '/src/TimeTracker.php',
     'PhpOffice\\PhpSpreadsheet\\Calculation\\Calculation' => $vendorDir . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/Calculation.php',
     'PhpOffice\\PhpSpreadsheet\\Calculation\\Category' => $vendorDir . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/Category.php',

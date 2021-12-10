@@ -359,7 +359,6 @@ class MetodeWinnowing
         // rolloinghas masing masing ngram step 3
         self::multiple_rolling_hash();
 
-
         // create windowing untuk masing masing tabel hash step 4
         self::multiple_windowing();
 
@@ -368,6 +367,12 @@ class MetodeWinnowing
 
         // count similarity with jaccard coefficient
         self::multiple_jaccard_coeddcient();
+    }
+
+
+    public function find_word_similarity()
+    {
+        # comming soon
     }
 
     /**
