@@ -121,7 +121,7 @@ dalam pembuatanya semua metodenya tulis dengan konsep OOP atau object oriented d
 
 - rabin karb | learning and under develeopment :warning:
 
-  - [winnowing](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/rabin-karb/readme.md)
+  - [rabin-karb](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/rabin-karb/readme.md)
 
 - other ? | oke let's make something
 
