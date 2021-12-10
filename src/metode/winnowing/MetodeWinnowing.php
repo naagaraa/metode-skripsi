@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * 
  * this file is single method of PHP Winnwoing
@@ -312,7 +313,7 @@ class MetodeWinnowing
      *
      * @return void
      */
-    public function multiple_jaccard_coeddcient()
+    public function multiple_jaccard_coeffcient()
     {
         $finger_print = $this->multiple_fingerprint;
         $index_source = 0;
@@ -366,7 +367,7 @@ class MetodeWinnowing
         self::multiple_fingerprint();
 
         // count similarity with jaccard coefficient
-        self::multiple_jaccard_coeddcient();
+        self::multiple_jaccard_coeffcient();
     }
 
 

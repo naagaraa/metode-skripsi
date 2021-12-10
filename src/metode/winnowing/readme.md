@@ -17,18 +17,19 @@ include "vendor/autoload.php";
 
 use Nagara\Src\Metode\MetodeWinnowing;
 
+
 // tulis ulang algoritma for support multiple string
 // example string
 $wordtext1 = [
-    1 => "ayah pergi kepasar",
-    2 => "ibu pergi kepasar",
+    0 => "ayah pergi kepasar",
+    1 => "ibu pergi kepasar",
 ];
 
 // example string
 $wordtext2 = [
-    1 => "ayah pergi kepasar",
-    2 => "ibu pergi kepasar",
-    3 => "paman pergi kepasar",
+    0 => "ayah pergi kepasar",
+    1 => "bapak pergi kepasar",
+    2 => "ibu pergi mall",
 ];
 
 // config windowing algorithm
@@ -57,7 +58,6 @@ echo "jaccard coefficient value";
 dump($metode->getJaccardCoefficientValue());
 echo "jaccard coefficient message";
 dump($metode->getJaccardCoefficientMessage());
-
 
 
 

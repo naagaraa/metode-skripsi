@@ -194,7 +194,7 @@ class MetodeRabinKarb
     {
         // dump("window");
         $hash_table = $hash_table_arr;
-        dd($hash_table);
+        dump($hash_table);
         // dump($hash_table);
         $matching = array();
         for ($i = 0; $i < count($hash_table); $i++) {
@@ -217,16 +217,16 @@ class MetodeRabinKarb
      */
     public function multiple_matching()
     {
-        $window = $this->multiple_hashing;
-        $matching = [];
-        foreach ($window as $index => $value) {
-            $matching[$index] = self::matching($value);
-        }
+        // $window = $this->multiple_hashing;
+        // $matching = [];
+        // foreach ($window as $index => $value) {
+        //     $matching[$index] = self::matching($value);
+        // }
 
-        dump("matching");
-        dump($matching);
-        $this->multiple_matching = $matching;
-        return $this->multiple_matching;
+        // dump("matching");
+        // dump($matching);
+        // $this->multiple_matching = $matching;
+        // return $this->multiple_matching;
     }
 
     public function Process($word)
