@@ -71,3 +71,9 @@ language support :
 4. ita
 5. jpn
 6. spa
+
+# Maintenner
+
+this code maintenace by me miyuki nagara
+
+- [miyuki nagara](https://github.com/naagaraa/)

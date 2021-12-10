@@ -91,3 +91,9 @@ $bb = [5.8, 7.2, 5, 8, 5.8, 5, 3.5, 7.8, 4.2, 6.2, 7, 8.5, 5.5, 4.8, 6.5, 5.7, 1
 - untuk data saat ini hanya bisa dua data yakni nilai A dan B sebab centroid pun hanya C1 dan C3
 - jumlah centroid dan data harus sama A , B = 2 data, dan C1 , C2 = 2 data
 - hasil berupada array multidimensi
+
+# Maintenner
+
+this code maintenace by me miyuki nagara
+
+- [miyuki nagara](https://github.com/naagaraa/)

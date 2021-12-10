@@ -1,17 +1,18 @@
 ### Simple Addictive Weight
 
-untuk menggunakan Metode SAW beberapa parameter yang dibutuhkan adalah database dalam format 
-array assosiative, jumlah kriteria, index column cost, nama column yang mengandung field 
+untuk menggunakan Metode SAW beberapa parameter yang dibutuhkan adalah database dalam format
+array assosiative, jumlah kriteria, index column cost, nama column yang mengandung field
 kriteria, bobot, dan jumlah bobot. jumlah bobot harus sama dengan jumlah column
-kriterianya. 
+kriterianya.
 
 referensi : https://bukuinformatika.com/metode-simple-additive-weighting-saw/
 
 ## Explain Metode : teori
+
 coming soon
 
-
 ### method available
+
 ```php
 // basic usage
 use Nagara\Src\Metode\MetodeSaw;
@@ -25,7 +26,6 @@ $normalisasi = $metode->getNormalisasi();
 $rangked = $metode->getRangked();
 
 ```
-
 
 ### how to use
 
@@ -75,6 +75,7 @@ dump($rangked);
 ```
 
 #### with array or matrix
+
 ```php
 
 use Nagara\Src\Metode\MetodeSaw;
@@ -112,13 +113,13 @@ dump($rangked);
 
 ```
 
-
 ### keterangan
+
 - data dari database adalah berupa array assosiative
-- jumlah column kriteria adalah total colum yang mengandung nilai kriteria 
+- jumlah column kriteria adalah total colum yang mengandung nilai kriteria
   example colum kriteria {"bagus", "baik", "benar"} totalnya adalah 3
-- index column  cost adalah index yang ada pada column cost
-  example column kriteria {"bagus", "baik", "benar"} yang ditetapkan 
+- index column cost adalah index yang ada pada column cost
+  example column kriteria {"bagus", "baik", "benar"} yang ditetapkan
   sebagai cost adalah kriteria bagus maka indexnya adalah 0
 - nama column kriteria adalah nama field pada DB data yang dimasukan
   kedalam sebuah metode,
@@ -131,3 +132,9 @@ dump($rangked);
   beban bobotnya {10,30,60} totalnya adalah 100
 - hasil-column-baru adalah nama field baru yang akan dibuat pada manipulation
   structur data, bisa diberi nama bebas example "result"
+
+# Maintenner
+
+this code maintenace by me miyuki nagara
+
+- [miyuki nagara](https://github.com/naagaraa/)

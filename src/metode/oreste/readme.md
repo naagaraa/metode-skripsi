@@ -3,10 +3,11 @@
 Metode Oreste adalah salah satu metode pengambilan keputusan multi criteria atau yang lebih dikenal dengani stilah Multi Criteria Decision Making (MCDM). MCDM digunakan untuk menyelesaikan permasalahan dengan kriteria yang bertentangan untuk dapat mengambil keputusan untuk mencapai keputusan akhir.
 
 ## Explain Metode : teori
+
 coming soon
 
-
 ### method available
+
 ```php
 // basic usage
 use Nagara\Src\Metode\MetodeOreste;
@@ -19,8 +20,8 @@ $metode->getPreferensi();
 
 ```
 
+### basic to use
 
-### basic  to use
 ```php
 use Nagara\Src\Metode\MetodeOreste; // load libraries
 
@@ -70,5 +71,12 @@ dump($oreste);
 ```
 
 ### keterangan
+
 - value yang dihitung haruslah bentuk matrix atau array
 - jumlah bobot sama dengan jumlah fieldnya
+
+# Maintenner
+
+this code maintenace by me miyuki nagara
+
+- [miyuki nagara](https://github.com/naagaraa/)

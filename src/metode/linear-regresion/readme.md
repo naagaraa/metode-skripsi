@@ -1,17 +1,17 @@
-### Simple Regresi Linear  
+### Simple Regresi Linear
 
 regresi linear adalah sebuah pendekatan untuk memodelkan hubungan antara variable terikat Y dan satu atau lebih variable bebas yang disebut X. Salah satu kegunaan dari regresi linear adalah untuk melakukan prediksi berdasarkan data-data yang telah dimiliki sebelumnya. Hubungan di antara variable-variabel tersebut disebut sebagai model regresi linear.
 referensi dalam pembuatan https://teknikelektronika.com/analisis-regresi-linear-sederhana-simple-linear-regression/
 
-
 ## Explain Metode : teori
+
 coming soon
 
-
 ### method available
+
 ```php
 // basic usage
-use Nagara\Src\Metode\MetodeLinearRegresion; 
+use Nagara\Src\Metode\MetodeLinearRegresion;
 
 // create new object
 $metode = new MetodeLinearRegresion;
@@ -30,8 +30,8 @@ $metode->getValueXY();
 
 ```
 
-
 ### how to use
+
 ```php
 use Nagara\Src\Metode\MetodeLinearRegresion; // load libraries
 
@@ -62,7 +62,7 @@ $prediction_single_y = $metode->LinearRegresion_y($x, $y, 4);  // return 19.57 p
 // multiple linear regresion y
 $multiple_y = $metode->MultipleLinearRegresion($x, $y , $z, "y");
 
-// multiple linear regresion 
+// multiple linear regresion
 $multiple_x = $metode->MultipleLinearRegresion($x, $y , $z, "x");
 
 // combinasi atau gabungkan dan buat field baru
@@ -80,7 +80,14 @@ dump($hasil);
 ```
 
 ### keterangan
+
 - data dari database adalah berupa array assosiative yang dibutuhkan hanya valuenya saja
 - jumlah column x dan y harus sama
 - by default untuk single akan me return float atau integer
-- untuk multiple linear regresion harus dilalukan loop 
+- untuk multiple linear regresion harus dilalukan loop
+
+# Maintenner
+
+this code maintenace by me miyuki nagara
+
+- [miyuki nagara](https://github.com/naagaraa/)

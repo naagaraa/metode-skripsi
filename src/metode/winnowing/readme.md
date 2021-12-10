@@ -40,27 +40,71 @@ $config = [
 ];
 
 // run metode or algorithm
-$metode = new MetodeWinnowing($config);
-$metode->process($wordtext1);
+$winnowing = new MetodeWinnowing($config);
+$winnowing->process($wordtext1);
 
 // show result (array view)
 echo "case folding";
-dump($metode->getCaseFolding());
+dump($winnowing->getCaseFolding());
 echo "ngram";
-dump($metode->getNgram());
+dump($winnowing->getNgram());
 echo "rolling hash";
-dump($metode->getRollingHash());
+dump($winnowing->getRollingHash());
 echo "window";
-dump($metode->getWindow());
+dump($winnowing->getWindow());
 echo "fingerpint";
-dump($metode->getFingersPrint());
+dump($winnowing->getFingersPrint());
 echo "jaccard coefficient value";
-dump($metode->getJaccardCoefficientValue());
+dump($winnowing->getJaccardCoefficientValue());
 echo "jaccard coefficient message";
-dump($metode->getJaccardCoefficientMessage());
+dump($winnowing->getJaccardCoefficientMessage());
 
 
+```
 
+## how it's work ?
+document extraction string or only string at index 0 will compare to another index. if you have 2 string.
+
+**example 2 string :**
+
+- string A : "ayah pergi kepasar"
+- string B : "ibu pergi kepasar"
+
+
+**array format :**
+if you write at program like this array format
+
+```php
+$wordtext1 = [
+    0 => "ayah pergi kepasar",
+    1 => "ibu pergi kepasar",
+];
+```
+
+```
+-string(A) index 0 compare to string(B) index 1
+```
+
+**example more 2 string**
+
+- string A : "ayah pergi kepasar"
+- string B : "ibu pergi kepasar"
+- string C : "ibu pergi mall"
+
+**array format :**
+if you write at program like this array format
+
+```php
+$wordtext1 = [
+    0 => "ayah pergi kepasar",
+    1 => "ibu pergi kepasar",
+    2 => "ibu pergi mall"
+];
+```
+
+```
+- string(A) index 0 compare to string(B) index 1
+- string(A) index 0 compare to string(C) index 2
 ```
 
 ## reference
@@ -75,7 +119,7 @@ dump($metode->getJaccardCoefficientMessage());
 
 ## improve :warning:
 
-done can improve multiple string, but now need to find count similarity
+done can improve multiple string, but now need to find decript hash for find text for make highlight same or similary text
 
 ## Similarity Calculate
 
@@ -105,3 +149,9 @@ algorithm for similarty count is divide into several part.
 
 3. sequence based
    - Ratcliff Obershelp
+
+# Maintenner
+
+this code maintenace by me miyuki nagara
+
+- [miyuki nagara](https://github.com/naagaraa/)

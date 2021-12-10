@@ -39,6 +39,7 @@ class MetodeRabinKarb
     private $multipleNgram;
     private $multiple_hashing;
     private $multiple_matching;
+    private $multiple_DiceCoefficient;
 
     public function __construct($config = [])
     {
@@ -48,7 +49,6 @@ class MetodeRabinKarb
         // set config
         $this->n_gram_value = $config->ngram;
         $this->n_prime_number = $config->prima;
-        $this->n_window_value = $config->window;
     }
     /**
      * method case folding for remove character
@@ -69,9 +69,6 @@ class MetodeRabinKarb
         foreach ($wordtext as $index => $text_string) {
             $casefolding[$index] = strtolower(str_replace(' ', '', preg_replace("/[^a-zA-Z0-9\s-]/", "", $text_string)));
         }
-
-        dump("case folding");
-        dump($casefolding);
 
         $this->case_folding_string = $casefolding;
         return $this->case_folding_string;
@@ -123,8 +120,6 @@ class MetodeRabinKarb
             $multipleNgram[$index] = self::createNgram($string);
         }
 
-        dump("ngram");
-        dump($multipleNgram);
         // return ngram from multiple string
         $this->multipleNgram = $multipleNgram;
         return $this->multipleNgram;
@@ -176,8 +171,6 @@ class MetodeRabinKarb
             $temp[$index] = self::hashing($value);
         }
 
-        dump("hasing");
-        dump($temp);
         $this->multiple_hashing = $temp;
         return $this->multiple_hashing;
     }
@@ -190,23 +183,18 @@ class MetodeRabinKarb
      * @param [type] $window_table_arr
      * @return void
      */
-    private function matching($hash_table_arr)
+    private function matching($string_source_0, $target_source_n)
     {
-        // dump("window");
-        $hash_table = $hash_table_arr;
-        dump($hash_table);
-        // dump($hash_table);
-        $matching = array();
-        for ($i = 0; $i < count($hash_table); $i++) {
-            $min = $hash_table[$i][0];
-            for ($j = 1; $j < $this->n_window_value; $j++) {
-                if ($min > $hash_table[$i][$j])
-                    $min = $hash_table[$i][$j];
-            }
-            $matching[] = $min;
+        // mathing array same hash
+        $arr_intersect = array_intersect($string_source_0, $target_source_n);
+
+        // matching re write index from 0
+        $macthing = [];
+        foreach ($arr_intersect as $index => $value) {
+            array_push($macthing, $value);
         }
 
-        return $matching;
+        return $macthing;
     }
 
     /**
@@ -217,22 +205,61 @@ class MetodeRabinKarb
      */
     public function multiple_matching()
     {
-        // $window = $this->multiple_hashing;
-        // $matching = [];
-        // foreach ($window as $index => $value) {
-        //     $matching[$index] = self::matching($value);
-        // }
+        $macthing = $this->multiple_hashing;
+        $index_source = 0;
 
-        // dump("matching");
-        // dump($matching);
-        // $this->multiple_matching = $matching;
-        // return $this->multiple_matching;
+        $temp = [];
+        foreach ($macthing as $index => $array_macthing) {
+
+            // handling offet + 1
+            if ($index + 1 >= count($macthing)) {
+                break;
+            }
+
+            // run compare same hash
+            $temp[$index] = self::matching($macthing[$index_source], $macthing[$index + 1]);
+        }
+
+
+        $this->multiple_matching = $temp;
+        return $this->multiple_matching;
+    }
+
+    public function DiceSimilarityCoefficient($macthing, $string_source_0, $target_source_n)
+    {
+        // formula
+        // pecahan format
+        //    2 X C
+        // S -------
+        //    A + B
+        // part of top : pembilang : The same hash number of two documents.
+        // part of bottom : penyebut : : Number of hash schemes in documents A and B
+
+        $pembilang = count($macthing);
+        $penyebut = count(array_merge($string_source_0, $target_source_n));
+
+        // convert to %
+        $coefficient = floor(((2 * $pembilang) / $penyebut) * 100);
+
+        return $coefficient;
+    }
+
+    public function multi_DiceSimilarityCoefficient()
+    {
+        $macthing = $this->multiple_matching;
+
+        $index_first = 0;
+        $temp = [];
+        foreach ($macthing as $index => $value) {
+            $temp[$index] = self::DiceSimilarityCoefficient($macthing[$index], $this->multiple_hashing[$index_first], $this->multiple_hashing[$index + 1]);
+        }
+
+        $this->multiple_DiceCoefficient = $temp;
+        return $this->multiple_DiceCoefficient;
     }
 
     public function Process($word)
     {
-        # comming soon
-
         // 0. text processing
         self::casefolding($word);
 
@@ -246,5 +273,31 @@ class MetodeRabinKarb
         self::multiple_matching($this->multiple_hashing);
 
         // 4. member value
+        self::multi_DiceSimilarityCoefficient();
+    }
+
+    public function getCaseFolding()
+    {
+        return $this->case_folding_string;
+    }
+
+    public function getNgram()
+    {
+        return $this->multipleNgram;
+    }
+
+    public function getHashing()
+    {
+        return $this->multiple_hashing;
+    }
+
+    public function getMacthing()
+    {
+        return $this->multiple_matching;
+    }
+
+    public function getDiceCoefficient()
+    {
+        return $this->multiple_DiceCoefficient;
     }
 }

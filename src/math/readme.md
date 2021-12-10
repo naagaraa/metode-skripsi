@@ -73,3 +73,9 @@ var_dump($z); // return new array hanya nilai kehadiran dan kedisiplinan
 - paramter pertama data original dari database atau array bentuk assosiative
 - paramter kedua itu jumlah column yang akan diambil
 - paramter ketiga itu adalah column (untuk single bentuknya string, untuk multiple itu bentuknya array)
+
+# Maintenner
+
+this code maintenace by me miyuki nagara
+
+- [miyuki nagara](https://github.com/naagaraa/)

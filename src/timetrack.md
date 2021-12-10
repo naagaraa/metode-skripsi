@@ -48,3 +48,9 @@ The Text Output of String Excecution Time:
 > ```php
 > $timer->calculate();
 > ```
+
+# Maintenner
+
+this code maintenace by me miyuki nagara
+
+- [miyuki nagara](https://github.com/naagaraa/)

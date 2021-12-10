@@ -3,10 +3,11 @@
 TOPSIS (Technique For Others Reference by Similarity to Ideal Solution) adalah salah satu metode pengambilan keputusan multikriteria yang pertama kali diperkenalkan oleh Yoon dan Hwang (1981). TOPSIS menggunakan prinsip bahwa alternatif yang terpilih harus mempunyai jarak terdekat dari solusi ideal positif dan terjauh dari solusi ideal negatif dari sudut pandang geometris dengan menggunakan jarak Euclidean untuk menentukan kedekatan relatif dari suatu alternatif dengan solusi optimal. referece pembuatan https://tugasakhir.id/contoh-perhitungan-spk-metode-topsis/
 
 ## Explain Metode : teori
+
 coming soon
 
-
 ### method available
+
 ```php
 use Nagara\Src\Metode\MetodeTopsis;
 
@@ -14,7 +15,7 @@ use Nagara\Src\Metode\MetodeTopsis;
 $metode = new MetodeTopsis;
 
 // init
-$metode->topsis("matrix","matrix-weight","matrix-keriteria-type"); 
+$metode->topsis("matrix","matrix-weight","matrix-keriteria-type");
 
 // method getter
 $metode->getNormalisasi();
@@ -24,8 +25,8 @@ $metode->getTotal();
 
 ```
 
-
 ### basic to use
+
 ```php
 use Nagara\Src\Metode\MetodeTopsis; // load libraries
 
@@ -76,8 +77,15 @@ dump($total);
 ```
 
 ### keterangan
+
 - matrix adalah data yang berisi nilai kriteria atau akan disebut sebagai c1 - cn
 - weight adalah nilai bobot pada kriteria
 - kriteria weight adalah type kriteria untuk pembagian pembobotan
 - jumlah bobot dan kriteria adalah sama
-- hasil akhir berupa array 
+- hasil akhir berupa array
+
+# Maintenner
+
+this code maintenace by me miyuki nagara
+
+- [miyuki nagara](https://github.com/naagaraa/)

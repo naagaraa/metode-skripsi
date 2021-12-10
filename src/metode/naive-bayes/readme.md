@@ -41,3 +41,9 @@ https://informatikalogi.com/algoritma-naive-bayes/
 http://publikasi.dinus.ac.id/index.php/technoc/article/view/975/739 - jurnal
 https://en.wikipedia.org/wiki/Bayes%27_theorem
 https://towardsdatascience.com/machine-learning-text-processing-1d5a2d638958
+
+# Maintenner
+
+this code maintenace by me miyuki nagara
+
+- [miyuki nagara](https://github.com/naagaraa/)

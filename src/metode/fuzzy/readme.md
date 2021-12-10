@@ -12,7 +12,7 @@ use Nagara\Src\Metode\MetodeFuzzySugeno;    // load library
 // example 3 value
 $a = 5;
 $b = 5;
-$c = 5; 
+$c = 5;
 
 // get value
 $metode = new MetodeFuzzySugeno;
@@ -31,6 +31,7 @@ if ($hasil_defuzifikasi  > 0) {
 ```
 
 ### more detail
+
 ```php
 // basic usage
 use Nagara\Src\Metode\MetodeFuzzySugeno;    // load library
@@ -41,7 +42,7 @@ $metode = new MetodeFuzzySugeno;
 // example 3 value
 $a = 5;
 $b = 5;
-$c = 5; 
+$c = 5;
 
 // get value
 $metode = new MetodeFuzzySugeno;
@@ -50,8 +51,15 @@ $hasil_defuzifikasi = $metode->FuzzySugeno($a, $b, $c); //return value 1 or 0
 ```
 
 ### keterangan
+
 - a nilai pertama
 - b nilai kedua
 - c nilai ketiga
-- return 1 - 0 pada defuzufikasi 
-- pada phi predikat mengambil nilai min selain 0 
+- return 1 - 0 pada defuzufikasi
+- pada phi predikat mengambil nilai min selain 0
+
+# Maintenner
+
+this code maintenace by me miyuki nagara
+
+- [miyuki nagara](https://github.com/naagaraa/)

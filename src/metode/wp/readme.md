@@ -3,9 +3,11 @@
 Weighted Product (WP) merupakan salah satu metode sistem pendukung keputusan yang termasuk ke dalam kategori Fuzzy Multiple Attribute Decision Making (FMADM). Metode weighted product (WP) menggunakan perkalian untuk menghubungkan rating atribut, dimana rating setiap atribut harus dipangkatkan dulu dengan bobot atribut yang bersangkutan.
 
 ## Explain Metode : teori
+
 coming soon
 
 ### method available
+
 ```php
 // basic usage
 use Nagara\Src\Metode\MetodeWP;
@@ -25,6 +27,7 @@ $metode->getNormalisasiWeight();
 ```
 
 ### basic to use
+
 ```php
 
 use Nagara\Src\Math\MatrixClass;
@@ -80,10 +83,15 @@ $hasil = $metode->WeightProduct($weight,$kriteria_weight,$arr);
 var_dump($hasil); # debug hasil berupa array
 ```
 
-
-
 ### keterangan
+
 - weight adalah nilai bobot
 - kriteria_weight adalah type kriteria biaya atau keuntungan
 - arr adalah array yang sudah di flip atau array horizontal
 - jumlah weight dan kriteria weight adalah sama
+
+# Maintenner
+
+this code maintenace by me miyuki nagara
+
+- [miyuki nagara](https://github.com/naagaraa/)
