@@ -1,4 +1,4 @@
-# PROJECT LIBRARIES METODE SIMPLE SKRIPSHIT
+# PROJECT LIBRARIES METODE SKRIPSHIT
 
 membuat rumus implementasi metode yang sering digunakan pada skripsi dengan pengetahuan basic Math or Mathematic ke dalam function dan object base. untuk collection pribadi. dan tools lainnya . let's make all is easier.
 
@@ -22,7 +22,7 @@ include "vendor/autoload.php";
 
 ### On the Future
 
-I'll change the name from metode skripshit to my-php-tool
+I'll change the name from metode skripshit to algorithmskripsiphp
 
 ### support or sponsor
 
