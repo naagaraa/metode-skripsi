@@ -77,7 +77,7 @@ class MetodeWinnowing
      * @param string $wordtext
      * @return array
      */
-    public function casefolding($wordtext = "")
+    private function casefolding($wordtext = "")
     {
         // this block for multiple text or string
         if (!is_array($wordtext)) {
@@ -104,7 +104,7 @@ class MetodeWinnowing
      *
      * @return array
      */
-    public function createNgram($casefolding = "")
+    private function createNgram($casefolding = "")
     {
         // note string akan dianggap array jika dipanggil menurut index.
 
@@ -136,7 +136,7 @@ class MetodeWinnowing
      *
      * @return array
      */
-    public function multipleNgram()
+    private function multipleNgram()
     {
         $multipleNgram = [];
         foreach ($this->case_folding_string as $index => $string) {
@@ -154,7 +154,7 @@ class MetodeWinnowing
      * @param string $string
      * @return array
      */
-    public function char2hash($string = "")
+    private function char2hash($string = "")
     {
         if (strlen($string) == 1) {
             return ord($string);
@@ -173,7 +173,7 @@ class MetodeWinnowing
      *
      * @return void
      */
-    public function rolling_hash($ngram)
+    private function rolling_hash($ngram)
     {
         $roll_hash = array();
         foreach ($ngram as $ng) {
@@ -188,7 +188,7 @@ class MetodeWinnowing
      *
      * @return void
      */
-    public function multiple_rolling_hash()
+    private function multiple_rolling_hash()
     {
         $temp = [];
         foreach ($this->multipleNgram as $index => $value) {
@@ -204,7 +204,7 @@ class MetodeWinnowing
      * @param [type] $rolling_hash
      * @return void
      */
-    public function windowing($rolling_hash)
+    private function windowing($rolling_hash)
     {
         $n = $this->n_window_value;
         $ngram = array();
@@ -231,7 +231,7 @@ class MetodeWinnowing
      *
      * @return void
      */
-    public function multiple_windowing()
+    private function multiple_windowing()
     {
         $rolling_hash = $this->multiple_rolling_hash;
         $window = [];
@@ -274,7 +274,7 @@ class MetodeWinnowing
      *
      * @return void
      */
-    public function multiple_fingerprint()
+    private function multiple_fingerprint()
     {
         $window = $this->multiple_windowing;
         $fingers = [];
@@ -292,7 +292,7 @@ class MetodeWinnowing
      *
      * @return void
      */
-    public function jaccard_coefficient($string_source_0, $target_source_n)
+    private function jaccard_coefficient($string_source_0, $target_source_n)
     {
 
         $arr_intersect = array_intersect($string_source_0, $target_source_n);
@@ -313,7 +313,7 @@ class MetodeWinnowing
      *
      * @return void
      */
-    public function multiple_jaccard_coeffcient()
+    private function multiple_jaccard_coeffcient()
     {
         $finger_print = $this->multiple_fingerprint;
         $index_source = 0;
@@ -371,7 +371,7 @@ class MetodeWinnowing
     }
 
 
-    public function find_word_similarity()
+    private function find_word_similarity()
     {
         # comming soon
     }

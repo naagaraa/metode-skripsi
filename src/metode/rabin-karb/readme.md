@@ -18,27 +18,24 @@ include "vendor/autoload.php";
 
 use Nagara\Src\Metode\MetodeRabinKarb;
 
-// example string
+// example string 1
 $wordtext1 = [
     0 => "ayah pergi kepasar",
     1 => "ibu pergi kepasar",
 ];
 
-// example string
+// example string 2
 $wordtext2 = [
     0 => "ayah pergi kepasar",
     1 => "bapak pergi mall",
     2 => "paman pergi kepasar dengan ayah",
 ];
 
-// config rabin karb algorithm
-$config = [
+// setting config and run algorithm
+$rabinkarb = new MetodeRabinKarb([
     "ngram" => 5,
     "prima" => 2
-];
-
-// run algorithm
-$rabinkarb = new MetodeRabinKarb($config);
+]);
 $rabinkarb->process($wordtext1);
 
 // show result (array view);

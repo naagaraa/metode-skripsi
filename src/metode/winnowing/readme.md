@@ -19,28 +19,26 @@ use Nagara\Src\Metode\MetodeWinnowing;
 
 
 // tulis ulang algoritma for support multiple string
-// example string
+
+// example string 1
 $wordtext1 = [
     0 => "ayah pergi kepasar",
     1 => "ibu pergi kepasar",
 ];
 
-// example string
+// example string 2
 $wordtext2 = [
     0 => "ayah pergi kepasar",
     1 => "bapak pergi kepasar",
     2 => "ibu pergi mall",
 ];
 
-// config windowing algorithm
-$config = [
+// set config and run metode or algorithm
+$winnowing = new MetodeWinnowing([
     "ngram" => 5,
     "prima" => 2,
     "window" => 4
-];
-
-// run metode or algorithm
-$winnowing = new MetodeWinnowing($config);
+]);
 $winnowing->process($wordtext1);
 
 // show result (array view)
@@ -63,13 +61,13 @@ dump($winnowing->getJaccardCoefficientMessage());
 ```
 
 ## how it's work ?
+
 document extraction string or only string at index 0 will compare to another index. if you have 2 string.
 
 **example 2 string :**
 
 - string A : "ayah pergi kepasar"
 - string B : "ibu pergi kepasar"
-
 
 **array format :**
 if you write at program like this array format

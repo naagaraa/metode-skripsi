@@ -56,7 +56,7 @@ class MetodeRabinKarb
      * @param string $wordtext
      * @return array
      */
-    public function casefolding($wordtext = "")
+    private function casefolding($wordtext = "")
     {
         // this block for multiple text or string
         if (!is_array($wordtext)) {
@@ -81,7 +81,7 @@ class MetodeRabinKarb
      *
      * @return array
      */
-    public function createNgram($casefolding = "")
+    private function createNgram($casefolding = "")
     {
         // note string akan dianggap array jika dipanggil menurut index.
 
@@ -113,7 +113,7 @@ class MetodeRabinKarb
      *
      * @return array
      */
-    public function multipleNgram()
+    private function multipleNgram()
     {
         $multipleNgram = [];
         foreach ($this->case_folding_string as $index => $string) {
@@ -131,7 +131,7 @@ class MetodeRabinKarb
      * @param string $string
      * @return array
      */
-    public function char2hash($string = "")
+    private function char2hash($string = "")
     {
         if (strlen($string) == 1) {
             return ord($string);
@@ -150,7 +150,7 @@ class MetodeRabinKarb
      *
      * @return void
      */
-    public function hashing($ngram)
+    private function hashing($ngram)
     {
         $roll_hash = array();
         foreach ($ngram as $ng) {
@@ -164,7 +164,7 @@ class MetodeRabinKarb
      *
      * @return void
      */
-    public function multiple_hashing()
+    private function multiple_hashing()
     {
         $temp = [];
         foreach ($this->multipleNgram as $index => $value) {
@@ -203,7 +203,7 @@ class MetodeRabinKarb
      *
      * @return void
      */
-    public function multiple_matching()
+    private function multiple_matching()
     {
         $macthing = $this->multiple_hashing;
         $index_source = 0;
@@ -225,9 +225,9 @@ class MetodeRabinKarb
         return $this->multiple_matching;
     }
 
-    public function DiceSimilarityCoefficient($macthing, $string_source_0, $target_source_n)
+    private function DiceSimilarityCoefficient($macthing, $string_source_0, $target_source_n)
     {
-        // formula
+        // formula :
         // pecahan format
         //    2 X C
         // S -------
@@ -244,7 +244,7 @@ class MetodeRabinKarb
         return $coefficient;
     }
 
-    public function multi_DiceSimilarityCoefficient()
+    private function multi_DiceSimilarityCoefficient()
     {
         $macthing = $this->multiple_matching;
 
@@ -276,26 +276,51 @@ class MetodeRabinKarb
         self::multi_DiceSimilarityCoefficient();
     }
 
+    /**
+     * method get result casefolding
+     *
+     * @return void
+     */
     public function getCaseFolding()
     {
         return $this->case_folding_string;
     }
 
+    /**
+     * method get result ngram
+     *
+     * @return void
+     */
     public function getNgram()
     {
         return $this->multipleNgram;
     }
 
+    /**
+     * method get result hashing
+     *
+     * @return void
+     */
     public function getHashing()
     {
         return $this->multiple_hashing;
     }
 
+    /**
+     * method get result macthing
+     *
+     * @return void
+     */
     public function getMacthing()
     {
         return $this->multiple_matching;
     }
 
+    /**
+     * method get result dicesimillarity
+     *
+     * @return void
+     */
     public function getDiceCoefficient()
     {
         return $this->multiple_DiceCoefficient;

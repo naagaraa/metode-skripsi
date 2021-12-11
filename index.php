@@ -28,3 +28,41 @@
  */
 
 include "vendor/autoload.php";
+
+use Nagara\Src\Metode\MetodeRabinKarb;
+use Nagara\Src\Metode\MetodeWinnowing;
+
+// example string 1
+$wordtext1 = [
+    0 => "ayah pergi kepasar",
+    1 => "ibu pergi kepasar",
+];
+
+// example string 2
+$wordtext2 = [
+    0 => "ayah pergi kepasar",
+    1 => "bapak pergi mall",
+    2 => "paman pergi kepasar dengan ayah",
+];
+
+// setting config and run algorithm
+$rabinkarb = new MetodeRabinKarb([
+    "ngram" => 5,
+    "prima" => 2
+]);
+
+
+// run metode or algorithm
+$winnowing = new MetodeWinnowing([
+    "ngram" => 5,
+    "prima" => 2,
+    "window" => 4
+]);
+
+
+$rabinkarb->process($wordtext1);
+$winnowing->process($wordtext1);
+
+
+dump($rabinkarb->getDiceCoefficient());
+dump($winnowing->getJaccardCoefficientValue());

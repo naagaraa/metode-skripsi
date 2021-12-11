@@ -22,7 +22,7 @@ include "vendor/autoload.php";
 
 ### On the Future
 
-I'll change the name from metode skripshit to algorithmskripsiphp
+I'll change the name from metode skripshit to algocollectionphp
 
 ### support or sponsor
 
@@ -132,3 +132,9 @@ next plan make libraries often used for skripshit you can read this
 - [planning](https://github.com/naagaraa/metode-skriphit/tree/main/src/metode/readme.md)
 
 <br>
+
+**build in server**
+
+```bash
+php -S localhost:8000
+```
