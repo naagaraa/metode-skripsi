@@ -1,6 +1,7 @@
 ## Time Track
 
-from https://github.com/leo-lobster/php-timetrack
+Simple PHP Helper to Analyze Execution Time of your PHP Scripts. i found source at here
+from https://github.com/leo-lobster/php-timetrack and i keep save in my repo.
 
 ### Instantiate an object
 
@@ -48,9 +49,3 @@ The Text Output of String Excecution Time:
 > ```php
 > $timer->calculate();
 > ```
-
-# Maintenner
-
-this code maintenace by me miyuki nagara
-
-- [miyuki nagara](https://github.com/naagaraa/)
