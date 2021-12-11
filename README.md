@@ -55,7 +55,7 @@ before used this libraries baca dulu bagian wiki disini.
 
 <br>
 
-## List of My Tools
+## List of My Tools include at metode skripshit
 
 - math
 
@@ -115,11 +115,11 @@ dalam pembuatanya semua metodenya tulis dengan konsep OOP atau object oriented d
 
   - [simple naive-bayes](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/naive-bayes/readme.md)
 
-- winnowing | learning and under develeopment :warning:
+- winnowing | need find hightlight text :warning:
 
   - [winnowing](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/winnowing/readme.md)
 
-- rabin karb | learning and under develeopment :warning:
+- rabin karb | need find hightlight text :warning:
 
   - [rabin-karb](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/rabin-karb/readme.md)
 
