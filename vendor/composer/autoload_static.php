@@ -1071,7 +1071,7 @@ class ComposerStaticInit6937f89145982d922cbb4611d57fffd1
         'ZipStream\\Option\\Version' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/Option/Version.php',
         'ZipStream\\Stream' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/Stream.php',
         'ZipStream\\ZipStream' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/ZipStream.php',
-        'markfullmer\\porter2\\Porter2' => __DIR__ . '/../..' . '/src/metode/porter/PorterStemmer.php',
+        'markfullmer\\porter\\Porter' => __DIR__ . '/../..' . '/src/metode/porter/PorterStemmer.php',
         'thiagoalessio\\TesseractOCR\\Command' => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src/Command.php',
         'thiagoalessio\\TesseractOCR\\FeatureNotAvailableException' => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src/FeatureNotAvailableException.php',
         'thiagoalessio\\TesseractOCR\\FriendlyErrors' => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src/FriendlyErrors.php',

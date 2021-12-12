@@ -895,7 +895,7 @@ return array(
     'ZipStream\\Option\\Version' => $vendorDir . '/maennchen/zipstream-php/src/Option/Version.php',
     'ZipStream\\Stream' => $vendorDir . '/maennchen/zipstream-php/src/Stream.php',
     'ZipStream\\ZipStream' => $vendorDir . '/maennchen/zipstream-php/src/ZipStream.php',
-    'markfullmer\\porter2\\Porter2' => $baseDir . '/src/metode/porter/PorterStemmer.php',
+    'markfullmer\\porter\\Porter' => $baseDir . '/src/metode/porter/PorterStemmer.php',
     'thiagoalessio\\TesseractOCR\\Command' => $vendorDir . '/thiagoalessio/tesseract_ocr/src/Command.php',
     'thiagoalessio\\TesseractOCR\\FeatureNotAvailableException' => $vendorDir . '/thiagoalessio/tesseract_ocr/src/FeatureNotAvailableException.php',
     'thiagoalessio\\TesseractOCR\\FriendlyErrors' => $vendorDir . '/thiagoalessio/tesseract_ocr/src/FriendlyErrors.php',

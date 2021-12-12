@@ -1,13 +1,13 @@
 <?php
 
-namespace markfullmer\porter2;
+namespace markfullmer\porter;
 
 /**
- * PHP Implementation of the Porter2 Stemming Algorithm.
+ * PHP Implementation of the Porter Stemming Algorithm.
  *
  * See http://snowball.tartarus.org/algorithms/english/stemmer.html .
  */
-class Porter2
+class Porter
 {
 
     /**
@@ -221,7 +221,7 @@ class Porter2
     }
 
     /**
-     * Implements step 2 of the Porter2 algorithm.
+     * Implements step 2 of the Porter algorithm.
      *
      * @param string $word
      *   The word to stem.
@@ -273,7 +273,7 @@ class Porter2
     }
 
     /**
-     * Implements step 3 of the Porter2 algorithm.
+     * Implements step 3 of the Porter algorithm.
      *
      * @param string $word
      *   The word to stem.
@@ -310,7 +310,7 @@ class Porter2
     }
 
     /**
-     * Implements step 4 of the Porter2 algorithm.
+     * Implements step 4 of the Porter algorithm.
      *
      * @param string $word
      *   The word to stem.
@@ -355,7 +355,7 @@ class Porter2
     }
 
     /**
-     * Implements step 5 of the Porter2 algorithm.
+     * Implements step 5 of the Porter algorithm.
      *
      * @param string $word
      *   The word to stem.

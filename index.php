@@ -28,3 +28,8 @@
  */
 
 include "vendor/autoload.php";
+
+use markfullmer\porter\Porter;
+
+$stemming = new Porter;
+dump($stemming->stem("fishing"));

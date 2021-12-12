@@ -58,8 +58,16 @@ require_once "./vendor/autoload.php";
   - query mysql
 
 - office
+
   - [excel / csv](#tools-office-document-excel)
   - read file csv
+
+- image OCR ( optical character recognition )
+
+  - [parse image to text](https://github.com/naagaraa/metode-skriphit/tree/main/src/img/readme.md)
+
+- track ( time execution )
+  - [track ](https://github.com/naagaraa/metode-skriphit/tree/main/src/timetrack.md)
 
 ## List of Metode
 
@@ -67,33 +75,41 @@ dalam pembuatanya semua metodenya tulis dengan konsep OOP atau object oriented d
 
 - fuzzy
 
-  - [fuzzy-sugeno](#fuzzy-sugeno)
+  - [fuzzy-sugeno](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/fuzzy/readme.md)
 
 - linear-regresion
 
-  - [simple linear regresion](#linear-regresion)
+  - [simple linear regresion](https://github.com/naagaraa/metode-skriphit/blob/main/src/metodelinear-regresion/readme.md)
 
 - simple addive weight (saw)
 
-  - [simple SAW](#simple-adictive-weighted)
+  - [simple SAW](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/saw/readme.md)
 
 - weighted Product (wp)
 
-  - [simple WP](#weighted-product)
+  - [simple WP](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/wp/readme.md)
 
 - The Technique for Order of Preference by Similarity to Ideal Solution (TOPSIS)
-  - [simple topsis](#topsis)
+  - [simple topsis](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/topsis/readme.md)
 - oreste
 
-  - [simple oreste](#oreste)
+  - [simple oreste](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/oreste/readme.md)
 
 - k means
 
-  - [simple k means](#k-means)
+  - [simple k means](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/k-means/readme.md)
 
-- naive bayes classfication | learning and under develeopment
+- naive bayes classfication | learning and under develeopment :warning:
 
-  - [simple naive-bayes](#naive-bayes)
+  - [simple naive-bayes](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/naive-bayes/readme.md)
+
+- winnowing | need find hightlight text :warning:
+
+  - [winnowing](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/winnowing/readme.md)
+
+- rabin karb | need find hightlight text :warning:
+
+  - [rabin-karb](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/rabin-karb/readme.md)
 
 - other ? | oke let's make something
 
