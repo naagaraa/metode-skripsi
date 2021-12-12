@@ -1,7 +1,5 @@
 <?php
 
-namespace Nagara\Src;
-
 /**
  * 
  * this file is for image parser text
@@ -34,6 +32,10 @@ namespace Nagara\Src;
  * 
  * 
  */
+
+namespace Nagara\Src;
+
+use Nagara\Src\Math\MathematicClass;
 
 class TimeTracker
 {
@@ -92,10 +94,18 @@ class TimeTracker
 
         for ($i = 1; $i < $this->counter; $i++) {
             $time = round($this->timestamps[$i][2] - $this->timestamps[$i - 1][2], 2);
-            $percentage = round($time / ($this->timestamps[$this->counter - 1][2] - $this->timestamps[0][2]), 2);
-            $description = $this->timestamps[$i - 1][1] . " --> " . $this->timestamps[$i][1];
-            $durations[] = [$i, $percentage, $time, $description];
-        }
+
+            // [update] handle divided by zero give default value 0.1
+            if (($this->timestamps[$this->counter - 1][2] - $this->timestamps[0][2]) == 0.0) {
+                $percentage = round($time / (0.1), 2);
+                $description = $this->timestamps[$i - 1][1] . " --> " . $this->timestamps[$i][1];
+                $durations[] = [$i, $percentage, $time, $description];
+            } else {
+                $percentage = round($time / ($this->timestamps[$this->counter - 1][2] - $this->timestamps[0][2]), 2);
+                $description = $this->timestamps[$i - 1][1] . " --> " . $this->timestamps[$i][1];
+                $durations[] = [$i, $percentage, $time, $description];
+            }
+        };
         echo ('<div class="time-bar">');
 
         for ($i = 0; $i < count($durations); $i++) {
@@ -123,5 +133,17 @@ class TimeTracker
         $end = microtime(true);
         $exec_time = ($end - $start);
         echo "The execution time of the PHP script is : " . $exec_time . " sec";
+    }
+
+    public function calculatetime()
+    {
+        $start = microtime(true);
+        $val = 1;
+        for ($i = 1; $i <= 1500; $i++) {
+            $val++;
+        }
+        $end = microtime(true);
+        $exec_time = ($end - $start);
+        return $exec_time;
     }
 }

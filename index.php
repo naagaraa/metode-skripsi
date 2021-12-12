@@ -35,7 +35,7 @@ use Nagara\Src\Metode\MetodeWinnowing;
 // example string 1
 $wordtext1 = [
     0 => "ayah pergi kepasar",
-    1 => "ibu pergi kepasar",
+    1 => "ayah pergi kepasar",
 ];
 
 // example string 2
@@ -47,8 +47,8 @@ $wordtext2 = [
 
 // setting config and run algorithm
 $rabinkarb = new MetodeRabinKarb([
-    "ngram" => 5,
-    "prima" => 2
+    "ngram" => 10,
+    "prima" => 4
 ]);
 
 
@@ -60,9 +60,23 @@ $winnowing = new MetodeWinnowing([
 ]);
 
 
-$rabinkarb->process($wordtext1);
-$winnowing->process($wordtext1);
+$rabinkarb->process($wordtext2);
+$winnowing->process($wordtext2);
 
 
-dump($rabinkarb->getDiceCoefficient());
+// echo "rabin karb";
+dump($rabinkarb->getDiceCoefficientValue());
+dump($rabinkarb->getDiceCoefficientMessage());
+
+// echo "winnowing";
 dump($winnowing->getJaccardCoefficientValue());
+dump($winnowing->getJaccardCoefficientMessage());
+
+
+// use Nagara\Src\TimeTracker;
+
+// // $timer = new TimeTracker("start"); // Example Description
+// // Some Code
+// $timer->add("All Includes Loaded");
+// $timer->calculate();
+// $timer->htmlOut();

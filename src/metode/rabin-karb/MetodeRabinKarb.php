@@ -32,14 +32,21 @@
 //  REWRITING CODE
 namespace Nagara\Src\Metode;
 
+use Nagara\Src\TimeTracker;
+
 class MetodeRabinKarb
 {
 
-    private $case_folding_string;
-    private $multipleNgram;
-    private $multiple_hashing;
-    private $multiple_matching;
-    private $multiple_DiceCoefficient;
+    private static $case_folding_string;
+    private static $multipleNgram;
+    private static $multiple_hashing;
+    private static $multiple_matching;
+    private static $multiple_DiceCoefficient_value;
+    private static $multiple_DiceCoefficient_message;
+    private static $multiple_time_execution;
+
+    private static $n_gram_value;
+    private static $n_prime_number;
 
     public function __construct($config = [])
     {
@@ -47,8 +54,8 @@ class MetodeRabinKarb
         $config = (object) $config;
 
         // set config
-        $this->n_gram_value = $config->ngram;
-        $this->n_prime_number = $config->prima;
+        self::$n_gram_value = $config->ngram;
+        self::$n_prime_number = $config->prima;
     }
     /**
      * method case folding for remove character
@@ -56,7 +63,7 @@ class MetodeRabinKarb
      * @param string $wordtext
      * @return array
      */
-    private function casefolding($wordtext = "")
+    private static function casefolding($wordtext = "")
     {
         // this block for multiple text or string
         if (!is_array($wordtext)) {
@@ -70,8 +77,8 @@ class MetodeRabinKarb
             $casefolding[$index] = strtolower(str_replace(' ', '', preg_replace("/[^a-zA-Z0-9\s-]/", "", $text_string)));
         }
 
-        $this->case_folding_string = $casefolding;
-        return $this->case_folding_string;
+        self::$case_folding_string = $casefolding;
+        return self::$case_folding_string;
     }
 
     /**
@@ -81,13 +88,13 @@ class MetodeRabinKarb
      *
      * @return array
      */
-    private function createNgram($casefolding = "")
+    private static function createNgram($casefolding = "")
     {
         // note string akan dianggap array jika dipanggil menurut index.
 
         // core
         $word = $casefolding;
-        $n = $this->n_gram_value;
+        $n = self::$n_gram_value;
 
         // algo
         $ngrams = [];
@@ -113,16 +120,16 @@ class MetodeRabinKarb
      *
      * @return array
      */
-    private function multipleNgram()
+    private static function multipleNgram()
     {
         $multipleNgram = [];
-        foreach ($this->case_folding_string as $index => $string) {
+        foreach (self::$case_folding_string as $index => $string) {
             $multipleNgram[$index] = self::createNgram($string);
         }
 
         // return ngram from multiple string
-        $this->multipleNgram = $multipleNgram;
-        return $this->multipleNgram;
+        self::$multipleNgram = $multipleNgram;
+        return self::$multipleNgram;
     }
 
     /**
@@ -131,7 +138,7 @@ class MetodeRabinKarb
      * @param string $string
      * @return array
      */
-    private function char2hash($string = "")
+    private static function char2hash($string = "")
     {
         if (strlen($string) == 1) {
             return ord($string);
@@ -139,7 +146,7 @@ class MetodeRabinKarb
             $result = 0;
             $length = strlen($string);
             for ($i = 0; $i < $length; $i++) {
-                $result += ord(substr($string, $i, 1)) * pow($this->n_prime_number, $length - $i);
+                $result += ord(substr($string, $i, 1)) * pow(self::$n_prime_number, $length - $i);
             }
             return $result;
         }
@@ -150,11 +157,11 @@ class MetodeRabinKarb
      *
      * @return void
      */
-    private function hashing($ngram)
+    private static function hashing($ngram)
     {
         $roll_hash = array();
         foreach ($ngram as $ng) {
-            $roll_hash[] = $this->char2hash($ng);
+            $roll_hash[] = self::char2hash($ng);
         }
         return $roll_hash;
     }
@@ -164,15 +171,15 @@ class MetodeRabinKarb
      *
      * @return void
      */
-    private function multiple_hashing()
+    private static function multiple_hashing()
     {
         $temp = [];
-        foreach ($this->multipleNgram as $index => $value) {
+        foreach (self::$multipleNgram as $index => $value) {
             $temp[$index] = self::hashing($value);
         }
 
-        $this->multiple_hashing = $temp;
-        return $this->multiple_hashing;
+        self::$multiple_hashing = $temp;
+        return self::$multiple_hashing;
     }
 
 
@@ -183,7 +190,7 @@ class MetodeRabinKarb
      * @param [type] $window_table_arr
      * @return void
      */
-    private function matching($string_source_0, $target_source_n)
+    private static function matching($string_source_0, $target_source_n)
     {
         // mathing array same hash
         $arr_intersect = array_intersect($string_source_0, $target_source_n);
@@ -203,9 +210,9 @@ class MetodeRabinKarb
      *
      * @return void
      */
-    private function multiple_matching()
+    private static function multiple_matching()
     {
-        $macthing = $this->multiple_hashing;
+        $macthing = self::$multiple_hashing;
         $index_source = 0;
 
         $temp = [];
@@ -221,11 +228,11 @@ class MetodeRabinKarb
         }
 
 
-        $this->multiple_matching = $temp;
-        return $this->multiple_matching;
+        self::$multiple_matching = $temp;
+        return self::$multiple_matching;
     }
 
-    private function DiceSimilarityCoefficient($macthing, $string_source_0, $target_source_n)
+    private static function DiceSimilarityCoefficient($macthing, $string_source_0, $target_source_n)
     {
         // formula :
         // pecahan format
@@ -239,23 +246,37 @@ class MetodeRabinKarb
         $penyebut = count(array_merge($string_source_0, $target_source_n));
 
         // convert to %
-        $coefficient = floor(((2 * $pembilang) / $penyebut) * 100);
+        $coefficient = (2 * $pembilang) / $penyebut;
 
         return $coefficient;
     }
 
-    private function multi_DiceSimilarityCoefficient()
+    private static function multi_DiceSimilarityCoefficient()
     {
-        $macthing = $this->multiple_matching;
+        $macthing = self::$multiple_matching;
 
         $index_first = 0;
         $temp = [];
         foreach ($macthing as $index => $value) {
-            $temp[$index] = self::DiceSimilarityCoefficient($macthing[$index], $this->multiple_hashing[$index_first], $this->multiple_hashing[$index + 1]);
+            $temp[$index] = self::DiceSimilarityCoefficient($macthing[$index], self::$multiple_hashing[$index_first], self::$multiple_hashing[$index + 1]);
         }
 
-        $this->multiple_DiceCoefficient = $temp;
-        return $this->multiple_DiceCoefficient;
+        // class time tracker
+        $timer = new TimeTracker("start-winnowing");
+        $timer->add("winnowing execute");
+
+        $value_time_calculate = [];
+        $value_message = [];
+        foreach ($temp as $index => $value) {
+            $n_value = $index + 1;
+            $value_message[$index] = "Document " . $index_first . " dibanding dengan Document ke " . $n_value . " = " . $value . " % percent kemiripan . dan " . $timer->calculatetime() . " detik waktu execution";
+            $value_time_calculate[$index] = $timer->calculatetime();
+        }
+
+        self::$multiple_DiceCoefficient_value = $temp;
+        self::$multiple_DiceCoefficient_message = $value_message;
+        self::$multiple_time_execution = $value_time_calculate;
+        return self::$multiple_DiceCoefficient_value;
     }
 
     public function Process($word)
@@ -264,13 +285,13 @@ class MetodeRabinKarb
         self::casefolding($word);
 
         // 1. create Ngram
-        self::multipleNgram($this->case_folding_string);
+        self::multipleNgram(self::$case_folding_string);
 
         // 2. Hashing Ngram
         self::multiple_hashing();
 
         // 3. Maching Hash
-        self::multiple_matching($this->multiple_hashing);
+        self::multiple_matching(self::$multiple_hashing);
 
         // 4. member value
         self::multi_DiceSimilarityCoefficient();
@@ -283,7 +304,7 @@ class MetodeRabinKarb
      */
     public function getCaseFolding()
     {
-        return $this->case_folding_string;
+        return self::$case_folding_string;
     }
 
     /**
@@ -293,7 +314,7 @@ class MetodeRabinKarb
      */
     public function getNgram()
     {
-        return $this->multipleNgram;
+        return self::$multipleNgram;
     }
 
     /**
@@ -303,7 +324,7 @@ class MetodeRabinKarb
      */
     public function getHashing()
     {
-        return $this->multiple_hashing;
+        return self::$multiple_hashing;
     }
 
     /**
@@ -313,16 +334,36 @@ class MetodeRabinKarb
      */
     public function getMacthing()
     {
-        return $this->multiple_matching;
+        return self::$multiple_matching;
     }
 
     /**
-     * method get result dicesimillarity
+     * method get result dicesimillarity value
      *
      * @return void
      */
-    public function getDiceCoefficient()
+    public function getDiceCoefficientValue()
     {
-        return $this->multiple_DiceCoefficient;
+        return self::$multiple_DiceCoefficient_value;
+    }
+
+    /**
+     * method get result dicesimillarity message
+     *
+     * @return void
+     */
+    public function getDiceCoefficientMessage()
+    {
+        return self::$multiple_DiceCoefficient_message;
+    }
+
+    /**
+     * method getter result timer calculate progress algorithm
+     *
+     * @return void
+     */
+    public function timerCalculateProgress()
+    {
+        return self::$multiple_time_execution;
     }
 }

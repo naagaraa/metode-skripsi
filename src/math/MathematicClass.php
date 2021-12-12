@@ -46,6 +46,5 @@ class MathematicClass
             exit;
             return false;
         }
-        return true;
     }
 }

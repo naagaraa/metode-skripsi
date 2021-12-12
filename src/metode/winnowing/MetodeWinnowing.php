@@ -32,6 +32,8 @@
 
 namespace Nagara\Src\Metode;
 
+use Nagara\Src\TimeTracker;
+
 class MetodeWinnowing
 {
     /**
@@ -47,19 +49,20 @@ class MetodeWinnowing
      * 
      */
 
-    private $case_folding_string;
-    private $multipleNgram;
-    private $multiple_rolling_hash;
-    private $multiple_windowing;
-    private $multiple_fingerprint;
-    private $multiple_jaccard_value;
-    private $multiple_jaccard_message;
-    private $jaccard_value;
+    private static $case_folding_string;
+    private static $multipleNgram;
+    private static $multiple_rolling_hash;
+    private static $multiple_windowing;
+    private static $multiple_fingerprint;
+    private static $multiple_jaccard_value;
+    private static $multiple_jaccard_message;
+    private static $jaccard_value;
+    private static $multiple_time_execution;
 
     // input hipotesis and default value
-    private $n_gram_value;
-    private $n_prime_number;
-    private $n_window_value;
+    private static $n_gram_value;
+    private static $n_prime_number;
+    private static $n_window_value;
 
     public function __construct($config = [])
     {
@@ -67,9 +70,9 @@ class MetodeWinnowing
         $config = (object) $config;
 
         // set config
-        $this->n_gram_value = $config->ngram;
-        $this->n_prime_number = $config->prima;
-        $this->n_window_value = $config->window;
+        self::$n_gram_value = $config->ngram;
+        self::$n_prime_number = $config->prima;
+        self::$n_window_value = $config->window;
     }
     /**
      * method case folding for remove character
@@ -77,7 +80,7 @@ class MetodeWinnowing
      * @param string $wordtext
      * @return array
      */
-    private function casefolding($wordtext = "")
+    private static function casefolding($wordtext = "")
     {
         // this block for multiple text or string
         if (!is_array($wordtext)) {
@@ -93,8 +96,8 @@ class MetodeWinnowing
 
         // dump($casefolding);
 
-        $this->case_folding_string = $casefolding;
-        return $this->case_folding_string;
+        self::$case_folding_string = $casefolding;
+        return self::$case_folding_string;
     }
 
     /**
@@ -104,13 +107,13 @@ class MetodeWinnowing
      *
      * @return array
      */
-    private function createNgram($casefolding = "")
+    private static function createNgram($casefolding = "")
     {
         // note string akan dianggap array jika dipanggil menurut index.
 
         // core
         $word = $casefolding;
-        $n = $this->n_gram_value;
+        $n = self::$n_gram_value;
 
         // algo
         $ngrams = [];
@@ -136,16 +139,16 @@ class MetodeWinnowing
      *
      * @return array
      */
-    private function multipleNgram()
+    private static function multipleNgram()
     {
         $multipleNgram = [];
-        foreach ($this->case_folding_string as $index => $string) {
+        foreach (self::$case_folding_string as $index => $string) {
             $multipleNgram[$index] = self::createNgram($string);
         }
 
         // return ngram from multiple string
-        $this->multipleNgram = $multipleNgram;
-        return $this->multipleNgram;
+        self::$multipleNgram = $multipleNgram;
+        return self::$multipleNgram;
     }
 
     /**
@@ -154,7 +157,7 @@ class MetodeWinnowing
      * @param string $string
      * @return array
      */
-    private function char2hash($string = "")
+    private static function char2hash($string = "")
     {
         if (strlen($string) == 1) {
             return ord($string);
@@ -162,7 +165,7 @@ class MetodeWinnowing
             $result = 0;
             $length = strlen($string);
             for ($i = 0; $i < $length; $i++) {
-                $result += ord(substr($string, $i, 1)) * pow($this->n_prime_number, $length - $i);
+                $result += ord(substr($string, $i, 1)) * pow(self::$n_prime_number, $length - $i);
             }
             return $result;
         }
@@ -173,11 +176,11 @@ class MetodeWinnowing
      *
      * @return void
      */
-    private function rolling_hash($ngram)
+    private static function rolling_hash($ngram)
     {
         $roll_hash = array();
         foreach ($ngram as $ng) {
-            $roll_hash[] = $this->char2hash($ng);
+            $roll_hash[] = self::char2hash($ng);
         }
         return $roll_hash;
     }
@@ -188,14 +191,14 @@ class MetodeWinnowing
      *
      * @return void
      */
-    private function multiple_rolling_hash()
+    private static function multiple_rolling_hash()
     {
         $temp = [];
-        foreach ($this->multipleNgram as $index => $value) {
+        foreach (self::$multipleNgram as $index => $value) {
             $temp[$index] = self::rolling_hash($value);
         }
-        $this->multiple_rolling_hash = $temp;
-        return $this->multiple_rolling_hash;
+        self::$multiple_rolling_hash = $temp;
+        return self::$multiple_rolling_hash;
     }
 
     /**
@@ -204,9 +207,9 @@ class MetodeWinnowing
      * @param [type] $rolling_hash
      * @return void
      */
-    private function windowing($rolling_hash)
+    private static function windowing($rolling_hash)
     {
-        $n = $this->n_window_value;
+        $n = self::$n_window_value;
         $ngram = array();
         $length = count($rolling_hash);
         $x = 0;
@@ -231,16 +234,16 @@ class MetodeWinnowing
      *
      * @return void
      */
-    private function multiple_windowing()
+    private static function multiple_windowing()
     {
-        $rolling_hash = $this->multiple_rolling_hash;
+        $rolling_hash = self::$multiple_rolling_hash;
         $window = [];
         foreach ($rolling_hash as $index => $value) {
             $window[$index] = self::windowing($value);
         }
 
-        $this->multiple_windowing = $window;
-        return $this->multiple_windowing;
+        self::$multiple_windowing = $window;
+        return self::$multiple_windowing;
     }
 
     /**
@@ -250,7 +253,7 @@ class MetodeWinnowing
      * @param [type] $window_table_arr
      * @return void
      */
-    private function fingerprints($window_table_arr)
+    private static function fingerprints($window_table_arr)
     {
         // dump("window");
         $window_table = $window_table_arr;
@@ -258,13 +261,13 @@ class MetodeWinnowing
         $fingers = array();
         for ($i = 0; $i < count($window_table); $i++) {
             $min = $window_table[$i][0];
-            for ($j = 1; $j < $this->n_window_value; $j++) {
+            for ($j = 1; $j < self::$n_window_value; $j++) {
                 if ($min > $window_table[$i][$j])
                     $min = $window_table[$i][$j];
             }
             $fingers[] = $min;
         }
-        $this->multiple_fingerprint = $fingers;
+        self::$multiple_fingerprint = $fingers;
         return $fingers;
     }
 
@@ -274,16 +277,16 @@ class MetodeWinnowing
      *
      * @return void
      */
-    private function multiple_fingerprint()
+    private static function multiple_fingerprint()
     {
-        $window = $this->multiple_windowing;
+        $window = self::$multiple_windowing;
         $fingers = [];
         foreach ($window as $index => $value) {
             $fingers[$index] = self::fingerprints($value);
         }
 
-        $this->multiple_fingerprint = $fingers;
-        return $this->multiple_fingerprint;
+        self::$multiple_fingerprint = $fingers;
+        return self::$multiple_fingerprint;
     }
 
 
@@ -292,7 +295,7 @@ class MetodeWinnowing
      *
      * @return void
      */
-    private function jaccard_coefficient($string_source_0, $target_source_n)
+    private static function jaccard_coefficient($string_source_0, $target_source_n)
     {
 
         $arr_intersect = array_intersect($string_source_0, $target_source_n);
@@ -300,11 +303,20 @@ class MetodeWinnowing
         $count_intersect_fingers = count($arr_intersect);
         $count_union_fingers = count($arr_union);
 
-        $coefficient = $count_intersect_fingers /
-            ($count_union_fingers - $count_intersect_fingers);
+        // handle default by zero. if zero 
+        if ($count_intersect_fingers == 0.0) {
+            $coefficient = 0.1 /
+                ($count_union_fingers - 0.1);
 
-        $this->jaccard_value = $coefficient * 100;
-        return $this->jaccard_value;
+            self::$jaccard_value = $coefficient * 100;
+            return self::$jaccard_value;
+        } else {
+            $coefficient = $count_intersect_fingers /
+                ($count_union_fingers - $count_intersect_fingers);
+
+            self::$jaccard_value = $coefficient * 100;
+            return self::$jaccard_value;
+        }
     }
 
 
@@ -313,9 +325,9 @@ class MetodeWinnowing
      *
      * @return void
      */
-    private function multiple_jaccard_coeffcient()
+    private static function multiple_jaccard_coeffcient()
     {
-        $finger_print = $this->multiple_fingerprint;
+        $finger_print = self::$multiple_fingerprint;
         $index_source = 0;
 
         $temp = [];
@@ -328,16 +340,22 @@ class MetodeWinnowing
             $temp[$index] = self::jaccard_coefficient($finger_print[$index_source], $finger_print[$index + 1]);
         }
 
+        // class time tracker
+        $timer = new TimeTracker("start-winnowing");
+        $timer->add("winnowing execute");
+
+        $value_time_calculate = [];
         $value_message = [];
         foreach ($temp as $index => $value) {
             $n_value = $index + 1;
-            $value_message[$index] = "Document " . $index_source . " dibanding dengan Document ke " . $n_value . " = " . floor($value) . "% percent kemiripan";
+            $value_message[$index] = "Document " . $index_source . " dibanding dengan Document ke " . $n_value . " = " . floor($value) . " % percent kemiripan. dan " . $timer->calculatetime() . " detik waktu execution";
+            $value_time_calculate[$index] = $timer->calculatetime();
         }
 
-
-        $this->multiple_jaccard_message = $value_message;
-        $this->multiple_jaccard_value = $temp;
-        return $this->multiple_jaccard_message;
+        self::$multiple_jaccard_message = $value_message;
+        self::$multiple_jaccard_value = $temp;
+        self::$multiple_time_execution = $value_time_calculate;
+        return self::$multiple_jaccard_message;
     }
 
 
@@ -383,7 +401,7 @@ class MetodeWinnowing
      */
     public function getCaseFolding()
     {
-        return $this->case_folding_string;
+        return self::$case_folding_string;
     }
 
     /**
@@ -393,7 +411,7 @@ class MetodeWinnowing
      */
     public function getNgram()
     {
-        return $this->multipleNgram;
+        return self::$multipleNgram;
     }
 
     /**
@@ -403,7 +421,7 @@ class MetodeWinnowing
      */
     public function getRollingHash()
     {
-        return $this->multiple_rolling_hash;
+        return self::$multiple_rolling_hash;
     }
 
     /**
@@ -413,7 +431,7 @@ class MetodeWinnowing
      */
     public function getWindow()
     {
-        return $this->multiple_windowing;
+        return self::$multiple_windowing;
     }
 
     /**
@@ -423,7 +441,7 @@ class MetodeWinnowing
      */
     public function getFingersPrint()
     {
-        return $this->multiple_fingerprint;
+        return self::$multiple_fingerprint;
     }
 
     /**
@@ -433,7 +451,7 @@ class MetodeWinnowing
      */
     public function getJaccardCoefficientValue()
     {
-        return $this->multiple_jaccard_value;
+        return self::$multiple_jaccard_value;
     }
 
     /**
@@ -443,6 +461,16 @@ class MetodeWinnowing
      */
     public function getJaccardCoefficientMessage()
     {
-        return $this->multiple_jaccard_message;
+        return self::$multiple_jaccard_message;
+    }
+
+    /**
+     * method getter result timer calculate progress algorithm
+     *
+     * @return void
+     */
+    public function timerCalculateProgress()
+    {
+        return self::$multiple_time_execution;
     }
 }

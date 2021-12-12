@@ -56,6 +56,8 @@ echo "jaccard coefficient value";
 dump($winnowing->getJaccardCoefficientValue());
 echo "jaccard coefficient message";
 dump($winnowing->getJaccardCoefficientMessage());
+echo "get timer calculate progress");
+dump($winnowing->timerCalculateProgress());
 
 
 ```

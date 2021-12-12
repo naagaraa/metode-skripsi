@@ -17,6 +17,17 @@ echo "<br>";
 echo $duit->dollar(123.46); # untuk dollar
 ```
 
+## Divided by zero
+
+```php
+
+use Nagara\Src\Math\MathematicClass;
+
+$math =  new MathematicClass;
+$math->division_by_zero($number);
+
+```
+
 ## Matrix Class
 
 matrix class adalah object base class yang saya buat untuk berinteraksi dengan data pada database seperti
