@@ -245,10 +245,16 @@ class MetodeRabinKarb
         $pembilang = count($macthing);
         $penyebut = count(array_merge($string_source_0, $target_source_n));
 
-        // convert to %
-        $coefficient = (2 * $pembilang) / $penyebut;
-
-        return $coefficient;
+        // handle divided by zero
+        if($penyebut == 0.0 || $pembilang == 0.0){
+            $coefficient = (2 * $pembilang) / 0.1;
+    
+            return $coefficient;
+        }else{
+            $coefficient = (2 * $pembilang) / $penyebut;
+    
+            return $coefficient;
+        }
     }
 
     private static function multi_DiceSimilarityCoefficient()
@@ -345,6 +351,7 @@ class MetodeRabinKarb
     public function getDiceCoefficientValue()
     {
         return self::$multiple_DiceCoefficient_value;
+
     }
 
     /**

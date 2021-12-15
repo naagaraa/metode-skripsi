@@ -21,7 +21,7 @@ use Nagara\Src\Metode\MetodeRabinKarb;
 // example string 1
 $wordtext1 = [
     0 => "ayah pergi kepasar",
-    1 => "ibu pergi kepasar",
+    1 => "bapak pergi mall",
 ];
 
 // example string 2
@@ -47,8 +47,10 @@ dump("hashing");
 dump($rabinkarb->getHashing());
 dump("matching");
 dump($rabinkarb->getMacthing());
-dump("dice coefficient");
-dump($rabinkarb->getDiceCoefficient());
+dump("dice coefficient value");
+dump($rabinkarb->getDiceCoefficientValue());
+dump("dice coefficient message");
+dump($rabinkarb->getDiceCoefficientMessage());
 
 ```
 

@@ -29,7 +29,38 @@
 
 include "vendor/autoload.php";
 
-use markfullmer\porter\Porter;
+use Nagara\Src\Metode\MetodeRabinKarb;
 
-$stemming = new Porter;
-dump($stemming->stem("fishing"));
+// example string 1
+$wordtext1 = [
+    0 => "ayah pergi kepasar",
+    1 => "bapak pergi mall",
+];
+
+// example string 2
+$wordtext2 = [
+    0 => "ayah pergi kepasar",
+    1 => "bapak pergi mall",
+    2 => "paman pergi kepasar dengan ayah",
+];
+
+// setting config and run algorithm
+$rabinkarb = new MetodeRabinKarb([
+    "ngram" => 5,
+    "prima" => 2
+]);
+$rabinkarb->process($wordtext1);
+
+// show result (array view);
+dump("case folding");
+dump($rabinkarb->getCaseFolding());
+dump("ngram");
+dump($rabinkarb->getNgram());
+dump("hashing");
+dump($rabinkarb->getHashing());
+dump("matching");
+dump($rabinkarb->getMacthing());
+dump("dice coefficient value");
+dump($rabinkarb->getDiceCoefficientValue());
+dump("dice coefficient message");
+dump($rabinkarb->getDiceCoefficientMessage());
