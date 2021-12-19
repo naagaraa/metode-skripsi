@@ -64,15 +64,16 @@ before used this libraries baca dulu bagian wiki disini.
 - db ( PDO - PHP data Object )
 
   - [database](https://github.com/naagaraa/metode-skriphit/blob/main/src/db/readme.md)
-  - connection
-  - query mysql
+  - [connection](https://github.com/naagaraa/metode-skriphit/blob/main/src/db/readme.md)
+  - [query mysql](https://github.com/naagaraa/metode-skriphit/blob/main/src/db/readme.md)
 
 - office
 
   - [excel / csv](https://github.com/naagaraa/metode-skriphit/blob/main/src/office/readme.md)
-  - read file csv
-  - parser pdf to text
-  - parser docx to text
+  - [read file csv](https://github.com/naagaraa/metode-skriphit/blob/main/src/office/readme.md)
+  - [parser pdf to text](https://github.com/naagaraa/metode-skriphit/blob/main/src/office/readme.md)
+  - [parser docx to text](https://github.com/naagaraa/metode-skriphit/blob/main/src/office/readme.md)
+  - [listing file or direactory](https://github.com/naagaraa/metode-skriphit/blob/main/src/office/readme.md)
 
 - image OCR ( optical character recognition )
 
