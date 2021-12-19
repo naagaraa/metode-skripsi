@@ -435,6 +435,7 @@ class ComposerStaticInit6937f89145982d922cbb4611d57fffd1
         'Nagara\\Src\\Database\\DB' => __DIR__ . '/../..' . '/src/db/DB.php',
         'Nagara\\Src\\Doc\\DocumentDocx' => __DIR__ . '/../..' . '/src/office/DocumentDocx.php',
         'Nagara\\Src\\Doc\\DocumentExcel' => __DIR__ . '/../..' . '/src/office/DocumentExcel.php',
+        'Nagara\\Src\\Doc\\FileManager' => __DIR__ . '/../..' . '/src/office/FileManager.php',
         'Nagara\\Src\\Img\\ImgParser' => __DIR__ . '/../..' . '/src/img/ImgParser.php',
         'Nagara\\Src\\Math\\MathematicClass' => __DIR__ . '/../..' . '/src/math/MathematicClass.php',
         'Nagara\\Src\\Math\\MatrixClass' => __DIR__ . '/../..' . '/src/math/MatrixClass.php',

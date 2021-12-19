@@ -29,49 +29,11 @@
 
 include "vendor/autoload.php";
 
-use Nagara\Src\Metode\MetodeRabinKarb;
-use Nagara\Src\Metode\MetodeWinnowing;
+use Nagara\Src\Doc\FileManager;
 
-// example string 1
-$wordtext1 = [
-    0 => "ayah pergi kepasar",
-    1 => "bapak pergi mall",
-];
+$file =  new FileManager;
+echo "listing files";
+dump($file->listing_files("src"));
+echo "listing directory";
+dump($file->listing_directory("src"));
 
-// example string 2
-$wordtext2 = [
-    0 => "ayah pergi kepasar",
-    1 => "bapak pergi mall",
-    2 => "paman pergi kepasar dengan ayah",
-];
-
-// setting config and run algorithm
-$rabinkarb = new MetodeRabinKarb([
-    "ngram" => 5,
-    "prima" => 2
-]);
-$rabinkarb->process($wordtext2);
-
-// set config and run metode or algorithm
-$winnowing = new MetodeWinnowing([
-    "ngram" => 5,
-    "prima" => 2,
-    "window" => 4
-]);
-$winnowing->process($wordtext2);
-
-// show result (array view);
-dump("case folding");
-dump($rabinkarb->getCaseFolding());
-dump("ngram");
-dump($rabinkarb->getNgram());
-dump("hashing");
-dump($rabinkarb->getHashing());
-dump("matching");
-dump($rabinkarb->getMacthing());
-dump("dice coefficient value");
-dump($rabinkarb->getDiceCoefficientValue());
-dump("dice coefficient message");
-dump($rabinkarb->getDiceCoefficientMessage());
-dump($rabinkarb->getDiceCoefficientSimilarity());
-dump($winnowing->getJaccardCoefficientSimilarity());
