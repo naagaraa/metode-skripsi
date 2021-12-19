@@ -49,6 +49,7 @@ class MetodeWinnowing
      * 
      */
 
+    private static $data_word;
     private static $case_folding_string;
     private static $multipleNgram;
     private static $multiple_rolling_hash;
@@ -367,13 +368,17 @@ class MetodeWinnowing
      */
     public function process($wordtext)
     {
+
+        // save data
+        self::$data_word = $wordtext;
+
+        // automatic config check long string for make new config automatic coming soon
+
         // case folding step 1
         self::casefolding($wordtext);
 
-
         // create N-gram step 2
         self::multipleNgram();
-
 
         // rolloinghas masing masing ngram step 3
         self::multiple_rolling_hash();
@@ -462,6 +467,28 @@ class MetodeWinnowing
     public function getJaccardCoefficientMessage()
     {
         return self::$multiple_jaccard_message;
+    }
+
+    /**
+     * method getter result jaccard simiarity (string format)
+     *
+     * @return void
+     */
+    public function getJaccardCoefficientSimilarity()
+    {
+        // getting data word or sting
+        $word = self::$data_word;
+
+        // remove first index
+        array_shift($word);
+
+        // make box for new array
+        $similarity = [];
+        foreach (self::$multiple_jaccard_value as $index => $value) {
+            $similarity[$word[$index]] = floor($value);
+        }
+
+        return $similarity;
     }
 
     /**

@@ -37,6 +37,7 @@ use Nagara\Src\TimeTracker;
 class MetodeRabinKarb
 {
 
+    private static $data_word;
     private static $case_folding_string;
     private static $multipleNgram;
     private static $multiple_hashing;
@@ -287,6 +288,12 @@ class MetodeRabinKarb
 
     public function Process($word)
     {
+
+        // save word
+        self::$data_word = $word;
+
+        // automatic config check long string for make new config automatic coming soon
+
         // 0. text processing
         self::casefolding($word);
 
@@ -303,6 +310,11 @@ class MetodeRabinKarb
         self::multi_DiceSimilarityCoefficient();
     }
 
+    private function find_word_similarity()
+    {
+        # comming soon
+    }
+    
     /**
      * method get result casefolding
      *
@@ -362,6 +374,29 @@ class MetodeRabinKarb
     public function getDiceCoefficientMessage()
     {
         return self::$multiple_DiceCoefficient_message;
+    }
+
+    /**
+     * method get result dicesimillarity message
+     *
+     * @return void
+     */
+    public function getDiceCoefficientSimilarity()
+    {
+        // getting data word or sting
+        $word = self::$data_word;
+
+        // remove first index
+        array_shift($word);
+
+        // make box for new array
+        $similarity = [];
+        foreach (self::$multiple_DiceCoefficient_value as $index => $value) {
+            $similarity[$word[$index]] = floor($value);
+        }
+
+        return $similarity;
+
     }
 
     /**

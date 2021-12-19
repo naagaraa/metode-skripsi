@@ -51,6 +51,8 @@ dump("dice coefficient value");
 dump($rabinkarb->getDiceCoefficientValue());
 dump("dice coefficient message");
 dump($rabinkarb->getDiceCoefficientMessage());
+dump("get result similarity index change to data");
+dump($rabinkarb->getDiceCoefficientSimilarity());
 
 ```
 

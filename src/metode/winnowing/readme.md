@@ -56,8 +56,10 @@ echo "jaccard coefficient value";
 dump($winnowing->getJaccardCoefficientValue());
 echo "jaccard coefficient message";
 dump($winnowing->getJaccardCoefficientMessage());
-echo "get timer calculate progress");
+echo "get timer calculate progress";
 dump($winnowing->timerCalculateProgress());
+echo "get result similarity index change to data";
+dump($winnowing->getJaccardCoefficientSimilarity());
 
 
 ```

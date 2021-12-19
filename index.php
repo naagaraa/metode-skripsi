@@ -30,6 +30,7 @@
 include "vendor/autoload.php";
 
 use Nagara\Src\Metode\MetodeRabinKarb;
+use Nagara\Src\Metode\MetodeWinnowing;
 
 // example string 1
 $wordtext1 = [
@@ -49,7 +50,15 @@ $rabinkarb = new MetodeRabinKarb([
     "ngram" => 5,
     "prima" => 2
 ]);
-$rabinkarb->process($wordtext1);
+$rabinkarb->process($wordtext2);
+
+// set config and run metode or algorithm
+$winnowing = new MetodeWinnowing([
+    "ngram" => 5,
+    "prima" => 2,
+    "window" => 4
+]);
+$winnowing->process($wordtext2);
 
 // show result (array view);
 dump("case folding");
@@ -64,3 +73,5 @@ dump("dice coefficient value");
 dump($rabinkarb->getDiceCoefficientValue());
 dump("dice coefficient message");
 dump($rabinkarb->getDiceCoefficientMessage());
+dump($rabinkarb->getDiceCoefficientSimilarity());
+dump($winnowing->getJaccardCoefficientSimilarity());
