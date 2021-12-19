@@ -4,6 +4,13 @@ Office Class adalah method khusus yang saya buat untuk membaca atau read file ex
 seperti testing data jika , saya malas untuk mengambil data langsung dari database, saya bisa mengambil dan
 melakukan read pada file excel saja
 
+
+## List of Menu
+- [EXCEL](###DOCUMENT-EXCEL-CLASS)
+- [DOCS Parser](###DOCX-PARSER)
+- [PDF Parser](###PDF-PARSE)
+- [FILE Listing](###File-Manager-Listing)
+
 ## DOCUMENT EXCEL CLASS
 
 ### format file excel atau CSV
@@ -92,7 +99,7 @@ echo $data;
 
 ```
 
-## File Manager
+## File Manager Listing
 
 listing directory
 

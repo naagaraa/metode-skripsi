@@ -85,43 +85,27 @@ before used this libraries baca dulu bagian wiki disini.
 
 dalam pembuatanya semua metodenya tulis dengan konsep OOP atau object oriented dan ditulis dengan bahasa pemrograman PHP. dibuat berdasarkan referensi di internet dan jurnal jurnal yang ada.
 
-- fuzzy
+- [fuzzy-sugeno](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/fuzzy/readme.md)
 
-  - [fuzzy-sugeno](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/fuzzy/readme.md)
+- [simple linear regresion](https://github.com/naagaraa/metode-skriphit/blob/main/src/metodelinear-regresion/readme.md)
 
-- linear-regresion
+- [simple addive weight](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/saw/readme.md)
 
-  - [simple linear regresion](https://github.com/naagaraa/metode-skriphit/blob/main/src/metodelinear-regresion/readme.md)
+- [weighted Product](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/wp/readme.md)
 
-- simple addive weight (saw)
 
-  - [simple SAW](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/saw/readme.md)
+- [The Technique for Order of Preference by Similarity to Ideal Solution (TOPSIS)](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/topsis/readme.md)
 
-- weighted Product (wp)
+- [simple oreste](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/oreste/readme.md)
 
-  - [simple WP](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/wp/readme.md)
 
-- The Technique for Order of Preference by Similarity to Ideal Solution (TOPSIS)
-  - [simple topsis](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/topsis/readme.md)
-- oreste
+- [simple k means](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/k-means/readme.md)
 
-  - [simple oreste](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/oreste/readme.md)
+- [simple naive-bayes](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/naive-bayes/readme.md) learning and under develeopment :warning:
 
-- k means
+- [winnowing](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/winnowing/readme.md) learning and under develeopment :warning:
 
-  - [simple k means](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/k-means/readme.md)
-
-- naive bayes classfication | learning and under develeopment :warning:
-
-  - [simple naive-bayes](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/naive-bayes/readme.md)
-
-- winnowing | need find hightlight text :warning:
-
-  - [winnowing](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/winnowing/readme.md)
-
-- rabin karb | need find hightlight text :warning:
-
-  - [rabin-karb](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/rabin-karb/readme.md)
+- [rabin-karb](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/rabin-karb/readme.md) learning and under develeopment :warning:
 
 - other ? | oke let's make something
 
