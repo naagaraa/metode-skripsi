@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c3847565d83feb4f5a1cf2bad3974eb7",
+    "content-hash": "57baa9ab4ef8b3ef70bd9dde31123969",
     "packages": [
         {
             "name": "ezyang/htmlpurifier",
@@ -734,6 +734,56 @@
                 "source": "https://github.com/sastrawi/sastrawi"
             },
             "time": "2016-10-22T03:19:27+00:00"
+        },
+        {
+            "name": "smalot/pdfparser",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/smalot/pdfparser.git",
+                "reference": "768d1d6859bdf9ef0da44724ac84079f920b7599"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/smalot/pdfparser/zipball/768d1d6859bdf9ef0da44724ac84079f920b7599",
+                "reference": "768d1d6859bdf9ef0da44724ac84079f920b7599",
+                "shasum": ""
+            },
+            "require": {
+                "ext-zlib": "*",
+                "php": ">=7.1",
+                "symfony/polyfill-mbstring": "^1.18"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Smalot\\PdfParser\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastien MALOT",
+                    "email": "sebastien@malot.fr"
+                }
+            ],
+            "description": "Pdf parser library. Can read and extract information from pdf file.",
+            "homepage": "https://www.pdfparser.org",
+            "keywords": [
+                "extract",
+                "parse",
+                "parser",
+                "pdf",
+                "text"
+            ],
+            "support": {
+                "issues": "https://github.com/smalot/pdfparser/issues",
+                "source": "https://github.com/smalot/pdfparser/tree/v2.0.1"
+            },
+            "time": "2021-11-22T11:57:24+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",

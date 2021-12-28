@@ -70,13 +70,14 @@ pdf parser is class pdf data extraction by Sebastien MALOT class for file
 ```php
 
 // init
-use Sebastien\Src\Doc\PdfParser;
+use Nagara\Src\Doc\PdfParser;
 
 // create object
 $pdf = new PdfParser;
 
 // save data to string
 $data = $pdf->parseFile("filename.pdf");
+dump($data);
 echo $data;
 ```
 

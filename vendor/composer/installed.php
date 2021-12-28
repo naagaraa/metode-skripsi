@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '65a5de41d657825dcd3a535163d58892ed69aaab',
+        'reference' => '8cc1ad99b2278df97b4627488d71af2a7f1c2092',
         'name' => 'nagara/metode-skripshit',
         'dev' => true,
     ),
@@ -61,7 +61,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '65a5de41d657825dcd3a535163d58892ed69aaab',
+            'reference' => '8cc1ad99b2278df97b4627488d71af2a7f1c2092',
             'dev_requirement' => false,
         ),
         'phpoffice/phpspreadsheet' => array(
@@ -116,6 +116,15 @@
             'install_path' => __DIR__ . '/../sastrawi/sastrawi',
             'aliases' => array(),
             'reference' => '31fd4261dd4980cc57447f44d1aec4bd69e2abec',
+            'dev_requirement' => false,
+        ),
+        'smalot/pdfparser' => array(
+            'pretty_version' => 'v2.0.1',
+            'version' => '2.0.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../smalot/pdfparser',
+            'aliases' => array(),
+            'reference' => '768d1d6859bdf9ef0da44724ac84079f920b7599',
             'dev_requirement' => false,
         ),
         'symfony/polyfill-mbstring' => array(

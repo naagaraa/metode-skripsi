@@ -13,6 +13,7 @@
         "php": ">=7.3",
         "phpoffice/phpspreadsheet": "^1.18",
         "sastrawi/sastrawi": "^1.2",
+        "smalot/pdfparser": "^2.0",
         "symfony/var-dumper": "^5.3",
         "thiagoalessio/tesseract_ocr": "^2.12"
     },
