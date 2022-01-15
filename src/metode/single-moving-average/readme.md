@@ -131,6 +131,12 @@ dump($metode->getNormalisasi());
 echo "hasil proses bergerak SMA (single moving average) bentuk array<br>";
 dump($metode->getResult());
 ```
+### how is work ?
+okay, let me explain in indonesia language.
+cara kerjanya simple dari formula yang diambil dari jurnal dibawah, ini seperti mencari nilai mean atau rata rata, hanya saja kita bisa bebas menentukan panjang data yang akan di ambil, hal ini disebut sebagai pergerakan atau proses bergerak priode t. proses mempunyai tiga parameter yaitu data awal, field normalisasi, dan nilai pergerakan. pada normalisasi akan digunakan untuk mengambil nilai yang akan diproses. dan pergerakan merupakan nilai pemotongan.
+<br>
+<br>
+contoh : ada sejumlah data sepanjang 18 data, 1,2,3,4,5 ... 18. maka bila memberi nilai 6 maka akan dilakukan pemotongan akhir 6 data. 1,2,3,4,5,6. = 21 / 6 = 3.5 adalah hasil predisiknya. dan bila memberi nilai 8 maka akan dilakukan pemotongan akhir 8 data. 1,2,3,4,5,6,7,8 = 36 / 6 = 6 adalah hasil prediksinya
 
 ### jurnal reference
 - [journal PENERAPAN METODE SINGLE MOVING AVERAGE UNTUK PERAMALAN PENJUALAN MAINAN ANAK](https://ejurnal.dipanegara.ac.id/index.php/sensitif/article/download/552/485/).

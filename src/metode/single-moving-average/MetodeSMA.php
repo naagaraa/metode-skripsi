@@ -32,7 +32,17 @@
 namespace Nagara\Src\Metode;
 
 class MetodeSMA{
-
+   /**
+    * formula error :
+    * nilai terbesar di dalam data - nilai peramalan dalam deret
+    * 
+    * formula peramalan periode :
+    * Ft = (Yt-1)+(Yt-2)+(Yt-3)..+(Yt-n) / n
+    * 
+    * ft : peramalan untuk periode t
+    * Yt-1 + Yt-2 + ... +Yt -n : jumlah data dalam periode n sebelumnya
+    * n : jumlah periode dalam rata rata gerak.
+    */
    private static $history_data;
    private static $normalisasi_data;
    private static $hasil_peramalan;
