@@ -1,6 +1,4 @@
 <?php
-
-
 /**
  * 
  * this file is single method of PHP Winnwoing
@@ -31,6 +29,7 @@
  */
 
 namespace Nagara\Src\Metode;
+
 
 use Nagara\Src\TimeTracker;
 
@@ -402,7 +401,7 @@ class MetodeWinnowing
     /**
      * method getter result case folding
      *
-     * @return void
+     * @return itterable
      */
     public function getCaseFolding()
     {
@@ -412,7 +411,7 @@ class MetodeWinnowing
     /**
      * method getter result ngram
      *
-     * @return void
+     * @return itterable
      */
     public function getNgram()
     {
@@ -422,7 +421,7 @@ class MetodeWinnowing
     /**
      * method getter result rolling hash
      *
-     * @return void
+     * @return itterable
      */
     public function getRollingHash()
     {
@@ -432,7 +431,7 @@ class MetodeWinnowing
     /**
      * method getter result window
      *
-     * @return void
+     * @return itterable
      */
     public function getWindow()
     {
@@ -442,7 +441,7 @@ class MetodeWinnowing
     /**
      * method getter result fingerprint
      *
-     * @return void
+     * @return itterable
      */
     public function getFingersPrint()
     {
@@ -452,7 +451,7 @@ class MetodeWinnowing
     /**
      * method getter result jaccard value index
      *
-     * @return void
+     * @return itterable
      */
     public function getJaccardCoefficientValue()
     {
@@ -462,7 +461,7 @@ class MetodeWinnowing
     /**
      * method getter result jaccard index message (string format)
      *
-     * @return void
+     * @return itterable
      */
     public function getJaccardCoefficientMessage()
     {
@@ -472,7 +471,7 @@ class MetodeWinnowing
     /**
      * method getter result jaccard simiarity (string format)
      *
-     * @return void
+     * @return itterable
      */
     public function getJaccardCoefficientSimilarity()
     {
@@ -494,7 +493,7 @@ class MetodeWinnowing
     /**
      * method getter result timer calculate progress algorithm
      *
-     * @return void
+     * @return itterable
      */
     public function timerCalculateProgress()
     {

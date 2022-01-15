@@ -1,11 +1,10 @@
 <?php
-
 /**
  * 
  * this file is single method of PHP Technique for Rabin Karb string matching
  * 
  * 
- * @author      Eka Jaya Nagara     
+ * @author      Re-writing Eka Jaya Nagara     
  * @copyright   Copyright (c), 2021 naagaraa metode skripsi Technique for Rabin Karb string matching
  * @license     MIT public license
  * 
@@ -348,7 +347,7 @@ class MetodeRabinKarb
     /**
      * method get result macthing
      *
-     * @return void
+     * @return itterable
      */
     public function getMacthing()
     {
@@ -358,7 +357,7 @@ class MetodeRabinKarb
     /**
      * method get result dicesimillarity value
      *
-     * @return void
+     * @return itterable
      */
     public function getDiceCoefficientValue()
     {
@@ -369,7 +368,7 @@ class MetodeRabinKarb
     /**
      * method get result dicesimillarity message
      *
-     * @return void
+     * @return itterable
      */
     public function getDiceCoefficientMessage()
     {
@@ -379,7 +378,7 @@ class MetodeRabinKarb
     /**
      * method get result dicesimillarity message
      *
-     * @return void
+     * @return itterable
      */
     public function getDiceCoefficientSimilarity()
     {

@@ -28,6 +28,3 @@
  */
 
 include "vendor/autoload.php";
-
-
-
