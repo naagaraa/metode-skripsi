@@ -1,10 +1,15 @@
-## Single Moving Average
+# Single Moving Average
+A simple moving average (SMA) is an arithmetic moving average calculated by adding recent prices and then dividing that figure by the number of time periods in the calculation average. For example, one could add the closing price of a security for a number of time periods and then divide this total by that same number of periods. Short-term averages respond quickly to changes in the price of the underlying security, while long-term averages are slower to react.
 
-this is new method i'm added in my libraries this method implementation algorithm from [journal PENERAPAN METODE SINGLE MOVING AVERAGE UNTUK PERAMALAN PENJUALAN MAINAN ANAK](https://ejurnal.dipanegara.ac.id/index.php/sensitif/article/download/552/485/).
+- Metode time series salah satunya adalah Moving average forecasting atau rata-rata bergerak.
 
-saya menambahkan metode baru SMA (Single Moving Average) dari implementation jurnal [journal PENERAPAN METODE SINGLE MOVING AVERAGE UNTUK PERAMALAN PENJUALAN MAINAN ANAK](https://ejurnal.dipanegara.ac.id/index.php/sensitif/article/download/552/485/). ke dalam librari saya.
+### reference
+- [investopedia](https://www.investopedia.com/terms/s/sma.asp).
 
-Metode time series salah satunya adalah Moving average forecasting atau rata-rata bergerak.
+
+### caution
+- this algorithm i'm not write with my self, i'm just re wrting for improve and make stand alone algorithm,
+- this is new method i'm added in my libraries this method implementation algorithm from [journal PENERAPAN METODE SINGLE MOVING AVERAGE UNTUK PERAMALAN PENJUALAN MAINAN ANAK](https://ejurnal.dipanegara.ac.id/index.php/sensitif/article/download/552/485/). 
 
 
 
@@ -126,3 +131,14 @@ dump($metode->getNormalisasi());
 echo "hasil proses bergerak SMA (single moving average) bentuk array<br>";
 dump($metode->getResult());
 ```
+
+### jurnal reference
+- [journal PENERAPAN METODE SINGLE MOVING AVERAGE UNTUK PERAMALAN PENJUALAN MAINAN ANAK](https://ejurnal.dipanegara.ac.id/index.php/sensitif/article/download/552/485/).
+
+<br>
+<br>
+
+# Maintenner
+this code maintenace by me miyuki nagara
+
+- [miyuki nagara](https://github.com/naagaraa/)
