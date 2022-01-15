@@ -271,6 +271,7 @@ return array(
     'Nagara\\Src\\Metode\\MetodeNaiveBayes' => $baseDir . '/src/metode/naive-bayes/MetodeNaiveBayes.php',
     'Nagara\\Src\\Metode\\MetodeOreste' => $baseDir . '/src/metode/oreste/MetodeOreste.php',
     'Nagara\\Src\\Metode\\MetodeRabinKarb' => $baseDir . '/src/metode/rabin-karb/MetodeRabinKarb.php',
+    'Nagara\\Src\\Metode\\MetodeSMA' => $baseDir . '/src/metode/single-moving-average/MetodeSMA.php',
     'Nagara\\Src\\Metode\\MetodeSaw' => $baseDir . '/src/metode/saw/MetodeSaw.php',
     'Nagara\\Src\\Metode\\MetodeTopsis' => $baseDir . '/src/metode/topsis/MetodeTopsis.php',
     'Nagara\\Src\\Metode\\MetodeWP' => $baseDir . '/src/metode/wp/MetodeWP.php',

@@ -451,6 +451,7 @@ class ComposerStaticInit6937f89145982d922cbb4611d57fffd1
         'Nagara\\Src\\Metode\\MetodeNaiveBayes' => __DIR__ . '/../..' . '/src/metode/naive-bayes/MetodeNaiveBayes.php',
         'Nagara\\Src\\Metode\\MetodeOreste' => __DIR__ . '/../..' . '/src/metode/oreste/MetodeOreste.php',
         'Nagara\\Src\\Metode\\MetodeRabinKarb' => __DIR__ . '/../..' . '/src/metode/rabin-karb/MetodeRabinKarb.php',
+        'Nagara\\Src\\Metode\\MetodeSMA' => __DIR__ . '/../..' . '/src/metode/single-moving-average/MetodeSMA.php',
         'Nagara\\Src\\Metode\\MetodeSaw' => __DIR__ . '/../..' . '/src/metode/saw/MetodeSaw.php',
         'Nagara\\Src\\Metode\\MetodeTopsis' => __DIR__ . '/../..' . '/src/metode/topsis/MetodeTopsis.php',
         'Nagara\\Src\\Metode\\MetodeWP' => __DIR__ . '/../..' . '/src/metode/wp/MetodeWP.php',

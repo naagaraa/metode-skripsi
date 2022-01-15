@@ -1,11 +1,12 @@
 <?php
+
 /**
  * 
  * this file is single method of PHP Winnwoing
  * re Writing code Algorithm Winnowing for support multipe "pembanding string"
  * 
  * 
- * @author      Re-writing Eka Jaya Nagara     
+ * @author      Re-writing Eka Jaya Nagara <ekabersinar@gmail.com>     
  * @license     MIT public license
  * @source      https://github.com/naagaraa/metode-skriphit
  * 

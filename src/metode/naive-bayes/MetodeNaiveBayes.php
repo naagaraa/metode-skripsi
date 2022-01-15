@@ -5,7 +5,7 @@
  * this file is single method of PHP Naive Bayes
  * 
  * 
- * @author      Eka Jaya Nagara     
+ * @author      Eka Jaya Nagara <ekabersinar@gmail.com>    
  * @copyright   Copyright (c), 2021 naagaraa metode skripsi Naive Bayes
  * @license     MIT public license
  * 

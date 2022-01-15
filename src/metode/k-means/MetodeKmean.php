@@ -5,7 +5,7 @@
  * this file is single method of PHP K-means
  * 
  * 
- * @author      Eka Jaya Nagara     
+ * @author      Eka Jaya Nagara <ekabersinar@gmail.com>    
  * @copyright   Copyright (c), 2021 naagaraa metode skripsi K means
  * @license     MIT public license
  * 

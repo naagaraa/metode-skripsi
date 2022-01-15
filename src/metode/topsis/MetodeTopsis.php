@@ -5,7 +5,7 @@
  * this file is single method of PHP Technique for Order of Preference by Similarity to Ideal Solution
  * 
  * 
- * @author      Eka Jaya Nagara     
+ * @author      Eka Jaya Nagara <ekabersinar@gmail.com>    
  * @copyright   Copyright (c), 2021 naagaraa metode skripsi Technique for Order of Preference by Similarity to Ideal Solution
  * @license     MIT public license
  * 

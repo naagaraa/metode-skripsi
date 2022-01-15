@@ -1,10 +1,11 @@
 <?php
+
 /**
  * 
  * this file is single method of PHP Technique for Rabin Karb string matching
  * 
  * 
- * @author      Re-writing Eka Jaya Nagara     
+ * @author      Re-writing Eka Jaya Nagara <ekabersinar@gmail.com>    
  * @copyright   Copyright (c), 2021 naagaraa metode skripsi Technique for Rabin Karb string matching
  * @license     MIT public license
  * 

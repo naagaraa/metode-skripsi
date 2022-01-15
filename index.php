@@ -28,3 +28,122 @@
  */
 
 include "vendor/autoload.php";
+
+use Nagara\Src\Metode\MetodeSMA;
+
+
+/**
+ * formula error :
+ * nilai terbesar di dalam data - nilai peramalan dalam deret
+ * 
+ * formula peramalan periode :
+ * Ft = (Yt-1)+(Yt-2)+(Yt-3)..+(Yt-n) / n
+ * 
+ * ft : peramalan untuk periode t
+ * Yt-1 + Yt-2 + ... +Yt -n : jumlah data dalam periode n sebelumnya
+ * n : jumlah periode dalam rata rata gerak.
+ */
+// format data mentah
+$data = [
+   [
+      "bulan" => "januari",
+      "tahun" => 2018,
+      "penjualan" => 89
+   ],
+   [
+      "bulan" => "februari",
+      "tahun" => 2018,
+      "penjualan" => 95
+   ],
+   [
+      "bulan" => "maret",
+      "tahun" => 2018,
+      "penjualan" => 85
+   ],
+   [
+      "bulan" => "april",
+      "tahun" => 2018,
+      "penjualan" => 75
+   ],
+   [
+      "bulan" => "mei",
+      "tahun" => 2018,
+      "penjualan" => 86
+   ],
+   [
+      "bulan" => "juni",
+      "tahun" => 2018,
+      "penjualan" => 100
+   ],
+   [
+      "bulan" => "juli",
+      "tahun" => 2018,
+      "penjualan" => 120
+   ],
+   [
+      "bulan" => "agustus",
+      "tahun" => 2018,
+      "penjualan" => 95
+   ],
+   [
+      "bulan" => "september",
+      "tahun" => 2018,
+      "penjualan" => 80
+   ],
+   [
+      "bulan" => "oktober",
+      "tahun" => 2018,
+      "penjualan" => 92
+   ],
+   [
+      "bulan" => "november",
+      "tahun" => 2018,
+      "penjualan" => 92
+   ],
+   [
+      "bulan" => "desember",
+      "tahun" => 2018,
+      "penjualan" => 88
+   ],
+   [
+      "bulan" => "januari",
+      "tahun" => 2018,
+      "penjualan" => 90
+   ],
+   [
+      "bulan" => "februari",
+      "tahun" => 2018,
+      "penjualan" => 95
+   ],
+   [
+      "bulan" => "maret",
+      "tahun" => 2018,
+      "penjualan" => 100
+   ],
+   [
+      "bulan" => "april",
+      "tahun" => 2018,
+      "penjualan" => 102
+   ],
+   [
+      "bulan" => "mei",
+      "tahun" => 2018,
+      "penjualan" => 100
+   ],
+   [
+      "bulan" => "juni",
+      "tahun" => 2018,
+      "penjualan" => 104
+   ],
+];
+
+// initialize metode
+$metode = new MetodeSMA;
+
+// parameter pertama data, paramter kedua nama field
+$metode->proses($data, "bulan");
+
+echo "hasil normalisasi data <br>";
+dump($metode->getNormalisasi());
+echo "hasil proses bergerak SMA (single moving average) <br>";
+dump($metode->getResult());

@@ -22,7 +22,7 @@ include "vendor/autoload.php";
 
 ### On the Future
 
-I'll change the name from metode skripshit to algocollectionphp
+I'll change the name from metode skripshit to PHPStudentLearn
 
 ### support or sponsor
 
@@ -104,10 +104,12 @@ dalam pembuatanya semua metodenya tulis dengan konsep OOP atau object oriented d
 
 - [simple naive-bayes](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/naive-bayes/readme.md) learning and under develeopment :warning:
 
-- [winnowing](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/winnowing/readme.md) learning and under develeopment :warning:
+- [winnowing](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/winnowing/readme.md)
 
-- [rabin-karb](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/rabin-karb/readme.md) learning and under develeopment :warning:
+- [rabin-karb](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/rabin-karb/readme.md) 
 
+- [single-moving-average](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/single-moving-average/readme.md) 
+learning and under development
 - other ? | oke let's make something
 
 ### next plan make libraries

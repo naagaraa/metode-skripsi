@@ -1,10 +1,11 @@
 <?php
+
 /**
  * 
  * this file is single method of PHP Oreste
  * 
  * 
- * @author      Eka Jaya Nagara     
+ * @author      Eka Jaya Nagara <ekabersinar@gmail.com>    
  * @copyright   Copyright (c), 2021 naagaraa metode skripsi oreste
  * @license     MIT public license
  * 

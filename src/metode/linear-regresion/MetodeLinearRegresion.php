@@ -1,10 +1,11 @@
 <?php
+
 /**
  * 
  * this file is single method of PHP Weight Product
  * 
  * 
- * @author      Eka Jaya Nagara     
+ * @author      Eka Jaya Nagara <ekabersinar@gmail.com>     
  * @copyright   Copyright (c), 2021 naagaraa metode skripsi linear regresion
  * @license     MIT public license
  * 
