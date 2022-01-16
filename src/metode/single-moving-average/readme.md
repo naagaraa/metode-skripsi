@@ -8,7 +8,7 @@ A simple moving average (SMA) is an arithmetic moving average calculated by addi
 
 
 ### caution
-- this algorithm i'm not write with my self, i'm just re wrting for improve and make stand alone algorithm,
+- this algorithm i'm write with my self, i'm just writing for make stand alone algorithm and place in my libraries
 - this is new method i'm added in my libraries this method implementation algorithm from [journal PENERAPAN METODE SINGLE MOVING AVERAGE UNTUK PERAMALAN PENJUALAN MAINAN ANAK](https://ejurnal.dipanegara.ac.id/index.php/sensitif/article/download/552/485/). 
 
 
