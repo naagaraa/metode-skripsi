@@ -34,7 +34,7 @@ namespace Nagara\Src\Metode;
 
 use Nagara\Src\TimeTracker;
 
-class TextWinnowing
+class MetodeWinnowingv2
 {
    /**
     * basic algorithm of winnowing
@@ -60,21 +60,29 @@ class TextWinnowing
    private static $jaccard_value;
    private static $multiple_time_execution;
    private static $multiple_hash_char;
+   private static $multiple_deycrpt_char;
 
    // input hipotesis and default value
    private static $n_gram_value;
-   private static $n_prime_number;
+   private static $n_key;
    private static $n_window_value;
 
    public function __construct($config = [])
    {
+      if (!isset($config["key"])) {
+         echo "tidak ada key, we need key for decrypt";
+         exit;
+      }
+      
       // convert array to object
       $config = (object) $config;
 
       // set config
       self::$n_gram_value = $config->ngram;
-      self::$n_prime_number = $config->prima;
+      self::$n_key = $config->key;
       self::$n_window_value = $config->window;
+
+      dump(self::$n_key);
    }
    /**
     * method case folding for remove character
@@ -159,9 +167,9 @@ class TextWinnowing
     * @param string $string
     * @return array
     */
-   private static function char2hash($string = "", $key = "secret")
+   private static function char2hash($string = "")
    {
-      $key = sha1($key);
+      $key = sha1(self::$n_key);
       $strLen = strlen($string);
       $keyLen = strlen($key);
       $j = 0;
@@ -178,9 +186,9 @@ class TextWinnowing
       return $hash;
    }
 
-   public static function hash2char($string = "", $key = "secret")
+   public static function hash2char($string = "")
    {
-      $key = sha1($key);
+      $key = sha1(self::$n_key);
       $strLen = strlen($string);
       $keyLen = strlen($key);
       $j = 0;
@@ -235,7 +243,7 @@ class TextWinnowing
    public static function multiple_hash_char()
    {
       $temp = [];
-      foreach (self::$multiple_rolling_hash as $index => $value) {
+      foreach (self::$multiple_fingerprint as $index => $value) {
          foreach ($value as $key => $hash) {
            $temp[$index][$key] = self::hash2char($value[$key]);
          }
@@ -402,6 +410,52 @@ class TextWinnowing
       return self::$multiple_jaccard_message;
    }
 
+   /**
+    * stringDeycrpt method
+    *
+    * @param [type] $string_source_0
+    * @param [type] $target_source_n
+    * @return void
+    */
+   private static function stringDeycrpt($string_source_0, $target_source_n)
+   {
+      $arr_intersect = array_intersect($string_source_0, $target_source_n);
+      $clean_duplicate = array_unique($arr_intersect);
+      
+      $temp = [];
+      foreach ($clean_duplicate as $key => $value) {
+         array_push($temp, self::hash2char($value));
+      }
+
+      $sentence = implode(" ", $temp);
+      return $sentence;
+   }
+
+   /**
+    * stringDeycrpt method
+    *
+    * @param [type] $string_source_0
+    * @param [type] $target_source_n
+    * @return void
+    */
+   private static function multiple_stringDeycrpt()
+   {
+      $finger_print = self::$multiple_fingerprint;
+      $index_source = 0;
+
+      $temp = [];
+      foreach ($finger_print as $index => $array_fingerprint) {
+
+         // handling offet + 1
+         if ($index + 1 >= count($finger_print)) {
+            break;
+         }
+         $temp[$index] = self::stringDeycrpt($finger_print[$index_source], $finger_print[$index + 1]);
+      }
+
+      self::$multiple_deycrpt_char = $temp;
+      return self::$multiple_deycrpt_char;
+   }
 
    /**
     * core process algorithm windowing with jaccard index
@@ -434,12 +488,16 @@ class TextWinnowing
 
       // count similarity with jaccard coefficient
       self::multiple_jaccard_coeffcient();
+
+      // get decode
+      self::multiple_stringDeycrpt();
    }
 
 
-   private function find_word_similarity()
+   public function get_word_similarity()
    {
       # comming soon
+      return self::$multiple_deycrpt_char;
    }
 
    /**

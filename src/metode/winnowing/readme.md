@@ -12,6 +12,8 @@ this algorithm i'm not write with my self, i'm just re wrting for improve and ma
 - https://gist.github.com/LogIN-/e451ab0e8738138bc60b
 
 ## Basic usage
+### winnowing V2
+in v1 winnowing for hash using ord and make hash to ascii char
 
 ```php
 include "vendor/autoload.php";
@@ -62,6 +64,52 @@ dump($winnowing->timerCalculateProgress());
 echo "get result similarity index change to data";
 dump($winnowing->getJaccardCoefficientSimilarity());
 
+
+```
+
+### winnowing V2
+at this winnowing v2 get new method and remove prime number for make rollinghas. i change to encode and decode code for decode result fingerprint end get the word / ngram value. in v1 winnowing for hash using ord and make hash to ascii char
+
+```php
+use Nagara\Src\Metode\MetodeWinnowingv2;
+
+$wordtext1 = [
+   0 => "ayah pergi kepasar",
+   1 => "bapak pergi kepasar",
+   2 => "ibu pergi mall",
+];
+
+// set config and run metode or algorithm
+$winnowing = new MetodeWinnowingv2([
+   "ngram" => 5,
+   "key" => "secret",
+   "window" => 4
+]);
+
+// prosess data
+$winnowing->process($wordtext1);
+
+// method
+echo "case folding";
+dump($winnowing->getCaseFolding());
+echo "ngram";
+dump($winnowing->getNgram());
+echo "rolling hash";
+dump($winnowing->getRollingHash());
+echo "window";
+dump($winnowing->getWindow());
+echo "fingerpint";
+dump($winnowing->getFingersPrint());
+echo "jaccard coefficient value";
+dump($winnowing->getJaccardCoefficientValue());
+echo "jaccard coefficient message";
+dump($winnowing->getJaccardCoefficientMessage());
+echo "get timer calculate progress";
+dump($winnowing->timerCalculateProgress());
+echo "get result similarity index change to data";
+dump($winnowing->getJaccardCoefficientSimilarity());
+echo "test decrypt";
+dump($winnowing->get_word_similarity());
 
 ```
 

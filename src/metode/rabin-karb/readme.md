@@ -11,7 +11,7 @@ In computer science, the Rabin–Karp algorithm or Karp–Rabin algorithm is a s
 this algorithm i'm not write with my self, i'm just re wrting for improve and make stand alone algorithm, for reusabilty use. and can used multiple string.
 
 ## Basic usage
-
+### rabin karb v1
 ```php
 
 include "vendor/autoload.php";
@@ -53,6 +53,48 @@ dump("dice coefficient message");
 dump($rabinkarb->getDiceCoefficientMessage());
 dump("get result similarity index change to data");
 dump($rabinkarb->getDiceCoefficientSimilarity());
+
+```
+
+### rabin karb v2
+in this update i'm remove prime number for make rolling hash and change to key for make secret key for used at decode and encode hash
+
+```php
+
+use Nagara\Src\Metode\MetodeRabinKarbv2;
+
+// example string 1
+$wordtext1 = [
+   0 => "ayah pergi kepasar",
+   1 => "bapak pergi mall",
+];
+
+// example string 2
+$wordtext2 = [
+   0 => "ayah pergi kepasar",
+   1 => "bapak pergi mall",
+   2 => "paman pergi kepasar dengan ayah",
+];
+
+// setting config and run algorithm
+$rabinkarb = new MetodeRabinKarbv2([
+   "ngram" => 3,
+   "key" => "secret"
+]);
+$rabinkarb->process($wordtext2);
+
+dump("case folding");
+dump($rabinkarb->getCaseFolding());
+dump("ngram");
+dump($rabinkarb->getNgram());
+dump("hashing");
+dump($rabinkarb->getHashing());
+dump("matching");
+dump($rabinkarb->getMacthing());
+dump("dice coefficient value");
+dump($rabinkarb->getDiceCoefficientValue());
+dump("word decrypt");
+dump($rabinkarb->get_word_similarity());
 
 ```
 

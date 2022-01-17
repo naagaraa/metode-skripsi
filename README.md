@@ -106,8 +106,13 @@ dalam pembuatanya semua metodenya tulis dengan konsep OOP atau object oriented d
 - [simple naive-bayes](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/naive-bayes/readme.md) learning and under develeopment :warning:
 
 - [winnowing](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/winnowing/readme.md)
+  - v1 hash used ord not have decrypt
+  - v2 hash used custom ord have decrypt result ngram
+
 
 - [rabin-karb](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/rabin-karb/readme.md) 
+  - v1 rolling hash used ord not have decrypt
+  - v2 rolling hash used custom ord have decrypt result ngram 
 
 - [single-moving-average](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/single-moving-average/readme.md) 
 learning and under development
