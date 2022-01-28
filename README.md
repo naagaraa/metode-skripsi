@@ -1,76 +1,186 @@
-# PROJECT LIBRARIES METODE SKRIPSHIT
+# METODE-SKRIPSHIT
+what is that ? metode skripshit is my personal package library php publish at packagist can used with composer. this library include metode mostly used at skripshit write with OOP PHP.
 
-membuat rumus implementasi metode yang sering digunakan pada skripsi dengan pengetahuan basic Math or Mathematic ke dalam function dan object base. untuk collection pribadi. dan tools lainnya . let's make all is easier.
+---
 
-### Dilema
+Thank you kindly for the ⭐ and forks. When I first started working on this project in 2019, I had just undergraduated from college and had no prior exposure to web-development or open source. cause i'am start learn web-development and also explorer to many algorithm mostly used at skripsi (TA). so why i'am not build the package for reusability ? why not.
 
-**:warning: pusing w ngerjain metode pake php, orang lain pada sans pake python, python banyak library, tinggal pnp, klo php harus from scracth atau build from zero wkwkw :warning:**
+Without financial support, it was overwhelming to fix these issues, adding new method, reading a journal, not to mention that I felt like an absolute imposter. With a heavy heart 💔, I decided to keep continue :( and this in my portofolio my project
 
-## install
+---
 
-**composer**
+## PROJECT DOCUMENTATION
+before you used this library maaybe you can read this, and for note i'am not often update documentation
+
+
+- [documentation-indonesia](https://github.com/naagaraa/metode-skriphit/tree/main/documents/manual-indonesia.md)
+- [documentation-english](https://github.com/naagaraa/metode-skriphit/tree/main/documents/manual-english.md)
+
+- [wiki](https://github.com/naagaraa/metode-skriphit/tree/main/wiki.md) |  indonesia
+- [official-web](https://nagara.gitbook.io/myphp-tools/) | indonesia
+- [youtube-video](https://www.youtube.com/playlist?list=PLK5_CL-hAKCfNQkFHBOigInCJKk_F6-mY) | indonesia
+
+---
+
+## HOW TO USED ?
+
+you need package manager [composer](https://getcomposer.org/) dpwnload and install it. and run this comand below inside your project.
+
 
 ```bash
 composer require nagara/metode-skripshit
 ```
 
-**import autoload**
-<br>
-klo non framework wajib import file autoload, klo pake framework gk usah include langsung pake use aja
+:warning note
+
+okay, if you newbie used composer or write in native code, you need call this file in every file you need the tools for autoload composer.
 ```php
+<?php
 include "vendor/autoload.php";
+
+...
+// another code here
+
 ```
 
-### On the Future
+if you used framework like Laravel or anything and have fiture autoload you no needed call "include". just call the namespace and create object. example
 
-I'll change the name from metode skripshit to PHPStudentLearn
+```php
 
-### support or sponsor
+use Nagara\Src\Metode\MetodeSMA;
 
-jika kamu terbantu dengan library ini kamu bisa support saya agar terus berkarya dengan klik link dibawah ini, mungkin kopi atau mie ayam boleh kok.
+// initialize metode
+$metode = new MetodeSMA;
 
-- [saweria.co](https://saweria.co/naagaraa)
-- [trakterr.id](https://trakteer.id/naagaraa/tip)
+// format data
+$data = [
+   [
+      "bulan" => "januari",
+      "tahun" => 2018,
+      "penjualan" => 89
+   ],
+   [
+      "bulan" => "februari",
+      "tahun" => 2018,
+      "penjualan" => 95
+   ],
+   [
+      "bulan" => "maret",
+      "tahun" => 2018,
+      "penjualan" => 85
+   ],
+   [
+      "bulan" => "april",
+      "tahun" => 2018,
+      "penjualan" => 75
+   ],
+   [
+      "bulan" => "mei",
+      "tahun" => 2018,
+      "penjualan" => 86
+   ],
+   [
+      "bulan" => "juni",
+      "tahun" => 2018,
+      "penjualan" => 100
+   ],
+   [
+      "bulan" => "juli",
+      "tahun" => 2018,
+      "penjualan" => 120
+   ],
+   [
+      "bulan" => "agustus",
+      "tahun" => 2018,
+      "penjualan" => 95
+   ],
+   [
+      "bulan" => "september",
+      "tahun" => 2018,
+      "penjualan" => 80
+   ],
+   [
+      "bulan" => "oktober",
+      "tahun" => 2018,
+      "penjualan" => 92
+   ],
+   [
+      "bulan" => "november",
+      "tahun" => 2018,
+      "penjualan" => 92
+   ],
+   [
+      "bulan" => "desember",
+      "tahun" => 2018,
+      "penjualan" => 88
+   ],
+   [
+      "bulan" => "januari",
+      "tahun" => 2018,
+      "penjualan" => 90
+   ],
+   [
+      "bulan" => "februari",
+      "tahun" => 2018,
+      "penjualan" => 95
+   ],
+   [
+      "bulan" => "maret",
+      "tahun" => 2018,
+      "penjualan" => 100
+   ],
+   [
+      "bulan" => "april",
+      "tahun" => 2018,
+      "penjualan" => 102
+   ],
+   [
+      "bulan" => "mei",
+      "tahun" => 2018,
+      "penjualan" => 100
+   ],
+   [
+      "bulan" => "juni",
+      "tahun" => 2018,
+      "penjualan" => 104
+   ],
+];
 
-<br>
+// parameter pertama data, paramter kedua nama field, parameter ke tiga rata bergerak default value 6.
+$metode->proses($data, "penjualan");
 
-### Maintenace
+echo "hasil normalisasi data bentuk array <br>";
+dump($metode->getNormalisasi());
+echo "hasil proses bergerak SMA (single moving average) bentuk array<br>";
+dump($metode->getResult());
 
-this code maintenace by me [miyuki nagara](https://github.com/naagaraa)
-
-### About wiki
-
-before used this libraries baca dulu bagian wiki disini.
-
-- [wiki](https://github.com/naagaraa/metode-skriphit/tree/main/wiki.md)
-
-<br>
-
-### Another Documentations
-
-before used this libraries baca dulu bagian wiki disini.
+```
 
 - [indonesia](https://github.com/naagaraa/metode-skriphit/tree/main/documents/manual-indonesia.md)
 - [english](https://github.com/naagaraa/metode-skriphit/tree/main/documents/manual-english.md)
 - [official-web](https://nagara.gitbook.io/myphp-tools/) | indonesia
 - [yt playlist](https://www.youtube.com/playlist?list=PLK5_CL-hAKCfNQkFHBOigInCJKk_F6-mY) || indonesia
+### EXTRAS
+you can build in server with call like this
 
-<br>
+**build in server**
 
-## List of My Tools include at metode skripshit
+```bash
+php -S localhost:8000
+```
 
+## WHAT YOU GET ?
+okay if you install this is, you will get my personal tool and my metode. i'am build this from journal and implementation in code and also sometimes i'am just re writing code from other people and put inside.
+
+### personal tools 
 - math
-
   - [matrix](https://github.com/naagaraa/metode-skriphit/blob/main/src/math/readme.md)
 
 - db ( PDO - PHP data Object )
-
   - [database](https://github.com/naagaraa/metode-skriphit/blob/main/src/db/readme.md)
   - [connection](https://github.com/naagaraa/metode-skriphit/blob/main/src/db/readme.md)
   - [query mysql](https://github.com/naagaraa/metode-skriphit/blob/main/src/db/readme.md)
-
 - office
-
   - [excel / csv](https://github.com/naagaraa/metode-skriphit/blob/main/src/office/readme.md)
   - [read file csv](https://github.com/naagaraa/metode-skriphit/blob/main/src/office/readme.md)
   - [parser pdf to text](https://github.com/naagaraa/metode-skriphit/blob/main/src/office/readme.md)
@@ -84,10 +194,8 @@ before used this libraries baca dulu bagian wiki disini.
 - track ( time execution )
   - [track ](https://github.com/naagaraa/metode-skriphit/tree/main/src/timetrack.md)
 
-## List of Metode
-
-dalam pembuatanya semua metodenya tulis dengan konsep OOP atau object oriented dan ditulis dengan bahasa pemrograman PHP. dibuat berdasarkan referensi di internet dan jurnal jurnal yang ada.
-
+### Metode Available
+  
 - [fuzzy-sugeno](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/fuzzy/readme.md)
 
 - [simple linear regresion](https://github.com/naagaraa/metode-skriphit/blob/main/src/metodelinear-regresion/readme.md)
@@ -121,14 +229,26 @@ learning and under development
 
 ### next plan make libraries
 
-next plan make libraries often used for skripshit you can read this
+next plan make libraries often used for skripshit you can read this link below
 
 - [planning](https://github.com/naagaraa/metode-skriphit/tree/main/src/metode/readme.md)
 
+---
+
+## support or sponsor
+
+jika kamu terbantu dengan library ini kamu bisa support saya agar terus berkarya dengan klik link dibawah ini, mungkin kopi atau mie ayam boleh kok.
+
+- [saweria.co](https://saweria.co/naagaraa)
+- [trakterr.id](https://trakteer.id/naagaraa/tip)
+
 <br>
 
-**build in server**
+### Dilema
 
-```bash
-php -S localhost:8000
-```
+**:warning: pusing w ngerjain metode pake php, orang lain pada sans pake python, python banyak library, tinggal pnp, klo php harus from scracth atau build from zero hahaha :warning:**
+
+## Maintenace
+
+this code maintenace by me [miyuki nagara](https://github.com/naagaraa)
+

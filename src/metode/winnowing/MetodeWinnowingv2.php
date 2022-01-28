@@ -73,7 +73,7 @@ class MetodeWinnowingv2
          echo "tidak ada key, we need key for decrypt";
          exit;
       }
-      
+
       // convert array to object
       $config = (object) $config;
 
@@ -162,13 +162,18 @@ class MetodeWinnowingv2
    }
 
    /**
-    * method char2hash for create hash from one word with ngram
+    * method char2hash for create hash from one word with 
+    * reference https://gist.github.com/LogIN-/e451ab0e8738138bc60b
     *
     * @param string $string
     * @return array
     */
    private static function char2hash($string = "")
    {
+      if (!$string) {
+         return false;
+      }
+
       $key = sha1(self::$n_key);
       $strLen = strlen($string);
       $keyLen = strlen($key);
@@ -181,13 +186,25 @@ class MetodeWinnowingv2
          }
          $ordKey = ord(substr($key, $j, 1));
          $j++;
+         dump(strrev(base_convert(dechex($ordStr + $ordKey), 16, 36)));
          $hash .= strrev(base_convert(dechex($ordStr + $ordKey), 16, 36));
       }
       return $hash;
    }
 
+   /**
+    * method hash to char
+    * reference https://gist.github.com/LogIN-/e451ab0e8738138bc60b
+    *
+    * @param string $string
+    * @return void
+    */
    public static function hash2char($string = "")
    {
+      if (!$string) {
+         return false;
+      }
+
       $key = sha1(self::$n_key);
       $strLen = strlen($string);
       $keyLen = strlen($key);
@@ -245,7 +262,7 @@ class MetodeWinnowingv2
       $temp = [];
       foreach (self::$multiple_fingerprint as $index => $value) {
          foreach ($value as $key => $hash) {
-           $temp[$index][$key] = self::hash2char($value[$key]);
+            $temp[$index][$key] = self::hash2char($value[$key]);
          }
       }
 
@@ -421,7 +438,7 @@ class MetodeWinnowingv2
    {
       $arr_intersect = array_intersect($string_source_0, $target_source_n);
       $clean_duplicate = array_unique($arr_intersect);
-      
+
       $temp = [];
       foreach ($clean_duplicate as $key => $value) {
          array_push($temp, self::hash2char($value));

@@ -208,8 +208,13 @@ class MetodeLinearRegresion {
         $this->const_a = self::constant_a();
         $this->const_b = self::constant_b();
 
+        dump($this->const_a);
+        dump($this->const_b);
+        dump($paramter_predixtion_x);
+        dump( $this->const_b * $paramter_predixtion_x);
+
         // rumus regresion
-        $this->regresion = round(($this->const_a + (  $this->const_b * $paramter_predixtion_x )),2);
+        $this->regresion = ($this->const_a + (  $this->const_b * $paramter_predixtion_x ));
 
         return $this->regresion;
 

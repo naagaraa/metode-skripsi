@@ -9,7 +9,8 @@ this algorithm i'm not write with my self, i'm just re wrting for improve and ma
 ### reference
 
 - https://en.wikipedia.org/wiki/Winnow_(algorithm)
-- https://gist.github.com/LogIN-/e451ab0e8738138bc60b
+- https://gist.github.com/LogIN-/
+- https://cse220.com/numreps/general.html
 
 ## Basic usage
 ### winnowing V2

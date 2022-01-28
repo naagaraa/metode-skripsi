@@ -5,7 +5,7 @@
 /**
  * this file for tested during I am develop metode skripshit
  *
- * @author      Eka Jaya Nagara
+ * @author      Eka Jaya Nagara <ekabersinar@gmail.com>
  * @copyright   Copyright (c), 2021 naagaraa metode skripsi
  * @license     MIT public license
  *
@@ -30,38 +30,3 @@
  */
 
 include "vendor/autoload.php";
-
-use Nagara\Src\Metode\MetodeRabinKarbv2;
-
-// example string 1
-$wordtext1 = [
-   0 => "ayah pergi kepasar",
-   1 => "bapak pergi mall",
-];
-
-// example string 2
-$wordtext2 = [
-   0 => "ayah pergi kepasar",
-   1 => "bapak pergi mall",
-   2 => "paman pergi kepasar dengan ayah",
-];
-
-// setting config and run algorithm
-$rabinkarb = new MetodeRabinKarbv2([
-   "ngram" => 3,
-   "key" => "secret"
-]);
-$rabinkarb->process($wordtext2);
-
-dump("case folding");
-dump($rabinkarb->getCaseFolding());
-dump("ngram");
-dump($rabinkarb->getNgram());
-dump("hashing");
-dump($rabinkarb->getHashing());
-dump("matching");
-dump($rabinkarb->getMacthing());
-dump("dice coefficient value");
-dump($rabinkarb->getDiceCoefficientValue());
-dump("word decrypt");
-dump($rabinkarb->get_word_similarity());

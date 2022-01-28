@@ -5,7 +5,7 @@
  * this file is part of action mathematic math number curreny format for method skripshit
  * 
  * 
- * @author      Eka Jaya Nagara     
+ * @author      Eka Jaya Nagara <ekabersinar@gmail.com>   
  * @copyright   Copyright (c), 2021 naagaraa number currency format class function object
  * @license     MIT public license
  * 
