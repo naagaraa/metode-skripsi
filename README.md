@@ -1,5 +1,5 @@
-# METODE-SKRIPSHIT
-what is that ? metode skripshit is my personal package library php publish at packagist can used with composer. this library include metode mostly used at skripshit write with OOP PHP.
+# METODE-SKRIPSI
+what is that ? metode skripshit is my personal package library php publish at packagist can used with composer. this library include metode mostly used at skripsI write with OOP PHP. contains metode statistic and string
 
 ---
 
