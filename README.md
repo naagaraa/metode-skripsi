@@ -206,7 +206,7 @@ okay if you install this is, you will get my personal tool and my metode. i'am b
 
 - [weighted Product](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/wp/readme.md)
 
-- [apriori](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/c45/readme.md) 
+- [c45](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/c45/readme.md) 
 
 - [The Technique for Order of Preference by Similarity to Ideal Solution (TOPSIS)](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/topsis/readme.md)
 
