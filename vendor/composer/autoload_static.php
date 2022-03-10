@@ -186,7 +186,13 @@ class ComposerStaticInit6937f89145982d922cbb4611d57fffd1
     );
 
     public static $classMap = array (
+        'Allocation' => __DIR__ . '/../..' . '/src/metode/vickrey-clarke-groves/Allocation.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+        'Auction' => __DIR__ . '/../..' . '/src/metode/vickrey-clarke-groves/Auction.php',
+        'AuctionProblem' => __DIR__ . '/../..' . '/src/metode/vickrey-clarke-groves/AuctionProblem.php',
+        'AuctionSolution' => __DIR__ . '/../..' . '/src/metode/vickrey-clarke-groves/AuctionSolution.php',
+        'AuctionSolver' => __DIR__ . '/../..' . '/src/metode/vickrey-clarke-groves/AuctionSolver.php',
+        'Bidder' => __DIR__ . '/../..' . '/src/metode/vickrey-clarke-groves/Bidder.php',
         'Complex\\Complex' => __DIR__ . '/..' . '/markbaker/complex/classes/src/Complex.php',
         'Complex\\Exception' => __DIR__ . '/..' . '/markbaker/complex/classes/src/Exception.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
@@ -445,6 +451,7 @@ class ComposerStaticInit6937f89145982d922cbb4611d57fffd1
         'Nagara\\Src\\Math\\MathematicClass' => __DIR__ . '/../..' . '/src/math/MathematicClass.php',
         'Nagara\\Src\\Math\\MatrixClass' => __DIR__ . '/../..' . '/src/math/MatrixClass.php',
         'Nagara\\Src\\Math\\NumberCurrency' => __DIR__ . '/../..' . '/src/math/NumberCurrency.php',
+        'Nagara\\Src\\Metode\\MetodeApriori' => __DIR__ . '/../..' . '/src/metode/apriori/MetodeApriori.php',
         'Nagara\\Src\\Metode\\MetodeFuzzySugeno' => __DIR__ . '/../..' . '/src/metode/fuzzy/MetodeFuzzySugeno.php',
         'Nagara\\Src\\Metode\\MetodeKmeans' => __DIR__ . '/../..' . '/src/metode/k-means/MetodeKmean.php',
         'Nagara\\Src\\Metode\\MetodeLinearRegresion' => __DIR__ . '/../..' . '/src/metode/linear-regresion/MetodeLinearRegresion.php',
@@ -458,6 +465,8 @@ class ComposerStaticInit6937f89145982d922cbb4611d57fffd1
         'Nagara\\Src\\Metode\\MetodeWP' => __DIR__ . '/../..' . '/src/metode/wp/MetodeWP.php',
         'Nagara\\Src\\Metode\\MetodeWinnowing' => __DIR__ . '/../..' . '/src/metode/winnowing/MetodeWinnowing.php',
         'Nagara\\Src\\Metode\\MetodeWinnowingv2' => __DIR__ . '/../..' . '/src/metode/winnowing/MetodeWinnowingv2.php',
+        'Nagara\\Src\\Metode\\StopWatch' => __DIR__ . '/../..' . '/src/metode/apriori/StopWatch.php',
+        'Nagara\\Src\\Metode\\apriori\\console\\Console_ProgressBar' => __DIR__ . '/../..' . '/src/metode/apriori/console/ProgressBar.php',
         'Nagara\\Src\\TimeTracker' => __DIR__ . '/../..' . '/src/TimeTracker.php',
         'PhpOffice\\PhpSpreadsheet\\Calculation\\Calculation' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/Calculation.php',
         'PhpOffice\\PhpSpreadsheet\\Calculation\\Category' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/Category.php',

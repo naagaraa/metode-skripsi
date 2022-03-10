@@ -195,7 +195,9 @@ okay if you install this is, you will get my personal tool and my metode. i'am b
   - [track ](https://github.com/naagaraa/metode-skriphit/tree/main/src/timetrack.md)
 
 ### Metode Available
-  
+
+- [apriori](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/apriori/readme.md) 
+
 - [fuzzy-sugeno](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/fuzzy/readme.md)
 
 - [simple linear regresion](https://github.com/naagaraa/metode-skriphit/blob/main/src/metodelinear-regresion/readme.md)

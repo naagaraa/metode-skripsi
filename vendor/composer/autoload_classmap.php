@@ -6,7 +6,13 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Allocation' => $baseDir . '/src/metode/vickrey-clarke-groves/Allocation.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+    'Auction' => $baseDir . '/src/metode/vickrey-clarke-groves/Auction.php',
+    'AuctionProblem' => $baseDir . '/src/metode/vickrey-clarke-groves/AuctionProblem.php',
+    'AuctionSolution' => $baseDir . '/src/metode/vickrey-clarke-groves/AuctionSolution.php',
+    'AuctionSolver' => $baseDir . '/src/metode/vickrey-clarke-groves/AuctionSolver.php',
+    'Bidder' => $baseDir . '/src/metode/vickrey-clarke-groves/Bidder.php',
     'Complex\\Complex' => $vendorDir . '/markbaker/complex/classes/src/Complex.php',
     'Complex\\Exception' => $vendorDir . '/markbaker/complex/classes/src/Exception.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
@@ -265,6 +271,7 @@ return array(
     'Nagara\\Src\\Math\\MathematicClass' => $baseDir . '/src/math/MathematicClass.php',
     'Nagara\\Src\\Math\\MatrixClass' => $baseDir . '/src/math/MatrixClass.php',
     'Nagara\\Src\\Math\\NumberCurrency' => $baseDir . '/src/math/NumberCurrency.php',
+    'Nagara\\Src\\Metode\\MetodeApriori' => $baseDir . '/src/metode/apriori/MetodeApriori.php',
     'Nagara\\Src\\Metode\\MetodeFuzzySugeno' => $baseDir . '/src/metode/fuzzy/MetodeFuzzySugeno.php',
     'Nagara\\Src\\Metode\\MetodeKmeans' => $baseDir . '/src/metode/k-means/MetodeKmean.php',
     'Nagara\\Src\\Metode\\MetodeLinearRegresion' => $baseDir . '/src/metode/linear-regresion/MetodeLinearRegresion.php',
@@ -278,6 +285,8 @@ return array(
     'Nagara\\Src\\Metode\\MetodeWP' => $baseDir . '/src/metode/wp/MetodeWP.php',
     'Nagara\\Src\\Metode\\MetodeWinnowing' => $baseDir . '/src/metode/winnowing/MetodeWinnowing.php',
     'Nagara\\Src\\Metode\\MetodeWinnowingv2' => $baseDir . '/src/metode/winnowing/MetodeWinnowingv2.php',
+    'Nagara\\Src\\Metode\\StopWatch' => $baseDir . '/src/metode/apriori/StopWatch.php',
+    'Nagara\\Src\\Metode\\apriori\\console\\Console_ProgressBar' => $baseDir . '/src/metode/apriori/console/ProgressBar.php',
     'Nagara\\Src\\TimeTracker' => $baseDir . '/src/TimeTracker.php',
     'PhpOffice\\PhpSpreadsheet\\Calculation\\Calculation' => $vendorDir . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/Calculation.php',
     'PhpOffice\\PhpSpreadsheet\\Calculation\\Category' => $vendorDir . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/Category.php',
