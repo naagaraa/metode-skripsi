@@ -196,7 +196,7 @@ okay if you install this is, you will get my personal tool and my metode. i'am b
 
 ### Metode Available
 
-- [apriori](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/apriori/readme.md) 
+- [apriori](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/apriori/readme.md) | | not re-viewer
 
 - [fuzzy-sugeno](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/fuzzy/readme.md)
 
@@ -206,7 +206,7 @@ okay if you install this is, you will get my personal tool and my metode. i'am b
 
 - [weighted Product](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/wp/readme.md)
 
-- [c45](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/c45/readme.md) 
+- [c45](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/c45/readme.md) | not re-viewer
 
 - [The Technique for Order of Preference by Similarity to Ideal Solution (TOPSIS)](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/topsis/readme.md)
 
