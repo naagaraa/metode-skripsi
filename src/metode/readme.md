@@ -2,7 +2,7 @@
 
 this my plan develop all method often skripsi engginering of informatic used OOP PHP even I learn another language and boring day
 
-1. apriori (plan)
+1. apriori (done)
 2. c45 (plan)
 3. decision-tree (plan)
 4. fuzzy
