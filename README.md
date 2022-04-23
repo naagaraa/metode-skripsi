@@ -44,116 +44,16 @@ include "vendor/autoload.php";
 
 ```
 
-if you used framework like Laravel or anything and have fiture autoload you no needed call "include". just call the namespace and create object. example
+if you used framework like Laravel or anything and have fiture autoload you no needed call "include". just call the namespace and create object. example for test
 
 ```php
 
-use Nagara\Src\Metode\MetodeSMA;
+use Nagara\Src\Img\ImgMagic;
 
-// initialize metode
-$metode = new MetodeSMA;
+$image = new ImgMagic;
 
-// format data
-$data = [
-   [
-      "bulan" => "januari",
-      "tahun" => 2018,
-      "penjualan" => 89
-   ],
-   [
-      "bulan" => "februari",
-      "tahun" => 2018,
-      "penjualan" => 95
-   ],
-   [
-      "bulan" => "maret",
-      "tahun" => 2018,
-      "penjualan" => 85
-   ],
-   [
-      "bulan" => "april",
-      "tahun" => 2018,
-      "penjualan" => 75
-   ],
-   [
-      "bulan" => "mei",
-      "tahun" => 2018,
-      "penjualan" => 86
-   ],
-   [
-      "bulan" => "juni",
-      "tahun" => 2018,
-      "penjualan" => 100
-   ],
-   [
-      "bulan" => "juli",
-      "tahun" => 2018,
-      "penjualan" => 120
-   ],
-   [
-      "bulan" => "agustus",
-      "tahun" => 2018,
-      "penjualan" => 95
-   ],
-   [
-      "bulan" => "september",
-      "tahun" => 2018,
-      "penjualan" => 80
-   ],
-   [
-      "bulan" => "oktober",
-      "tahun" => 2018,
-      "penjualan" => 92
-   ],
-   [
-      "bulan" => "november",
-      "tahun" => 2018,
-      "penjualan" => 92
-   ],
-   [
-      "bulan" => "desember",
-      "tahun" => 2018,
-      "penjualan" => 88
-   ],
-   [
-      "bulan" => "januari",
-      "tahun" => 2018,
-      "penjualan" => 90
-   ],
-   [
-      "bulan" => "februari",
-      "tahun" => 2018,
-      "penjualan" => 95
-   ],
-   [
-      "bulan" => "maret",
-      "tahun" => 2018,
-      "penjualan" => 100
-   ],
-   [
-      "bulan" => "april",
-      "tahun" => 2018,
-      "penjualan" => 102
-   ],
-   [
-      "bulan" => "mei",
-      "tahun" => 2018,
-      "penjualan" => 100
-   ],
-   [
-      "bulan" => "juni",
-      "tahun" => 2018,
-      "penjualan" => 104
-   ],
-];
-
-// parameter pertama data, paramter kedua nama field, parameter ke tiga rata bergerak default value 6.
-$metode->proses($data, "penjualan");
-
-echo "hasil normalisasi data bentuk array <br>";
-dump($metode->getNormalisasi());
-echo "hasil proses bergerak SMA (single moving average) bentuk array<br>";
-dump($metode->getResult());
+$path =  "naruto.jpg";
+$image->filter($path, "grayscale");
 
 ```
 
@@ -255,11 +155,13 @@ jika kamu terbantu dengan library ini kamu bisa support saya agar terus berkarya
 - [saweria.co](https://saweria.co/naagaraa)
 - [trakterr.id](https://trakteer.id/naagaraa/tip)
 
+collabs atau info mainnya bisa email ekabersinar@gmail.com
+
 <br>
 
 ### Dilema
 
-**:warning: pusing w ngerjain metode pake php, orang lain pada sans pake python, python banyak library, tinggal pnp, klo php harus from scracth atau build from zero hahaha :warning:**
+**:warning: pusing w ngerjain metode pake php, orang lain pada sans pake python, python banyak library, tinggal pnp, klo php harus from scracth atau build from zero hahaha atau yang pake javascript bisa pke tensorflow sama keras :warning:**
 
 ## Maintenace
 

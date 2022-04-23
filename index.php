@@ -31,22 +31,3 @@
 
 include "vendor/autoload.php";
 
-use Nagara\Src\Img\ImgMagic;
-
-$image = new ImgMagic;
-// $imageObject = imagecreatefromjpeg('foto.jpg');
-// $data = imagepng($imageObject, $imageFile . '.png');
-$foto =  "naruto.png";
-
-$image->convert($foto, "jpg");
-// $image->filter($foto, "grayscale");
-// $image->MakeThumbnail($foto);
-
-// $im = imagecreatefrompng($foto);
-// if ($im && imagefilter($im, IMG_FILTER_GRAYSCALE)) {
-//    echo 'Image converted to grayscale.';
-//    imagepng($im, $foto);
-// } else {
-//    echo 'Conversion to grayscale failed.';
-// }
-// imagedestroy($im);
