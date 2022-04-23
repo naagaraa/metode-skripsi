@@ -272,6 +272,7 @@ return array(
     'Nagara\\Src\\Doc\\DocumentExcel' => $baseDir . '/src/office/DocumentExcel.php',
     'Nagara\\Src\\Doc\\FileManager' => $baseDir . '/src/office/FileManager.php',
     'Nagara\\Src\\Doc\\PdfParser' => $baseDir . '/src/office/PdfParser.php',
+    'Nagara\\Src\\Img\\ImgMagic' => $baseDir . '/src/img/ImgMagic.php',
     'Nagara\\Src\\Img\\ImgParser' => $baseDir . '/src/img/ImgParser.php',
     'Nagara\\Src\\Math\\MathematicClass' => $baseDir . '/src/math/MathematicClass.php',
     'Nagara\\Src\\Math\\MatrixClass' => $baseDir . '/src/math/MatrixClass.php',

@@ -1,4 +1,6 @@
-### IMG Class
+## IMG PROCESSING Class
+
+### IMAGE OCR - Tesseract
 
 IMG class adalah class khusus untuk optical character recognition, dibangun menggunakan teserract ocr php, tesseract OCR Enggine sendiri merupakan software Open source yang dikembangkan oleh google team dengan bahasa c++ .
 reference :
@@ -7,7 +9,7 @@ reference :
 - https://github.com/tesseract-ocr/tesseract
 - https://github.com/thiagoalessio/tesseract-ocr-for-php
 
-### Note
+#### Note
 
 disini saya menggunakan windows sebagai OS, jadi saya termasuk windows users, untuk temen temen lain yang ingin menggunakan OCR wajib menginstall capture2text version 3.9 recommend menggunakan chocolately packages for windows. selengkapnya bisa read di sini
 
@@ -30,7 +32,7 @@ untuk file test bisa di check di halaman ini
 
 - [image test](https://github.com/naagaraa/metode-skriphit/tree/main/src/example/image)
 
-### basic usage
+#### basic usage
 
 ```php
 
@@ -71,6 +73,65 @@ language support :
 4. ita
 5. jpn
 6. spa
+
+### Image Magic
+
+untuk mempermudah process image processing gue update class baru dan method untuk tambahan yaitu image magic, untuk dasar PHP kalian harus >= 7.4 dan telah menginstall module imagick php dan pastikan sudah ready GD image. karena syarat adalh itu.
+
+#### MakeThumbnail
+
+```php
+
+use Nagara\Src\Img\ImgMagic;
+
+$image = new ImgMagic;
+
+$path =  "naruto.jpg";
+$image->MakeThumbnail($path); // return thumbnail
+
+
+```
+
+#### Convert Image to PNG, GIF or BMP
+
+```php
+use Nagara\Src\Img\ImgMagic;
+
+$image = new ImgMagic;
+
+$path =  "naruto.jpg";
+$image->convert($path, "png"); // baut file baru dengan extension png
+
+```
+
+#### Image Filter
+
+filter yang tersedia
+
+- grayscale
+- gaussian_blur
+- selective_blur
+- emboss
+- negatif
+
+```php
+use Nagara\Src\Img\ImgMagic;
+
+$image = new ImgMagic;
+
+$path =  "naruto.jpg";
+$image->filter($path, "grayscale");
+
+```
+
+### Compare two image
+
+coming soon
+
+https://mlocati.github.io/articles/php-windows-imagick.html
+https://windows.php.net/downloads/pecl/releases/imagick/
+https://www.php.net/manual/en/imagick.requirements.php
+https://windows.php.net/downloads/pecl/
 
 # Maintenner
 

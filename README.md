@@ -1,4 +1,5 @@
 # METODE-SKRIPSI
+
 what is that ? metode skripshit is my personal package library php publish at packagist can used with composer. this library include metode mostly used at skripsI write with OOP PHP. contains metode statistic and string
 
 ---
@@ -10,13 +11,13 @@ Without financial support, it was overwhelming to fix these issues, adding new m
 ---
 
 ## PROJECT DOCUMENTATION
-before you used this library maaybe you can read this, and for note i'am not often update documentation
 
+before you used this library maaybe you can read this, and for note i'am not often update documentation
 
 - [documentation-indonesia](https://github.com/naagaraa/metode-skriphit/tree/main/documents/manual-indonesia.md)
 - [documentation-english](https://github.com/naagaraa/metode-skriphit/tree/main/documents/manual-english.md)
 
-- [wiki](https://github.com/naagaraa/metode-skriphit/tree/main/wiki.md) |  indonesia
+- [wiki](https://github.com/naagaraa/metode-skriphit/tree/main/wiki.md) | indonesia
 - [official-web](https://nagara.gitbook.io/myphp-tools/) | indonesia
 - [youtube-video](https://www.youtube.com/playlist?list=PLK5_CL-hAKCfNQkFHBOigInCJKk_F6-mY) | indonesia
 
@@ -26,7 +27,6 @@ before you used this library maaybe you can read this, and for note i'am not oft
 
 you need package manager [composer](https://getcomposer.org/) dpwnload and install it. and run this comand below inside your project.
 
-
 ```bash
 composer require nagara/metode-skripshit
 ```
@@ -34,6 +34,7 @@ composer require nagara/metode-skripshit
 :warning note
 
 okay, if you newbie used composer or write in native code, you need call this file in every file you need the tools for autoload composer.
+
 ```php
 <?php
 include "vendor/autoload.php";
@@ -160,7 +161,9 @@ dump($metode->getResult());
 - [english](https://github.com/naagaraa/metode-skriphit/tree/main/documents/manual-english.md)
 - [official-web](https://nagara.gitbook.io/myphp-tools/) | indonesia
 - [yt playlist](https://www.youtube.com/playlist?list=PLK5_CL-hAKCfNQkFHBOigInCJKk_F6-mY) || indonesia
+
 ### EXTRAS
+
 you can build in server with call like this
 
 **build in server**
@@ -170,10 +173,13 @@ php -S localhost:8000
 ```
 
 ## WHAT YOU GET ?
+
 okay if you install this is, you will get my personal tool and my metode. i'am build this from journal and implementation in code and also sometimes i'am just re writing code from other people and put inside.
 
-### personal tools 
+### personal tools
+
 - math
+
   - [matrix](https://github.com/naagaraa/metode-skriphit/blob/main/src/math/readme.md)
 
 - db ( PDO - PHP data Object )
@@ -181,15 +187,19 @@ okay if you install this is, you will get my personal tool and my metode. i'am b
   - [connection](https://github.com/naagaraa/metode-skriphit/blob/main/src/db/readme.md)
   - [query mysql](https://github.com/naagaraa/metode-skriphit/blob/main/src/db/readme.md)
 - office
+
   - [excel / csv](https://github.com/naagaraa/metode-skriphit/blob/main/src/office/readme.md)
   - [read file csv](https://github.com/naagaraa/metode-skriphit/blob/main/src/office/readme.md)
   - [parser pdf to text](https://github.com/naagaraa/metode-skriphit/blob/main/src/office/readme.md)
   - [parser docx to text](https://github.com/naagaraa/metode-skriphit/blob/main/src/office/readme.md)
   - [listing file or direactory](https://github.com/naagaraa/metode-skriphit/blob/main/src/office/readme.md)
 
-- image OCR ( optical character recognition )
+- image processing
 
-  - [parse image to text](https://github.com/naagaraa/metode-skriphit/tree/main/src/img/readme.md)
+  - [parse image to text](https://github.com/naagaraa/metode-skriphit/tree/main/src/img/readme.md) | ORC (optical character recognition)
+  - [convert image to png, jpg, gif or bmp ](https://github.com/naagaraa/metode-skriphit/tree/main/src/img/readme.md) | Gd Image
+  - [image filter ](https://github.com/naagaraa/metode-skriphit/tree/main/src/img/readme.md) | GD image
+  - [image compress thumbnail ](https://github.com/naagaraa/metode-skriphit/tree/main/src/img/readme.md) | Imagic
 
 - track ( time execution )
   - [track ](https://github.com/naagaraa/metode-skriphit/tree/main/src/timetrack.md)
@@ -212,22 +222,22 @@ okay if you install this is, you will get my personal tool and my metode. i'am b
 
 - [simple oreste](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/oreste/readme.md)
 
-
 - [simple k means](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/k-means/readme.md)
 
 - [simple naive-bayes](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/naive-bayes/readme.md) learning and under develeopment :warning:
 
 - [winnowing](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/winnowing/readme.md)
+
   - v1 hash used ord not have decrypt
   - v2 hash used custom ord have decrypt result ngram
 
+- [rabin-karb](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/rabin-karb/readme.md)
 
-- [rabin-karb](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/rabin-karb/readme.md) 
   - v1 rolling hash used ord not have decrypt
-  - v2 rolling hash used custom ord have decrypt result ngram 
+  - v2 rolling hash used custom ord have decrypt result ngram
 
-- [single-moving-average](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/single-moving-average/readme.md) 
-learning and under development
+- [single-moving-average](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/single-moving-average/readme.md)
+  learning and under development
 - other ? | oke let's make something
 
 ### next plan make libraries
@@ -254,4 +264,3 @@ jika kamu terbantu dengan library ini kamu bisa support saya agar terus berkarya
 ## Maintenace
 
 this code maintenace by me [miyuki nagara](https://github.com/naagaraa)
-
