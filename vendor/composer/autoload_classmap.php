@@ -293,6 +293,7 @@ return array(
     'Nagara\\Src\\Metode\\MetodeWinnowingv2' => $baseDir . '/src/metode/winnowing/MetodeWinnowingv2.php',
     'Nagara\\Src\\Metode\\StopWatch' => $baseDir . '/src/metode/apriori/StopWatch.php',
     'Nagara\\Src\\Metode\\apriori\\console\\Console_ProgressBar' => $baseDir . '/src/metode/apriori/console/ProgressBar.php',
+    'Nagara\\Src\\StringMagic' => $baseDir . '/src/StringMagic.php',
     'Nagara\\Src\\TimeTracker' => $baseDir . '/src/TimeTracker.php',
     'PhpOffice\\PhpSpreadsheet\\Calculation\\Calculation' => $vendorDir . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/Calculation.php',
     'PhpOffice\\PhpSpreadsheet\\Calculation\\Category' => $vendorDir . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/Category.php',
