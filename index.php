@@ -43,6 +43,32 @@ $anggota = [1, 2, 4, 3, 3];
 // $keluarga = 5;
 // $anggota = [1, 5];
 
+$str = new StringMagic;
+// echo $str->checkbus($keluarga, $anggota); // return aa
+
 
 $str = new StringMagic;
-echo $str->checkbus($keluarga, $anggota); // return aa
+echo $str->vocal("sample case"); // return aa
+echo "<br>";
+echo $str->konsonan("sample case");
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+
+   <script>
+      
+   </script>
+</body>
+
+</html>

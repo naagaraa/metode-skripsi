@@ -46,7 +46,6 @@ class StringMagic
       $string = str_split(str_replace(" ", "", strtolower($string)));
       $vocal = "aiueo";
       $result = [];
-      sort($result);
 
       foreach ($string as $key => $value) {
          if (str_contains($vocal, $value)) {
@@ -54,6 +53,7 @@ class StringMagic
          }
       }
 
+      sort($result);
       return implode("", $result);
    }
 
@@ -68,14 +68,13 @@ class StringMagic
       $string = str_split(str_replace(" ", "", strtolower($string)));
       $vocal = "aiueo";
       $result = [];
-      sort($result);
 
       foreach ($string as $key => $value) {
          if (!str_contains($vocal, $value)) {
             array_push($result, $value);
          }
       }
-
+      ksort($result);
       return implode("", $result);
    }
 
