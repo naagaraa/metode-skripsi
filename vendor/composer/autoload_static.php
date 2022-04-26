@@ -473,7 +473,7 @@ class ComposerStaticInit6937f89145982d922cbb4611d57fffd1
         'Nagara\\Src\\Metode\\MetodeWinnowingv2' => __DIR__ . '/../..' . '/src/metode/winnowing/MetodeWinnowingv2.php',
         'Nagara\\Src\\Metode\\StopWatch' => __DIR__ . '/../..' . '/src/metode/apriori/StopWatch.php',
         'Nagara\\Src\\Metode\\apriori\\console\\Console_ProgressBar' => __DIR__ . '/../..' . '/src/metode/apriori/console/ProgressBar.php',
-        'Nagara\\Src\\StringMagic' => __DIR__ . '/../..' . '/src/StringMagic.php',
+        'Nagara\\Src\\Str\\StringMagic' => __DIR__ . '/../..' . '/src/str/StringMagic.php',
         'Nagara\\Src\\TimeTracker' => __DIR__ . '/../..' . '/src/TimeTracker.php',
         'PhpOffice\\PhpSpreadsheet\\Calculation\\Calculation' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/Calculation.php',
         'PhpOffice\\PhpSpreadsheet\\Calculation\\Category' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/Category.php',

@@ -78,6 +78,10 @@ okay if you install this is, you will get my personal tool and my metode. i'am b
 
 ### personal tools
 
+- string
+
+  - [magic string](https://github.com/naagaraa/metode-skriphit/blob/main/src/str/readme.md)
+
 - math
 
   - [matrix](https://github.com/naagaraa/metode-skriphit/blob/main/src/math/readme.md)

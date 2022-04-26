@@ -30,7 +30,7 @@
  * 
  */
 
-namespace Nagara\Src;
+namespace Nagara\Src\Str;
 
 class StringMagic
 {
@@ -77,5 +77,75 @@ class StringMagic
       }
 
       return implode("", $result);
+   }
+
+   /**
+    * method for check tahun kabisat atau bukan
+    *
+    * @param integer $tahun
+    * @return boolean
+    */
+   public function isKabisat(int $tahun)
+   {
+      echo ($tahun % 4 == 0) ? "tahun kabisat" : "bukan tahun kabisat";
+   }
+
+
+   /**
+    * method ofr check word is palindrom atau bukan
+    *
+    * @param [type] $string
+    * @return boolean
+    */
+   public function isPalindrom($string)
+   {
+      echo strrev($string) == $string ? "palindrome" : "bukan palindrome";
+   }
+
+   /**
+    * method for find fibbonaci number
+    *
+    * @param integer $input
+    * @return void
+    */
+   public function fibbonaci(int $input)
+   {
+      $angka_sekarang = 1;
+      $angka_sebelumnya = 0;
+
+      if ($input >= 2) {
+         echo "$angka_sebelumnya $angka_sekarang";
+
+         for ($i = 0; $i < $input - 2; $i++) {
+            $result = $angka_sekarang + $angka_sebelumnya;
+            echo " $result";
+
+            $angka_sebelumnya = $angka_sekarang;
+            $angka_sekarang = $result;
+         }
+      } else {
+         echo "{$angka_sebelumnya}";
+      }
+   }
+
+   /**
+    * method for print pyramid start
+    *
+    * @param [type] $n
+    * @return void
+    */
+   public function triangle($n)
+   {
+
+      $size = $n;
+      for ($i = 1; $i <= $size; $i++) {
+         for ($j = 1; $j <= $size - $i; $j++) {
+            echo "&nbsp;&nbsp;";
+         }
+         for ($k = 1; $k <= $i; $k++) {
+            echo "*&nbsp;&nbsp;";
+         }
+         echo "<br />";
+      }
    }
 }
