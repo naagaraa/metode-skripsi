@@ -148,4 +148,40 @@ class StringMagic
          echo "<br />";
       }
    }
+
+   /**
+    * this method test coding for hired me
+    *
+    * @param integer $family
+    * @param array $member
+    * @return void
+    */
+   public function checkbus($family = 5, $member = [])
+   {
+      if ($family == count($member)) {
+         sort($member);
+         $max_familily = 4;
+         // echo "this is valid data";
+
+         $random_bus = [];
+         $max_bus = [];
+         foreach ($member as $index => $currenly_member) {
+            if ($currenly_member == $max_familily) {
+               // echo "skip to next family <br>";
+               array_push($max_bus, $currenly_member);
+               continue;
+            } elseif ($currenly_member <= $max_familily) {
+               // echo "sum currenly to next member <br>";
+               array_push($random_bus, $currenly_member);
+            }
+         }
+
+         $a = array_sum($random_bus) / 4;
+         $b = count($max_bus);
+
+         echo "Minimum bus required is : " . ceil($a + $b);
+      } else {
+         echo "Input must be equal with count of family";
+      }
+   }
 }

@@ -29,4 +29,20 @@
  *
  */
 
+use PhpOffice\PhpSpreadsheet\Calculation\MathTrig\Sum;
+
 include "vendor/autoload.php";
+
+use Nagara\Src\Str\StringMagic;
+
+
+$keluarga = 5;
+$anggota = [1, 2, 4, 3, 3];
+// $keluarga = 8;
+// $anggota = [2, 3, 4, 4, 2, 1, 3, 1];
+// $keluarga = 5;
+// $anggota = [1, 5];
+
+
+$str = new StringMagic;
+echo $str->checkbus($keluarga, $anggota); // return aa
