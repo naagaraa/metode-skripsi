@@ -81,6 +81,10 @@ okay if you install this is, you will get my personal tool and my metode. i'am b
 - string
 
   - [magic string](https://github.com/naagaraa/metode-skriphit/blob/main/src/str/readme.md)
+  - [remove non vowel](https://github.com/naagaraa/metode-skripsi/blob/main/src/str/readme.md#remove-non-vowel)
+  - [remove vowel](https://github.com/naagaraa/metode-skripsi/blob/main/src/str/readme.md#remove-non-vowel)
+  - [kabisat](https://github.com/naagaraa/metode-skripsi/blob/main/src/str/readme.md#check-years-is-kabisat)
+  - [fibbonaci](https://github.com/naagaraa/metode-skripsi/blob/main/src/str/readme.md#fibbonaci)
 
 - math
 
@@ -155,7 +159,7 @@ next plan make libraries often used for skripshit you can read this link below
 
 ## support or sponsor
 
-jika kamu terbantu dengan library ini kamu bisa support saya agar terus berkarya dengan klik link dibawah ini, mungkin kopi atau mie ayam boleh kok.
+jika kamu terbantu dengan library ini kamu bisa support saya agar terus berkarya dan maintenance dengan klik link dibawah ini, mungkin kopi atau mie ayam boleh kok. berapapun saya ucapkan terimakasih
 
 - [saweria.co](https://saweria.co/naagaraa)
 - [trakterr.id](https://trakteer.id/naagaraa/tip)
