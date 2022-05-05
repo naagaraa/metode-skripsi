@@ -85,6 +85,7 @@ okay if you install this is, you will get my personal tool and my metode. i'am b
 - math
 
   - [matrix](https://github.com/naagaraa/metode-skriphit/blob/main/src/math/readme.md)
+  - [number currency](https://github.com/naagaraa/metode-skripsi/blob/main/src/math/readme.md#numbercurrency)
 
 - db ( PDO - PHP data Object )
   - [database](https://github.com/naagaraa/metode-skriphit/blob/main/src/db/readme.md)
