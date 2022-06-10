@@ -29,46 +29,9 @@
  *
  */
 
-use PhpOffice\PhpSpreadsheet\Calculation\MathTrig\Sum;
-
 include "vendor/autoload.php";
 
-use Nagara\Src\Str\StringMagic;
+use Nagara\Src\Img\ImgParser;
 
-
-$keluarga = 5;
-$anggota = [1, 2, 4, 3, 3];
-// $keluarga = 8;
-// $anggota = [2, 3, 4, 4, 2, 1, 3, 1];
-// $keluarga = 5;
-// $anggota = [1, 5];
-
-$str = new StringMagic;
-// echo $str->checkbus($keluarga, $anggota); // return aa
-
-
-$str = new StringMagic;
-echo $str->vocal("sample case"); // return aa
-echo "<br>";
-echo $str->konsonan("sample case");
-
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
-</head>
-
-<body>
-
-   <script>
-      
-   </script>
-</body>
-
-</html>
+$img = new ImgParser('C:\Program Files\Tesseract-OCR\tesseract.exe');
+$img->parseFile("english.png", "recognition");

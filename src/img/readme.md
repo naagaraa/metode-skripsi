@@ -60,7 +60,7 @@ ini akan memakan waktu untuk mengenali text secara random
 ```php
 use Nagara\Src\Img\ImgParser;
 
-$img = new ImgParser;
+$img = new ImgParser("path/to/tesseract"); # example path exe'C:\Program Files\Tesseract-OCR\tesseract.exe'
 $img->parseFile("english.jpg", "recognition");
 
 ```
@@ -132,6 +132,20 @@ https://mlocati.github.io/articles/php-windows-imagick.html
 https://windows.php.net/downloads/pecl/releases/imagick/
 https://www.php.net/manual/en/imagick.requirements.php
 https://windows.php.net/downloads/pecl/
+
+# tesseract setup
+
+install capture2text for windows
+
+```
+choco install capture2text --version 3.9
+```
+
+install tesseract lang
+
+```
+choco install tesseract --force `tesseract-lang
+```
 
 # Maintenner
 

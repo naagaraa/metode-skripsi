@@ -39,14 +39,21 @@ use thiagoalessio\TesseractOCR\TesseractOCR;
 
 class ImgParser
 {
+    private $path_tesseract = 'C:\Program Files\Tesseract-OCR\tesseract.exe';
     /**
      * Parse image file
      *
      * @param string $filename
      * @return string
      */
+    public function __construct(String $path = null)
+    {
+        $this->path_tesseract = $path;
+    }
+    
     public function parseFile($image = "", $lang = "")
     {
+
         if ($image == "") {
             echo "sorry please put your image bro before use this tool";
             die;
@@ -55,12 +62,14 @@ class ImgParser
         if (!$lang) {
             // simple execute
             echo (new TesseractOCR($image))
-                ->run();
+                ->executable($this->path_tesseract)
+                ->run(500);
         } elseif ($lang == "recognition") {
             // note this process can take long process for detect image
             echo (new TesseractOCR($image))
+                ->executable($this->path_tesseract)
                 ->lang("deu", "eng", "fra", "ita", "jpn", "spa")
-                ->run();
+                ->run(500);
         } else {
             //  check lang support
             if (self::islang($lang) == false) {
@@ -68,8 +77,9 @@ class ImgParser
             }
 
             echo (new TesseractOCR($image))
+                ->executable($this->path_tesseract)
                 ->lang($lang)
-                ->run();
+                ->run(500);
         }
     }
 

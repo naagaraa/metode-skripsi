@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '27ede0d7f2476bad5acc416267c61449876b0541',
+        'reference' => '1a241e02a9a9b47079ecd886d230a9b571ea1749',
         'name' => 'nagara/metode-skripshit',
         'dev' => true,
     ),
@@ -61,7 +61,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '27ede0d7f2476bad5acc416267c61449876b0541',
+            'reference' => '1a241e02a9a9b47079ecd886d230a9b571ea1749',
             'dev_requirement' => false,
         ),
         'phpoffice/phpspreadsheet' => array(
