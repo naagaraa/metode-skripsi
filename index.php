@@ -28,35 +28,3 @@
  */
 
 include "vendor/autoload.php";
-
-// load my libraries
-use Nagara\Src\Img\ImgParser;
-use Nagara\Src\Img\ImgMagic;
-use Nagara\Src\Img\ImageProcessing;
-
-// convert image to black and white dan format png # sorry kelupaan
-$image = new ImgMagic;
-$path =  "naruto.png";
-$image->filter($path, "grayscale");
-
-// image processing
-$path =  "naruto.png";
-$imgProcess = new ImageProcessing($path);
-$imgProcess->Rescaling(1200)->Binarisation(0.66,1)->NoiseRemoval(7);
-// $imgProcess->showImage();
-
-// ocr
-$img = new ImgParser('C:\Program Files\Tesseract-OCR\tesseract.exe'); # example path exe'C:\Program Files\Tesseract-OCR\tesseract.exe'
-$text = $img->parseFile($path, "recognition");
-
-// error test
-if ($text['status'] == false) {
-   echo "gambar tidak mengandung text";
-   // $imgProcess->showImage();
-   dump($text["result"]); # debug hasilnya
-}else{
-   echo "gambar mengandung text";
-   // $imgProcess->showImage();
-   dump($text["result"]); # debug hasilnya
-}
-
