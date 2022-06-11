@@ -105,8 +105,9 @@ okay if you install this is, you will get my personal tool and my metode. i'am b
 
 - image processing
 
+  - [image processing](https://github.com/naagaraa/metode-skriphit/tree/main/src/img/readme.md) | imagick & gdimage (rescaling, binarisation, noise removal, get dimention)
   - [parse image to text](https://github.com/naagaraa/metode-skriphit/tree/main/src/img/readme.md) | ORC (optical character recognition)
-  - [convert image to png, jpg, gif or bmp ](https://github.com/naagaraa/metode-skriphit/tree/main/src/img/readme.md) | Gd Image
+  - [convert image jpg or png to png, jpg, gif or bmp ](https://github.com/naagaraa/metode-skriphit/tree/main/src/img/readme.md) | Gd Image
   - [image filter ](https://github.com/naagaraa/metode-skriphit/tree/main/src/img/readme.md) | GD image
   - [image compress thumbnail ](https://github.com/naagaraa/metode-skriphit/tree/main/src/img/readme.md) | Imagic
 

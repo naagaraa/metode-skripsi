@@ -59,6 +59,7 @@ class ImgMagic
          $image->thumbnailImage($size, 0);
 
          echo $image;
+         return $this;
       }
    }
 
@@ -71,6 +72,9 @@ class ImgMagic
     */
    public function convert($image = "", $format = "png")
    {
+      // check file ready
+      !is_file($image)? die("file {$image} tidak ada ") : true;
+      
       // split image name
       $arrimg = explode(".", $image);
       $firstname = $arrimg[0];
@@ -82,6 +86,9 @@ class ImgMagic
          switch ($format) {
             case 'png':
                imagepng($imageObject, $firstname . '.png');
+               // remove old files
+               unlink(realpath($image));
+               return $this;
                break;
 
             case 'gif':
@@ -89,6 +96,9 @@ class ImgMagic
                   $imageObject,
                   $firstname . '.gif'
                );
+               // remove old files
+               unlink(realpath($image));
+               return $this;
                break;
 
             case 'bmp':
@@ -96,6 +106,9 @@ class ImgMagic
                   $imageObject,
                   $firstname . '.bmp'
                );
+               // remove old files
+               unlink(realpath($image));
+               return $this;
                break;
 
             default:
@@ -109,6 +122,9 @@ class ImgMagic
          switch ($format) {
             case 'jpg':
                imagejpeg($imageObject, $firstname . '.jpg', 70);
+               // remove old files
+               unlink(realpath($image));
+               return $this;
                break;
 
             case 'gif':
@@ -116,6 +132,9 @@ class ImgMagic
                   $imageObject,
                   $firstname . '.gif'
                );
+               // remove old files
+               unlink(realpath($image));
+               return $this;
                break;
 
             case 'bmp':
@@ -123,6 +142,9 @@ class ImgMagic
                   $imageObject,
                   $firstname . '.bmp'
                );
+               // remove old files
+               unlink(realpath($image));
+               return $this;
                break;
 
             default:
@@ -161,61 +183,68 @@ class ImgMagic
          case 'negatif':
             $im = imagecreatefrompng($photo);
             if ($im && imagefilter($im, IMG_FILTER_NEGATE)) {
-               echo 'Image converted to negative.';
+               // echo 'Image converted to negative.';
                imagepng($im, $photo);
             } else {
                echo 'Conversion to negative failed.';
             }
             imagedestroy($im);
+            return $this;
             break;
 
          case 'grayscale':
             $im = imagecreatefrompng($photo);
             if ($im && imagefilter($im, IMG_FILTER_GRAYSCALE)) {
-               echo 'Image converted to grayscale.';
+               // echo 'Image converted to grayscale.';
                imagepng($im, $photo);
             } else {
                echo 'Conversion to grayscale failed.';
             }
             // imagedestroy($im);
+            return $this;
             break;
 
          case 'gaussian_blur':
             $im = imagecreatefrompng($photo);
             if ($im && imagefilter($im, IMG_FILTER_GAUSSIAN_BLUR)) {
-               echo 'Image converted to gasian blur.';
+               // echo 'Image converted to gasian blur.';
                imagepng($im, $photo);
             } else {
                echo 'Conversion to gausian blur failed.';
             }
             imagedestroy($im);
+            return $this;
             break;
 
          case 'emboss':
             $im = imagecreatefrompng($photo);
             if ($im && imagefilter($im, IMG_FILTER_EMBOSS)) {
-               echo 'Image converted to emboss.';
+               // echo 'Image converted to emboss.';
                imagepng($im, $photo);
             } else {
                echo 'Conversion to emboss failed.';
             }
             imagedestroy($im);
+            return $this;
             break;
 
          case 'selective_blur':
             $im = imagecreatefrompng($photo);
             if ($im && imagefilter($im, IMG_FILTER_SELECTIVE_BLUR)) {
-               echo 'Image converted to selective blur.';
+               // echo 'Image converted to selective blur.';
                imagepng($im, $photo);
             } else {
                echo 'Conversion to selective blur failed.';
             }
             imagedestroy($im);
+            return $this;
             break;
 
          default:
             echo "hi yo what up";
+            return $this;
             break;
       }
    }
+
 }

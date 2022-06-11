@@ -31,7 +31,21 @@
 
 include "vendor/autoload.php";
 
+// load my libraries
 use Nagara\Src\Img\ImgParser;
+use Nagara\Src\Img\ImgMagic;
+use Nagara\Src\Img\ImageProcessing;
 
-$img = new ImgParser('C:\Program Files\Tesseract-OCR\tesseract.exe');
-$img->parseFile("english.png", "recognition");
+// convert image to black and white
+$image = new ImgMagic;
+$path =  "indonesia.png";
+$image->filter($path, "grayscale");
+
+// image processing
+$imgProcess = new ImageProcessing($path);
+$imgProcess->Rescaling(1500)->Binarisation()->NoiseRemoval();
+// $imgProcess->showImage();
+
+// ocr
+$img = new ImgParser('C:\Program Files\Tesseract-OCR\tesseract.exe'); # example path exe'C:\Program Files\Tesseract-OCR\tesseract.exe'
+$img->parseFile($path, "recognition");
