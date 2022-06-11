@@ -31,7 +31,7 @@ you need package manager [composer](https://getcomposer.org/) dpwnload and insta
 composer require nagara/metode-skripshit
 ```
 
-:warning note
+:warning: note
 
 okay, if you newbie used composer or write in native code, you need call this file in every file you need the tools for autoload composer.
 
