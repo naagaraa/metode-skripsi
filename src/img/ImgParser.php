@@ -61,25 +61,69 @@ class ImgParser
 
         if (!$lang) {
             // simple execute
-            echo (new TesseractOCR($image))
-                ->executable($this->path_tesseract)
-                ->run(500);
+            try {
+                $text = (new TesseractOCR($image))
+                    ->executable($this->path_tesseract)
+                    ->run(500);
+
+                $result = [
+                    "status" => true,
+                    "result" => $text
+                ];
+                return $result;
+            } catch (\Throwable $th) {
+                $error = [
+                    "status" => false,
+                    "result" => $th->getMessage()
+                ];
+                return $error;
+            }
+            
         } elseif ($lang == "recognition") {
             // note this process can take long process for detect image
-            echo (new TesseractOCR($image))
-                ->executable($this->path_tesseract)
-                ->lang("deu", "eng", "fra", "ita", "jpn", "spa")
-                ->run(500);
+            try {
+                $text = (new TesseractOCR($image))
+                        ->executable($this->path_tesseract)
+                        ->lang("deu", "eng", "fra", "ita", "jpn", "spa")
+                        ->run(500);
+                 $result = [
+                    "status" => true,
+                    "result" => $text
+                ];
+                return $result;
+            } catch (\Throwable $th) {
+               $error = [
+                    "status" => false,
+                    "result" => $th->getMessage()
+                ];
+                return $error;
+            }
+            
         } else {
             //  check lang support
             if (self::islang($lang) == false) {
-                echo "ups sorry {$lang} not support";
+                return "ups sorry {$lang} not support";
             }
 
-            echo (new TesseractOCR($image))
-                ->executable($this->path_tesseract)
-                ->lang($lang)
-                ->run(500);
+
+            try {
+                $text = (new TesseractOCR($image))
+                    ->executable($this->path_tesseract)
+                    ->lang($lang)
+                    ->run(500);
+                 $result = [
+                    "status" => true,
+                    "result" => $text
+                ];
+                return $result;
+            } catch (\Throwable $th) {
+                $error = [
+                    "status" => false,
+                    "result" => $th->getMessage()
+                ];
+                return $error;
+            }
+           
         }
     }
 

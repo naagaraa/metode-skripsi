@@ -1,7 +1,5 @@
 <?php
 
-
-
 /**
  * this file for tested during I am develop metode skripshit
  *
@@ -36,16 +34,29 @@ use Nagara\Src\Img\ImgParser;
 use Nagara\Src\Img\ImgMagic;
 use Nagara\Src\Img\ImageProcessing;
 
-// convert image to black and white
+// convert image to black and white dan format png # sorry kelupaan
 $image = new ImgMagic;
-$path =  "indonesia.png";
+$path =  "naruto.png";
 $image->filter($path, "grayscale");
 
 // image processing
+$path =  "naruto.png";
 $imgProcess = new ImageProcessing($path);
-$imgProcess->Rescaling(1500)->Binarisation()->NoiseRemoval();
+$imgProcess->Rescaling(1200)->Binarisation(0.66,1)->NoiseRemoval(7);
 // $imgProcess->showImage();
 
 // ocr
 $img = new ImgParser('C:\Program Files\Tesseract-OCR\tesseract.exe'); # example path exe'C:\Program Files\Tesseract-OCR\tesseract.exe'
-$img->parseFile($path, "recognition");
+$text = $img->parseFile($path, "recognition");
+
+// error test
+if ($text['status'] == false) {
+   echo "gambar tidak mengandung text";
+   // $imgProcess->showImage();
+   dump($text["result"]); # debug hasilnya
+}else{
+   echo "gambar mengandung text";
+   // $imgProcess->showImage();
+   dump($text["result"]); # debug hasilnya
+}
+

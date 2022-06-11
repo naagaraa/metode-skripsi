@@ -98,7 +98,7 @@ class ImageProcessing {
 
          // echo $this->blob;
          // remove old image
-         $imagick->destroy();
+         // $imagick->destroy();
          return $this;
       } catch (\Throwable $th) {
          throw $th;
@@ -112,7 +112,7 @@ class ImageProcessing {
     * @param integer $channel
     * @return void
     */
-   public function Binarisation($threshold = 0.77, $channel = 1)
+   public function Binarisation($threshold = 0.44, $channel = 1)
    {
       try {
          // header("Content-Type: image/jpg");
@@ -122,7 +122,7 @@ class ImageProcessing {
 
          // echo $this->blob;
          // remove old image
-         $imagick->destroy();
+         // $imagick->destroy();
          return $this;
       } catch (\Throwable $th) {
          //throw $th;
@@ -145,7 +145,7 @@ class ImageProcessing {
 
       // echo $this->blob;
       // remove old image
-      $imagick->destroy();
+      // $imagick->destroy();
       // header("Content-Type: image/jpg");
       // echo $imagick->getImageBlob();
       return $this;
@@ -164,7 +164,7 @@ class ImageProcessing {
       // header("Content-Type: image/png");
       $imagick->writeImage(realpath($this->image));
         // remove old image
-      $imagick->destroy();
+      // $imagick->destroy();
       // echo $imagick->getImageBlob();
       return $this;
    }

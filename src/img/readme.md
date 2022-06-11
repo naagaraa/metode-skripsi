@@ -62,8 +62,26 @@ ini akan memakan waktu untuk mengenali text secara random
 ```php
 use Nagara\Src\Img\ImgParser;
 
+# recognition
 $img = new ImgParser('path/to/tesseract'); # example path exe'C:\Program Files\Tesseract-OCR\tesseract.exe'
-$img->parseFile("english.jpg", "recognition");
+$img->parseFile("english.jpg", "recognition"); # return array
+
+# result
+// $data = [
+// "status" => false,
+// "result" => $th->getMessage()
+// ]
+
+# cathing error
+$img = new ImgParser('path/to/tesseract'); # example path exe'C:\Program Files\Tesseract-OCR\tesseract.exe'
+$text = $img->parseFile("english.jpg", "recognition"); # return array
+
+# error message
+if ($text['status'] == false) {
+   echo "gambar tidak mengandung text";
+}else{
+   echo "gambar mengandung text";
+}
 
 ```
 
@@ -150,7 +168,7 @@ paramter optional for image processing :
 
 - Binarisation default :
 
-  - threshold = 0.77
+  - threshold = 0.44
   - channel = 1
 
 - NoiseRemoval

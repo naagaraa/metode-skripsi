@@ -87,7 +87,7 @@ class ImgMagic
             case 'png':
                imagepng($imageObject, $firstname . '.png');
                // remove old files
-               unlink(realpath($image));
+               // unlink(realpath($image));
                return $this;
                break;
 
@@ -97,7 +97,7 @@ class ImgMagic
                   $firstname . '.gif'
                );
                // remove old files
-               unlink(realpath($image));
+               // unlink(realpath($image));
                return $this;
                break;
 
@@ -107,7 +107,7 @@ class ImgMagic
                   $firstname . '.bmp'
                );
                // remove old files
-               unlink(realpath($image));
+               // unlink(realpath($image));
                return $this;
                break;
 
@@ -123,7 +123,7 @@ class ImgMagic
             case 'jpg':
                imagejpeg($imageObject, $firstname . '.jpg', 70);
                // remove old files
-               unlink(realpath($image));
+               // unlink(realpath($image));
                return $this;
                break;
 
@@ -133,7 +133,7 @@ class ImgMagic
                   $firstname . '.gif'
                );
                // remove old files
-               unlink(realpath($image));
+               // unlink(realpath($image));
                return $this;
                break;
 
@@ -143,7 +143,7 @@ class ImgMagic
                   $firstname . '.bmp'
                );
                // remove old files
-               unlink(realpath($image));
+               // unlink(realpath($image));
                return $this;
                break;
 
