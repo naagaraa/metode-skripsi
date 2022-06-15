@@ -154,7 +154,6 @@ for example code you can found at example dir
 
 - [single-moving-average](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/single-moving-average/readme.md)
 - [weight-moving-average](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/weight-moving-average/readme.md)
-  learning and under development
 - other ? | oke let's make something
 
 ### next plan make libraries
