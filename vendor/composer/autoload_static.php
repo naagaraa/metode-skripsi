@@ -469,6 +469,7 @@ class ComposerStaticInit6937f89145982d922cbb4611d57fffd1
         'Nagara\\Src\\Metode\\MetodeSMA' => __DIR__ . '/../..' . '/src/metode/single-moving-average/MetodeSMA.php',
         'Nagara\\Src\\Metode\\MetodeSaw' => __DIR__ . '/../..' . '/src/metode/saw/MetodeSaw.php',
         'Nagara\\Src\\Metode\\MetodeTopsis' => __DIR__ . '/../..' . '/src/metode/topsis/MetodeTopsis.php',
+        'Nagara\\Src\\Metode\\MetodeWMA' => __DIR__ . '/../..' . '/src/metode/weight-moving-average/MetodeWMA.php',
         'Nagara\\Src\\Metode\\MetodeWP' => __DIR__ . '/../..' . '/src/metode/wp/MetodeWP.php',
         'Nagara\\Src\\Metode\\MetodeWinnowing' => __DIR__ . '/../..' . '/src/metode/winnowing/MetodeWinnowing.php',
         'Nagara\\Src\\Metode\\MetodeWinnowingv2' => __DIR__ . '/../..' . '/src/metode/winnowing/MetodeWinnowingv2.php',

@@ -76,6 +76,12 @@ php -S localhost:8000
 
 okay if you install this is, you will get my personal tool and my metode. i'am build this from journal and implementation in code and also sometimes i'am just re writing code from other people and put inside.
 
+### Example code usage
+
+for example code you can found at example dir
+
+- [example code](https://github.com/naagaraa/metode-skriphit/blob/main/example)
+
 ### personal tools
 
 - string
@@ -147,6 +153,7 @@ okay if you install this is, you will get my personal tool and my metode. i'am b
   - v2 rolling hash used custom ord have decrypt result ngram
 
 - [single-moving-average](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/single-moving-average/readme.md)
+- [weight-moving-average](https://github.com/naagaraa/metode-skriphit/blob/main/src/metode/weight-moving-average/readme.md)
   learning and under development
 - other ? | oke let's make something
 

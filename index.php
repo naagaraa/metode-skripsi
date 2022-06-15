@@ -26,5 +26,3 @@
  * THE SOFTWARE.
  *
  */
-
-include "vendor/autoload.php";

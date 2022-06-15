@@ -26,7 +26,8 @@
  * THE SOFTWARE.
  * 
  */
-include "../../vendor/autoload.php";
+include "vendor/autoload.php";
+
 
 use Nagara\Src\Math\MatrixClass;
 use Nagara\Src\Metode\MetodeTopsis; // load libraries

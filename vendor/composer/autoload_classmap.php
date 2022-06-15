@@ -289,6 +289,7 @@ return array(
     'Nagara\\Src\\Metode\\MetodeSMA' => $baseDir . '/src/metode/single-moving-average/MetodeSMA.php',
     'Nagara\\Src\\Metode\\MetodeSaw' => $baseDir . '/src/metode/saw/MetodeSaw.php',
     'Nagara\\Src\\Metode\\MetodeTopsis' => $baseDir . '/src/metode/topsis/MetodeTopsis.php',
+    'Nagara\\Src\\Metode\\MetodeWMA' => $baseDir . '/src/metode/weight-moving-average/MetodeWMA.php',
     'Nagara\\Src\\Metode\\MetodeWP' => $baseDir . '/src/metode/wp/MetodeWP.php',
     'Nagara\\Src\\Metode\\MetodeWinnowing' => $baseDir . '/src/metode/winnowing/MetodeWinnowing.php',
     'Nagara\\Src\\Metode\\MetodeWinnowingv2' => $baseDir . '/src/metode/winnowing/MetodeWinnowingv2.php',

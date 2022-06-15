@@ -1,8 +1,6 @@
-# Single Moving Average
+# Weight Moving Average
 
-A simple moving average (SMA) is an arithmetic moving average calculated by adding recent prices and then dividing that figure by the number of time periods in the calculation average. For example, one could add the closing price of a security for a number of time periods and then divide this total by that same number of periods. Short-term averages respond quickly to changes in the price of the underlying security, while long-term averages are slower to react.
-
-- Metode time series salah satunya adalah Moving average forecasting atau rata-rata bergerak.
+A Weight moving average (WMA) is an arithmetic moving average calculated by adding recent prices and then dividing that figure by the number of time periods in the calculation average. For example, one could add the closing price of a security for a number of time periods and then divide this total by that same number of periods. Short-term averages respond quickly to changes in the price of the underlying security, while long-term averages are slower to react.
 
 ### reference
 
@@ -11,11 +9,10 @@ A simple moving average (SMA) is an arithmetic moving average calculated by addi
 ### caution
 
 - this algorithm i'm write with my self, i'm just writing for make stand alone algorithm and place in my libraries
-- this is new method i'm added in my libraries this method implementation algorithm from [journal PENERAPAN METODE SINGLE MOVING AVERAGE UNTUK PERAMALAN PENJUALAN MAINAN ANAK](https://ejurnal.dipanegara.ac.id/index.php/sensitif/article/download/552/485/).
 
 ### example format data
 
-in below this example format data history for Algoritma SMA in array
+in below this example format data history for Algoritma WMA in array
 
 ```php
 // format data mentah
@@ -120,18 +117,20 @@ $data = [
 ```php
 include "vendor/autoload.php";
 
-use Nagara\Src\Metode\MetodeSMA;
+use Nagara\Src\Metode\MetodeWMA;
 
 // initialize metode
-$metode = new MetodeSMA;
+$metode = new MetodeWMA;
 
-// parameter pertama data, paramter kedua nama field, parameter ke tiga rata bergerak default value 6.
-$metode->proses($data, "penjualan", 3);
+$metode->proses($data, "penjualan", 6);
 
 echo "hasil normalisasi data bentuk array <br>";
 dump($metode->getNormalisasi());
-echo "hasil proses bergerak SMA (single moving average) bentuk array<br>";
+echo "hasil sum / rata bergerak dalam bentuk array <br>";
+dump($metode->getSum());
+echo "hasil proses bergerak WMA (single moving average) bentuk array<br>";
 dump($metode->getResult());
+
 ```
 
 ### how is work ?
@@ -140,11 +139,11 @@ okay, let me explain in indonesia language.
 cara kerjanya simple dari formula yang diambil dari jurnal dibawah, ini seperti mencari nilai mean atau rata rata, hanya saja kita bisa bebas menentukan panjang data yang akan di ambil, hal ini disebut sebagai pergerakan atau proses bergerak priode t. proses mempunyai tiga parameter yaitu data awal, field normalisasi, dan nilai pergerakan. pada normalisasi akan digunakan untuk mengambil nilai yang akan diproses. dan pergerakan merupakan nilai pemotongan.
 <br>
 <br>
-contoh : ada sejumlah data sepanjang 18 data, 1,2,3,4,5 ... 18. maka bila memberi nilai 6 maka akan dilakukan pemotongan akhir 6 data. 1,2,3,4,5,6. = 21 / 6 = 3.5 adalah hasil predisiknya. dan bila memberi nilai 8 maka akan dilakukan pemotongan akhir 8 data. 1,2,3,4,5,6,7,8 = 36 / 6 = 6 adalah hasil prediksinya
+contoh : ada sejumlah data sepanjang 18 data, 1,2,3,4,5 ... 18. maka bila memberi nilai 6 maka akan dilakukan pemotongan akhir 6 data. 1(1),2(2),3(3),4(4),5(5),6(6). = x / 1+2+3+4+5+6 = z adalah hasil predisiknya.
 
 ### jurnal reference
 
-- [journal PENERAPAN METODE SINGLE MOVING AVERAGE UNTUK PERAMALAN PENJUALAN MAINAN ANAK](https://ejurnal.dipanegara.ac.id/index.php/sensitif/article/download/552/485/).
+- null
 
 <br>
 <br>
