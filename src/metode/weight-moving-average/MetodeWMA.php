@@ -115,27 +115,25 @@ class MetodeWMA
         // menghitung berdasarkan pergerakan
         $pergerakan_w = $pergerakan;
 
-        // $slicedata = array_slice(self::$normalisasi_data,0, $pergerakan);
-        // $peramalan = array_sum($slicedata) / count($slicedata);
-
         $peramalan = [];
         // step 0
         $slicedata;
         foreach (self::$normalisasi_data as $iteration => $value) {
             $slicedata[$iteration] = array_slice(self::$normalisasi_data, $iteration, $pergerakan_w);
-            // array_push($container_1, $slicedata);
-            // $hasil = array_sum($slicedata) / count($slicedata);
-            // $peramalan[$pergerakan++] = $hasil;
         }
 
-        // dump($slicedata);
         //  step 3 mencari jumlah n pergerakan
         $hasil = 0;
         for ($i = 1; $i <= $pergerakan_w; $i++) {
             $hasil += $i;
         }
-        // echo "pergerakan n";
-        // dump($hasil);
+
+        // step 3.1 kalikan data dengan bobot
+        foreach ($slicedata as $key => $value) {
+            foreach ($value as $index => $nilai) {
+                $slicedata[$key][$index] = ($nilai * ($index + 1));
+            }
+        }
 
         // step 4 dapat jumlah bagian atas / sum
         foreach ($slicedata as $index => $value) {
@@ -146,7 +144,7 @@ class MetodeWMA
         $sum = [];
         $pergerakan_s = $pergerakan;
         foreach ($slicedata as $key => $value) {
-            $sum[$pergerakan_s++] = "{$value}/{$hasil}";
+            $sum[$pergerakan_s++] = "($value/$hasil)";
         }
         self::$hasil_sum = $sum;
 
