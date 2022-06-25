@@ -1,15 +1,15 @@
 <?php
 
 /**
- * 
+ *
  * this file is for image parser text
- * 
- * 
- * @author      Eka Jaya Nagara     
+ *
+ *
+ * @author      Eka Jaya Nagara
  * @copyright   Copyright (c), 2021 naagaraa
  * @license     MIT public license
  * @describe    this tool using image filter, thumbnail and other with PHP GD IMAGE and Imagic
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -27,8 +27,8 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- * 
- * 
+ *
+ *
  */
 
 namespace Nagara\Src\Img;
@@ -45,141 +45,217 @@ use imagick;
 // borders
 // transparancy / alpha channel
 
+class ImageProcessing
+{
 
-class ImageProcessing {
+    private $blob = [];
+    private $image;
+    private $dimension;
+    private $imgbase64;
 
-   private $blob;
-   private $image;
-   private $dimension;
+    public function __construct($pathToImage)
+    {
+        // file validation
+        !is_file(realpath($pathToImage)) ? die('soory is not file') : true;
+        $this->image = $pathToImage;
+        $type = pathinfo($pathToImage, PATHINFO_EXTENSION);
+        $data = file_get_contents($pathToImage);
+        // dump($data);
+        $test = base64_encode($data);
+        // dump(base64_encode($data));
+        // dump(base64_decode($test));
+        $base64 = base64_encode($data);
+        $this->imgbase64 = $base64;
+        return $this;
+    }
 
-   public function __construct($pathToImage){
-      // file validation
-      !is_file(realpath($pathToImage)) ? die('soory is not file') : true;
-      $this->image = $pathToImage;
-      return $this;
-   }
+    /**
+     * show GetDimension Image
+     *
+     * @return void
+     */
+    public function GetDimension()
+    {
+        $imagick = new \Imagick(realpath($this->image));
+        $dimension = $imagick->getImageGeometry();
+        $this->dimension = $dimension;
+        echo "Dimension width : {$this->dimension['width']} DPI and height :{$this->dimension['height']} DPI";
+        return $this;
+    }
 
-   /**
-    * show GetDimension Image
-    *
-    * @return void
-    */
-   public function GetDimension()
-   {
-      $imagick = new \Imagick(realpath($this->image));
-      $dimension = $imagick->getImageGeometry();
-      $this->dimension = $dimension;
-      echo "Dimension width : {$this->dimension['width']} DPI and height :{$this->dimension['height']} DPI";
-      return $this;
-   }
+    /**
+     * filter image to grayscale
+     *
+     * @param String|null $img
+     * @return void
+     */
+    public function Grayscale()
+    {
+        $imagick = new Imagick();
+        $decoded = base64_decode($this->imgbase64);
 
-   /**
-    * Rescaling Image defauld value 1200
-    *
-    * @param integer $DPI
-    * @return void
-    */
-   public function Rescaling($DPI = 1200)
-   {
-      try {
+        $imagick->readimageblob($decoded);
+        $imagick->autoLevelImage(5);
+        $imagick->setImageType(Imagick::IMGTYPE_GRAYSCALE);
 
-         // rescaling image
-         $imagick = new \Imagick(realpath($this->image));
-         $imagick->scaleImage($DPI, $DPI, true);
-         // header("Content-Type: image/jpg");
-         $this->blob = $imagick->getImageBlob();
-         $dimension = $imagick->getImageGeometry();
+        array_push($this->blob, $imagick->getImageBlob());
+        return $this;
+    }
 
-         // write image
-         if ($dimension >= 300) {
+    /**
+     * Rescaling Image defauld value 1200
+     *
+     * @param integer $DPI
+     * @return void
+     */
+    public function Rescaling($DPI = 1200)
+    {
+        try {
+
+            // rescaling image
+            // $imagick = new \Imagick(realpath($this->image));
+
+            $imagick = new Imagick();
+            $imagick->readimageblob(end($this->blob));
+
             $imagick->scaleImage($DPI, $DPI, true);
-            $imagick->writeImage(realpath($this->image));
-         }
+            array_push($this->blob, $imagick->getImageBlob());
+            $dimension = $imagick->getImageGeometry();
 
-         // echo $this->blob;
-         // remove old image
-         // $imagick->destroy();
-         return $this;
-      } catch (\Throwable $th) {
-         throw $th;
-      }
-   }
+            // write image
+            if ($dimension >= 300) {
+                $imagick->scaleImage($DPI, $DPI, true);
+                // $imagick->writeImage(realpath($this->image));
+            }
 
-   /**
-    * method Binarisation Image
-    *
-    * @param float $threshold
-    * @param integer $channel
-    * @return void
-    */
-   public function Binarisation($threshold = 0.44, $channel = 1)
-   {
-      try {
-         // header("Content-Type: image/jpg");
-         $imagick = new \Imagick(realpath($this->image));
-         $imagick->thresholdimage($threshold * \Imagick::getQuantum(), $channel);
-         $imagick->writeImage(realpath($this->image));
+            // echo $this->blob;
+            // remove old image
+            // $imagick->destroy();
+            return $this;
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
 
-         // echo $this->blob;
-         // remove old image
-         // $imagick->destroy();
-         return $this;
-      } catch (\Throwable $th) {
-         //throw $th;
-      }
-      
-   }
+    /**
+     * method Binarisation Image
+     *
+     * @param float $threshold
+     * @param integer $channel
+     * @return void
+     */
+    public function Binarisation($threshold = 0.44, $channel = 1)
+    {
+        try {
+            // header("Content-Type: image/jpg");
+            // $imagick = new \Imagick(realpath($this->image));
 
-   /**
-    * Method Noise Removal Image
-    *
-    * @param integer $quality
-    * @return void
-    */
-   public function NoiseRemoval($quality = 5)
-   {
-      $imagick = new \Imagick(realpath($this->image));
-      $imagick->setImageCompressionQuality($quality);
-      $imagick->despeckleImage();
-      $imagick->writeImage(realpath($this->image));
+            $imagick = new Imagick();
+            $imagick->readimageblob(end($this->blob));
+            $imagick->thresholdimage($threshold * \Imagick::getQuantum(), $channel);
 
-      // echo $this->blob;
-      // remove old image
-      // $imagick->destroy();
-      // header("Content-Type: image/jpg");
-      // echo $imagick->getImageBlob();
-      return $this;
-   }
+            array_push($this->blob, $imagick->getImageBlob());
 
-   /**
-    * beta method Dilation and Erotion
-    *
-    * @return void
-    */
-   public function DilationAndErotion()
-   {
-      $imagick = new \Imagick(realpath($this->image));
-      $kernel = \ImagickKernel::fromBuiltIn(\Imagick::KERNEL_GAUSSIAN, "3,1");
-      $imagick->morphology(\Imagick::MORPHOLOGY_CONVOLVE, 2, $kernel);
-      // header("Content-Type: image/png");
-      $imagick->writeImage(realpath($this->image));
-        // remove old image
-      // $imagick->destroy();
-      // echo $imagick->getImageBlob();
-      return $this;
-   }
+            // $imagick->writeImage(realpath($this->image));
 
-   /**
-    * method show reusult image
-    *
-    * @return void
-    */
-   public function ShowImage()
-   {
-      header("Content-Type: image/jpg");
-      $imagick = new \Imagick(realpath($this->image));
-      echo $imagick->getImageBlob();
-      return $this;
-   }
+            // echo $this->blob;
+            // remove old image
+            // $imagick->destroy();
+            return $this;
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
 
+    }
+
+    /**
+     * Method Noise Removal Image
+     *
+     * @param integer $quality
+     * @return void
+     */
+    public function NoiseRemoval()
+    {
+        // $imagick = new Imagick(realpath($this->image));
+        $imagick = new Imagick();
+        $imagick->readimageblob(end($this->blob));
+
+        $imagick->despeckleImage();
+        array_push($this->blob, $imagick->getImageBlob());
+
+        // $imagick->writeImage(realpath($this->image));
+
+        return $this;
+    }
+
+    /**
+     * beta method Dilation and Erotion
+     *
+     * @return void
+     */
+    public function DilationAndErotion($radius = 0, $sigma = 0, $channel = 1)
+    {
+        // $imagick = new Imagick(realpath($this->image));
+        $imagick = new Imagick();
+        $imagick->readimageblob(end($this->blob));
+
+        $imagick->sharpenimage($radius, $sigma, $channel);
+
+        array_push($this->blob, $imagick->getImageBlob());
+
+        return $this;
+    }
+
+    /**
+     * function deskewing
+     *
+     * @return void
+     */
+    public function Deskewing()
+    {
+        $imagick = new Imagick();
+        $imagick->readimageblob(end($this->blob));
+        $imagick->deskewImage(1);
+        array_push($this->blob, $imagick->getImageBlob());
+
+    }
+
+    /**
+     * method show reusult image
+     *
+     * @return void
+     */
+    public function ShowImage($blob)
+    {
+        header("Content-Type: image/jpg");
+        $imagick = new Imagick();
+        $imagick->readimageblob($blob);
+        echo $imagick->getImageBlob();
+    }
+
+    /**
+     * return array image base64
+     *
+     * @return void
+     */
+    public function getBlob()
+    {
+        $imageblob = [];
+        foreach ($this->blob as $value) {
+            array_push($imageblob, base64_encode($value));
+        }
+        return $imageblob;
+    }
+
+    /**
+     * write blob to file
+     *
+     * @param string $path
+     * @param string $blob
+     * @return void
+     */
+    public function writeFile($path = "", $blob = "")
+    {
+        file_put_contents($path, base64_decode($blob));
+    }
 }
