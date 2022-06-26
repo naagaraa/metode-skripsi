@@ -28,50 +28,25 @@
  */
 
 include "vendor/autoload.php";
+use Nagara\Src\Metode\MetodeFuzzySugeno;    // load library
 
-use Nagara\Src\Img\ImageProcessing;
-use Nagara\Src\Img\ImgMagic;
-use Nagara\Src\Img\ImgParser;
+// range kurva segitga 1 - 5 [1 , 2, 3, 4, 5]
 
-// convert image to black and white step 1
-$image = new ImgMagic;
-$path = "ktp1.jpg";
+// example 3 value
+$a = 1;
+$b = 1;
+$c = 1;
 
-// image processing
-$imgProcess = new ImageProcessing($path);
-$imgProcess->Grayscale();
-$imgProcess->Rescaling(1200);
-$imgProcess->Binarisation(0.33, 1);
-$imgProcess->NoiseRemoval();
-$imgProcess->DilationAndErotion(12); # $radius = 0, $sigma = 0, $channel = 1
-$imgProcess->Deskewing();
+// get value
+$metode = new MetodeFuzzySugeno;
+$hasil_defuzifikasi = $metode->FuzzySugeno($a, $b, $c); //return value 1 or 0
 
-// get blob and write file
-$blob = $imgProcess->getBlob();
-$imgProcess->writeFile("ktp3.jpg", $blob[2]); # replace old file, if u don't want replace make new file name
+// debug
+dump($hasil_defuzifikasi);
 
-// image ocr
-$img = new ImgParser('C:\Program Files\Tesseract-OCR\tesseract.exe');
-$text = $img->parseFile($path, "recognition"); # return array
-
-# error message
-if ($text['status'] == false) {
-    echo "gambar tidak mengandung text";
-} else {
-    echo $text['result'];
+// penentuan kompeten atau tidak kompetern
+if ($hasil_defuzifikasi  > 0) {
+    echo "selamat anda kompeten";
+}else{
+    echo "maaf anda tidak kompeten";
 }
-
-?>
-
-<h2>grayscale</h2>
-<img src="data:image/jpg;base64,<?=$blob[0]?>" alt="grayscale" srcset="">
-<h2>rescaling</h2>
-<img src="data:image/jpg;base64,<?=$blob[1]?>" alt="rescaling" srcset="">
-<h2>binarisation</h2>
-<img src="data:image/jpg;base64,<?=$blob[2]?>" alt="binarisation" srcset="">
-<h2>noise removal</h2>
-<img src="data:image/jpg;base64,<?=$blob[3]?>" alt="noiseremoval" srcset="">
-<h2>dilation and erotion</h2>
-<img src="data:image/jpg;base64,<?=$blob[4]?>" alt="dilationanderotion" srcset="">
-<h2>deskewing</h2>
-<img src="data:image/jpg;base64,<?=$blob[5]?>" alt="deskewing" srcset="">

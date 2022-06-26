@@ -49,6 +49,7 @@ $imgProcess->Deskewing();
 // get blob and write file
 $blob = $imgProcess->getBlob();
 $imgProcess->writeFile($path, $blob[2]); # replace old file, if u don't want replace make new file name
+// $imgProcess->writeFile("new-image.jpg", $blob[2]);
 
 // image ocr
 $img = new ImgParser('C:\Program Files\Tesseract-OCR\tesseract.exe');

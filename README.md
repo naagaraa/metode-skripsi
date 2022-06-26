@@ -35,6 +35,10 @@ composer require nagara/metode-skripshit
 
 okay, if you newbie used composer or write in native code, you need call this file in every file you need the tools for autoload composer.
 
+:warning: note
+
+I recommended used PHP version 7.4.5
+
 ```php
 <?php
 include "vendor/autoload.php";
