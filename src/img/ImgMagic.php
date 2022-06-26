@@ -76,16 +76,16 @@ class ImgMagic
       !is_file($image)? die("file {$image} tidak ada ") : true;
       
       // split image name
-      $arrimg = explode(".", $image);
-      $firstname = $arrimg[0];
+      $extention= pathinfo($image, PATHINFO_EXTENSION);
+      $filename= pathinfo($image, PATHINFO_FILENAME);;
 
-      if (end($arrimg) == "jpg") {
+      if ($extention == "jpg") {
          // GD image object size and trueColor
          $imageObject = imagecreatefromjpeg($image);
 
          switch ($format) {
             case 'png':
-               imagepng($imageObject, $firstname . '.png');
+               imagepng($imageObject, $filename . '.png');
                // remove old files
                // unlink(realpath($image));
                return $this;
@@ -94,7 +94,7 @@ class ImgMagic
             case 'gif':
                imagegif(
                   $imageObject,
-                  $firstname . '.gif'
+                  $filename . '.gif'
                );
                // remove old files
                // unlink(realpath($image));
@@ -104,7 +104,7 @@ class ImgMagic
             case 'bmp':
                imagewbmp(
                   $imageObject,
-                  $firstname . '.bmp'
+                  $filename . '.bmp'
                );
                // remove old files
                // unlink(realpath($image));
@@ -115,13 +115,13 @@ class ImgMagic
                echo "sorry data not valid";
                break;
          }
-      } elseif (end($arrimg) == "png") {
+      } elseif ($extention == "png") {
          // GD image object size and trueColor
          $imageObject = imagecreatefrompng($image);
 
          switch ($format) {
             case 'jpg':
-               imagejpeg($imageObject, $firstname . '.jpg', 70);
+               imagejpeg($imageObject, $filename . '.jpg', 70);
                // remove old files
                // unlink(realpath($image));
                return $this;
@@ -130,7 +130,7 @@ class ImgMagic
             case 'gif':
                imagegif(
                   $imageObject,
-                  $firstname . '.gif'
+                  $filename . '.gif'
                );
                // remove old files
                // unlink(realpath($image));
@@ -140,7 +140,7 @@ class ImgMagic
             case 'bmp':
                imagewbmp(
                   $imageObject,
-                  $firstname . '.bmp'
+                  $filename . '.bmp'
                );
                // remove old files
                // unlink(realpath($image));
@@ -169,12 +169,12 @@ class ImgMagic
       }
 
       // check extention only png
-      $arrimg = explode(".", $image);
-      $extention = end($arrimg);
+      $extention = pathinfo($image, PATHINFO_EXTENSION);
+      $filename = pathinfo($image, PATHINFO_FILENAME);
 
       if ($extention !== "png") {
          $this->convert($image, "png");
-         $photo = $arrimg[0] . ".png";
+         $photo = $filename . ".png";
       } else {
          $photo = $image;
       }

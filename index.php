@@ -35,7 +35,7 @@ use Nagara\Src\Img\ImgParser;
 
 // convert image to black and white step 1
 $image = new ImgMagic;
-$path = "wallpaper.jpg";
+$path = "ktp1.jpg";
 
 // image processing
 $imgProcess = new ImageProcessing($path);
@@ -48,7 +48,7 @@ $imgProcess->Deskewing();
 
 // get blob and write file
 $blob = $imgProcess->getBlob();
-$imgProcess->writeFile($path, $blob[2]); # replace old file, if u don't want replace make new file name
+$imgProcess->writeFile("ktp3.jpg", $blob[2]); # replace old file, if u don't want replace make new file name
 
 // image ocr
 $img = new ImgParser('C:\Program Files\Tesseract-OCR\tesseract.exe');

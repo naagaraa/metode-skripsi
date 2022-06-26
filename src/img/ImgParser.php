@@ -41,22 +41,27 @@ class ImgParser
 {
     private $path_tesseract = 'C:\Program Files\Tesseract-OCR\tesseract.exe';
     /**
-     * Parse image file
+     * init your path tesseract path
      *
-     * @param string $filename
-     * @return string
+     * @param String|null $path
      */
-    public function __construct(String $path = null)
+    public function __construct(String $path = 'C:\Program Files\Tesseract-OCR\tesseract.exe')
     {
-        $this->path_tesseract = $path;
+        $this->path_tesseract = realpath($path);
     }
     
+    /**
+     * parser image to text
+     *
+     * @param string $image
+     * @param string $lang
+     * @return void
+     */
     public function parseFile($image = "", $lang = "")
     {
 
         if ($image == "") {
-            echo "sorry please put your image bro before use this tool";
-            die;
+            die("sorry please put your image bro before use this tool");
         }
 
         if (!$lang) {
@@ -127,7 +132,13 @@ class ImgParser
         }
     }
 
-    public function islang($lang)
+    /**
+     * check language
+     *
+     * @param [type] $lang
+     * @return void
+     */
+    private function islang($lang)
     {
         $language = [
             "deu", "eng", "fra", "ita", "jpn", "spa"
@@ -136,6 +147,11 @@ class ImgParser
         return in_array($lang, $language);
     }
 
+    /**
+     * check langauge support by libraries
+     *
+     * @return void
+     */
     public function printLangSupport()
     {
         echo "<br> this is language support by this lib : <br>";
@@ -144,6 +160,12 @@ class ImgParser
         };
     }
 
+
+    /**
+     * just about
+     *
+     * @return void
+     */
     public function printAbout()
     {
         $message = <<< HTML

@@ -8,7 +8,7 @@
  * @author      Eka Jaya Nagara
  * @copyright   Copyright (c), 2021 naagaraa
  * @license     MIT public license
- * @describe    this tool using image filter, thumbnail and other with PHP GD IMAGE and Imagic
+ * @describe    this tool using Imagic and base64 hash for make image processing
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -58,12 +58,8 @@ class ImageProcessing
         // file validation
         !is_file(realpath($pathToImage)) ? die('soory is not file') : true;
         $this->image = $pathToImage;
-        $type = pathinfo($pathToImage, PATHINFO_EXTENSION);
+        $extention = pathinfo($pathToImage, PATHINFO_EXTENSION);
         $data = file_get_contents($pathToImage);
-        // dump($data);
-        $test = base64_encode($data);
-        // dump(base64_encode($data));
-        // dump(base64_decode($test));
         $base64 = base64_encode($data);
         $this->imgbase64 = $base64;
         return $this;
@@ -106,28 +102,25 @@ class ImageProcessing
      * Rescaling Image defauld value 1200
      *
      * @param integer $DPI
-     * @return void
+     * @return object
      */
     public function Rescaling($DPI = 1200)
     {
         try {
 
             // rescaling image
-            // $imagick = new \Imagick(realpath($this->image));
-
             $imagick = new Imagick();
             $imagick->readimageblob(end($this->blob));
 
             $imagick->scaleImage($DPI, $DPI, true);
-            array_push($this->blob, $imagick->getImageBlob());
             $dimension = $imagick->getImageGeometry();
-
-            // write image
+            
+            // scale image
             if ($dimension >= 300) {
                 $imagick->scaleImage($DPI, $DPI, true);
-                // $imagick->writeImage(realpath($this->image));
             }
 
+            array_push($this->blob, $imagick->getImageBlob());
             // echo $this->blob;
             // remove old image
             // $imagick->destroy();
@@ -148,22 +141,18 @@ class ImageProcessing
     {
         try {
             // header("Content-Type: image/jpg");
-            // $imagick = new \Imagick(realpath($this->image));
-
             $imagick = new Imagick();
             $imagick->readimageblob(end($this->blob));
             $imagick->thresholdimage($threshold * \Imagick::getQuantum(), $channel);
 
             array_push($this->blob, $imagick->getImageBlob());
 
-            // $imagick->writeImage(realpath($this->image));
-
             // echo $this->blob;
             // remove old image
             // $imagick->destroy();
             return $this;
         } catch (\Throwable $th) {
-            //throw $th;
+            throw $th;
         }
 
     }
@@ -176,7 +165,6 @@ class ImageProcessing
      */
     public function NoiseRemoval()
     {
-        // $imagick = new Imagick(realpath($this->image));
         $imagick = new Imagick();
         $imagick->readimageblob(end($this->blob));
 
@@ -184,7 +172,6 @@ class ImageProcessing
         array_push($this->blob, $imagick->getImageBlob());
 
         // $imagick->writeImage(realpath($this->image));
-
         return $this;
     }
 
@@ -207,7 +194,7 @@ class ImageProcessing
     }
 
     /**
-     * function deskewing
+     * function deskewing / auto rotation
      *
      * @return void
      */
@@ -217,6 +204,7 @@ class ImageProcessing
         $imagick->readimageblob(end($this->blob));
         $imagick->deskewImage(1);
         array_push($this->blob, $imagick->getImageBlob());
+        return $this;
 
     }
 
