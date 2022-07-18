@@ -116,8 +116,9 @@ class MetodeWMA
         $pergerakan_w = $pergerakan;
 
         $peramalan = [];
+        
         // step 0
-        $slicedata;
+        $slicedata=[];
         foreach (self::$normalisasi_data as $iteration => $value) {
             $slicedata[$iteration] = array_slice(self::$normalisasi_data, $iteration, $pergerakan_w);
         }
